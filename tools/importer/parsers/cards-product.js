@@ -27,14 +27,26 @@ export default function parse(element, { document }) {
 
   const cells = [];
 
+  // Product-tile icons: the source uses inline data-URI SVGs (dropped on import).
+  // The decoded SVGs are staged in the repo /icons folder as product-<slug>.svg.
+  // We emit an <img> pointing at that icon; html2md serializes it to the EDS
+  // icon token :product-<slug>: which aem.js decorateIcons resolves to
+  // /icons/product-<slug>.svg at runtime. The alt text keeps the label present.
+  const slug = (s) => s.trim().toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+
   items.forEach((item) => {
     const href = item.getAttribute('href') || '';
-    const icon = item.querySelector('.product-grid__icon img, img');
     const labelEl = item.querySelector('.product-grid__text, span');
     const labelText = labelEl ? labelEl.textContent.trim() : item.textContent.trim();
 
-    // Image cell (icon). May be empty but must still be present.
-    const imageCell = icon ? hinted('image', icon) : '';
+    // Image cell: icon for this product (resolves to /icons/product-<slug>.svg).
+    let iconEl = null;
+    if (labelText) {
+      iconEl = document.createElement('img');
+      iconEl.setAttribute('src', `/icons/product-${slug(labelText)}.svg`);
+      iconEl.setAttribute('alt', labelText);
+    }
+    const imageCell = iconEl ? hinted('image', iconEl) : '';
 
     // Text cell: the card is a link, so render the label as a linked heading.
     const textFrag = document.createDocumentFragment();

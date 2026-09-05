@@ -104,12 +104,18 @@ var CustomImportScript = (() => {
       return frag;
     };
     const cells = [];
+    const slug = (s) => s.trim().toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
     items.forEach((item) => {
       const href = item.getAttribute("href") || "";
-      const icon = item.querySelector(".product-grid__icon img, img");
       const labelEl = item.querySelector(".product-grid__text, span");
       const labelText = labelEl ? labelEl.textContent.trim() : item.textContent.trim();
-      const imageCell = icon ? hinted("image", icon) : "";
+      let iconEl = null;
+      if (labelText) {
+        iconEl = document2.createElement("img");
+        iconEl.setAttribute("src", `/icons/product-${slug(labelText)}.svg`);
+        iconEl.setAttribute("alt", labelText);
+      }
+      const imageCell = iconEl ? hinted("image", iconEl) : "";
       const textFrag = document2.createDocumentFragment();
       if (labelText) {
         const link = document2.createElement("a");
@@ -579,10 +585,10 @@ var CustomImportScript = (() => {
       WebImporter.rules.createMetadata(main, document2);
       WebImporter.rules.transformBackgroundImages(main, document2);
       WebImporter.rules.adjustImageUrls(main, url, params.originalURL);
-      main.querySelectorAll('img[src*="/content/dam/"], source[srcset*="/content/dam/"]').forEach((el) => {
+      main.querySelectorAll('img[src*="/content/dam/"], source[srcset*="/content/dam/"], img[src*="/icons/"], source[srcset*="/icons/"]').forEach((el) => {
         ["src", "srcset"].forEach((attr) => {
           const v = el.getAttribute(attr);
-          if (v) el.setAttribute(attr, v.replace(/^https?:\/\/[^/]+(\/content\/dam\/)/, "$1"));
+          if (v) el.setAttribute(attr, v.replace(/^https?:\/\/[^/]+(\/(content\/dam|icons)\/)/, "$1"));
         });
       });
       const rawPath = new URL(params.originalURL).pathname.replace(/\/$/, "").replace(/\.html?$/, "");

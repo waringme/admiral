@@ -199,10 +199,12 @@ export default {
     // Keep packaged DAM references root-relative (adjustImageUrls absolutizes
     // them against the source origin). The home page packages to
     // content/admiral/language-masters/en with assets under /content/dam/admiral/en/images.
-    main.querySelectorAll('img[src*="/content/dam/"], source[srcset*="/content/dam/"]').forEach((el) => {
+    // Also normalize /icons/ references (product-tile SVGs) to root-relative so
+    // they load from the site's code bus, not the source origin.
+    main.querySelectorAll('img[src*="/content/dam/"], source[srcset*="/content/dam/"], img[src*="/icons/"], source[srcset*="/icons/"]').forEach((el) => {
       ['src', 'srcset'].forEach((attr) => {
         const v = el.getAttribute(attr);
-        if (v) el.setAttribute(attr, v.replace(/^https?:\/\/[^/]+(\/content\/dam\/)/, '$1'));
+        if (v) el.setAttribute(attr, v.replace(/^https?:\/\/[^/]+(\/(content\/dam|icons)\/)/, '$1'));
       });
     });
 
