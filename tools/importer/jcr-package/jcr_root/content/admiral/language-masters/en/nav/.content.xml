@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0" jcr:primaryType="cq:Page">
+  <jcr:content cq:template="/libs/core/franklin/templates/page" sling:resourceType="core/franklin/components/page/v1/page" jcr:primaryType="cq:PageContent">
+    <root jcr:primaryType="nt:unstructured" sling:resourceType="core/franklin/components/root/v1/root">
+      <section sling:resourceType="core/franklin/components/section/v1/section" jcr:primaryType="nt:unstructured" model="section" modelFields="[name,sec-spacing,sec-spacing-bottom,style,sec-full-width]">
+        <button sling:resourceType="core/franklin/components/button/v1/button" jcr:primaryType="nt:unstructured" link="/" linkText=""/>
+      </section>
+      <section_1 sling:resourceType="core/franklin/components/section/v1/section" jcr:primaryType="nt:unstructured" model="section" modelFields="[name,sec-spacing,sec-spacing-bottom,style,sec-full-width]">
+        <text sling:resourceType="core/franklin/components/text/v1/text" jcr:primaryType="nt:unstructured" text="&lt;ul&gt;
+                    &lt;li&gt;
+                    &lt;p&gt;&lt;a href&#x3D;&quot;/multicover-insurance&quot;&gt;Multi Cover&lt;/a&gt;&lt;/p&gt;
+                    &lt;/li&gt;
+                    &lt;li&gt;
+                    &lt;p&gt;&lt;a href&#x3D;&quot;/motor&quot;&gt;Motor&lt;/a&gt;&lt;/p&gt;
+                    &lt;ul&gt;
+                    &lt;li&gt;&lt;a href&#x3D;&quot;/car-insurance&quot;&gt;Car Insurance&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href&#x3D;&quot;/multi-car-insurance&quot;&gt;Multi Car Insurance&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href&#x3D;&quot;/van-insurance&quot;&gt;Van Insurance&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href&#x3D;&quot;/black-box-insurance&quot;&gt;Black Box Insurance&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href&#x3D;&quot;/car-insurance/electric&quot;&gt;Electric Car Insurance&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href&#x3D;&quot;/learner-driver-insurance&quot;&gt;Learner Driver Insurance&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href&#x3D;&quot;/car-insurance/temporary-car-insurance&quot;&gt;Temporary Car Insurance&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;strong&gt;Motoring Extras&lt;/strong&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href&#x3D;&quot;/loans/car-finance&quot;&gt;Car Finance&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href&#x3D;&quot;/breakdown-cover&quot;&gt;Breakdown Cover&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href&#x3D;&quot;/van-insurance/optional-extras&quot;&gt;Van insurance add-ons&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href&#x3D;&quot;/car-insurance/optional-extras&quot;&gt;Car insurance add-ons&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;strong&gt;Support&lt;/strong&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href&#x3D;&quot;/car-insurance/add-a-car-guide&quot;&gt;Add a car to your policy&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href&#x3D;&quot;/car-insurance/FAQs&quot;&gt;Car Insurance FAQs&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href&#x3D;&quot;/resources/motor-hub&quot;&gt;Motor resource hub&lt;/a&gt;&lt;/li&gt;
+                    &lt;/ul&gt;
+                    &lt;/li&gt;
+                    &lt;li&gt;
+                    &lt;p&gt;&lt;a href&#x3D;&quot;/home&quot;&gt;Home&lt;/a&gt;&lt;/p&gt;
+                    &lt;ul&gt;
+                    &lt;li&gt;&lt;a href&#x3D;&quot;/home-insurance&quot;&gt;Home Insurance&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href&#x3D;&quot;/home-insurance/landlord&quot;&gt;Landlord Insurance&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href&#x3D;&quot;/home-insurance/contents-insurance.php&quot;&gt;Contents Insurance&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href&#x3D;&quot;/home-insurance/buildings-insurance.php&quot;&gt;Buildings Insurance&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href&#x3D;&quot;/multicover-insurance&quot;&gt;Multi Cover Insurance&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href&#x3D;&quot;/home-insurance/renters-insurance.php&quot;&gt;Renters Insurance&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;strong&gt;Optional Extras&lt;/strong&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href&#x3D;&quot;/home-insurance/optional-cover/family-legal-protection.php&quot;&gt;Home Legal Expenses&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href&#x3D;&quot;/home-insurance/optional-cover/home-emergency-cover.php&quot;&gt;Home Emergency Cover&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href&#x3D;&quot;/home-insurance/optional-cover/accidental-damage.php&quot;&gt;Accidental Damage&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href&#x3D;&quot;/home-insurance/optional-cover/personal-possessions.php&quot;&gt;Personal Possessions&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href&#x3D;&quot;/home-insurance/optional-cover/bicycle-cover.php&quot;&gt;Bicycle Cover&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href&#x3D;&quot;/home-insurance/optional-cover/high-risk-items&quot;&gt;High Risk Items Cover&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href&#x3D;&quot;/home-insurance/landlord/landlord-emergency-cover.php&quot;&gt;Landlord Emergency Cover&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href&#x3D;&quot;/home-insurance/landlord/landlord-legal-protection&quot;&gt;Landlord Legal Expenses&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;strong&gt;Support&lt;/strong&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href&#x3D;&quot;/home-insurance/home-resource-hub&quot;&gt;Home resource hub&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href&#x3D;&quot;/resources/landlord-hub&quot;&gt;Landlord resource hub&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href&#x3D;&quot;/add-a-home-guide&quot;&gt;Add a home to your car insurance&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href&#x3D;&quot;/home-insurance/FAQs&quot;&gt;Home Insurance FAQs&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;strong&gt;Extreme weather support&lt;/strong&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href&#x3D;&quot;/weather/storm&quot;&gt;Storm Hub&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href&#x3D;&quot;/weather/freeze&quot;&gt;Freeze Hub&lt;/a&gt;&lt;/li&gt;
+                    &lt;/ul&gt;
+                    &lt;/li&gt;
+                    &lt;li&gt;
+                    &lt;p&gt;&lt;a href&#x3D;&quot;/travel&quot;&gt;Travel&lt;/a&gt;&lt;/p&gt;
+                    &lt;ul&gt;
+                    &lt;li&gt;&lt;a href&#x3D;&quot;/travel-insurance&quot;&gt;Travel Insurance&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href&#x3D;&quot;/travel-insurance/single-trip-insurance.php&quot;&gt;Single Trip Insurance&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href&#x3D;&quot;/travel-insurance/annual-travel-insurance.php&quot;&gt;Annual Travel Insurance&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href&#x3D;&quot;/travel-insurance/over-50s-travel-insurance&quot;&gt;Over 50s Travel Insurance&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href&#x3D;&quot;/travel-insurance/travel-insurance-over-80s&quot;&gt;Over 80s Travel Insurance&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;strong&gt;Specialist Cover&lt;/strong&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href&#x3D;&quot;/travel-insurance/winter-sports-insurance.php&quot;&gt;Winter Sports Insurance&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href&#x3D;&quot;/travel-insurance/cruise-insurance.php&quot;&gt;Cruise Insurance&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href&#x3D;&quot;/travel-insurance/gadget-insurance.php&quot;&gt;Gadget Travel Insurance&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href&#x3D;&quot;/travel-insurance/travel-disruption-insurance&quot;&gt;Enhanced Trip Disruption&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;strong&gt;Support&lt;/strong&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href&#x3D;&quot;/travel-insurance/FAQs&quot;&gt;Travel Insurance FAQs&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href&#x3D;&quot;/resources/travel-hub&quot;&gt;Travel resource hub&lt;/a&gt;&lt;/li&gt;
+                    &lt;/ul&gt;
+                    &lt;/li&gt;
+                    &lt;li&gt;
+                    &lt;p&gt;&lt;a href&#x3D;&quot;/pet&quot;&gt;Pet&lt;/a&gt;&lt;/p&gt;
+                    &lt;ul&gt;
+                    &lt;li&gt;&lt;a href&#x3D;&quot;/pet-insurance&quot;&gt;Pet Insurance&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href&#x3D;&quot;/pet-insurance/multi-pet-insurance&quot;&gt;Multi Pet Insurance&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href&#x3D;&quot;/pet-insurance/dog-insurance&quot;&gt;Dog Insurance&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href&#x3D;&quot;/pet-insurance/puppy-insurance&quot;&gt;Puppy Insurance&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href&#x3D;&quot;/pet-insurance/cat-insurance&quot;&gt;Cat Insurance&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href&#x3D;&quot;/pet-insurance/kitten-insurance&quot;&gt;Kitten Insurance&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href&#x3D;&quot;/pet-insurance/lifetime-pet-insurance&quot;&gt;Lifetime Pet Insurance&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href&#x3D;&quot;/pet-insurance/time-limited-pet-insurance&quot;&gt;Time Limited Pet Insurance&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;strong&gt;Pet breeds&lt;/strong&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href&#x3D;&quot;/pet-insurance/cockapoo-pet-insurance&quot;&gt;Cockapoo Pet Insurance&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href&#x3D;&quot;/pet-insurance/cocker-spaniel-pet-insurance&quot;&gt;Cocker Spaniel Pet Insurance&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href&#x3D;&quot;/pet-insurance/shih-tzu-pet-insurance&quot;&gt;Shih Tzu Pet Insurance&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;strong&gt;Support&lt;/strong&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href&#x3D;&quot;/resources/pet-hub&quot;&gt;Pet resource hub&lt;/a&gt;&lt;/li&gt;
+                    &lt;/ul&gt;
+                    &lt;/li&gt;
+                    &lt;li&gt;
+                    &lt;p&gt;&lt;a href&#x3D;&quot;/money&quot;&gt;Money&lt;/a&gt;&lt;/p&gt;
+                    &lt;ul&gt;
+                    &lt;li&gt;&lt;a href&#x3D;&quot;/loans/personal-loans&quot;&gt;Personal Loans&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href&#x3D;&quot;/loans/car-finance/car-loans&quot;&gt;Car Loans&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href&#x3D;&quot;/loans/car-finance&quot;&gt;Car Finance&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href&#x3D;&quot;/loans/car-finance/hire-purchase&quot;&gt;Hire Purchase&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href&#x3D;&quot;/homeowner-loans&quot;&gt;Homeowner Loans&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;strong&gt;More Finance&lt;/strong&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href&#x3D;&quot;/loans/personal-loans/home-improvements&quot;&gt;Home improvement loans&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href&#x3D;&quot;/loans/debt-consolidation-loan&quot;&gt;Debt Consolidation Loan&lt;/a&gt;&lt;/li&gt;
+                    &lt;/ul&gt;
+                    &lt;/li&gt;
+                    &lt;li&gt;
+                    &lt;p&gt;&lt;a href&#x3D;&quot;https://www.admiralbusiness.com/?utm_source&#x3D;admiral&amp;#x26;utm_medium&#x3D;referral&amp;#x26;utm_campaign&#x3D;admiral_nav&quot;&gt;Business&lt;/a&gt;&lt;/p&gt;
+                    &lt;/li&gt;
+                    &lt;/ul&gt;"/>
+      </section_1>
+      <section_2 sling:resourceType="core/franklin/components/section/v1/section" jcr:primaryType="nt:unstructured" model="section" modelFields="[name,sec-spacing,sec-spacing-bottom,style,sec-full-width]">
+        <text sling:resourceType="core/franklin/components/text/v1/text" jcr:primaryType="nt:unstructured" text="&lt;ul&gt;
+                    &lt;li&gt;&lt;a href&#x3D;&quot;/contact-us&quot;&gt;Contact us&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href&#x3D;&quot;/help-support-hub&quot;&gt;Help and Support&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href&#x3D;&quot;https://myaccount.admiral.com/login&quot;&gt;My account&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href&#x3D;&quot;/existing-customers/make-a-claim.php&quot;&gt;Claims&lt;/a&gt;&lt;/li&gt;
+                    &lt;/ul&gt;"/>
+        <button sling:resourceType="core/franklin/components/button/v1/button" jcr:primaryType="nt:unstructured" link="/multicover-insurance" linkText="Get a quote"/>
+      </section_2>
+    </root>
+  </jcr:content>
+</jcr:root>

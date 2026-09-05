@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0" jcr:primaryType="cq:Page">
+  <jcr:content cq:template="/libs/core/franklin/templates/page" sling:resourceType="core/franklin/components/page/v1/page" jcr:primaryType="cq:PageContent">
+    <root jcr:primaryType="nt:unstructured" sling:resourceType="core/franklin/components/root/v1/root">
+      <section sling:resourceType="core/franklin/components/section/v1/section" jcr:primaryType="nt:unstructured" model="section" modelFields="[name,sec-spacing,sec-spacing-bottom,style,sec-full-width]">
+        <text sling:resourceType="core/franklin/components/text/v1/text" jcr:primaryType="nt:unstructured" text="&lt;ul&gt;
+                    &lt;li&gt;&lt;a href&#x3D;&quot;https://twitter.com/admiralUK&quot;&gt;Follow us on X (formerly Twitter)&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href&#x3D;&quot;https://www.youtube.com/user/AdmiralInsurance&quot;&gt;Visit our YouTube channel&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href&#x3D;&quot;https://www.facebook.com/admiralUK&quot;&gt;Follow us on Facebook&lt;/a&gt;&lt;/li&gt;
+                    &lt;/ul&gt;"/>
+      </section>
+      <section_1 sling:resourceType="core/franklin/components/section/v1/section" jcr:primaryType="nt:unstructured" model="section" modelFields="[name,sec-spacing,sec-spacing-bottom,style,sec-full-width]">
+        <text sling:resourceType="core/franklin/components/text/v1/text" jcr:primaryType="nt:unstructured" text="&lt;ul&gt;
+                    &lt;li&gt;© 1993-2026 Admiral&lt;/li&gt;
+                    &lt;li&gt;&lt;a href&#x3D;&quot;/sitemap.php&quot;&gt;Sitemap&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href&#x3D;&quot;/contact-us&quot;&gt;Contact Us&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href&#x3D;&quot;/help-support-hub&quot;&gt;Accessibility&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href&#x3D;&quot;/insurance/your-policy/conditions-of-use.php&quot;&gt;Conditions of Use&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href&#x3D;&quot;/your-privacy-and-security&quot;&gt;Privacy &amp;#x26; Security&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href&#x3D;&quot;/press-office&quot;&gt;Press Office&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href&#x3D;&quot;/cookie-policy&quot;&gt;Cookie Preferences&lt;/a&gt;&lt;/li&gt;
+                    &lt;/ul&gt;&lt;p&gt;Admiral is a trading name of EUI Limited. (Reg No: 02686904). EUI Limited is a subsidiary of Admiral Group plc and is authorised and regulated by the Financial Conduct Authority (Firm reference number: 309378). These details can be confirmed by visiting the &lt;a href&#x3D;&quot;https://www.fca.org.uk/register&quot;&gt;Financial Services Register&lt;/a&gt;. EUI Limited acts for, and on behalf of, other regulated insurance companies. Further details may be provided on request.&lt;/p&gt;&lt;p&gt;Admiral Money, Admiral Loans, Admiral Car Finance, Admiral Homeowner Loans, Admiral Mortgages, Admiral One and Finble are all trading names of Admiral Financial Services Limited (AFSL). Admiral Financial Services Limited (Reg No: 10255225) is a subsidiary of Admiral Group plc and is authorised and regulated by the Financial Conduct Authority (Firm reference number: 771862). These details can be confirmed by visiting the &lt;a href&#x3D;&quot;https://www.fca.org.uk/register&quot;&gt;Financial Services Register&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;Veygo and Admiral Business are trading names of Able Insurance Services Limited. Able Insurance Services Limited (Reg No: 2890075) is a subsidiary of Admiral Group plc and is authorised and regulated by the Financial Conduct Authority (Firm reference number: 311649). These details can be confirmed by visiting the &lt;a href&#x3D;&quot;https://www.fca.org.uk/register&quot;&gt;Financial Services Register&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;Admiral Group plc is registered in England and Wales at Tŷ Admiral, David Street, Cardiff. CF10 2EH (Reg No:03849958).&lt;/p&gt;"/>
+      </section_1>
+    </root>
+  </jcr:content>
+</jcr:root>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+  <comment>FileVault Package Definition</comment>
+  <entry key="name">admiral-nav-footer</entry>
+  <entry key="group">waringme</entry>
+  <entry key="version">1.0.0</entry>
+  <entry key="description">Admiral migrated nav and footer JCR content for /content/admiral/language-masters/en</entry>
+  <entry key="packageType">content</entry>
+</properties>
