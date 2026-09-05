@@ -2,6 +2,8 @@
   "mappings": [
     "/content/admiral/language-masters/en:/",
     "/content/admiral/language-masters/en/:/en/",
+    "/content/admiral/nav:/nav",
+    "/content/admiral/footer:/footer",
     "/content/admiral/language-masters/fr/:/fr/",
     "/content/admiral/language-masters/fr:/fr",
     "/content/admiral/language-masters/es/:/es/",
