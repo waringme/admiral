@@ -1,0 +1,159 @@
+/* stylelint-disable no-descending-specificity */
+
+/*
+ * Cards Article — variant of the "cards" block.
+ * Magazine article cards for the admiral.com home migration
+ * (source: https://www.admiral.com/ — #product-pods-5856 .grid).
+ *
+ * A 3-up grid of magazine cards: wide banner image on top, blue h3 title,
+ * grey description, and a blue "read more" link. Sits in a grey section.
+ *
+ * IMPORTANT: This variant shares the base `cards` block (cards.css is imported
+ * below and also loaded by the sibling `cards-product` variant). All rules here
+ * are scoped under `.cards-article` and are written to override the conflicting
+ * base `.cards > ul > li` rules WITHOUT leaking into other cards variants.
+ * All visual values below are extracted from the source computed styles.
+ */
+@import url('../cards/cards.css');
+
+/* --- Grid container -------------------------------------------------------
+ * Source: display:flex, flex-wrap:wrap, cells at 1/3 width with 7.5px padding
+ * (15px gutter). Rebuilt as a responsive grid on the EDS ul.
+ */
+.cards-article.cards > ul {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 30px 15px;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+/* --- Card cell ------------------------------------------------------------
+ * Source cards are transparent: no background, border, radius or shadow —
+ * they sit directly on the grey section. Override the decorated base card.
+ */
+.cards-article.cards > ul > li {
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  padding: 0;
+  margin: 0;
+  overflow: visible;
+  display: flex;
+  flex-direction: column;
+}
+
+/* --- Image ----------------------------------------------------------------
+ * Source: wide, short banner crop (~2.27:1), object-fit cover, square corners.
+ * Override the base 16/9 + min/max-height:255px rules.
+ */
+.cards-article.cards > ul > li .cards-card-image {
+  line-height: 0;
+  background: transparent;
+  border: none;
+}
+
+.cards-article.cards > ul > li .cards-card-image img,
+.cards-article.cards > ul > li img {
+  width: 100%;
+  aspect-ratio: 2.27 / 1;
+  min-height: 0;
+  max-height: none;
+  object-fit: cover;
+  border-radius: 0;
+  display: block;
+}
+
+/* --- Card body ------------------------------------------------------------ */
+.cards-article.cards > ul > li .cards-card-body {
+  background: transparent;
+  padding: 0;
+  margin: 0;
+}
+
+.cards-article.cards > ul > li .cards-card-body > *:first-child {
+  margin-top: 0;
+}
+
+/* Title — h3. Source: 19.8px / 600 / line-height 28px / #2350a0, 20px below. */
+.cards-article.cards > ul > li .cards-card-body h1,
+.cards-article.cards > ul > li .cards-card-body h2,
+.cards-article.cards > ul > li .cards-card-body h3 {
+  margin: 16px 0 0;
+  padding: 0 0 8px;
+  font-size: 19.8px;
+  font-weight: 600;
+  line-height: 28px;
+  color: var(--heading-blue, #2350a0);
+}
+
+/* Description — p. Source: 18px / line-height 28px / rgb(79,79,79). */
+.cards-article.cards > ul > li .cards-card-body p {
+  margin: 0;
+  font-size: 18px;
+  line-height: 28px;
+  color: var(--text-color, rgb(79 79 79));
+}
+
+/* Read-more link. Source: 18px / 400 / rgb(0,120,255) / no underline,
+ * ~28px above, arrow after the label. */
+.cards-article.cards > ul > li .cards-card-body p.button-container,
+.cards-article.cards > ul > li .cards-card-body p:has(> a:only-child) {
+  margin-top: 20px;
+}
+
+.cards-article.cards > ul > li .cards-card-body a,
+.cards-article.cards > ul > li .cards-card-body a.button:any-link {
+  display: inline-block;
+  padding: 0;
+  margin: 0;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 28px;
+  color: var(--link-color, #0078ff);
+  text-decoration: none;
+  text-transform: none;
+  white-space: normal;
+  overflow: visible;
+}
+
+.cards-article.cards > ul > li .cards-card-body a:hover,
+.cards-article.cards > ul > li .cards-card-body a.button:hover {
+  text-decoration: underline;
+  color: var(--link-color, #0078ff);
+}
+
+/* Arrow glyph after the link (source uses a circled/chevron arrow). */
+.cards-article.cards > ul > li .cards-card-body a::after,
+.cards-article.cards > ul > li .cards-card-body a.button::after {
+  content: "\203A"; /* › */
+  display: inline;
+  float: none;
+  width: auto;
+  height: auto;
+  margin-left: 6px;
+  padding: 0;
+  font-family: inherit;
+  font-size: 20px;
+  line-height: 1;
+  font-weight: 400;
+  color: var(--link-color, #0078ff);
+}
+
+/* --- Responsive: 2-up on tablet, 3-up on desktop ------------------------- */
+@media (width >= 600px) {
+  .cards-article.cards > ul {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (width >= 900px) {
+  .cards-article.cards > ul {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}

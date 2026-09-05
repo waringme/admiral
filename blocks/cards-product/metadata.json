@@ -1,0 +1,39 @@
+{
+  "variantName": "cards-product",
+  "baseBlock": "cards",
+  "version": "1.0.0",
+  "created": "2026-09-05T08:52:12.906Z",
+  "sourceContext": {
+    "originUrl": "https://www.admiral.com/",
+    "originPage": "admiral.com home page",
+    "blockPosition": "top"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "light",
+    "density": "compact",
+    "purpose": "product",
+    "imagePattern": "icon"
+  },
+  "contentPattern": {
+    "structure": "icon + short label link (grid of tiles)",
+    "buttonCount": 0,
+    "imageCount": 12
+  },
+  "reuseGuidance": {
+    "suitableFor": [
+      "product/category tile grids",
+      "icon + label link navigation grids"
+    ],
+    "notSuitableFor": [
+      "article/editorial cards with large photos and descriptions"
+    ]
+  },
+  "usage": {
+    "pagesUsing": [
+      "/index"
+    ],
+    "reuseCount": 1,
+    "lastUsed": "2026-09-05T08:52:12.906Z"
+  },
+  "implementationNote": "Delegates to base \"cards\" block; cards-product.css @imports the base stylesheet and adds variant overrides. Keeps base class to preserve shared-script/CSS coupling."
+}

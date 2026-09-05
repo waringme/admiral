@@ -1,0 +1,133 @@
+/* Block: hero-trust — full-bleed navy hero banner (admiral.com home).
+ * Values extracted from source computed styles:
+ *   navy box  bg rgb(12,58,132)  padding 34px 24px 40px  radius 8px
+ *   heading   37.8px / 48px  weight 400  #fff  centered
+ *   subhead   18px / 28px    weight 300  #fff  centered
+ *   CTA       linear-gradient(#00c535, #00a32e)  #fff  21.6px/30px
+ *             uppercase  padding 10px 15px  radius 4px
+ */
+
+/* Full-bleed: escape the 1200px section wrapper so the navy spans edge-to-edge. */
+.hero-trust-wrapper {
+  max-width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* --------------------------
+   Banner shell
+--------------------------- */
+.hero-trust {
+  background-color: var(--hero-navy, #0c3a84);
+  padding: 48px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+}
+
+/* Content column — constrained + centered inside the full-width navy. */
+.hero-trust .hero-trust-copy {
+  width: 100%;
+  max-width: 640px;
+  margin: 0 auto;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+/* --------------------------
+   Heading
+--------------------------- */
+.hero-trust .hero-trust-copy h1,
+.hero-trust .hero-trust-copy h2,
+.hero-trust .hero-trust-copy h3 {
+  margin: 0;
+  padding: 0 0 24px;
+  color: var(--text-light, #fff);
+  font-family: var(--heading-font-family);
+  font-size: 37.8px;
+  font-weight: 400;
+  line-height: 48px;
+  text-align: center;
+}
+
+/* --------------------------
+   Subheading
+--------------------------- */
+.hero-trust .hero-trust-copy p {
+  margin: 0;
+  padding: 0 0 30px;
+  color: var(--text-light, #fff);
+  font-family: var(--body-font-family);
+  font-size: 18px;
+  font-weight: 300;
+  line-height: 28px;
+  text-align: center;
+}
+
+/* --------------------------
+   CTA — green gradient pill.
+   Overrides the global a / a::after chevron + ellipsis rules.
+--------------------------- */
+.hero-trust .hero-trust-copy a.hero-trust-cta,
+.hero-trust .hero-trust-copy a.hero-trust-cta:any-link {
+  display: inline-block;
+  margin: 0;
+  padding: 10px 24px;
+  background-color: transparent;
+  background-image: linear-gradient(#00c535 0%, #00a32e 100%);
+  color: var(--text-light, #fff);
+  font-family: var(--heading-font-family);
+  font-size: 21.6px;
+  font-weight: 400;
+  line-height: 30px;
+  text-align: center;
+  text-transform: uppercase;
+  text-decoration: none;
+  text-overflow: clip;
+  white-space: normal;
+  overflow: visible;
+  border: none;
+  border-radius: 4px;
+  transition: filter 0.2s ease;
+}
+
+/* Suppress the global font-awesome chevron on the CTA (source has none). */
+.hero-trust .hero-trust-copy a.hero-trust-cta::after {
+  content: none;
+}
+
+.hero-trust .hero-trust-copy a.hero-trust-cta:hover,
+.hero-trust .hero-trust-copy a.hero-trust-cta:focus {
+  color: var(--text-light, #fff);
+  text-decoration: none;
+  filter: brightness(1.06);
+}
+
+/* --------------------------
+   Responsive
+--------------------------- */
+@media (width >= 900px) {
+  .hero-trust {
+    padding: 64px 32px;
+  }
+}
+
+@media (width <= 768px) {
+  .hero-trust {
+    padding: 40px 20px;
+  }
+
+  .hero-trust .hero-trust-copy h1,
+  .hero-trust .hero-trust-copy h2,
+  .hero-trust .hero-trust-copy h3 {
+    font-size: 32px;
+    line-height: 40px;
+    padding-bottom: 20px;
+  }
+
+  .hero-trust .hero-trust-copy a.hero-trust-cta,
+  .hero-trust .hero-trust-copy a.hero-trust-cta:any-link {
+    font-size: 18px;
+  }
+}

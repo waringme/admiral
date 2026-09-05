@@ -1,0 +1,66 @@
+/* Columns Award — dark navy full-bleed award banner (admiral.com home). */
+@import url('../columns/columns.css');
+
+/*
+ * Values extracted from source #reusable-block-16247
+ * (see migration-work/columns-award-extracted.css).
+ *
+ * The navy full-bleed band and white text come from the global `.section.dark`
+ * rule in styles.css (background var(--dark-color) = #091f30, padding 48px 0).
+ * This file only handles the single-column centered layout and the exact
+ * typography. Everything is scoped under .columns-award so it cannot leak into
+ * the sibling columns-* variants that share the base columns block.
+ *
+ * Structure (post-decorate): .columns-award > .columns-row > [empty cell][text cell(h2,p)]
+ * The authored first cell is empty; content lives in the second cell. The base
+ * columns block would lay these out as a 2-col flex row, so we collapse it back
+ * to a single centered column.
+ */
+
+.columns-award,
+.columns-award > div,
+.columns-award .columns-row {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+}
+
+/* Drop the empty authored cell so the text is truly centred. */
+.columns-award > div > div:empty {
+  display: none;
+}
+
+.columns-award h2 {
+  margin: 0;
+  padding: 0 0 32px;
+  color: #fff;
+  font-size: 28px;
+  font-weight: 600;
+  line-height: 36px;
+  text-align: center;
+}
+
+.columns-award p {
+  margin: -10px 0 0;
+  padding: 0 54px;
+  color: rgb(130 200 255);
+  font-size: 18px;
+  line-height: 28px;
+  text-align: center;
+}
+
+/* Keep the single centred column at desktop, overriding the base
+   `.columns > div` flex-row (display:flex; gap:24px; flex:1 children). */
+@media (width >= 900px) {
+  .columns-award > div {
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+  }
+
+  .columns-award > div > div {
+    flex: unset;
+  }
+}

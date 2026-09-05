@@ -1,0 +1,140 @@
+/* stylelint-disable no-descending-specificity */
+
+/* Columns Links — "Explore our website" dark link directory.
+ *
+ * Source: the .explore footer link grid on admiral.com (dark, full-bleed,
+ * an h2 above 5 equal columns of link lists).
+ *
+ * Self-contained on purpose: this variant does NOT @import the base columns.css.
+ * The shared base's mobile rules (display:block rows, forced 20px margins and
+ * 20px heading font-size) fight this multi-column grid, and other columns-*
+ * variants must not be affected. All values below come from source computed
+ * styles. columns-links.js still adds the `.columns-row` classes targeted here.
+ *
+ * Decorated EDS DOM:
+ *   .columns-links.block.columns.columns-5-cols
+ *     > div.columns-row            (row 1: h2 in cell 1, 4 empty cells)
+ *         > div > h2
+ *         > div (x4, empty)
+ *     > div.columns-row            (row 2: 5 cells, each a link column)
+ *         > div > ul > li > a
+ *
+ * The block sits inside `main .section.dark`, which already supplies the
+ * navy #091f30 full-bleed background, white default text and section padding.
+ */
+
+/* ---- Heading (row 1) ------------------------------------------------------ */
+
+/* Row 1 lays out as block so the 4 empty cells collapse and the h2 spans full width. */
+.columns-links > div.columns-row:first-child {
+  display: block;
+}
+
+.columns-links > div.columns-row:first-child > div:not(:first-child) {
+  display: none; /* empty helper cells */
+}
+
+.columns-links h2 {
+  margin: 0;
+  font-family: jaf-facitweb, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 37.8px;
+  font-weight: 300;
+  line-height: 48px;
+  color: var(--text-light);
+}
+
+/* ---- Columns grid (row 2) ------------------------------------------------- */
+
+/* Base (mobile-first): two compact columns, no vertical dividers. */
+.columns-links > div.columns-row:nth-child(2) {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0 8px;
+  margin-top: 24px;
+
+  /* Override the base columns.css `align-items: center` that leaks in through
+   * sibling columns-* variants importing ../columns/columns.css. Columns are
+   * top-aligned in the source. */
+  align-items: start;
+}
+
+/* Each column cell */
+.columns-links > div.columns-row:nth-child(2) > div {
+  padding: 0 8px;
+  min-width: 0;
+}
+
+/* Link lists */
+.columns-links ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.columns-links li {
+  margin: 0 0 17px;
+  line-height: 21px;
+}
+
+/* First item of each list is a white section heading (may be a link or plain text). */
+.columns-links li:first-child,
+.columns-links li:first-child a {
+  font-size: 16.2px;
+  font-weight: 300;
+}
+
+/* ---- Links ---------------------------------------------------------------- */
+
+/* Reset the global link chrome (chevron ::after, nowrap/ellipsis, inline-block,
+ * font-weight 500) and the .section.dark white-link override so the source's
+ * bright-blue directory links show correctly. The `main .section.dark` prefix
+ * raises specificity above the global `main .section.dark a:any-link` rule. */
+main .section.dark .columns-links a,
+main .section.dark .columns-links a:any-link {
+  display: inline;
+  overflow: visible;
+  white-space: normal;
+  text-overflow: clip;
+  text-decoration: none;
+  font-family: jaf-facitweb, "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.columns-links a::after,
+.columns-links a:any-link::after {
+  content: none;
+}
+
+/* Heading (first item) link stays white. */
+main .section.dark .columns-links li:first-child a,
+main .section.dark .columns-links li:first-child a:any-link {
+  color: var(--text-light);
+  font-size: 16.2px;
+  font-weight: 300;
+}
+
+/* Subsequent items are the bright-blue directory links. */
+main .section.dark .columns-links li:not(:first-child) a,
+main .section.dark .columns-links li:not(:first-child) a:any-link {
+  color: rgb(0 181 255);
+  font-size: 14.4px;
+  font-weight: 300;
+}
+
+main .section.dark .columns-links li a:hover,
+main .section.dark .columns-links li a:focus {
+  text-decoration: underline;
+}
+
+/* ---- Desktop: five equal columns with left dividers ----------------------- */
+@media (width >= 900px) {
+  .columns-links > div.columns-row:nth-child(2) {
+    grid-template-columns: repeat(5, 1fr);
+    gap: 0;
+    margin-top: 34px;
+  }
+
+  .columns-links > div.columns-row:nth-child(2) > div {
+    border-left: 1px solid rgb(79 79 79);
+    padding: 0 20px 0 8px;
+  }
+}

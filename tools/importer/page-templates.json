@@ -1,0 +1,182 @@
+{
+  "metadata": {
+    "projectType": "xwalk"
+  },
+  "templates": [
+    {
+      "name": "home",
+      "urls": [
+        "https://www.admiral.com/"
+      ],
+      "representativeUrl": "https://www.admiral.com/",
+      "urlPattern": "/",
+      "description": "Admiral.com homepage: hero, product tiles, TV advert video, fake-emails notice, magazine article cards, award banner, testimonials carousel, get-to-know-us copy, app download, explore-website links.",
+      "blocks": [
+        {
+          "name": "hero-trust",
+          "instances": [
+            "#basic-12087"
+          ]
+        },
+        {
+          "name": "cards-product",
+          "instances": [
+            "#basic-18119 > div.wrapper.pt-sml > div.container.container--responsive-tablet.pt-sml.pb-sml > div.product-grid",
+            "#basic-18119 .product-grid"
+          ]
+        },
+        {
+          "name": "video-advert",
+          "instances": [
+            "#basic-18611"
+          ]
+        },
+        {
+          "name": "columns-notice",
+          "instances": [
+            "#basic-18085"
+          ]
+        },
+        {
+          "name": "cards-article",
+          "instances": [
+            "#product-pods-5856 > div.container.container--responsive-tablet.pt-sml > div.grid",
+            "#product-pods-5856 .grid"
+          ]
+        },
+        {
+          "name": "columns-award",
+          "instances": [
+            "#reusable-block-16247"
+          ]
+        },
+        {
+          "name": "carousel-review",
+          "instances": [
+            "#testimonials-7343"
+          ]
+        },
+        {
+          "name": "columns-app",
+          "instances": [
+            "#basic-10863"
+          ]
+        },
+        {
+          "name": "columns-links",
+          "instances": [
+            "#basic-19327"
+          ]
+        }
+      ],
+      "sections": [
+        {
+          "id": "hero-trust",
+          "name": "Hero (trust banner)",
+          "selector": "#basic-12087",
+          "style": null,
+          "blocks": [
+            "hero-trust"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "product-tiles",
+          "name": "Product tiles",
+          "selector": "#basic-18119",
+          "style": null,
+          "blocks": [
+            "cards-product"
+          ],
+          "defaultContent": [
+            "#basic-18119 > div.wrapper.pt-sml > div.container.container--responsive-tablet.pt-sml.pb-sml > div:nth-of-type(2)"
+          ]
+        },
+        {
+          "id": "tv-advert",
+          "name": "TV advert",
+          "selector": "#basic-18611",
+          "style": null,
+          "blocks": [
+            "video-advert"
+          ],
+          "defaultContent": [
+            "#basic-18611"
+          ]
+        },
+        {
+          "id": "fake-emails-notice",
+          "name": "Fake emails notice",
+          "selector": "#basic-18085",
+          "style": null,
+          "blocks": [
+            "columns-notice"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "magazine-articles",
+          "name": "Magazine articles",
+          "selector": "#product-pods-5856",
+          "style": "grey",
+          "blocks": [
+            "cards-article"
+          ],
+          "defaultContent": [
+            "#product-pods-5856 > div.container.container--responsive-tablet.pt-sml > div.text-center"
+          ]
+        },
+        {
+          "id": "award-banner",
+          "name": "Award banner",
+          "selector": "#reusable-block-16247",
+          "style": "dark",
+          "blocks": [
+            "columns-award"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "testimonials",
+          "name": "Testimonials",
+          "selector": "#testimonials-7343",
+          "style": "grey",
+          "blocks": [
+            "carousel-review"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "get-to-know-us",
+          "name": "Get to know us",
+          "selector": "#paragraph-5858",
+          "style": null,
+          "blocks": [],
+          "defaultContent": [
+            "#paragraph-5858"
+          ]
+        },
+        {
+          "id": "app-download",
+          "name": "App download",
+          "selector": "#basic-10863",
+          "style": null,
+          "blocks": [
+            "columns-app"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "explore-website-links",
+          "name": "Explore website links",
+          "selector": "#basic-19327",
+          "style": "dark",
+          "blocks": [
+            "columns-links"
+          ],
+          "defaultContent": []
+        }
+      ]
+    }
+  ]
+}

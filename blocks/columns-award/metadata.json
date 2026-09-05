@@ -1,0 +1,40 @@
+{
+  "variantName": "columns-award",
+  "baseBlock": "columns",
+  "version": "1.0.0",
+  "created": "2026-09-05T08:52:12.906Z",
+  "sourceContext": {
+    "originUrl": "https://www.admiral.com/",
+    "originPage": "admiral.com home page",
+    "blockPosition": "middle"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "dark",
+    "density": "spacious",
+    "purpose": "feature",
+    "imagePattern": "large"
+  },
+  "contentPattern": {
+    "structure": "award badge image | heading + paragraph",
+    "buttonCount": 0,
+    "imageCount": 1
+  },
+  "reuseGuidance": {
+    "suitableFor": [
+      "dark award/accolade callouts",
+      "badge image beside a heading + short copy"
+    ],
+    "notSuitableFor": [
+      "light contained panels",
+      "link directories"
+    ]
+  },
+  "usage": {
+    "pagesUsing": [
+      "/index"
+    ],
+    "reuseCount": 1,
+    "lastUsed": "2026-09-05T08:52:12.906Z"
+  },
+  "implementationNote": "Delegates to base \"columns\" block; columns-award.css @imports the base stylesheet and adds variant overrides. Keeps base class to preserve shared-script/CSS coupling."
+}

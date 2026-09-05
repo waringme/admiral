@@ -1,0 +1,40 @@
+{
+  "variantName": "carousel-review",
+  "baseBlock": "carousel",
+  "version": "1.0.0",
+  "created": "2026-09-05T08:52:12.906Z",
+  "sourceContext": {
+    "originUrl": "https://www.admiral.com/",
+    "originPage": "admiral.com home page",
+    "blockPosition": "middle"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "light",
+    "density": "spacious",
+    "purpose": "testimonial",
+    "imagePattern": "icon"
+  },
+  "contentPattern": {
+    "structure": "rotating slides: quote headline + avatar + name/location + review paragraph",
+    "buttonCount": 0,
+    "imageCount": 7
+  },
+  "reuseGuidance": {
+    "suitableFor": [
+      "customer testimonial/review sliders",
+      "rotating quote carousels with avatar + attribution"
+    ],
+    "notSuitableFor": [
+      "static single quotes",
+      "image-only galleries"
+    ]
+  },
+  "usage": {
+    "pagesUsing": [
+      "/index"
+    ],
+    "reuseCount": 1,
+    "lastUsed": "2026-09-05T08:52:12.906Z"
+  },
+  "implementationNote": "Delegates to base \"carousel\" block; carousel-review.css @imports the base stylesheet and adds variant overrides. Keeps base class to preserve shared-script/CSS coupling."
+}

@@ -1,0 +1,27 @@
+/* Brand design tokens extracted from https://www.admiral.com/
+ * These --brand-* variables feed the var(--brand-*, fallback) hooks in styles.css.
+ * Admiral uses Adobe Fonts "Facit" (jaf-facitweb); its kit is domain-locked, so we
+ * use Admiral's own declared fallback stack (Helvetica Neue/Helvetica/Arial).
+ */
+:root {
+  /* Brand colors (consumed by styles.css :root) */
+  --brand-background-color: #f0f0eb;
+  --brand-text-color: #4f4f4f;
+  --brand-light-text-color: #fff;
+  --brand-link-color: #0078ff;
+  --brand-link-hover-color: #005485;
+  --brand-theme-color: #ff7911;
+  --brand-dark-color: #091f30;
+  --brand-light-color: #f0f0eb;
+
+  /* Extended Admiral palette */
+  --brand-blue: #005485;
+  --heading-blue: #2350a0;
+  --accent-orange: #ff7911;
+  --hero-navy: #0c3a84;
+  --grey-color: #f7f7f7;
+
+  /* Fonts */
+  --brand-font-family: "Helvetica Neue", helvetica, arial, sans-serif;
+  --brand-heading-font-family: "Helvetica Neue", helvetica, arial, sans-serif;
+}

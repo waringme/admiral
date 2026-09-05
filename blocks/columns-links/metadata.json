@@ -1,0 +1,40 @@
+{
+  "variantName": "columns-links",
+  "baseBlock": "columns",
+  "version": "1.0.0",
+  "created": "2026-09-05T08:52:12.906Z",
+  "sourceContext": {
+    "originUrl": "https://www.admiral.com/",
+    "originPage": "admiral.com home page",
+    "blockPosition": "bottom"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "dark",
+    "density": "wide",
+    "purpose": "feature",
+    "imagePattern": "noimg"
+  },
+  "contentPattern": {
+    "structure": "multi-column grouped link lists (heading + list of links per column)",
+    "buttonCount": 0,
+    "imageCount": 0
+  },
+  "reuseGuidance": {
+    "suitableFor": [
+      "multi-column link directories / sitemaps",
+      "grouped footer-style navigation columns on a dark background"
+    ],
+    "notSuitableFor": [
+      "image-led promo panels",
+      "single side-by-side image+text banners"
+    ]
+  },
+  "usage": {
+    "pagesUsing": [
+      "/index"
+    ],
+    "reuseCount": 1,
+    "lastUsed": "2026-09-05T08:52:12.906Z"
+  },
+  "implementationNote": "Delegates to base \"columns\" block; columns-links.css @imports the base stylesheet and adds variant overrides. Keeps base class to preserve shared-script/CSS coupling."
+}

@@ -1,0 +1,157 @@
+/* stylelint-disable no-descending-specificity */
+
+/* Cards Product — variant of the "cards" block.
+ * Visual design migrated from https://www.admiral.com/ (#basic-18119 .product-grid).
+ * A horizontal grid of product-link tiles: a small circular brand-blue icon
+ * placeholder above a product name, plus a "Make a claim" button below.
+ *
+ * Values extracted from source computed styles (see
+ * migration-work/cards-product-extracted.css). The base cards.css is intentionally
+ * NOT imported: this compact icon-tile layout differs entirely from the base
+ * image-card layout and would fight its rules (min-height images, flex rows, borders).
+ *
+ * Decorated DOM (from base cards.js):
+ *   .cards-product > ul > li
+ *       > div.cards-card-image   (empty — dropped decorative SVG icon slot)
+ *       > div.cards-card-body > p.button-container > a.button   (product name)
+ *   sibling: .default-content-wrapper > p.button-container > a.button ("Make a claim")
+ */
+
+/* --- Grid --- */
+.cards-product > ul {
+  list-style: none;
+  margin: 0 0 24px;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* mobile-first */
+  gap: 10px;
+}
+
+@media (width >= 900px) {
+  .cards-product > ul {
+    grid-template-columns: repeat(4, 1fr); /* source: 4 columns */
+  }
+}
+
+/* --- Tile --- */
+.cards-product > ul > li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  padding: 16px;
+  background-color: rgb(119 221 255); /* #77ddff — source tile fill */
+  border: none;
+  border-radius: 8px;
+  box-shadow: none;
+  overflow: hidden;
+  text-align: center;
+}
+
+/* --- Icon placeholder (dropped decorative SVG) ---
+ * Source icons were circular brand-blue discs (50px) with a white glyph.
+ * The glyphs were intentionally dropped on import; render the clean blue disc
+ * so the tile keeps its visual rhythm. */
+.cards-product > ul > li .cards-card-image {
+  flex: none;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: var(--brand-blue, #005485);
+  line-height: 0;
+}
+
+/* --- Card body --- */
+.cards-product > ul > li .cards-card-body {
+  margin: 0;
+  padding: 0;
+  background-color: transparent;
+  text-align: center;
+}
+
+.cards-product > ul > li .cards-card-body p,
+.cards-product > ul > li .cards-card-body p.button-container {
+  margin: 0;
+}
+
+/* --- Product name link --- */
+.cards-product > ul > li a.button:any-link {
+  display: inline-block;
+  padding: 0;
+  background-color: transparent;
+  color: var(--brand-blue, #005485); /* #005485 */
+  font-family: var(--body-font-family);
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1.33;
+  text-align: center;
+  text-decoration: none;
+  white-space: normal; /* allow long labels (e.g. "MultiCover insurance") to wrap */
+  overflow: visible;
+  text-overflow: clip;
+}
+
+/* Chevron after the product name (matches source ">" affordance) */
+.cards-product > ul > li a.button:any-link::after {
+  content: "\203A"; /* › single right-pointing angle */
+  font-family: var(--body-font-family);
+  color: var(--brand-blue, #005485);
+  font-size: 18px;
+  font-weight: 600;
+  float: none;
+  width: auto;
+  height: auto;
+  padding: 0 0 0 6px;
+  margin: 0;
+}
+
+.cards-product > ul > li a.button:hover,
+.cards-product > ul > li a.button:focus {
+  text-decoration: underline;
+  color: var(--brand-blue, #005485);
+}
+
+.cards-product > ul > li a.button:hover::after,
+.cards-product > ul > li a.button:focus::after {
+  color: var(--brand-blue, #005485);
+}
+
+/* --- "Make a claim" button (default-content sibling of the grid) --- */
+.cards-product-container .default-content-wrapper {
+  text-align: center;
+  margin-top: 0;
+}
+
+.cards-product-container .default-content-wrapper p.button-container {
+  margin: 0;
+  text-align: center;
+}
+
+.cards-product-container .default-content-wrapper a.button:any-link {
+  display: inline-block;
+  padding: 8px 20px;
+  background-color: var(--brand-blue, #005485);
+  color: var(--text-light, #fff);
+  border: none;
+  border-radius: 8px;
+  font-family: var(--body-font-family);
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 24px;
+  text-align: center;
+  text-decoration: none;
+  white-space: nowrap;
+  overflow: visible;
+}
+
+.cards-product-container .default-content-wrapper a.button:any-link::after {
+  content: none; /* no chevron on the claim button */
+}
+
+.cards-product-container .default-content-wrapper a.button:hover,
+.cards-product-container .default-content-wrapper a.button:focus {
+  background-color: var(--brand-blue, #005485);
+  color: var(--text-light, #fff);
+  text-decoration: none;
+}

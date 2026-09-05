@@ -1,0 +1,40 @@
+{
+  "variantName": "hero-trust",
+  "baseBlock": "hero",
+  "version": "1.0.0",
+  "created": "2026-09-05T08:52:12.906Z",
+  "sourceContext": {
+    "originUrl": "https://www.admiral.com/",
+    "originPage": "admiral.com home page",
+    "blockPosition": "top"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "dark",
+    "density": "spacious",
+    "purpose": "hero",
+    "imagePattern": "large"
+  },
+  "contentPattern": {
+    "structure": "heading + paragraph + 1 CTA",
+    "buttonCount": 1,
+    "imageCount": 1
+  },
+  "reuseGuidance": {
+    "suitableFor": [
+      "homepage/landing hero banners",
+      "full-bleed intro banners with background image and a single CTA"
+    ],
+    "notSuitableFor": [
+      "text-only intros without a background image",
+      "mid-page contained promo panels"
+    ]
+  },
+  "usage": {
+    "pagesUsing": [
+      "/index"
+    ],
+    "reuseCount": 1,
+    "lastUsed": "2026-09-05T08:52:12.906Z"
+  },
+  "implementationNote": "Delegates to base \"hero\" block; hero-trust.css @imports the base stylesheet and adds variant overrides. Keeps base class to preserve shared-script/CSS coupling."
+}
