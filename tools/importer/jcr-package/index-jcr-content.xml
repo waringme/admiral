@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0" jcr:primaryType="cq:Page" jcr:mixinTypes="[mix:versionable]">
-  <jcr:content cq:template="/libs/core/franklin/templates/page" sling:resourceType="core/franklin/components/page/v1/page" jcr:primaryType="cq:PageContent" jcr:title="Car, MultiCar and MultiCover Insurance Quotes – Admiral" jcr:description="Admiral offers a wealth of insurance products including Car Insurance, Home Insurance, Travel Insurance, Pet Insurance and Van Insurance." modelFields="[jcr:title,jcr:pagetitle,jcr:description,cq:tags,theme,pageName,pageCategory]">
+<jcr:content xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0" cq:template="/libs/core/franklin/templates/page" sling:resourceType="core/franklin/components/page/v1/page" jcr:primaryType="cq:PageContent" jcr:title="Car, MultiCar and MultiCover Insurance Quotes – Admiral" jcr:description="Admiral offers a wealth of insurance products including Car Insurance, Home Insurance, Travel Insurance, Pet Insurance and Van Insurance." modelFields="[jcr:title,jcr:pagetitle,jcr:description,cq:tags,theme,pageName,pageCategory]">
     <root jcr:primaryType="nt:unstructured" sling:resourceType="core/franklin/components/root/v1/root">
       <section sling:resourceType="core/franklin/components/section/v1/section" jcr:primaryType="nt:unstructured" model="section" modelFields="[name,style]">
         <block sling:resourceType="core/franklin/components/block/v1/block" jcr:primaryType="nt:unstructured" ctalabel="EXPLORE OUR COVER" ctalink="/car-insurance" model="hero-trust" modelFields="[image,imageAlt,text,enableunderline,herolayout,backgroundstyle,ctalabel,ctalink,ctastyle,badge]" name="Hero Trust" text="&lt;p&gt;&lt;h2&gt;Trust us - we&#x27;ve been insuring cars for over 30 years&lt;/h2&gt;&lt;/p&gt;&lt;p&gt;Get reliable cover from an insurer you can trust.&lt;/p&gt;"></block>
@@ -155,4 +154,3 @@
       <section_10 sling:resourceType="core/franklin/components/section/v1/section" jcr:primaryType="nt:unstructured" model="section" modelFields="[name,style]"></section_10>
     </root>
   </jcr:content>
-</jcr:root>
