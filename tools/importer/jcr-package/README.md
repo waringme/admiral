@@ -1,35 +1,23 @@
 # Admiral JCR content package
 
-FileVault content package to install the migrated home page, nav, footer, and
-images into AEM author (xwalk / Universal Editor project).
+## Use this one: `admiral-home-v1.3.zip`
 
-## Use this one: `admiral-home-v1.2.zip`
+Installs the home page, nav, footer as **full cq:Page nodes** (fixes the
+"404 NO CONTENT / Cannot serve .../en.html" that v1.2 caused by installing
+jcr:content only onto a non-existent page node), plus images as proper
+**dam:Asset** nodes.
 
-All fixes combined:
-- **Home content** installs at `/content/admiral/language-masters/en/jcr:content`
-  **only** (`_jcr_content.xml` + a `jcr:content`-scoped filter), preserving the
-  existing `en` site-root page node so the page stays **editable in Universal
-  Editor**. (The `en` node maps to `/`.)
-- **All 9 blocks** convert correctly (hero-trust, cards-product, video-advert,
-  columns-notice, cards-article, columns-award, carousel-review, columns-app,
-  columns-links).
-- **nav** and **footer** install as child pages.
-- **Images** install as proper **`dam:Asset`** nodes (asset + `_jcr_content/
-  renditions/original` + `nt:file` wrapper), so they show in the DAM and
-  resolve on the page — at `/content/dam/admiral/en/images`.
+- `/content/admiral/language-masters/en` — home page (cq:Page, all 9 blocks)
+- `/content/admiral/language-masters/en/nav` and `/footer` — child pages
+- `/content/dam/admiral/en/images` — 6 dam:Asset images
 
-Filter scopes: `.../en/jcr:content`, `.../en/nav`, `.../en/footer`,
-`/content/dam/admiral/en/images`.
+**Install:** Package Manager → upload `admiral-home-v1.3.zip` → Install. It
+replaces the `en` node, so it repairs the broken folder v1.2 may have created.
 
-## Install
-1. `https://author-p147324-e2050468.adobeaemcloud.com/crx/packmgr`
-2. **Upload Package** → `admiral-home-v1.2.zip` → **Install**
-3. Reopen the `en` page in Universal Editor; check the images in the DAM.
-
-## Older packages (superseded)
-- `admiral-home-v1.1.zip` — jcr:content-only home, but images as raw nt:file (DAM blank).
-- `admiral-home.zip` — v1.0, replaced whole `en` page node (made it read-only).
-- `admiral-nav-footer.zip` — nav + footer only.
+### Superseded packages
+- v1.2 (jcr:content-only) — caused 404, `en` became a folder not a page.
+- v1.1 — images as raw nt:file (DAM blank).
+- v1.0 / admiral-nav-footer — earlier partials.
 
 ## Sources / regeneration
 - `dam-assets-src/` — unpacked dam:Asset structure for the images.
