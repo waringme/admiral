@@ -1,39 +1,39 @@
-# Admiral JCR content packages
+# Admiral JCR content package
 
-FileVault content packages for installing the migrated content into the AEM
-author repository (xwalk / Universal Editor project).
+FileVault content package to install the migrated home page, nav, footer, and
+images into AEM author (xwalk / Universal Editor project).
 
-## Packages
+## Use this one: `admiral-home-v1.2.zip`
 
-### `admiral-home.zip` (complete — use this)
-Installs the **home page, nav, footer, and DAM images**:
-- `/content/admiral/language-masters/en` — home page (9 blocks: hero-trust,
-  cards-product, video-advert, columns-notice, cards-article, columns-award,
-  carousel-review, columns-app, columns-links)
-- `/content/admiral/language-masters/en/nav` — navigation
-- `/content/admiral/language-masters/en/footer` — footer
-- `/content/dam/admiral/en/images` — 6 assets (article photos, app-store
-  badges, logo)
+All fixes combined:
+- **Home content** installs at `/content/admiral/language-masters/en/jcr:content`
+  **only** (`_jcr_content.xml` + a `jcr:content`-scoped filter), preserving the
+  existing `en` site-root page node so the page stays **editable in Universal
+  Editor**. (The `en` node maps to `/`.)
+- **All 9 blocks** convert correctly (hero-trust, cards-product, video-advert,
+  columns-notice, cards-article, columns-award, carousel-review, columns-app,
+  columns-links).
+- **nav** and **footer** install as child pages.
+- **Images** install as proper **`dam:Asset`** nodes (asset + `_jcr_content/
+  renditions/original` + `nt:file` wrapper), so they show in the DAM and
+  resolve on the page — at `/content/dam/admiral/en/images`.
 
-`filter.xml` scopes the install to `/content/admiral/language-masters/en` and
+Filter scopes: `.../en/jcr:content`, `.../en/nav`, `.../en/footer`,
 `/content/dam/admiral/en/images`.
 
-### `admiral-nav-footer.zip` (nav + footer only)
-Earlier package with just nav + footer, no home page or images. Superseded by
-`admiral-home.zip`.
-
 ## Install
-1. Open Package Manager on the author instance:
-   `https://author-p147324-e2050468.adobeaemcloud.com/crx/packmgr`
-2. **Upload Package** → select `admiral-home.zip`.
-3. **Install**.
+1. `https://author-p147324-e2050468.adobeaemcloud.com/crx/packmgr`
+2. **Upload Package** → `admiral-home-v1.2.zip` → **Install**
+3. Reopen the `en` page in Universal Editor; check the images in the DAM.
 
-## Sources
-- `jcr_root/` + `META-INF/` — unpacked vault sources for `admiral-home.zip`.
-- `index.xml` — the generated home-page JCR (also at `jcr_root/.../en/.content.xml`).
+## Older packages (superseded)
+- `admiral-home-v1.1.zip` — jcr:content-only home, but images as raw nt:file (DAM blank).
+- `admiral-home.zip` — v1.0, replaced whole `en` page node (made it read-only).
+- `admiral-nav-footer.zip` — nav + footer only.
 
-## How the home-page JCR was generated
-`tools/importer/html-to-jcr.mjs` runs `content/index.plain.html` through
-helix-html2md → helix-md2jcr using the project's component-models.json /
-component-definition.json / component-filters.json. Requires `npm run build:json`
-first so all block models are registered.
+## Sources / regeneration
+- `dam-assets-src/` — unpacked dam:Asset structure for the images.
+- `index.xml` — generated home-page JCR (cq:Page form); `index-jcr-content.xml`
+  is the jcr:content-only form used in v1.1/v1.2.
+- `tools/importer/html-to-jcr.mjs` regenerates the home JCR from
+  `content/index.plain.html` (run `npm run build:json` first).
