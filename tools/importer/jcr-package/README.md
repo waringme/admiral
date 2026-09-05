@@ -1,31 +1,39 @@
-# Admiral nav + footer JCR content package
+# Admiral JCR content packages
 
-FileVault content package that installs the migrated **nav** and **footer**
-pages into the AEM author repository for the xwalk (Universal Editor) project.
+FileVault content packages for installing the migrated content into the AEM
+author repository (xwalk / Universal Editor project).
 
-## Contents
-- `admiral-nav-footer.zip` — the installable package (upload this).
-- `jcr_root/` + `META-INF/` — the unpacked vault sources (for reference / rebuild).
+## Packages
 
-## Installs to
-- `/content/admiral/language-masters/en/nav`
-- `/content/admiral/language-masters/en/footer`
+### `admiral-home.zip` (complete — use this)
+Installs the **home page, nav, footer, and DAM images**:
+- `/content/admiral/language-masters/en` — home page (9 blocks: hero-trust,
+  cards-product, video-advert, columns-notice, cards-article, columns-award,
+  carousel-review, columns-app, columns-links)
+- `/content/admiral/language-masters/en/nav` — navigation
+- `/content/admiral/language-masters/en/footer` — footer
+- `/content/dam/admiral/en/images` — 6 assets (article photos, app-store
+  badges, logo)
 
-These are the paths `blocks/header/header.js` and `blocks/footer/footer.js`
-fetch on the author instance (`/content/{site}/language-masters/{lang}/nav|footer`).
+`filter.xml` scopes the install to `/content/admiral/language-masters/en` and
+`/content/dam/admiral/en/images`.
 
-The `META-INF/vault/filter.xml` scopes the install to exactly those two paths —
-nothing else in the repository is touched.
+### `admiral-nav-footer.zip` (nav + footer only)
+Earlier package with just nav + footer, no home page or images. Superseded by
+`admiral-home.zip`.
 
 ## Install
 1. Open Package Manager on the author instance:
    `https://author-p147324-e2050468.adobeaemcloud.com/crx/packmgr`
-2. **Upload Package** → select `admiral-nav-footer.zip`.
+2. **Upload Package** → select `admiral-home.zip`.
 3. **Install**.
 
-## Rebuild the zip (if you edit the .content.xml sources)
-From this directory:
-```
-node -e "/* zip jcr_root + META-INF into admiral-nav-footer.zip */"
-```
-(or use any FileVault/`zip` tool: `zip -r admiral-nav-footer.zip jcr_root META-INF`)
+## Sources
+- `jcr_root/` + `META-INF/` — unpacked vault sources for `admiral-home.zip`.
+- `index.xml` — the generated home-page JCR (also at `jcr_root/.../en/.content.xml`).
+
+## How the home-page JCR was generated
+`tools/importer/html-to-jcr.mjs` runs `content/index.plain.html` through
+helix-html2md → helix-md2jcr using the project's component-models.json /
+component-definition.json / component-filters.json. Requires `npm run build:json`
+first so all block models are registered.

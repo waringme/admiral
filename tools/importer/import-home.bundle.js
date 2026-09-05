@@ -60,27 +60,32 @@ var CustomImportScript = (() => {
       nodes.filter(Boolean).forEach((n) => frag.appendChild(n));
       return frag;
     };
-    const cells = [];
-    if (bgImage) {
-      cells.push([hinted("image", bgImage)]);
-    }
     const textNodes = [];
     if (heading) textNodes.push(heading);
     if (subheading) textNodes.push(subheading);
-    if (textNodes.length) {
-      cells.push([hinted("text", ...textNodes)]);
-    }
+    let label = null;
     if (cta && cta.textContent.trim()) {
-      const label = document2.createElement("span");
+      label = document2.createElement("span");
       label.textContent = cta.textContent.trim();
-      cells.push([hinted("ctalabel", label)]);
     }
+    let link = null;
     if (cta && cta.getAttribute("href")) {
-      const link = document2.createElement("a");
+      link = document2.createElement("a");
       link.setAttribute("href", cta.getAttribute("href"));
       link.textContent = cta.getAttribute("href");
-      cells.push([hinted("ctalink", link)]);
     }
+    const cells = [
+      [bgImage ? hinted("image", bgImage) : ""],
+      [textNodes.length ? hinted("text", ...textNodes) : ""],
+      [""],
+      // enableunderline
+      [""],
+      // herolayout
+      [""],
+      // backgroundstyle
+      [label ? hinted("ctalabel", label) : ""],
+      [link ? hinted("ctalink", link) : ""]
+    ];
     const block = WebImporter.Blocks.createBlock(document2, { name: "hero-trust", cells });
     element.replaceWith(block);
   }
@@ -251,20 +256,26 @@ var CustomImportScript = (() => {
       nodes.filter(Boolean).forEach((n) => frag.appendChild(n));
       return frag;
     };
-    const cells = [];
+    const cells = [
+      [""],
+      // autoplay
+      [""],
+      // autoplayInterval
+      [""]
+      // imageZoom
+    ];
     slides.forEach((slide) => {
       const testimonial = slide.querySelector(".testimonial") || slide;
       const img = testimonial.querySelector(".image img, img");
       const quote = testimonial.querySelector(".callout, p.callout");
       const author = testimonial.querySelector(".testimonial__author, h1, h2, h3, h4");
       const location = testimonial.querySelector(".testimonial__location");
-      const imageCell = img ? hinted("image", img) : "";
       const textNodes = [];
       if (quote) textNodes.push(quote);
       if (author) textNodes.push(author);
       if (location) textNodes.push(location);
       const textCell = textNodes.length ? hinted("text", ...textNodes) : "";
-      cells.push([imageCell, textCell]);
+      cells.push([img ? hinted("image", img) : hinted("image"), textCell]);
     });
     const block = WebImporter.Blocks.createBlock(document2, { name: "carousel-review", cells });
     element.replaceWith(block);

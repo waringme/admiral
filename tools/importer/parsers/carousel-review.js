@@ -34,7 +34,15 @@ export default function parse(element, { document }) {
     return frag;
   };
 
-  const cells = [];
+  // carousel-review is a container: md2jcr consumes the first N rows as the
+  // container model's own fields (autoplay, autoplayInterval, imageZoom), then
+  // treats the remaining rows as `card` items. Emit those 3 container-field rows
+  // (empty = use defaults) before the review items so the split lands correctly.
+  const cells = [
+    [''], // autoplay
+    [''], // autoplayInterval
+    [''], // imageZoom
+  ];
 
   slides.forEach((slide) => {
     const testimonial = slide.querySelector('.testimonial') || slide;
@@ -43,9 +51,6 @@ export default function parse(element, { document }) {
     const author = testimonial.querySelector('.testimonial__author, h1, h2, h3, h4');
     const location = testimonial.querySelector('.testimonial__location');
 
-    // Image cell (mandatory per description; may still be empty).
-    const imageCell = img ? hinted('image', img) : '';
-
     // Text cell: quote + author heading + location.
     const textNodes = [];
     if (quote) textNodes.push(quote);
@@ -53,7 +58,10 @@ export default function parse(element, { document }) {
     if (location) textNodes.push(location);
     const textCell = textNodes.length ? hinted('text', ...textNodes) : '';
 
-    cells.push([imageCell, textCell]);
+    // card model = [image, text]; md2jcr maps each item cell positionally to a
+    // field. Always emit two cells (image | text) so the text lands on the text
+    // field. Reviews have no image → hinted-but-empty image cell.
+    cells.push([img ? hinted('image', img) : hinted('image'), textCell]);
   });
 
   const block = WebImporter.Blocks.createBlock(document, { name: 'carousel-review', cells });

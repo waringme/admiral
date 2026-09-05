@@ -40,35 +40,37 @@ export default function parse(element, { document }) {
     return frag;
   };
 
-  const cells = [];
-
-  // Row: background image
-  if (bgImage) {
-    cells.push([hinted('image', bgImage)]);
-  }
-
-  // Row: text (title + subheading as richtext)
+  // md2jcr maps each block row to a model field-group *by position*, so rows must
+  // appear in model-field order. We emit one row per field-group in order, with an
+  // empty cell for any group this content does not populate, so the hinted rows land
+  // on the right fields. Field-group order for hero-trust:
+  //   image, text, enableunderline, herolayout, backgroundstyle, ctalabel, ctalink
   const textNodes = [];
   if (heading) textNodes.push(heading);
   if (subheading) textNodes.push(subheading);
-  if (textNodes.length) {
-    cells.push([hinted('text', ...textNodes)]);
-  }
 
-  // Row: CTA label (button text)
+  let label = null;
   if (cta && cta.textContent.trim()) {
-    const label = document.createElement('span');
+    label = document.createElement('span');
     label.textContent = cta.textContent.trim();
-    cells.push([hinted('ctalabel', label)]);
   }
 
-  // Row: CTA link (anchor for aem-content link field)
+  let link = null;
   if (cta && cta.getAttribute('href')) {
-    const link = document.createElement('a');
+    link = document.createElement('a');
     link.setAttribute('href', cta.getAttribute('href'));
     link.textContent = cta.getAttribute('href');
-    cells.push([hinted('ctalink', link)]);
   }
+
+  const cells = [
+    [bgImage ? hinted('image', bgImage) : ''],
+    [textNodes.length ? hinted('text', ...textNodes) : ''],
+    [''], // enableunderline
+    [''], // herolayout
+    [''], // backgroundstyle
+    [label ? hinted('ctalabel', label) : ''],
+    [link ? hinted('ctalink', link) : ''],
+  ];
 
   const block = WebImporter.Blocks.createBlock(document, { name: 'hero-trust', cells });
   element.replaceWith(block);
