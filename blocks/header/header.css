@@ -525,15 +525,32 @@ header nav .nav-tools ul > li > a:hover {
   text-decoration: underline;
 }
 
-/* Desktop: utility links are white + uppercase, sitting on the black band. */
+/* Desktop: utility links are white + uppercase, sitting on the black band.
+   The far-right pair (My account, Claims) are full-height colour boxes flush to
+   the right edge, matching admiral.com. */
 @media (width >= 900px) {
+  header nav .nav-tools {
+    /* let the coloured boxes sit flush to the bar's right edge (cancel the
+       nav's 32px right padding) */
+    margin-right: -32px;
+  }
+
   header nav .nav-tools ul {
-    gap: 26px;
-    align-items: center;
+    gap: 0;
+    align-items: stretch;
     height: 47px;
   }
 
+  header nav .nav-tools ul > li {
+    display: flex;
+    align-items: center;
+  }
+
   header nav .nav-tools ul > li > a {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    padding: 0 14px;
     color: #fff;
     font-size: 12.6px;
     text-transform: uppercase;
@@ -543,6 +560,58 @@ header nav .nav-tools ul > li > a:hover {
   header nav .nav-tools ul > li > a:hover {
     color: #fff;
     text-decoration: underline;
+  }
+
+  /* thin dividers between the plain utility links (source: #555) */
+  header nav .nav-tools ul > li:not(:first-child) {
+    border-left: 1px solid #555;
+  }
+
+  /* My account — yellow box, dark text (source rgb(255,223,67)) */
+  header nav .nav-tools ul > li:has(a[href*="myaccount"]) {
+    background-color: #ffdf43;
+    border-left: 1px solid #c8aa3c;
+  }
+
+  header nav .nav-tools ul > li:has(a[href*="myaccount"]) > a,
+  header nav .nav-tools ul > li:has(a[href*="myaccount"]) > a:hover {
+    color: #2c2822;
+  }
+
+  /* Claims — magenta box, white text (source rgb(194,0,96)) */
+  header nav .nav-tools ul > li:has(a[href*="make-a-claim"]) {
+    background-color: #c20060;
+    border-left: 1px solid #555;
+  }
+
+  header nav .nav-tools ul > li:has(a[href*="make-a-claim"]) > a {
+    color: #fff;
+  }
+
+  /* icons before the boxed items (person / warning triangle) */
+  header nav .nav-tools ul > li:has(a[href*="myaccount"]) > a::before,
+  header nav .nav-tools ul > li:has(a[href*="make-a-claim"]) > a::before {
+    content: '';
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    margin-right: 8px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+  }
+
+  header nav .nav-tools ul > li:has(a[href*="myaccount"]) > a::before {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%232c2822'%3E%3Cpath d='M12 12a5 5 0 1 0-5-5 5 5 0 0 0 5 5Zm0 2c-4 0-9 2-9 6v2h18v-2c0-4-5-6-9-6Z'/%3E%3C/svg%3E");
+  }
+
+  header nav .nav-tools ul > li:has(a[href*="make-a-claim"]) > a::before {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23ffffff'%3E%3Cpath d='M12 2 1 21h22L12 2Zm0 6 1 7h-2l1-7Zm0 9a1.2 1.2 0 1 1-1.2 1.2A1.2 1.2 0 0 1 12 17Z'/%3E%3C/svg%3E");
+  }
+
+  /* the extra "Get a quote" CTA is not in the source header — hide on desktop */
+  header nav .nav-tools p {
+    display: none;
   }
 }
 
