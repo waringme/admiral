@@ -140,11 +140,15 @@ header nav[aria-expanded='true'] .nav-sections > ul > li {
     display: flex;
   }
 
+  /* Desktop keeps aria-expanded="true" (boilerplate mobile-drawer logic), so this
+     must mirror the base desktop grid — same tools/brand/sections layout and the
+     same fixed band heights (36px black strip, 84px light bar) — otherwise the
+     rows collapse to content height and the band ratio is lost. */
   header nav[aria-expanded='true'] {
     grid-template:
-      'brand tools' auto
-      'brand sections' auto / auto 1fr;
-    min-height: 0;
+      'tools tools' 36px
+      'brand sections' 84px / auto 1fr;
+    min-height: 120px;
     overflow: visible;
   }
 }
