@@ -9,7 +9,7 @@ body {
 
 @media (width >= 900px) {
   body {
-    padding-top: 118px;
+    padding-top: 139px;
   }
 }
 
@@ -120,12 +120,12 @@ header nav[aria-expanded='true'] .nav-sections > ul > li {
     display: grid;
     grid-template:
       'tools tools' 47px
-      'brand sections' 71px / auto 1fr;
+      'brand sections' 92px / auto 1fr;
     align-items: center;
     gap: 0 24px;
     max-width: 1200px;
     height: auto;
-    min-height: 118px;
+    min-height: 139px;
     padding: 0 32px;
   }
 
