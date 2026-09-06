@@ -146,32 +146,33 @@ export default async function decorate(block) {
     });
 
     navSections.querySelectorAll(':scope > ul > li').forEach((navSection) => {
-      const isDrop = !!navSection.querySelector('ul');
+      const submenu = navSection.querySelector(':scope > ul');
+      const isDrop = !!submenu;
       if (isDrop) {
         navSection.classList.add('nav-drop');
         // the parent label of a drop is a toggle, not a link (both desktop and
         // mobile) — prevent navigation so the click opens/closes the panel.
-        const parentLink = navSection.querySelector(':scope > a');
+        // The label anchor is wrapped in a <p> (…/<li><p><a>…</a></p><ul>),
+        // so match the direct <a> OR the <a> inside the leading <p>.
+        const parentLink = navSection.querySelector(':scope > a, :scope > p > a');
         if (parentLink) {
           parentLink.addEventListener('click', (e) => e.preventDefault());
         }
       }
       navSection.addEventListener('click', (e) => {
+        // a click on a link inside the submenu should navigate normally
+        const onSubLink = isDrop && submenu.contains(e.target);
         if (isDesktop.matches) {
           // Desktop: click-to-toggle (source behaviour — no hover). Only the
           // parent label toggles; clicking a sub-link navigates normally.
-          const onSubLink = e.target.closest(':scope ul a');
-          if (isDrop && onSubLink) return;
+          if (onSubLink) return;
           const expanded = navSection.getAttribute('aria-expanded') === 'true';
           toggleAllNavSections(navSections); // close any other open panel
           navSection.setAttribute('aria-expanded', expanded ? 'false' : 'true');
-        } else if (isDrop) {
+        } else if (isDrop && !onSubLink) {
           // mobile: only toggle when tapping the row itself (not a sub-link)
-          const onSubLink = e.target.closest(':scope ul a');
-          if (!onSubLink) {
-            const expanded = navSection.getAttribute('aria-expanded') === 'true';
-            navSection.setAttribute('aria-expanded', expanded ? 'false' : 'true');
-          }
+          const expanded = navSection.getAttribute('aria-expanded') === 'true';
+          navSection.setAttribute('aria-expanded', expanded ? 'false' : 'true');
         }
       });
     });
