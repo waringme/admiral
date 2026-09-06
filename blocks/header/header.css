@@ -798,9 +798,28 @@ body header .nav-wrapper.is-scrolled {
     display: none;
   }
 
+  /* the open panel: just reveal it — inherit all layout (full-bleed width,
+     padding, columns) from the base .nav-drop > ul rule so desktop matches
+     the source; don't re-declare padding here (that overrode the panel). */
   header nav[aria-expanded='true'] .nav-sections .nav-drop[aria-expanded='true'] > ul {
     display: block;
-    padding: 16px 20px;
+  }
+
+  /* panel links & group titles — win over the deep mobile-drawer rules that
+     otherwise set grey 15px links / uppercase blue titles on desktop. */
+  header nav[aria-expanded='true'] .nav-sections > ul > li > ul > li > a {
+    color: #2350a0;                 /* source: rgb(35, 80, 160) */
+    font-weight: 400;
+    font-size: 14.4px;
+    line-height: 16.56px;
+  }
+
+  header nav[aria-expanded='true'] .nav-sections > ul > li > ul > li.nav-group-title strong {
+    color: #aaa;
+    font-size: 16.2px;
+    font-weight: 600;
+    text-transform: none;
+    letter-spacing: normal;
   }
 
   header nav[aria-expanded='true'] .nav-tools ul {
