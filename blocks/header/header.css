@@ -261,7 +261,7 @@ header nav .nav-brand a::after {
 /* "Demo Purpose Site" label beside the logo */
 header nav .nav-brand .nav-demo-label {
   margin-left: 16px;
-  color: var(--brand-blue, #005485);
+  color: #e4002b;
   font-family: var(--heading-font-family);
   font-size: 24px;
   font-weight: 700;
