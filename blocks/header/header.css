@@ -798,11 +798,18 @@ body header .nav-wrapper.is-scrolled {
     display: none;
   }
 
-  /* the open panel: just reveal it — inherit all layout (full-bleed width,
-     padding, columns) from the base .nav-drop > ul rule so desktop matches
-     the source; don't re-declare padding here (that overrode the panel). */
+  /* the open panel — restate the source layout here because the boilerplate
+     mobile-drawer rules (higher specificity than the base .nav-drop > ul)
+     otherwise supply a cramped inline padding on desktop. */
   header nav[aria-expanded='true'] .nav-sections .nav-drop[aria-expanded='true'] > ul {
     display: block;
+    padding:
+      22px
+      max(32px, calc(100vw - 800px))
+      24px
+      max(32px, calc((100vw - 1200px) / 2));
+    columns: 3;
+    column-gap: 40px;
   }
 
   /* panel links & group titles — win over the deep mobile-drawer rules that
