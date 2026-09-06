@@ -39,7 +39,9 @@ function focusNavSection() {
  * @param {Boolean} expanded Whether the element should be expanded or collapsed
  */
 function toggleAllNavSections(sections, expanded = false) {
-  sections.querySelectorAll('.nav-sections .default-content-wrapper > ul > li').forEach((section) => {
+  // `sections` is the .nav-sections element itself; its top-level items are its
+  // direct ul > li children.
+  sections.querySelectorAll(':scope > ul > li').forEach((section) => {
     section.setAttribute('aria-expanded', expanded);
   });
 }
@@ -137,23 +139,25 @@ export default async function decorate(block) {
       }
     });
 
-    let closeTimer = null;
     navSections.querySelectorAll(':scope > ul > li').forEach((navSection) => {
       const isDrop = !!navSection.querySelector('ul');
       if (isDrop) {
         navSection.classList.add('nav-drop');
-        // the parent label of a drop is a toggle, not a link, on mobile
+        // the parent label of a drop is a toggle, not a link (both desktop and
+        // mobile) — prevent navigation so the click opens/closes the panel.
         const parentLink = navSection.querySelector(':scope > a');
         if (parentLink) {
-          parentLink.addEventListener('click', (e) => {
-            if (!isDesktop.matches) e.preventDefault();
-          });
+          parentLink.addEventListener('click', (e) => e.preventDefault());
         }
       }
       navSection.addEventListener('click', (e) => {
         if (isDesktop.matches) {
+          // Desktop: click-to-toggle (source behaviour — no hover). Only the
+          // parent label toggles; clicking a sub-link navigates normally.
+          const onSubLink = e.target.closest(':scope ul a');
+          if (isDrop && onSubLink) return;
           const expanded = navSection.getAttribute('aria-expanded') === 'true';
-          toggleAllNavSections(navSections);
+          toggleAllNavSections(navSections); // close any other open panel
           navSection.setAttribute('aria-expanded', expanded ? 'false' : 'true');
         } else if (isDrop) {
           // mobile: only toggle when tapping the row itself (not a sub-link)
@@ -164,22 +168,12 @@ export default async function decorate(block) {
           }
         }
       });
-      // open on hover (desktop) with a small close grace period
-      navSection.addEventListener('mouseenter', () => {
-        if (isDesktop.matches && navSection.classList.contains('nav-drop')) {
-          if (closeTimer) { clearTimeout(closeTimer); closeTimer = null; }
-          toggleAllNavSections(navSections);
-          navSection.setAttribute('aria-expanded', 'true');
-        }
-      });
-      navSection.addEventListener('mouseleave', () => {
-        if (isDesktop.matches) {
-          if (closeTimer) clearTimeout(closeTimer);
-          closeTimer = setTimeout(() => {
-            navSection.setAttribute('aria-expanded', 'false');
-          }, 220);
-        }
-      });
+    });
+
+    // Desktop: click outside the nav closes any open dropdown.
+    document.addEventListener('click', (e) => {
+      if (!isDesktop.matches) return;
+      if (!nav.contains(e.target)) toggleAllNavSections(navSections);
     });
   }
 

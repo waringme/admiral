@@ -329,10 +329,43 @@ header nav .nav-sections > ul > li > a::after {
   content: none;
 }
 
-header nav .nav-sections > ul > li:hover > a,
-header nav .nav-sections > ul > li[aria-expanded='true'] > a {
+header nav .nav-sections > ul > li:hover > a {
   color: #163b78;
   text-decoration: underline;
+}
+
+/* Desktop open state (click-toggle): the active tab turns white to connect to
+   the white dropdown panel, and a ✕ close icon appears next to the label. */
+@media (width >= 900px) {
+  header nav .nav-sections > ul > li.nav-drop {
+    position: relative;
+  }
+
+  header nav .nav-sections > ul > li[aria-expanded='true'] {
+    background: #fff;
+    z-index: 3;
+  }
+
+  header nav .nav-sections > ul > li[aria-expanded='true'] > a {
+    position: relative;
+    color: #2350a0;
+    text-decoration: none;
+    padding-right: 40px;   /* room for the ✕ */
+  }
+
+  header nav .nav-sections > ul > li[aria-expanded='true'] > a::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: 16px;
+    width: 15px;
+    height: 15px;
+    transform: translateY(-50%);
+    background-image: url("https://mktgblobpubaccess1.blob.core.windows.net/eui-frontend-assets/admiral/images/mega-nav/close-nav-section.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+  }
 }
 
 /* dropdown submenus */
@@ -403,40 +436,27 @@ header nav[aria-expanded='true'] .nav-sections .nav-group-title strong {
 }
 
 @media (width >= 900px) {
+  /* Full-width white mega-panel spanning the whole header, dropping down flush
+     below the grey nav bar (source: .mega-nav__dropdown). It breaks out of the
+     1200px nav column via 100vw, and lays its groups out in a centred 1200px
+     content column. */
   header nav .nav-sections .nav-drop > ul {
     display: none;
     position: absolute;
-    top: calc(100% + 14px);
-    left: 0;
-    min-width: 260px;
-    max-width: 640px;
-    padding: 24px 28px;
+    top: calc(100% + 1px);          /* just under the nav bar's bottom border */
+    left: 50%;
+    transform: translateX(-50vw);
+    width: 100vw;
+    box-sizing: border-box;
+    padding: 40px max(32px, calc((100vw - 1200px) / 2)) 56px;
     background: #fff;
-    box-shadow: 0 12px 28px rgb(0 0 0 / 16%);
-    border-radius: 6px;
-    border-top: 3px solid var(--brand-blue, #005485);
+    box-shadow: 0 18px 28px rgb(0 0 0 / 12%);
+    border-bottom: 1px solid #d6d6d6;
 
     /* multi-column flow grouped under subtitles */
-    columns: 2;
-    column-gap: 40px;
-    column-fill: balance;
-  }
-
-  /* Home (3rd item) has many groups — allow 3 columns and wider panel,
-     anchored so it stays within the viewport */
-  header nav .nav-sections > ul > li:nth-child(3) > ul {
     columns: 3;
-    max-width: 720px;
-    left: 50%;
-    transform: translateX(-50%);
-  }
-
-  /* right-most dropdowns anchor to the right edge to stay on-screen */
-  header nav .nav-sections > ul > li:nth-last-child(1) > ul,
-  header nav .nav-sections > ul > li:nth-last-child(2) > ul,
-  header nav .nav-sections > ul > li:nth-last-child(3) > ul {
-    left: auto;
-    right: 0;
+    column-gap: 48px;
+    column-fill: balance;
   }
 
   header nav .nav-sections .nav-drop[aria-expanded='true'] > ul {
@@ -463,7 +483,7 @@ header nav[aria-expanded='true'] .nav-sections .nav-group-title strong {
   }
 
   header nav .nav-sections .nav-drop > ul > li > a:hover {
-    color: var(--accent-orange, #ff7911);
+    color: #2350a0;
     text-decoration: underline;
   }
 
