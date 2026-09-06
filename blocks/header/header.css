@@ -258,6 +258,25 @@ header nav .nav-brand a::after {
   content: none;
 }
 
+/* "Demo Purpose Site" label beside the logo */
+header nav .nav-brand .nav-demo-label {
+  margin-left: 16px;
+  color: var(--brand-blue, #005485);
+  font-family: var(--heading-font-family);
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1.1;
+  white-space: nowrap;
+}
+
+@media (width <= 900px) {
+  header nav .nav-brand .nav-demo-label {
+    margin-left: 10px;
+    font-size: 16px;
+    white-space: normal;
+  }
+}
+
 /* sections / main nav */
 header nav .nav-sections {
   grid-area: sections;

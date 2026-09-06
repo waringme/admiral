@@ -134,6 +134,15 @@ export default async function decorate(block) {
       logo.width = 156;
       brandLink.append(logo);
     }
+
+    // "Demo Purpose Site" label alongside the logo (not part of the portable
+    // fragment, so injected here).
+    if (!navBrand.querySelector('.nav-demo-label')) {
+      const demoLabel = document.createElement('span');
+      demoLabel.className = 'nav-demo-label';
+      demoLabel.textContent = 'Demo Purpose Site';
+      navBrand.append(demoLabel);
+    }
   }
 
   // Per-menu promo card shown on the right of each open mega-panel (source:
