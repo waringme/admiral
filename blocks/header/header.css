@@ -554,13 +554,20 @@ header nav .nav-tools ul > li > a:hover {
    the right edge, matching admiral.com. */
 @media (width >= 900px) {
   header nav .nav-tools {
-    /* let the coloured boxes sit flush to the bar's right edge (cancel the
-       nav's 32px right padding) */
+    /* fill the full 36px black band exactly (so links aren't clipped at the
+       top) and let the coloured boxes sit flush to the bar's right edge
+       (cancel the nav's 32px right padding). Not a flex container — the CTA
+       <p> is hidden on desktop, so the ul owns the whole row. */
+    display: block;
+    align-self: stretch;
+    height: 36px;
     margin-right: -32px;
   }
 
   header nav .nav-tools ul {
+    width: 100%;
     gap: 0;
+    justify-content: flex-start;
     align-items: stretch;
     height: 36px;
   }
@@ -692,14 +699,10 @@ header nav .nav-tools p a:hover {
 }
 
 @media (width >= 900px) {
-  /* place the CTA on the top (tools) row, right of the utility links */
-  header nav .nav-tools {
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    gap: 20px;
-  }
-
+  /* the CTA <p> is hidden on desktop (see rule above), so the utility ul owns
+     the whole tools row — keep it as a full-width block, not a flex container,
+     so the ul can stretch and margin-left:auto can split the plain links
+     (left) from the coloured account boxes (right). */
   header nav .nav-tools p {
     margin: 0;
   }
@@ -776,8 +779,9 @@ body header .nav-wrapper.is-scrolled {
 
   header nav[aria-expanded='true'] .nav-tools ul {
     flex-direction: row;
-    justify-content: flex-end;
-    gap: 16px;
+    justify-content: flex-start;
+    width: 100%;
+    gap: 0;
     padding: 0;
   }
 }
