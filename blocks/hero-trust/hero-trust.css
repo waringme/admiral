@@ -1,36 +1,45 @@
-/* Block: hero-trust — full-bleed navy hero banner (admiral.com home).
- * Values extracted from source computed styles:
- *   navy box  bg rgb(12,58,132)  padding 34px 24px 40px  radius 8px
- *   heading   37.8px / 48px  weight 400  #fff  centered
- *   subhead   18px / 28px    weight 300  #fff  centered
- *   CTA       linear-gradient(#00c535, #00a32e)  #fff  21.6px/30px
- *             uppercase  padding 10px 15px  radius 4px
+/* Block: hero-trust — admiral.com home hero ("30 years trust" banner).
+ *
+ * Source layout (#basic-12087 .hero-banner--B-left):
+ *   - light banner with a background photo (car-covered-with-hat), ~420px tall,
+ *     contained to the section width; photo anchored to the right so the car
+ *     shows beside the copy.
+ *   - a navy copy panel (~522px wide, radius 8px) sitting on the LEFT, offset
+ *     from the edge and vertically centred, holding:
+ *       heading   37.8px / 48px  weight 400  #fff  centred
+ *       subhead   18px   / 28px  weight 300  #fff  centred
+ *       CTA       green gradient (#00c535 -> #00a32e)  #fff  21.6px/30px
+ *                 uppercase  block  radius 4px
  */
 
-/* Full-bleed: escape the 1200px section wrapper so the navy spans edge-to-edge. */
-.hero-trust-wrapper {
-  max-width: 100% !important;
-  margin: 0 !important;
-  padding: 0 !important;
+/* --------------------------
+   Banner shell — background photo, holds the navy panel on the left
+--------------------------- */
+.hero-trust {
+  display: flex;
+  align-items: center;
+  min-height: 420px;
+  padding: 34px 24px;
+  box-sizing: border-box;
+  background-color: #eef0f2;                 /* light fallback behind the photo */
+  background-image: url("https://mktgblobpubaccess1.blob.core.windows.net/eui-frontend-assets/admiral/images/hero/background/car-covered-with-hat.jpg");
+  background-size: cover;
+  background-position: center right;
+  background-repeat: no-repeat;
+  border-radius: 8px;
+  overflow: hidden;
 }
 
 /* --------------------------
-   Banner shell
+   Navy copy panel — left-aligned, constrained width
 --------------------------- */
-.hero-trust {
-  background-color: var(--hero-navy, #0c3a84);
-  padding: 48px 24px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-sizing: border-box;
-}
-
-/* Content column — constrained + centered inside the full-width navy. */
 .hero-trust .hero-trust-copy {
   width: 100%;
-  max-width: 640px;
-  margin: 0 auto;
+  max-width: 522px;
+  margin-left: clamp(0px, 11%, 148px);       /* source panel sits ~148px in */
+  padding: 34px 24px 40px;
+  background-color: var(--hero-navy, #0c3a84);
+  border-radius: 8px;
   text-align: center;
   box-sizing: border-box;
 }
@@ -42,7 +51,7 @@
 .hero-trust .hero-trust-copy h2,
 .hero-trust .hero-trust-copy h3 {
   margin: 0;
-  padding: 0 0 24px;
+  padding: 0 0 16px;
   color: var(--text-light, #fff);
   font-family: var(--heading-font-family);
   font-size: 37.8px;
@@ -56,7 +65,7 @@
 --------------------------- */
 .hero-trust .hero-trust-copy p {
   margin: 0;
-  padding: 0 0 30px;
+  padding: 0 0 24px;
   color: var(--text-light, #fff);
   font-family: var(--body-font-family);
   font-size: 18px;
@@ -66,14 +75,14 @@
 }
 
 /* --------------------------
-   CTA — green gradient pill.
+   CTA — green gradient pill, near-full-width of the panel.
    Overrides the global a / a::after chevron + ellipsis rules.
 --------------------------- */
 .hero-trust .hero-trust-copy a.hero-trust-cta,
 .hero-trust .hero-trust-copy a.hero-trust-cta:any-link {
-  display: inline-block;
-  margin: 0;
-  padding: 10px 24px;
+  display: block;
+  margin: 0 22px;
+  padding: 10px 15px;
   background-color: transparent;
   background-image: linear-gradient(#00c535 0%, #00a32e 100%);
   color: var(--text-light, #fff);
@@ -105,25 +114,26 @@
 }
 
 /* --------------------------
-   Responsive
+   Responsive — stack the panel over the photo, keep it readable.
 --------------------------- */
-@media (width >= 900px) {
-  .hero-trust {
-    padding: 64px 32px;
-  }
-}
-
 @media (width <= 768px) {
   .hero-trust {
-    padding: 40px 20px;
+    min-height: 340px;
+    padding: 24px 16px;
+    background-position: center;
+    justify-content: center;
+  }
+
+  .hero-trust .hero-trust-copy {
+    margin-left: 0;
+    max-width: 480px;
   }
 
   .hero-trust .hero-trust-copy h1,
   .hero-trust .hero-trust-copy h2,
   .hero-trust .hero-trust-copy h3 {
-    font-size: 32px;
-    line-height: 40px;
-    padding-bottom: 20px;
+    font-size: 30px;
+    line-height: 38px;
   }
 
   .hero-trust .hero-trust-copy a.hero-trust-cta,
