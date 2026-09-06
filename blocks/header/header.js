@@ -113,6 +113,21 @@ export default async function decorate(block) {
     }
   });
 
+  // Ensure the brand logo is present. The DA/EDS plain-html pipeline can strip
+  // the logo <img> from the fragment (leaving an empty home link), so if the
+  // brand link has no image, inject the Admiral logo from the brand CDN.
+  const navBrand = nav.querySelector('.nav-brand');
+  if (navBrand) {
+    const brandLink = navBrand.querySelector('a[href="/"], a') || navBrand;
+    if (!brandLink.querySelector('img')) {
+      const logo = document.createElement('img');
+      logo.src = 'https://mktgblobpubaccess1.blob.core.windows.net/eui-frontend-assets/admiral/images/logos/admiral-logo.svg';
+      logo.alt = 'Admiral Insurance logo';
+      logo.width = 156;
+      brandLink.append(logo);
+    }
+  }
+
   const navSections = nav.querySelector('.nav-sections');
   if (navSections) {
     // tag subtitle group headings (li with <strong> and no link)
