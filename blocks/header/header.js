@@ -136,6 +136,41 @@ export default async function decorate(block) {
     }
   }
 
+  // Per-menu promo card shown on the right of each open mega-panel (source:
+  // admiral.com .mega-nav__promo). Keyed by the top-level label.
+  const PROMO_CARDS = {
+    Motor: {
+      title: 'Admiral App',
+      body: 'The easy way to view and manage your insurance policy on the go.',
+      linkText: 'Find out more',
+      linkHref: '/myaccount/admiral-app',
+    },
+    Home: {
+      title: 'Admiral App',
+      body: 'Easily manage your cover, view your documents, and much more with the Admiral app.',
+      linkText: 'Find out more',
+      linkHref: '/myaccount/admiral-app',
+    },
+    Travel: {
+      title: 'Refer a friend',
+      body: 'Earn up to £75 by introducing your friends and family to Admiral. The more you get on board, the more you’re rewarded!',
+      linkText: 'Find out more',
+      linkHref: 'https://www.admiral.com/refer-a-friend',
+    },
+    Pet: {
+      title: 'Refer a friend',
+      body: 'Earn up to £75 by introducing your friends and family to Admiral. The more you get on board, the more you’re rewarded!',
+      linkText: 'Find out more',
+      linkHref: 'https://www.admiral.com/refer-a-friend',
+    },
+    Money: {
+      title: 'How to improve your credit score',
+      body: 'A good credit score can help you get a better deal on a loan, mortgage and other types of finance.',
+      linkText: 'Find out more',
+      linkHref: '/loans/improve-your-credit-score',
+    },
+  };
+
   const navSections = nav.querySelector('.nav-sections');
   if (navSections) {
     // tag subtitle group headings (li with <strong> and no link)
@@ -157,6 +192,37 @@ export default async function decorate(block) {
         const parentLink = navSection.querySelector(':scope > a, :scope > p > a');
         if (parentLink) {
           parentLink.addEventListener('click', (e) => e.preventDefault());
+        }
+
+        // Build the panel to match admiral.com: a blue section heading atop
+        // the link columns, plus a promo card on the right. The heading + card
+        // are decorative chrome (not part of the portable fragment), so we
+        // inject them here rather than in nav.plain.html.
+        const label = parentLink ? parentLink.textContent.trim() : '';
+
+        if (label) {
+          const heading = document.createElement('p');
+          heading.className = 'nav-panel-heading';
+          heading.textContent = label;
+          submenu.prepend(heading);
+        }
+
+        const promo = PROMO_CARDS[label];
+        if (promo) {
+          const card = document.createElement('div');
+          card.className = 'nav-panel-promo';
+          const cardTitle = document.createElement('p');
+          cardTitle.className = 'nav-panel-promo-title';
+          cardTitle.textContent = promo.title;
+          const cardBody = document.createElement('p');
+          cardBody.className = 'nav-panel-promo-body';
+          cardBody.textContent = promo.body;
+          const cardLink = document.createElement('a');
+          cardLink.className = 'nav-panel-promo-link';
+          cardLink.href = promo.linkHref;
+          cardLink.textContent = promo.linkText;
+          card.append(cardTitle, cardBody, cardLink);
+          submenu.append(card);
         }
       }
       navSection.addEventListener('click', (e) => {
