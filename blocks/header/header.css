@@ -302,20 +302,28 @@ header nav .nav-sections > ul > li {
     height: 100%;
   }
 
-  /* vertical divider between top-level items (source: 1px #d6d6d6) */
+  /* full-height vertical divider between top-level items (source: 1px
+     #d6d6d6, spanning the whole bar height). No border on the last item's
+     right edge — the source only draws left-side dividers. */
   header nav .nav-sections > ul > li {
     display: flex;
-    align-items: center;
+    align-items: stretch;
     padding: 0;
     border-left: 1px solid #d6d6d6;
   }
 
-  header nav .nav-sections > ul > li:last-child {
-    border-right: 1px solid #d6d6d6;
+  /* the label anchor is wrapped in a <p>; make it fill the full item height
+     so the click target (and the dividers around it) span the whole bar */
+  header nav .nav-sections > ul > li > p {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    margin: 0;
   }
 }
 
-header nav .nav-sections > ul > li > a {
+header nav .nav-sections > ul > li > a,
+header nav .nav-sections > ul > li > p > a {
   color: #2350a0;
   font-weight: 600;
   font-size: 14.4px;
@@ -323,17 +331,22 @@ header nav .nav-sections > ul > li > a {
 }
 
 @media (width >= 900px) {
-  header nav .nav-sections > ul > li > a {
-    display: block;
-    padding: 12px 20px 13px;
+  header nav .nav-sections > ul > li > a,
+  header nav .nav-sections > ul > li > p > a {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    padding: 0 20px;
   }
 }
 
-header nav .nav-sections > ul > li > a::after {
+header nav .nav-sections > ul > li > a::after,
+header nav .nav-sections > ul > li > p > a::after {
   content: none;
 }
 
-header nav .nav-sections > ul > li:hover > a {
+header nav .nav-sections > ul > li:hover > a,
+header nav .nav-sections > ul > li:hover > p > a {
   color: #163b78;
   text-decoration: underline;
 }
@@ -350,14 +363,16 @@ header nav .nav-sections > ul > li:hover > a {
     z-index: 3;
   }
 
-  header nav .nav-sections > ul > li[aria-expanded='true'] > a {
+  header nav .nav-sections > ul > li[aria-expanded='true'] > a,
+  header nav .nav-sections > ul > li[aria-expanded='true'] > p > a {
     position: relative;
     color: #2350a0;
     text-decoration: none;
     padding-right: 40px;   /* room for the ✕ */
   }
 
-  header nav .nav-sections > ul > li[aria-expanded='true'] > a::after {
+  header nav .nav-sections > ul > li[aria-expanded='true'] > a::after,
+  header nav .nav-sections > ul > li[aria-expanded='true'] > p > a::after {
     content: '';
     position: absolute;
     top: 50%;
@@ -759,11 +774,14 @@ body header .nav-wrapper.is-scrolled {
   header nav[aria-expanded='true'] .nav-sections > ul {
     display: flex;
     justify-content: flex-end;
-    gap: 24px;
-    align-items: center;
+    gap: 0;
+    align-items: stretch;
+    height: 100%;
   }
 
   header nav[aria-expanded='true'] .nav-sections > ul > li {
+    display: flex;
+    align-items: center;
     padding: 0;
     border-bottom: 0;
   }
