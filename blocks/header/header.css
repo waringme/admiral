@@ -505,7 +505,7 @@ header nav .nav-tools ul {
 
 @media (width >= 900px) {
   header nav .nav-tools ul {
-    justify-content: flex-end;
+    justify-content: flex-start;
   }
 }
 
@@ -567,8 +567,11 @@ header nav .nav-tools ul > li > a:hover {
     border-left: 1px solid #555;
   }
 
-  /* My account — yellow box, dark text (source rgb(255,223,67)) */
+  /* My account — yellow box, dark text (source rgb(255,223,67)).
+     margin-left:auto pushes it + Claims to the right edge, leaving the plain
+     links (Contact us, Help and Support) on the left. */
   header nav .nav-tools ul > li:has(a[href*="myaccount"]) {
+    margin-left: auto;
     background-color: #ffdf43;
     border-left: 1px solid #c8aa3c;
   }
