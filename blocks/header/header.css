@@ -734,6 +734,13 @@ body header .nav-wrapper.is-scrolled {
   body header .nav-wrapper.is-scrolled .nav-tools ul {
     display: none;
   }
+
+  /* When scrolled the utility row is hidden, so remove the black band —
+     otherwise the blue nav items (Motor, Home, …) sit on black and can't be
+     read. The whole compact bar stays on the light-grey background. */
+  body header .nav-wrapper.is-scrolled::before {
+    display: none;
+  }
 }
 
 /* desktop overrides for the (boilerplate-set) expanded state — must win over mobile rules above */
