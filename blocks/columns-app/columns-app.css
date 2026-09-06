@@ -24,6 +24,7 @@
   border-radius: 4px;
   overflow: hidden;
   position: relative;
+
   /* Source panel is a contained banner (~984px), centered with side margins —
      not full-bleed. Constrain so the copy column doesn't stretch. */
   max-width: 984px;
