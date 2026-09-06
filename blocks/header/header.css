@@ -467,14 +467,22 @@ header nav[aria-expanded='true'] .nav-sections .nav-group-title strong {
     transform: translateX(-50vw);
     width: 100vw;
     box-sizing: border-box;
-    padding: 40px max(32px, calc((100vw - 1200px) / 2)) 56px;
+
+    /* top/bottom match source (~20/22px); left aligns to the 1200 content
+       column, and an oversized right padding groups the link columns into a
+       ~760px block on the LEFT — mirroring the source, which reserves the
+       right side for a promo card. */
+    padding:
+      22px
+      max(32px, calc(100vw - 800px))
+      24px
+      max(32px, calc((100vw - 1200px) / 2));
     background: #fff;
-    box-shadow: 0 18px 28px rgb(0 0 0 / 12%);
     border-bottom: 1px solid #d6d6d6;
 
     /* multi-column flow grouped under subtitles */
     columns: 3;
-    column-gap: 48px;
+    column-gap: 40px;
     column-fill: balance;
   }
 
@@ -490,9 +498,10 @@ header nav[aria-expanded='true'] .nav-sections .nav-group-title strong {
   }
 
   header nav .nav-sections .nav-drop > ul > li > a {
-    color: var(--text-color, #4f4f4f);
+    color: #2350a0;                 /* source: rgb(35, 80, 160) */
     font-weight: 400;
-    font-size: 15px;
+    font-size: 14.4px;
+    line-height: 16.56px;
     text-decoration: none;
     white-space: normal;
   }
@@ -506,25 +515,24 @@ header nav[aria-expanded='true'] .nav-sections .nav-group-title strong {
     text-decoration: underline;
   }
 
-  /* subtitle group headings inside a panel */
+  /* subtitle group headings inside a panel (source: grey rgb(170,170,170),
+     16.2px, weight 600, mixed-case, no border/rule) */
   header nav .nav-sections .nav-drop > ul > li.nav-group-title {
-    padding: 14px 0 4px;
+    padding: 12px 0 4px;
     margin-top: 6px;
-    border-top: 1px solid #eee;
     break-inside: avoid;
   }
 
   header nav .nav-sections .nav-drop > ul > li.nav-group-title:first-child {
-    border-top: 0;
     margin-top: 0;
   }
 
   header nav .nav-sections .nav-drop > ul > li.nav-group-title strong {
-    color: var(--brand-blue, #005485);
-    font-size: 13px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.04em;
+    color: #aaa;
+    font-size: 16.2px;
+    font-weight: 600;
+    text-transform: none;
+    letter-spacing: normal;
   }
 }
 
