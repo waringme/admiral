@@ -28,10 +28,10 @@ export default function parse(element, { document }) {
   const cells = [];
 
   // Product-tile icons: the source uses inline data-URI SVGs (dropped on import).
-  // The decoded SVGs are staged in the repo /icons folder as product-<slug>.svg.
-  // We emit an <img> pointing at that icon; html2md serializes it to the EDS
-  // icon token :product-<slug>: which aem.js decorateIcons resolves to
-  // /icons/product-<slug>.svg at runtime. The alt text keeps the label present.
+  // The decoded SVGs are stored in the DAM at
+  //   /content/dam/admiral/en/images/icons/product-<slug>.svg
+  // and referenced as <img> per tile.
+  const ICONS = '/content/dam/admiral/en/images/icons';
   const slug = (s) => s.trim().toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
 
   items.forEach((item) => {
@@ -39,11 +39,11 @@ export default function parse(element, { document }) {
     const labelEl = item.querySelector('.product-grid__text, span');
     const labelText = labelEl ? labelEl.textContent.trim() : item.textContent.trim();
 
-    // Image cell: icon for this product (resolves to /icons/product-<slug>.svg).
+    // Image cell: DAM icon for this product.
     let iconEl = null;
     if (labelText) {
       iconEl = document.createElement('img');
-      iconEl.setAttribute('src', `/icons/product-${slug(labelText)}.svg`);
+      iconEl.setAttribute('src', `${ICONS}/product-${slug(labelText)}.svg`);
       iconEl.setAttribute('alt', labelText);
     }
     const imageCell = iconEl ? hinted('image', iconEl) : '';

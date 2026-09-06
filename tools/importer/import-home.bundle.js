@@ -104,6 +104,7 @@ var CustomImportScript = (() => {
       return frag;
     };
     const cells = [];
+    const ICONS = "/content/dam/admiral/en/images/icons";
     const slug = (s) => s.trim().toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
     items.forEach((item) => {
       const href = item.getAttribute("href") || "";
@@ -112,7 +113,7 @@ var CustomImportScript = (() => {
       let iconEl = null;
       if (labelText) {
         iconEl = document2.createElement("img");
-        iconEl.setAttribute("src", `/icons/product-${slug(labelText)}.svg`);
+        iconEl.setAttribute("src", `${ICONS}/product-${slug(labelText)}.svg`);
         iconEl.setAttribute("alt", labelText);
       }
       const imageCell = iconEl ? hinted("image", iconEl) : "";
