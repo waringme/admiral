@@ -42,26 +42,28 @@ export default function decorate(block) {
   // click handler throws before scrolling. Add our own robust handlers that
   // scroll the track directly (one testimonial per click, with wrap-around).
   const track = block.querySelector(':scope > ul');
-  const next = block.querySelector(':scope > .button-container .next');
-  const prev = block.querySelector(':scope > .button-container .prev');
 
-  if (track && (next || prev)) {
-    const move = (dir) => {
-      const items = track.children.length || 1;
-      const step = Math.round(track.scrollWidth / items);
-      const maxScroll = track.scrollWidth - track.clientWidth;
-      let target = track.scrollLeft + dir * step;
-      // wrap-around at the ends so the testimonials cycle continuously
-      if (target > maxScroll + 1) target = 0;
-      else if (target < 0) target = maxScroll;
-      track.scrollTo({ left: target, behavior: 'smooth' });
-    };
+  const move = (dir) => {
+    if (!track) return;
+    const items = track.children.length || 1;
+    const step = Math.round(track.scrollWidth / items);
+    const maxScroll = track.scrollWidth - track.clientWidth;
+    let target = track.scrollLeft + dir * step;
+    // wrap-around at the ends so the testimonials cycle continuously
+    if (target > maxScroll + 1) target = 0;
+    else if (target < 0) target = maxScroll;
+    track.scrollTo({ left: target, behavior: 'smooth' });
+  };
 
-    if (next) {
-      next.addEventListener('click', (e) => { e.stopImmediatePropagation(); move(1); }, true);
-    }
-    if (prev) {
-      prev.addEventListener('click', (e) => { e.stopImmediatePropagation(); move(-1); }, true);
-    }
-  }
+  // Replace the base slider's prev/next buttons with clones. Cloning drops the
+  // base slider.js click listeners (which resolve the track via
+  // `.closest('.carousel-container')` — a class this block's wrapper doesn't
+  // have, so they throw and never scroll). Our own handlers scroll the track.
+  [['next', 1], ['prev', -1]].forEach(([cls, dir]) => {
+    const btn = block.querySelector(`:scope > .button-container .${cls}`);
+    if (!btn) return;
+    const fresh = btn.cloneNode(true);
+    btn.replaceWith(fresh);
+    fresh.addEventListener('click', () => move(dir));
+  });
 }
