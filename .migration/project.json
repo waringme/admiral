@@ -1,0 +1,14 @@
+{
+  "type": "xwalk",
+  "sites": {
+    "admiral": {
+      "previewOrg": "waringme",
+      "previewSite": "admiral",
+      "libraryUrl": "https://main--sta-xwalk-boilerplate--aemysites.aem.page/tools/sidekick/library.json",
+      "aemSitePath": "/content/admiral",
+      "aemAssetsFolderPath": "/content/dam/admiral",
+      "aemSiteName": "admiral",
+      "aemSiteTitle": "admiral"
+    }
+  }
+}
