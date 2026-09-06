@@ -90,10 +90,16 @@ function toggleMenu(nav, navSections, forceExpanded = null) {
  * @param {Element} block The header block element
  */
 export default async function decorate(block) {
-  // load nav content — metadata-independent dual-fetch:
-  // /content first (localhost / aem up), then root (DA/EDS production)
-  let resp = await fetch('/content/nav.plain.html');
-  if (!resp.ok) resp = await fetch('/nav.plain.html');
+  // load nav content — metadata-independent dual-fetch. Order the candidates by
+  // environment so the working URL is hit first (avoids a guaranteed console
+  // 404): localhost/aem serves it under /content, DA/EDS production at the root.
+  const onLocal = ['localhost', '127.0.0.1'].includes(window.location.hostname)
+    || window.location.hostname.endsWith('.aem.reviews');
+  const candidates = onLocal
+    ? ['/content/nav.plain.html', '/nav.plain.html']
+    : ['/nav.plain.html', '/content/nav.plain.html'];
+  let resp = await fetch(candidates[0]);
+  if (!resp.ok) resp = await fetch(candidates[1]);
   if (!resp.ok) return;
   const html = await resp.text();
 

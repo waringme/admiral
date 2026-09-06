@@ -3,10 +3,16 @@
  * @param {Element} block The footer block element
  */
 export default async function decorate(block) {
-  // load footer content — metadata-independent dual-fetch:
-  // /content first (localhost / aem up), then root (DA/EDS production)
-  let resp = await fetch('/content/footer.plain.html');
-  if (!resp.ok) resp = await fetch('/footer.plain.html');
+  // load footer content — metadata-independent dual-fetch. Order the candidates
+  // by environment so the working URL is hit first (avoids a guaranteed console
+  // 404): localhost/aem serves it under /content, DA/EDS production at the root.
+  const onLocal = ['localhost', '127.0.0.1'].includes(window.location.hostname)
+    || window.location.hostname.endsWith('.aem.reviews');
+  const candidates = onLocal
+    ? ['/content/footer.plain.html', '/footer.plain.html']
+    : ['/footer.plain.html', '/content/footer.plain.html'];
+  let resp = await fetch(candidates[0]);
+  if (!resp.ok) resp = await fetch(candidates[1]);
   if (!resp.ok) return;
   const html = await resp.text();
 
