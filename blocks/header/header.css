@@ -9,7 +9,7 @@ body {
 
 @media (width >= 900px) {
   body {
-    padding-top: 96px;
+    padding-top: 118px;
   }
 }
 
@@ -20,6 +20,29 @@ body header .nav-wrapper {
   position: fixed;
   top: 0;
   box-shadow: 0 1px 4px rgb(0 0 0 / 8%);
+}
+
+/* Desktop: the header is two full-width bands — a black utility bar on top and
+   a light-grey main-nav bar below (source: admiral.com mega-nav). The nav grid
+   stays capped at 1200px; the bands are painted full-bleed behind it. */
+@media (width >= 900px) {
+  body header .nav-wrapper {
+    background-color: #f2f2f2;                 /* main nav bar */
+    border-bottom: 1px solid #aaa;
+    box-shadow: none;
+  }
+
+  /* full-bleed black utility band across the top */
+  body header .nav-wrapper::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 47px;
+    background-color: #000;
+    z-index: 0;
+  }
 }
 
 header nav {
@@ -92,16 +115,18 @@ header nav[aria-expanded='true'] .nav-sections > ul > li {
 
 @media (width >= 900px) {
   header nav {
+    position: relative;
+    z-index: 1;
     display: grid;
     grid-template:
-      'brand tools' auto
-      'brand sections' auto / auto 1fr;
+      'tools tools' 47px
+      'brand sections' 71px / auto 1fr;
     align-items: center;
-    gap: 6px 24px;
+    gap: 0 24px;
     max-width: 1200px;
     height: auto;
-    min-height: var(--nav-height, 64px);
-    padding: 10px 32px;
+    min-height: 118px;
+    padding: 0 32px;
   }
 
   /* desktop always shows sections + tools (override mobile collapsed-hide) */
@@ -261,23 +286,43 @@ header nav .nav-sections > ul > li {
 }
 
 @media (width >= 900px) {
+  header nav .nav-sections {
+    align-self: stretch;
+  }
+
   header nav .nav-sections > ul {
     display: flex;
     justify-content: flex-end;
-    gap: 28px;
-    align-items: center;
+    gap: 0;
+    align-items: stretch;
+    height: 100%;
   }
 
+  /* vertical divider between top-level items (source: 1px #d6d6d6) */
   header nav .nav-sections > ul > li {
-    padding: 8px 0;
+    display: flex;
+    align-items: center;
+    padding: 0;
+    border-left: 1px solid #d6d6d6;
+  }
+
+  header nav .nav-sections > ul > li:last-child {
+    border-right: 1px solid #d6d6d6;
   }
 }
 
 header nav .nav-sections > ul > li > a {
-  color: var(--brand-blue, #005485);
+  color: #2350a0;
   font-weight: 600;
-  font-size: 17px;
+  font-size: 14.4px;
   text-decoration: none;
+}
+
+@media (width >= 900px) {
+  header nav .nav-sections > ul > li > a {
+    display: block;
+    padding: 12px 20px 13px;
+  }
 }
 
 header nav .nav-sections > ul > li > a::after {
@@ -286,7 +331,8 @@ header nav .nav-sections > ul > li > a::after {
 
 header nav .nav-sections > ul > li:hover > a,
 header nav .nav-sections > ul > li[aria-expanded='true'] > a {
-  color: var(--accent-orange, #ff7911);
+  color: #163b78;
+  text-decoration: underline;
 }
 
 /* dropdown submenus */
@@ -477,6 +523,27 @@ header nav .nav-tools ul > li > a::after {
 header nav .nav-tools ul > li > a:hover {
   color: var(--brand-blue, #005485);
   text-decoration: underline;
+}
+
+/* Desktop: utility links are white + uppercase, sitting on the black band. */
+@media (width >= 900px) {
+  header nav .nav-tools ul {
+    gap: 26px;
+    align-items: center;
+    height: 47px;
+  }
+
+  header nav .nav-tools ul > li > a {
+    color: #fff;
+    font-size: 12.6px;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+  }
+
+  header nav .nav-tools ul > li > a:hover {
+    color: #fff;
+    text-decoration: underline;
+  }
 }
 
 /* mobile: stack tools */
