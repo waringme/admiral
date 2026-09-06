@@ -9,7 +9,7 @@ import columnsNoticeParser from './parsers/columns-notice.js';
 import cardsArticleParser from './parsers/cards-article.js';
 import columnsAwardParser from './parsers/columns-award.js';
 import carouselReviewParser from './parsers/carousel-review.js';
-import columnsAppParser from './parsers/columns-app.js';
+import appDownloadParser from './parsers/app-download.js';
 import columnsLinksParser from './parsers/columns-links.js';
 
 // TRANSFORMER IMPORTS
@@ -26,7 +26,7 @@ const parsers = {
   'cards-article': cardsArticleParser,
   'columns-award': columnsAwardParser,
   'carousel-review': carouselReviewParser,
-  'columns-app': columnsAppParser,
+  'app-download': appDownloadParser,
   'columns-links': columnsLinksParser,
 };
 
@@ -73,7 +73,7 @@ const PAGE_TEMPLATE = {
       instances: ['#testimonials-7343'],
     },
     {
-      name: 'columns-app',
+      name: 'app-download',
       instances: ['#basic-10863'],
     },
     {
@@ -90,7 +90,7 @@ const PAGE_TEMPLATE = {
     { id: 'award-banner', name: 'Award banner', selector: '#reusable-block-16247', style: 'dark', blocks: ['columns-award'], defaultContent: [] },
     { id: 'testimonials', name: 'Testimonials', selector: '#testimonials-7343', style: 'grey', blocks: ['carousel-review'], defaultContent: [] },
     { id: 'get-to-know-us', name: 'Get to know us', selector: '#paragraph-5858', style: null, blocks: [], defaultContent: ['#paragraph-5858'] },
-    { id: 'app-download', name: 'App download', selector: '#basic-10863', style: null, blocks: ['columns-app'], defaultContent: [] },
+    { id: 'app-download', name: 'App download', selector: '#basic-10863', style: null, blocks: ['app-download'], defaultContent: [] },
     { id: 'explore-website-links', name: 'Explore website links', selector: '#basic-19327', style: 'dark', blocks: ['columns-links'], defaultContent: [] },
   ],
 };

@@ -70,6 +70,12 @@
     ]
   },
   {
+    "id": "app-download",
+    "components": [
+      "app-download-badge"
+    ]
+  },
+  {
     "id": "cards-article",
     "components": [
       "card"
@@ -97,12 +103,6 @@
     "id": "carousel",
     "components": [
       "card"
-    ]
-  },
-  {
-    "id": "columns-app",
-    "components": [
-      "column"
     ]
   },
   {

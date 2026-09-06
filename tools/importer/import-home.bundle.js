@@ -288,27 +288,46 @@ var CustomImportScript = (() => {
     element.replaceWith(block);
   }
 
-  // tools/importer/parsers/columns-app.js
+  // tools/importer/parsers/app-download.js
   function parse8(element, { document: document2 }) {
     element.querySelectorAll("style, script").forEach((n) => n.remove());
-    const copy = element.querySelector(".copy");
-    const image = element.querySelector(".sub-hero-banner > .image img, .image img") || Array.from(element.querySelectorAll("img")).find((img) => !copy || !copy.contains(img)) || null;
-    const scope = copy || element;
-    const heading = scope.querySelector("h1, h2, h3, h4");
-    const paragraph = scope.querySelector("p");
-    const appLinks = Array.from(scope.querySelectorAll('.app-icons a, a[href*="apps.apple"], a[href*="play.google"]'));
-    if (!image && !heading && !paragraph) {
+    const copy = element.querySelector(".copy") || element;
+    const heading = copy.querySelector("h1, h2, h3, h4");
+    const paragraphs = Array.from(copy.querySelectorAll("p"));
+    const subtitle = paragraphs.find((p) => p.textContent.trim() && !p.querySelector("a"));
+    const appLinks = Array.from(
+      copy.querySelectorAll('.app-icons a, a[href*="apps.apple"], a[href*="play.google"]')
+    );
+    if (!heading && !subtitle && !appLinks.length) {
       element.replaceWith(...element.childNodes);
       return;
     }
-    const copyCell = [];
-    if (heading) copyCell.push(heading);
-    if (paragraph) copyCell.push(paragraph);
-    appLinks.forEach((a) => copyCell.push(a));
+    const hinted = (fieldName, ...nodes) => {
+      const frag = document2.createDocumentFragment();
+      frag.appendChild(document2.createComment(` field:${fieldName} `));
+      nodes.filter(Boolean).forEach((n) => frag.appendChild(n));
+      return frag;
+    };
+    const textNodes = [];
+    if (heading) textNodes.push(heading);
+    if (subtitle) textNodes.push(subtitle);
     const cells = [
-      [image || "", copyCell.length ? copyCell : ""]
+      [textNodes.length ? hinted("text", ...textNodes) : hinted("text")]
     ];
-    const block = WebImporter.Blocks.createBlock(document2, { name: "columns-app", cells });
+    appLinks.forEach((a) => {
+      const img = a.querySelector("img");
+      const href = a.getAttribute("href") || "";
+      const imageCell = img ? hinted("image", img) : hinted("image");
+      let linkCell = hinted("link");
+      if (href) {
+        const link = document2.createElement("a");
+        link.setAttribute("href", href);
+        link.textContent = href;
+        linkCell = hinted("link", link);
+      }
+      cells.push([imageCell, linkCell]);
+    });
+    const block = WebImporter.Blocks.createBlock(document2, { name: "app-download", cells });
     element.replaceWith(block);
   }
 
@@ -449,7 +468,7 @@ var CustomImportScript = (() => {
     "cards-article": parse5,
     "columns-award": parse6,
     "carousel-review": parse7,
-    "columns-app": parse8,
+    "app-download": parse8,
     "columns-links": parse9
   };
   var PAGE_TEMPLATE = {
@@ -494,7 +513,7 @@ var CustomImportScript = (() => {
         instances: ["#testimonials-7343"]
       },
       {
-        name: "columns-app",
+        name: "app-download",
         instances: ["#basic-10863"]
       },
       {
@@ -511,7 +530,7 @@ var CustomImportScript = (() => {
       { id: "award-banner", name: "Award banner", selector: "#reusable-block-16247", style: "dark", blocks: ["columns-award"], defaultContent: [] },
       { id: "testimonials", name: "Testimonials", selector: "#testimonials-7343", style: "grey", blocks: ["carousel-review"], defaultContent: [] },
       { id: "get-to-know-us", name: "Get to know us", selector: "#paragraph-5858", style: null, blocks: [], defaultContent: ["#paragraph-5858"] },
-      { id: "app-download", name: "App download", selector: "#basic-10863", style: null, blocks: ["columns-app"], defaultContent: [] },
+      { id: "app-download", name: "App download", selector: "#basic-10863", style: null, blocks: ["app-download"], defaultContent: [] },
       { id: "explore-website-links", name: "Explore website links", selector: "#basic-19327", style: "dark", blocks: ["columns-links"], defaultContent: [] }
     ]
   };

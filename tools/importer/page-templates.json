@@ -57,7 +57,7 @@
           ]
         },
         {
-          "name": "columns-app",
+          "name": "app-download",
           "instances": [
             "#basic-10863"
           ]
@@ -162,7 +162,7 @@
           "selector": "#basic-10863",
           "style": null,
           "blocks": [
-            "columns-app"
+            "app-download"
           ],
           "defaultContent": []
         },

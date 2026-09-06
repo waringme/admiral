@@ -1,0 +1,40 @@
+{
+  "variantName": "app-download",
+  "baseBlock": "block",
+  "version": "2.0.0",
+  "created": "2026-09-06T00:00:00.000Z",
+  "sourceContext": {
+    "originUrl": "https://www.admiral.com/",
+    "originPage": "admiral.com home page",
+    "blockPosition": "bottom"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "colored",
+    "density": "spacious",
+    "purpose": "feature",
+    "imagePattern": "large"
+  },
+  "contentPattern": {
+    "structure": "left app photo (CSS background) | heading + subtitle + 2 store-badge links",
+    "buttonCount": 2,
+    "imageCount": 2
+  },
+  "reuseGuidance": {
+    "suitableFor": [
+      "app-download promo panels",
+      "photo beside heading/copy + app-store badge links on a colored panel"
+    ],
+    "notSuitableFor": [
+      "dark full-width sections",
+      "icon notice banners"
+    ]
+  },
+  "usage": {
+    "pagesUsing": [
+      "/index"
+    ],
+    "reuseCount": 1,
+    "lastUsed": "2026-09-06T00:00:00.000Z"
+  },
+  "implementationNote": "Block-based component (resourceType core/franklin/components/block/v1/block) modelled like hero-trust so the JCR converter preserves the variant class and the image-inside-link store badges. Replaces the earlier columns-app variant, which the md2jcr columns partial could not represent (dropped variant class + badge images). Left photo is a CSS background from the Admiral CDN."
+}

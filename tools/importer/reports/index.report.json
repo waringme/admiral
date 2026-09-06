@@ -2,7 +2,7 @@
   "status": "success",
   "url": "https://www.admiral.com/",
   "path": "index",
-  "timestamp": "2026-09-06T07:32:46.095Z",
+  "timestamp": "2026-09-06T11:21:56.282Z",
   "title": "Car, MultiCar and MultiCover Insurance Quotes – Admiral",
   "template": "home",
   "blocks": [
@@ -13,7 +13,7 @@
     "cards-article",
     "columns-award",
     "carousel-review",
-    "columns-app",
+    "app-download",
     "columns-links"
   ]
 }

@@ -1,0 +1,101 @@
+/*
+ * App Download — app-download promo panel (admiral.com "sub-hero-banner--admiral-app").
+ *
+ * Decorated DOM (app-download.js runs):
+ *   .app-download.block
+ *     > .app-download-photo   (empty -> left photo column, painted as CSS background)
+ *     > .app-download-copy     (h3 + subtitle <p> + two badge <p><a><picture>|<img>)
+ *
+ * Values extracted from source computed styles
+ * (#basic-10863 .sub-hero-banner--admiral-app).
+ */
+
+.app-download {
+  display: flex;
+  background-color: rgb(12 58 132);   /* source panel bg */
+  border-radius: 4px;
+  overflow: hidden;
+  position: relative;
+
+  /* Source panel is a contained banner (~984px), centered with side margins —
+     not full-bleed. Constrain so the copy column doesn't stretch. */
+  max-width: 984px;
+  margin: 0 auto;
+}
+
+/* Left column: empty cell in source, filled by the app photo background. */
+.app-download .app-download-photo {
+  background-image: url("https://mktgblobpubaccess1.blob.core.windows.net/eui-frontend-assets/admiral/images/sub-hero/sub-hero-admiral-app.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 180px;   /* mobile: give the empty cell height so the photo shows */
+}
+
+/* Right column: the copy. */
+.app-download .app-download-copy {
+  padding: 15px 20px;
+}
+
+/* Heading (h3) — override the global heading-blue with the on-dark white. */
+.app-download h3 {
+  margin: 6px 0 0;
+  font-size: 25.2px;
+  font-weight: 600;
+  line-height: 34px;
+  color: rgb(255 255 255);
+}
+
+/* Subtitle paragraph. */
+.app-download p {
+  margin: 8px 0 0;
+  font-size: 18px;
+  font-weight: 300;
+  line-height: 28px;
+  color: rgb(130 200 255);
+}
+
+/* Store badges: laid out side by side in the .app-download-badges container. */
+.app-download .app-download-badges {
+  margin: 12px 0 0;
+}
+
+.app-download .app-download-badge {
+  display: inline-block;
+  margin: 0 8px 0 0;
+}
+
+/* Kill any global chevron (a::after) and shine gradient over the badge links. */
+.app-download .app-download-badge::after {
+  content: none;
+}
+
+.app-download picture {
+  display: inline-block;
+}
+
+.app-download picture::before {
+  content: none;
+}
+
+/* Badge artwork: fixed 52px tall, natural width. */
+.app-download img {
+  width: auto;
+  height: 52px;
+}
+
+@media (width >= 900px) {
+  /* Two-column layout: fixed photo column, flexible copy column, full-height. */
+  .app-download {
+    align-items: stretch;
+  }
+
+  .app-download .app-download-photo {
+    flex: 0 0 283px;   /* source image-column width */
+    min-height: 0;
+  }
+
+  .app-download .app-download-copy {
+    flex: 1 1 auto;
+  }
+}

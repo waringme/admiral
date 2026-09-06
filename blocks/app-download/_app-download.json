@@ -1,0 +1,82 @@
+{
+  "definitions": [
+    {
+      "title": "App Download",
+      "id": "app-download",
+      "plugins": {
+        "xwalk": {
+          "page": {
+            "resourceType": "core/franklin/components/block/v1/block",
+            "template": {
+              "name": "App Download",
+              "model": "app-download",
+              "filter": "app-download"
+            }
+          }
+        }
+      }
+    },
+    {
+      "title": "App Download Badge",
+      "id": "app-download-badge",
+      "plugins": {
+        "xwalk": {
+          "page": {
+            "resourceType": "core/franklin/components/block/v1/block/item",
+            "template": {
+              "name": "App Download Badge",
+              "model": "app-download-badge"
+            }
+          }
+        }
+      }
+    }
+  ],
+  "models": [
+    {
+      "id": "app-download",
+      "fields": [
+        {
+          "component": "richtext",
+          "name": "text",
+          "value": "",
+          "label": "Text",
+          "valueType": "string"
+        }
+      ]
+    },
+    {
+      "id": "app-download-badge",
+      "fields": [
+        {
+          "component": "reference",
+          "valueType": "string",
+          "name": "image",
+          "label": "Badge Image",
+          "multi": false
+        },
+        {
+          "component": "text",
+          "valueType": "string",
+          "name": "imageAlt",
+          "label": "Badge Alt",
+          "value": ""
+        },
+        {
+          "component": "aem-content",
+          "valueType": "string",
+          "name": "link",
+          "label": "Store Link"
+        }
+      ]
+    }
+  ],
+  "filters": [
+    {
+      "id": "app-download",
+      "components": [
+        "app-download-badge"
+      ]
+    }
+  ]
+}
