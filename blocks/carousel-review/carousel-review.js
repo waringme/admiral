@@ -35,4 +35,33 @@ export default function decorate(block) {
     if (author) body.insertBefore(image, author);
     else body.appendChild(image);
   });
+
+  // Wire up prev/next navigation. The shared slider.js handler resolves the
+  // track via `.closest('.carousel-container')`, but this block's section
+  // wrapper is `.carousel-review-container`, so that lookup returns null and the
+  // click handler throws before scrolling. Add our own robust handlers that
+  // scroll the track directly (one testimonial per click, with wrap-around).
+  const track = block.querySelector(':scope > ul');
+  const next = block.querySelector(':scope > .button-container .next');
+  const prev = block.querySelector(':scope > .button-container .prev');
+
+  if (track && (next || prev)) {
+    const move = (dir) => {
+      const items = track.children.length || 1;
+      const step = Math.round(track.scrollWidth / items);
+      const maxScroll = track.scrollWidth - track.clientWidth;
+      let target = track.scrollLeft + dir * step;
+      // wrap-around at the ends so the testimonials cycle continuously
+      if (target > maxScroll + 1) target = 0;
+      else if (target < 0) target = maxScroll;
+      track.scrollTo({ left: target, behavior: 'smooth' });
+    };
+
+    if (next) {
+      next.addEventListener('click', (e) => { e.stopImmediatePropagation(); move(1); }, true);
+    }
+    if (prev) {
+      prev.addEventListener('click', (e) => { e.stopImmediatePropagation(); move(-1); }, true);
+    }
+  }
 }
