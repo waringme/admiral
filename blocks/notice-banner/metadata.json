@@ -1,6 +1,6 @@
 {
-  "variantName": "columns-notice",
-  "baseBlock": "columns",
+  "variantName": "notice-banner",
+  "baseBlock": "notice-banner",
   "version": "1.0.0",
   "created": "2026-09-05T08:52:12.906Z",
   "sourceContext": {
@@ -36,5 +36,5 @@
     "reuseCount": 1,
     "lastUsed": "2026-09-05T08:52:12.906Z"
   },
-  "implementationNote": "Delegates to base \"columns\" block; columns-notice.css @imports the base stylesheet and adds variant overrides. Keeps base class to preserve shared-script/CSS coupling."
+  "implementationNote": "Delegates to base \"columns\" block; notice-banner.css @imports the base stylesheet and adds variant overrides. Keeps base class to preserve shared-script/CSS coupling."
 }

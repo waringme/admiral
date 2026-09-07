@@ -32,7 +32,7 @@
           ]
         },
         {
-          "name": "columns-notice",
+          "name": "notice-banner",
           "instances": [
             "#basic-18085"
           ]
@@ -110,7 +110,7 @@
           "selector": "#basic-18085",
           "style": null,
           "blocks": [
-            "columns-notice"
+            "notice-banner"
           ],
           "defaultContent": []
         },

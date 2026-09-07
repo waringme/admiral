@@ -27,16 +27,7 @@
         <block sling:resourceType="core/franklin/components/block/v1/block" jcr:primaryType="nt:unstructured" model="video-advert" modelFields="[videoUrl]" name="Video Advert" videoUrl="https://player.vimeo.com/video/1113186489"></block>
       </section_2>
       <section_3 sling:resourceType="core/franklin/components/section/v1/section" jcr:primaryType="nt:unstructured" model="section" modelFields="[name,style]">
-        <columns sling:resourceType="core/franklin/components/columns/v1/columns" jcr:primaryType="nt:unstructured" rows="1" columns="2">
-          <row1 jcr:primaryType="nt:unstructured">
-            <col1 jcr:primaryType="nt:unstructured"></col1>
-            <col2 jcr:primaryType="nt:unstructured">
-              <title sling:resourceType="core/franklin/components/title/v1/title" jcr:primaryType="nt:unstructured" title="There are some fake emails going around pretending to be us" titleType="h3"/>
-              <text sling:resourceType="core/franklin/components/text/v1/text" jcr:primaryType="nt:unstructured" text="&lt;p&gt;If you get an email that doesn&#x27;t seem right, here&#x27;s what to do next.&lt;/p&gt;"/>
-              <button sling:resourceType="core/franklin/components/button/v1/button" jcr:primaryType="nt:unstructured" link="/help-support-hub/privacy-online-security/scams-fraud" linkText="Find Out More"/>
-            </col2>
-          </row1>
-        </columns>
+        <block sling:resourceType="core/franklin/components/block/v1/block" jcr:primaryType="nt:unstructured" image="/content/dam/admiral/en/images/sub-hero-annie-foldedhands.png" model="notice-banner" modelFields="[image,imageAlt,text]" name="Notice Banner" text="&lt;p&gt;&lt;h3&gt;There are some fake emails going around pretending to be us&lt;/h3&gt;&lt;/p&gt;&lt;p&gt;If you get an email that doesn&#x27;t seem right, here&#x27;s what to do next.&lt;/p&gt;&lt;p&gt;&lt;a href&#x3D;&quot;/help-support-hub/privacy-online-security/scams-fraud&quot;&gt;Find Out More&lt;/a&gt;&lt;/p&gt;"></block>
       </section_3>
       <section_4 sling:resourceType="core/franklin/components/section/v1/section" jcr:primaryType="nt:unstructured" style="[grey]" model="section" modelFields="[name,style]">
         <block_1 sling:resourceType="core/franklin/components/block/v1/block" jcr:primaryType="nt:unstructured" filter="cards-article" name="Cards Article">

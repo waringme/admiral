@@ -25,6 +25,7 @@ const IMAGE_MAP = {
   'apple-app.svg': 'apple-app.svg',
   'google-app.svg': 'google-app.svg',
   'personal-finance-award-11@2x.png': 'personal-finance-award-11.png',
+  'sub-hero-annie-foldedhands.png': 'sub-hero-annie-foldedhands.png',
 };
 
 // Hostnames whose images are pure tracking beacons — remove, do not DAM-ify.

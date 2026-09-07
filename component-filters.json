@@ -112,12 +112,6 @@
     ]
   },
   {
-    "id": "columns-notice",
-    "components": [
-      "column"
-    ]
-  },
-  {
     "id": "columns",
     "components": [
       "column"

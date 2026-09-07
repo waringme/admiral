@@ -5,7 +5,7 @@
 import heroTrustParser from './parsers/hero-trust.js';
 import cardsProductParser from './parsers/cards-product.js';
 import videoAdvertParser from './parsers/video-advert.js';
-import columnsNoticeParser from './parsers/columns-notice.js';
+import noticeBannerParser from './parsers/notice-banner.js';
 import cardsArticleParser from './parsers/cards-article.js';
 import awardBannerParser from './parsers/award-banner.js';
 import carouselReviewParser from './parsers/carousel-review.js';
@@ -22,7 +22,7 @@ const parsers = {
   'hero-trust': heroTrustParser,
   'cards-product': cardsProductParser,
   'video-advert': videoAdvertParser,
-  'columns-notice': columnsNoticeParser,
+  'notice-banner': noticeBannerParser,
   'cards-article': cardsArticleParser,
   'award-banner': awardBannerParser,
   'carousel-review': carouselReviewParser,
@@ -54,7 +54,7 @@ const PAGE_TEMPLATE = {
       instances: ['#basic-18611'],
     },
     {
-      name: 'columns-notice',
+      name: 'notice-banner',
       instances: ['#basic-18085'],
     },
     {
@@ -85,7 +85,7 @@ const PAGE_TEMPLATE = {
     { id: 'hero-trust', name: 'Hero (trust banner)', selector: '#basic-12087', style: null, blocks: ['hero-trust'], defaultContent: [] },
     { id: 'product-tiles', name: 'Product tiles', selector: '#basic-18119', style: null, blocks: ['cards-product'], defaultContent: ['#basic-18119 > div.wrapper.pt-sml > div.container.container--responsive-tablet.pt-sml.pb-sml > div:nth-of-type(2)'] },
     { id: 'tv-advert', name: 'TV advert', selector: '#basic-18611', style: null, blocks: ['video-advert'], defaultContent: ['#basic-18611'] },
-    { id: 'fake-emails-notice', name: 'Fake emails notice', selector: '#basic-18085', style: null, blocks: ['columns-notice'], defaultContent: [] },
+    { id: 'fake-emails-notice', name: 'Fake emails notice', selector: '#basic-18085', style: null, blocks: ['notice-banner'], defaultContent: [] },
     { id: 'magazine-articles', name: 'Magazine articles', selector: '#product-pods-5856', style: 'grey', blocks: ['cards-article'], defaultContent: ['#product-pods-5856 > div.container.container--responsive-tablet.pt-sml > div.text-center'] },
     { id: 'award-banner', name: 'Award banner', selector: '#reusable-block-16247', style: 'dark', blocks: ['award-banner'], defaultContent: [] },
     { id: 'testimonials', name: 'Testimonials', selector: '#testimonials-7343', style: 'grey', blocks: ['carousel-review'], defaultContent: [] },

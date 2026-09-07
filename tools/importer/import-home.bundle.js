@@ -169,26 +169,39 @@ var CustomImportScript = (() => {
     element.replaceWith(frag);
   }
 
-  // tools/importer/parsers/columns-notice.js
+  // tools/importer/parsers/notice-banner.js
+  var IMAGE_SRC = "https://mktgblobpubaccess1.blob.core.windows.net/eui-frontend-assets/admiral/images/sub-hero/sub-hero-annie-foldedhands.png";
   function parse4(element, { document: document2 }) {
     element.querySelectorAll("style, script").forEach((n) => n.remove());
-    const image = element.querySelector(".image img, img");
     const copy = element.querySelector(".copy") || element;
     const heading = copy.querySelector("h1, h2, h3, h4");
     const paragraph = copy.querySelector("p");
     const cta = copy.querySelector("a[href]");
-    if (!image && !heading && !paragraph) {
+    if (!heading && !paragraph) {
       element.replaceWith(...element.childNodes);
       return;
     }
-    const copyCell = [];
-    if (heading) copyCell.push(heading);
-    if (paragraph) copyCell.push(paragraph);
-    if (cta) copyCell.push(cta);
+    const hinted = (fieldName, ...nodes) => {
+      const frag = document2.createDocumentFragment();
+      frag.appendChild(document2.createComment(` field:${fieldName} `));
+      nodes.filter(Boolean).forEach((n) => frag.appendChild(n));
+      return frag;
+    };
+    let image = element.querySelector(".image img, img");
+    if (!image) {
+      image = document2.createElement("img");
+      image.setAttribute("src", IMAGE_SRC);
+      image.setAttribute("alt", "");
+    }
+    const copyNodes = [];
+    if (heading) copyNodes.push(heading);
+    if (paragraph) copyNodes.push(paragraph);
+    if (cta) copyNodes.push(cta);
     const cells = [
-      [image || "", copyCell.length ? copyCell : ""]
+      [hinted("image", image)],
+      [copyNodes.length ? hinted("text", ...copyNodes) : hinted("text")]
     ];
-    const block = WebImporter.Blocks.createBlock(document2, { name: "columns-notice", cells });
+    const block = WebImporter.Blocks.createBlock(document2, { name: "notice-banner", cells });
     element.replaceWith(block);
   }
 
@@ -404,7 +417,8 @@ var CustomImportScript = (() => {
     "GettyImages-996496112.jpg": "gettyimages-996496112.jpg",
     "apple-app.svg": "apple-app.svg",
     "google-app.svg": "google-app.svg",
-    "personal-finance-award-11@2x.png": "personal-finance-award-11.png"
+    "personal-finance-award-11@2x.png": "personal-finance-award-11.png",
+    "sub-hero-annie-foldedhands.png": "sub-hero-annie-foldedhands.png"
   };
   var TRACKING_HOSTS = ["tracking.audio.thisisdax.com"];
   function basename(src) {
@@ -478,7 +492,7 @@ var CustomImportScript = (() => {
     "hero-trust": parse,
     "cards-product": parse2,
     "video-advert": parse3,
-    "columns-notice": parse4,
+    "notice-banner": parse4,
     "cards-article": parse5,
     "award-banner": parse6,
     "carousel-review": parse7,
@@ -508,7 +522,7 @@ var CustomImportScript = (() => {
         instances: ["#basic-18611"]
       },
       {
-        name: "columns-notice",
+        name: "notice-banner",
         instances: ["#basic-18085"]
       },
       {
@@ -539,7 +553,7 @@ var CustomImportScript = (() => {
       { id: "hero-trust", name: "Hero (trust banner)", selector: "#basic-12087", style: null, blocks: ["hero-trust"], defaultContent: [] },
       { id: "product-tiles", name: "Product tiles", selector: "#basic-18119", style: null, blocks: ["cards-product"], defaultContent: ["#basic-18119 > div.wrapper.pt-sml > div.container.container--responsive-tablet.pt-sml.pb-sml > div:nth-of-type(2)"] },
       { id: "tv-advert", name: "TV advert", selector: "#basic-18611", style: null, blocks: ["video-advert"], defaultContent: ["#basic-18611"] },
-      { id: "fake-emails-notice", name: "Fake emails notice", selector: "#basic-18085", style: null, blocks: ["columns-notice"], defaultContent: [] },
+      { id: "fake-emails-notice", name: "Fake emails notice", selector: "#basic-18085", style: null, blocks: ["notice-banner"], defaultContent: [] },
       { id: "magazine-articles", name: "Magazine articles", selector: "#product-pods-5856", style: "grey", blocks: ["cards-article"], defaultContent: ["#product-pods-5856 > div.container.container--responsive-tablet.pt-sml > div.text-center"] },
       { id: "award-banner", name: "Award banner", selector: "#reusable-block-16247", style: "dark", blocks: ["award-banner"], defaultContent: [] },
       { id: "testimonials", name: "Testimonials", selector: "#testimonials-7343", style: "grey", blocks: ["carousel-review"], defaultContent: [] },

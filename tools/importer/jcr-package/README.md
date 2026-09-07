@@ -1,13 +1,22 @@
 # Admiral JCR content package
 
-## Use this one: `admiral-home-v1.8.zip`
+## Use this one: `admiral-home-v1.9.zip`
 
-Makes the **award banner** badge an author-editable image. The `award-banner`
-model now has `image` + `imageAlt` fields (plus `text`); the badge is authored
-as a DAM asset (`/content/dam/admiral/en/images/personal-finance-award-11.png`)
-instead of a hard-coded CSS background, so authors can swap it in Universal
-Editor. This package adds that DAM asset (node + PNG binary) and updates the
-page node to carry the `image`/`imageAlt` attributes.
+Rebuilds the **fake-emails notice** as a proper block-based component named
+`notice-banner` (was a `columns-notice` variant — md2jcr collapses any
+`columns-*` block to plain `<columns>`, dropping the variant class, so the blue
+rounded panel + person image never rendered on the published page). Renaming to
+`notice-banner` (resourceType `block/v1/block`) keeps the variant so it renders
+as `class="notice-banner"`. Its person image is now an author-editable `image`
+field backed by a DAM asset
+(`/content/dam/admiral/en/images/sub-hero-annie-foldedhands.png`), added here as
+node + PNG binary.
+
+Built on top of v1.8, which made the **award banner** badge an author-editable
+image. The `award-banner` model has `image` + `imageAlt` fields (plus `text`);
+the badge is a DAM asset
+(`/content/dam/admiral/en/images/personal-finance-award-11.png`) instead of a
+hard-coded CSS background, so authors can swap it in Universal Editor.
 
 Built on top of v1.7, which rebuilt the **award banner** ("May the Best Motor
 Insurer win…") as a proper block-based component named `award-banner`. It was

@@ -1,0 +1,119 @@
+/* Notice Banner — contained rounded light-blue notice panel (admiral.com home
+ * #basic-18085 .sub-hero-banner): copy (h3 + p + CTA) on the left, a person
+ * image on the right (desktop only). Values extracted from source computed
+ * styles.
+ *
+ * A block-based component (resourceType block/v1/block) so the JCR converter
+ * keeps the variant identity — md2jcr collapses any `columns-*` block to plain
+ * `class="columns"`, which is why the panel styling never applied when this was
+ * a columns variant.
+ *
+ * Rendered structure (notice-banner.js):
+ *   .notice-banner
+ *     > .notice-banner-copy    (h3 + p + CTA)
+ *     > .notice-banner-image   (person <img>, desktop only)
+ */
+
+/* --- Panel ------------------------------------------------------------- */
+.notice-banner {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  background-color: #bef; /* rgb(187, 238, 255) */
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+/* Copy cell (holds h3, p, CTA) */
+.notice-banner .notice-banner-copy {
+  order: 0;
+  flex: 1 1 auto;
+  padding: 15px 20px;
+}
+
+/* --- Typography -------------------------------------------------------- */
+.notice-banner .notice-banner-copy h3 {
+  margin: 6px 0 0;
+  color: #005485; /* rgb(0, 84, 133) — brand blue */
+  font-size: 25.2px;
+  font-weight: 600;
+  line-height: 34px;
+}
+
+.notice-banner .notice-banner-copy p {
+  margin: -10px 0 0;
+  color: #005485;
+  font-size: 18px;
+  font-weight: 300;
+  line-height: 28px;
+}
+
+/* --- CTA button (source: .button--midi.button--aqua gradient pill) ----- */
+.notice-banner .notice-banner-copy p.button-container {
+  margin: 12px 0 10px;
+}
+
+main .notice-banner .notice-banner-copy a.button:any-link {
+  display: inline-block;
+  width: auto;
+  max-width: none;
+  padding: 0 15px 2px;
+  border: 1px solid #0080c2; /* rgb(0, 128, 194) */
+  border-radius: 4px;
+  background-color: transparent;
+  background-image: linear-gradient(#00b8ea 0%, #0080cc 100%);
+  color: #fff;
+  font-size: 13.5px;
+  font-weight: 400;
+  line-height: 28px;
+  text-align: center;
+  text-transform: uppercase;
+  text-decoration: none;
+  overflow: visible;
+}
+
+/* Source CTA has no chevron/icon */
+main .notice-banner .notice-banner-copy a.button::after {
+  content: none;
+}
+
+main .notice-banner .notice-banner-copy a.button:hover,
+main .notice-banner .notice-banner-copy a.button:focus {
+  color: #fff;
+  text-decoration: none;
+}
+
+/* Person image — hidden on mobile (no content lost). */
+.notice-banner .notice-banner-image {
+  display: none;
+}
+
+/* --- Desktop: two-column row, image on the right --------------------- */
+@media (width >= 900px) {
+  .notice-banner {
+    flex-direction: row;
+    align-items: stretch;
+  }
+
+  .notice-banner .notice-banner-copy {
+    order: 0;
+    flex: 1 1 auto;
+  }
+
+  /* Person image on the right: fixed 283px, cover-cropped */
+  .notice-banner .notice-banner-image {
+    display: block;
+    order: 1;
+    flex: 0 0 283px;
+    width: 283px;
+    align-self: stretch;
+  }
+
+  .notice-banner .notice-banner-image img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 50% 50%;
+  }
+}
