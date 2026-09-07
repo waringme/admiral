@@ -1,16 +1,22 @@
 # Admiral JCR content package
 
-## Use this one: `admiral-home-v1.7.zip`
+## Use this one: `admiral-home-v1.8.zip`
 
-Rebuilds the **award banner** ("May the Best Motor Insurer win…") as a proper
-block-based component named `award-banner`. It was previously a `columns-award`
-variant, but the md2jcr columns partial forces any block whose name starts with
-`columns` into a plain `<columns>` node — dropping the `columns-award` class, so
-the award styling (and its badge image) never attached on the published page.
-Renaming it to `award-banner` (resourceType `block/v1/block`, model
-`award-banner`, single `text` field) makes the converter keep the variant, so it
-renders as `class="award-banner"` and the badge appears. All DAM images from
-v1.6 are carried over unchanged.
+Makes the **award banner** badge an author-editable image. The `award-banner`
+model now has `image` + `imageAlt` fields (plus `text`); the badge is authored
+as a DAM asset (`/content/dam/admiral/en/images/personal-finance-award-11.png`)
+instead of a hard-coded CSS background, so authors can swap it in Universal
+Editor. This package adds that DAM asset (node + PNG binary) and updates the
+page node to carry the `image`/`imageAlt` attributes.
+
+Built on top of v1.7, which rebuilt the **award banner** ("May the Best Motor
+Insurer win…") as a proper block-based component named `award-banner`. It was
+previously a `columns-award` variant, but the md2jcr columns partial forces any
+block whose name starts with `columns` into a plain `<columns>` node — dropping
+the `columns-award` class, so the award styling (and its badge image) never
+attached on the published page. Renaming it to `award-banner` (resourceType
+`block/v1/block`) makes the converter keep the variant, so it renders as
+`class="award-banner"`. All DAM images from v1.6 are carried over unchanged.
 
 Built on top of v1.6, which had rebuilt the **app-download** section as a proper
 block-based component so the JCR converter preserves both its variant identity

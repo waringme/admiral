@@ -21,6 +21,20 @@
       "id": "award-banner",
       "fields": [
         {
+          "component": "reference",
+          "valueType": "string",
+          "name": "image",
+          "label": "Award Image",
+          "multi": false
+        },
+        {
+          "component": "text",
+          "valueType": "string",
+          "name": "imageAlt",
+          "label": "Award Image Alt",
+          "value": ""
+        },
+        {
           "component": "richtext",
           "name": "text",
           "value": "",

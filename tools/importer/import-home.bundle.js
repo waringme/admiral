@@ -227,6 +227,7 @@ var CustomImportScript = (() => {
   }
 
   // tools/importer/parsers/award-banner.js
+  var BADGE_SRC = "https://mktgblobpubaccess1.blob.core.windows.net/eui-frontend-assets/admiral/images/side-images/personal-finance-award-11@2x.png";
   function parse6(element, { document: document2 }) {
     element.querySelectorAll("style, script").forEach((n) => n.remove());
     const textWrap = element.querySelector(".text") || element;
@@ -242,10 +243,17 @@ var CustomImportScript = (() => {
       nodes.filter(Boolean).forEach((n) => frag.appendChild(n));
       return frag;
     };
+    let badge = element.querySelector(".image img, img");
+    if (!badge) {
+      badge = document2.createElement("img");
+      badge.setAttribute("src", BADGE_SRC);
+      badge.setAttribute("alt", "Personal Finance Awards - Best Motor Insurer 2024/25");
+    }
     const textNodes = [];
     if (heading) textNodes.push(heading);
     paragraphs.forEach((p) => textNodes.push(p));
     const cells = [
+      [hinted("image", badge)],
       [textNodes.length ? hinted("text", ...textNodes) : hinted("text")]
     ];
     const block = WebImporter.Blocks.createBlock(document2, { name: "award-banner", cells });
@@ -395,7 +403,8 @@ var CustomImportScript = (() => {
     "mother-and-daughter-using-a-tablet.jpg": "mother-and-daughter-using-a-tablet.jpg",
     "GettyImages-996496112.jpg": "gettyimages-996496112.jpg",
     "apple-app.svg": "apple-app.svg",
-    "google-app.svg": "google-app.svg"
+    "google-app.svg": "google-app.svg",
+    "personal-finance-award-11@2x.png": "personal-finance-award-11.png"
   };
   var TRACKING_HOSTS = ["tracking.audio.thisisdax.com"];
   function basename(src) {

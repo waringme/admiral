@@ -46,7 +46,7 @@
         </block_1>
       </section_4>
       <section_5 sling:resourceType="core/franklin/components/section/v1/section" jcr:primaryType="nt:unstructured" style="[dark]" model="section" modelFields="[name,style]">
-        <block_1 sling:resourceType="core/franklin/components/block/v1/block" jcr:primaryType="nt:unstructured" model="award-banner" modelFields="[text]" name="Award Banner" text="&lt;p&gt;&lt;h2&gt;May the Best Motor Insurer win...oh wait, that’s us again!&lt;/h2&gt;&lt;/p&gt;&lt;p&gt;Thanks for picking us for Best Motor Insurer&lt;br&gt; for the 11th year in a row.&lt;/p&gt;"></block_1>
+        <block_1 sling:resourceType="core/franklin/components/block/v1/block" jcr:primaryType="nt:unstructured" image="/content/dam/admiral/en/images/personal-finance-award-11.png" imageAlt="Personal Finance Awards - Best Motor Insurer 2024/25" model="award-banner" modelFields="[image,imageAlt,text]" name="Award Banner" text="&lt;p&gt;&lt;h2&gt;May the Best Motor Insurer win...oh wait, that’s us again!&lt;/h2&gt;&lt;/p&gt;&lt;p&gt;Thanks for picking us for Best Motor Insurer&lt;br&gt; for the 11th year in a row.&lt;/p&gt;"></block_1>
       </section_5>
       <section_6 sling:resourceType="core/franklin/components/section/v1/section" jcr:primaryType="nt:unstructured" style="[grey]" model="section" modelFields="[name,style]">
         <block_1 sling:resourceType="core/franklin/components/block/v1/block" jcr:primaryType="nt:unstructured" filter="carousel-review" item1="[object Object]" model="carousel-review" modelFields="[autoplay,autoplayInterval,imageZoom]" name="Carousel Review">

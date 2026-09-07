@@ -7,28 +7,37 @@
  * `award-banner` becomes the rendered class.
  *
  * Authored structure (post-decorate):
- *   .award-banner > div > div  — text cell: heading (h2) + paragraph
+ *   .award-banner > div
+ *     > div  — image cell: the award badge <img> (editable image field)
+ *     > div  — text cell: heading (h2) + paragraph
  *
  * Rendered layout:
  *   .award-banner
- *     > .award-banner-badge  (empty; award image painted as CSS background)
+ *     > .award-banner-badge  (holds the authored badge <img>)
  *     > .award-banner-copy   (heading + paragraph)
  *
  * @param {Element} block
  */
 export default function decorate(block) {
-  // Gather the authored copy (heading + paragraphs) from the block's cells.
+  const badge = document.createElement('div');
+  badge.className = 'award-banner-badge';
+
   const copy = document.createElement('div');
   copy.className = 'award-banner-copy';
 
+  // Each row's cells: [image][text]. Route the image cell to the badge and
+  // everything else (heading + paragraphs) to the copy panel. Fall back
+  // gracefully if the image field is empty.
   [...block.children].forEach((row) => {
-    const cell = row.querySelector(':scope > div') || row;
-    while (cell.firstChild) copy.appendChild(cell.firstChild);
+    [...row.children].forEach((cell) => {
+      if (cell.querySelector('img, picture')) {
+        const pic = cell.querySelector('picture') || cell.querySelector('img');
+        if (pic) badge.appendChild(pic);
+      } else {
+        while (cell.firstChild) copy.appendChild(cell.firstChild);
+      }
+    });
   });
-
-  // Award badge: empty element; the badge image is a CSS background.
-  const badge = document.createElement('div');
-  badge.className = 'award-banner-badge';
 
   block.textContent = '';
   block.appendChild(badge);
