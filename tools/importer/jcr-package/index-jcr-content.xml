@@ -1,23 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jcr:content xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0" cq:template="/libs/core/franklin/templates/page" sling:resourceType="core/franklin/components/page/v1/page" jcr:primaryType="cq:PageContent" jcr:title="Car, MultiCar and MultiCover Insurance Quotes – Admiral" jcr:description="Admiral offers a wealth of insurance products including Car Insurance, Home Insurance, Travel Insurance, Pet Insurance and Van Insurance." modelFields="[jcr:title,jcr:pagetitle,jcr:description,cq:tags,theme,pageName,pageCategory]">
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0" jcr:primaryType="cq:Page">
+  <jcr:content cq:template="/libs/core/franklin/templates/page" sling:resourceType="core/franklin/components/page/v1/page" jcr:primaryType="cq:PageContent" jcr:title="Car, MultiCar and MultiCover Insurance Quotes – Admiral" jcr:description="Admiral offers a wealth of insurance products including Car Insurance, Home Insurance, Travel Insurance, Pet Insurance and Van Insurance." modelFields="[jcr:title,jcr:pagetitle,jcr:description,cq:tags,theme,pageName,pageCategory]">
     <root jcr:primaryType="nt:unstructured" sling:resourceType="core/franklin/components/root/v1/root">
       <section sling:resourceType="core/franklin/components/section/v1/section" jcr:primaryType="nt:unstructured" model="section" modelFields="[name,style]">
         <block sling:resourceType="core/franklin/components/block/v1/block" jcr:primaryType="nt:unstructured" ctalabel="EXPLORE OUR COVER" ctalink="/car-insurance" model="hero-trust" modelFields="[image,imageAlt,text,enableunderline,herolayout,backgroundstyle,ctalabel,ctalink,ctastyle,badge]" name="Hero Trust" text="&lt;p&gt;&lt;h2&gt;Trust us - we&#x27;ve been insuring cars for over 30 years&lt;/h2&gt;&lt;/p&gt;&lt;p&gt;Get reliable cover from an insurer you can trust.&lt;/p&gt;"></block>
       </section>
       <section_1 sling:resourceType="core/franklin/components/section/v1/section" jcr:primaryType="nt:unstructured" model="section" modelFields="[name,style]">
         <block sling:resourceType="core/franklin/components/block/v1/block" jcr:primaryType="nt:unstructured" filter="cards-product" name="Cards Product">
-          <item_0 jcr:primaryType="nt:unstructured" sling:resourceType="core/franklin/components/block/v1/block/item" name="Card" model="card" modelFields="[image,text]" text="&lt;p&gt;&lt;a href&#x3D;&quot;/car-insurance&quot;&gt;Car insurance&lt;/a&gt;&lt;/p&gt;"></item_0>
-          <item_1 jcr:primaryType="nt:unstructured" sling:resourceType="core/franklin/components/block/v1/block/item" name="Card" model="card" modelFields="[image,text]" text="&lt;p&gt;&lt;a href&#x3D;&quot;/home-insurance&quot;&gt;Home insurance&lt;/a&gt;&lt;/p&gt;"></item_1>
-          <item_2 jcr:primaryType="nt:unstructured" sling:resourceType="core/franklin/components/block/v1/block/item" name="Card" model="card" modelFields="[image,text]" text="&lt;p&gt;&lt;a href&#x3D;&quot;/pet-insurance&quot;&gt;Pet insurance&lt;/a&gt;&lt;/p&gt;"></item_2>
-          <item_3 jcr:primaryType="nt:unstructured" sling:resourceType="core/franklin/components/block/v1/block/item" name="Card" model="card" modelFields="[image,text]" text="&lt;p&gt;&lt;a href&#x3D;&quot;/multicover-insurance&quot;&gt;MultiCover insurance&lt;/a&gt;&lt;/p&gt;"></item_3>
-          <item_4 jcr:primaryType="nt:unstructured" sling:resourceType="core/franklin/components/block/v1/block/item" name="Card" model="card" modelFields="[image,text]" text="&lt;p&gt;&lt;a href&#x3D;&quot;/multicar-insurance&quot;&gt;MultiCar insurance&lt;/a&gt;&lt;/p&gt;"></item_4>
-          <item_5 jcr:primaryType="nt:unstructured" sling:resourceType="core/franklin/components/block/v1/block/item" name="Card" model="card" modelFields="[image,text]" text="&lt;p&gt;&lt;a href&#x3D;&quot;/van-insurance&quot;&gt;Van insurance&lt;/a&gt;&lt;/p&gt;"></item_5>
-          <item_6 jcr:primaryType="nt:unstructured" sling:resourceType="core/franklin/components/block/v1/block/item" name="Card" model="card" modelFields="[image,text]" text="&lt;p&gt;&lt;a href&#x3D;&quot;/travel-insurance&quot;&gt;Travel insurance&lt;/a&gt;&lt;/p&gt;"></item_6>
-          <item_7 jcr:primaryType="nt:unstructured" sling:resourceType="core/franklin/components/block/v1/block/item" name="Card" model="card" modelFields="[image,text]" text="&lt;p&gt;&lt;a href&#x3D;&quot;/loans/personal-loans&quot;&gt;Personal loans&lt;/a&gt;&lt;/p&gt;"></item_7>
-          <item_8 jcr:primaryType="nt:unstructured" sling:resourceType="core/franklin/components/block/v1/block/item" name="Card" model="card" modelFields="[image,text]" text="&lt;p&gt;&lt;a href&#x3D;&quot;/learner-driver-insurance&quot;&gt;Learner insurance&lt;/a&gt;&lt;/p&gt;"></item_8>
-          <item_9 jcr:primaryType="nt:unstructured" sling:resourceType="core/franklin/components/block/v1/block/item" name="Card" model="card" modelFields="[image,text]" text="&lt;p&gt;&lt;a href&#x3D;&quot;/home-insurance/landlord&quot;&gt;Landlord insurance&lt;/a&gt;&lt;/p&gt;"></item_9>
-          <item_10 jcr:primaryType="nt:unstructured" sling:resourceType="core/franklin/components/block/v1/block/item" name="Card" model="card" modelFields="[image,text]" text="&lt;p&gt;&lt;a href&#x3D;&quot;/car-insurance/temporary-car-insurance&quot;&gt;Temp car insurance&lt;/a&gt;&lt;/p&gt;"></item_10>
-          <item_11 jcr:primaryType="nt:unstructured" sling:resourceType="core/franklin/components/block/v1/block/item" name="Card" model="card" modelFields="[image,text]" text="&lt;p&gt;&lt;a href&#x3D;&quot;/breakdown-cover&quot;&gt;Breakdown cover&lt;/a&gt;&lt;/p&gt;"></item_11>
+          <item_0 jcr:primaryType="nt:unstructured" sling:resourceType="core/franklin/components/block/v1/block/item" name="Card" model="card" modelFields="[image,text]" image="/content/dam/admiral/en/images/icons/product-car-insurance.svg" text="&lt;p&gt;&lt;a href&#x3D;&quot;/car-insurance&quot;&gt;Car insurance&lt;/a&gt;&lt;/p&gt;"></item_0>
+          <item_1 jcr:primaryType="nt:unstructured" sling:resourceType="core/franklin/components/block/v1/block/item" name="Card" model="card" modelFields="[image,text]" image="/content/dam/admiral/en/images/icons/product-home-insurance.svg" text="&lt;p&gt;&lt;a href&#x3D;&quot;/home-insurance&quot;&gt;Home insurance&lt;/a&gt;&lt;/p&gt;"></item_1>
+          <item_2 jcr:primaryType="nt:unstructured" sling:resourceType="core/franklin/components/block/v1/block/item" name="Card" model="card" modelFields="[image,text]" image="/content/dam/admiral/en/images/icons/product-pet-insurance.svg" text="&lt;p&gt;&lt;a href&#x3D;&quot;/pet-insurance&quot;&gt;Pet insurance&lt;/a&gt;&lt;/p&gt;"></item_2>
+          <item_3 jcr:primaryType="nt:unstructured" sling:resourceType="core/franklin/components/block/v1/block/item" name="Card" model="card" modelFields="[image,text]" image="/content/dam/admiral/en/images/icons/product-multicover-insurance.svg" text="&lt;p&gt;&lt;a href&#x3D;&quot;/multicover-insurance&quot;&gt;MultiCover insurance&lt;/a&gt;&lt;/p&gt;"></item_3>
+          <item_4 jcr:primaryType="nt:unstructured" sling:resourceType="core/franklin/components/block/v1/block/item" name="Card" model="card" modelFields="[image,text]" image="/content/dam/admiral/en/images/icons/product-multicar-insurance.svg" text="&lt;p&gt;&lt;a href&#x3D;&quot;/multicar-insurance&quot;&gt;MultiCar insurance&lt;/a&gt;&lt;/p&gt;"></item_4>
+          <item_5 jcr:primaryType="nt:unstructured" sling:resourceType="core/franklin/components/block/v1/block/item" name="Card" model="card" modelFields="[image,text]" image="/content/dam/admiral/en/images/icons/product-van-insurance.svg" text="&lt;p&gt;&lt;a href&#x3D;&quot;/van-insurance&quot;&gt;Van insurance&lt;/a&gt;&lt;/p&gt;"></item_5>
+          <item_6 jcr:primaryType="nt:unstructured" sling:resourceType="core/franklin/components/block/v1/block/item" name="Card" model="card" modelFields="[image,text]" image="/content/dam/admiral/en/images/icons/product-travel-insurance.svg" text="&lt;p&gt;&lt;a href&#x3D;&quot;/travel-insurance&quot;&gt;Travel insurance&lt;/a&gt;&lt;/p&gt;"></item_6>
+          <item_7 jcr:primaryType="nt:unstructured" sling:resourceType="core/franklin/components/block/v1/block/item" name="Card" model="card" modelFields="[image,text]" image="/content/dam/admiral/en/images/icons/product-personal-loans.svg" text="&lt;p&gt;&lt;a href&#x3D;&quot;/loans/personal-loans&quot;&gt;Personal loans&lt;/a&gt;&lt;/p&gt;"></item_7>
+          <item_8 jcr:primaryType="nt:unstructured" sling:resourceType="core/franklin/components/block/v1/block/item" name="Card" model="card" modelFields="[image,text]" image="/content/dam/admiral/en/images/icons/product-learner-insurance.svg" text="&lt;p&gt;&lt;a href&#x3D;&quot;/learner-driver-insurance&quot;&gt;Learner insurance&lt;/a&gt;&lt;/p&gt;"></item_8>
+          <item_9 jcr:primaryType="nt:unstructured" sling:resourceType="core/franklin/components/block/v1/block/item" name="Card" model="card" modelFields="[image,text]" image="/content/dam/admiral/en/images/icons/product-landlord-insurance.svg" text="&lt;p&gt;&lt;a href&#x3D;&quot;/home-insurance/landlord&quot;&gt;Landlord insurance&lt;/a&gt;&lt;/p&gt;"></item_9>
+          <item_10 jcr:primaryType="nt:unstructured" sling:resourceType="core/franklin/components/block/v1/block/item" name="Card" model="card" modelFields="[image,text]" image="/content/dam/admiral/en/images/icons/product-temp-car-insurance.svg" text="&lt;p&gt;&lt;a href&#x3D;&quot;/car-insurance/temporary-car-insurance&quot;&gt;Temp car insurance&lt;/a&gt;&lt;/p&gt;"></item_10>
+          <item_11 jcr:primaryType="nt:unstructured" sling:resourceType="core/franklin/components/block/v1/block/item" name="Card" model="card" modelFields="[image,text]" image="/content/dam/admiral/en/images/icons/product-breakdown-cover.svg" text="&lt;p&gt;&lt;a href&#x3D;&quot;/breakdown-cover&quot;&gt;Breakdown cover&lt;/a&gt;&lt;/p&gt;"></item_11>
         </block>
         <button sling:resourceType="core/franklin/components/button/v1/button" jcr:primaryType="nt:unstructured" link="/existing-customers/make-a-claim.php" linkText="Make a claim"/>
       </section_1>
@@ -45,15 +46,7 @@
         </block_1>
       </section_4>
       <section_5 sling:resourceType="core/franklin/components/section/v1/section" jcr:primaryType="nt:unstructured" style="[dark]" model="section" modelFields="[name,style]">
-        <columns sling:resourceType="core/franklin/components/columns/v1/columns" jcr:primaryType="nt:unstructured" rows="1" columns="2">
-          <row1 jcr:primaryType="nt:unstructured">
-            <col1 jcr:primaryType="nt:unstructured"></col1>
-            <col2 jcr:primaryType="nt:unstructured">
-              <text sling:resourceType="core/franklin/components/text/v1/text" jcr:primaryType="nt:unstructured" text="&lt;h2&gt;May the Best Motor Insurer win...oh wait, that’s us again!&lt;/h2&gt;&lt;p&gt;Thanks for picking us for Best Motor Insurer&lt;br&gt;
-                    for the 11th year in a row.&lt;/p&gt;"/>
-            </col2>
-          </row1>
-        </columns>
+        <block_1 sling:resourceType="core/franklin/components/block/v1/block" jcr:primaryType="nt:unstructured" model="award-banner" modelFields="[text]" name="Award Banner" text="&lt;p&gt;&lt;h2&gt;May the Best Motor Insurer win...oh wait, that’s us again!&lt;/h2&gt;&lt;/p&gt;&lt;p&gt;Thanks for picking us for Best Motor Insurer&lt;br&gt; for the 11th year in a row.&lt;/p&gt;"></block_1>
       </section_5>
       <section_6 sling:resourceType="core/franklin/components/section/v1/section" jcr:primaryType="nt:unstructured" style="[grey]" model="section" modelFields="[name,style]">
         <block_1 sling:resourceType="core/franklin/components/block/v1/block" jcr:primaryType="nt:unstructured" filter="carousel-review" item1="[object Object]" model="carousel-review" modelFields="[autoplay,autoplayInterval,imageZoom]" name="Carousel Review">
@@ -67,17 +60,10 @@
         <text sling:resourceType="core/franklin/components/text/v1/text" jcr:primaryType="nt:unstructured" text="&lt;p&gt;For over 30 years, we&#x27;ve been protecting what matters most - whether it&#x27;s your car, home, holiday or four-legged friend.&lt;/p&gt;&lt;p&gt;During the inconvenient moments and the really hard times, we&#x27;re there when you need us.&lt;/p&gt;&lt;p&gt;Find out more &lt;a href&#x3D;&quot;/about-us&quot;&gt;about who we are&lt;/a&gt; and how we’ve got your back.&lt;/p&gt;"/>
       </section_7>
       <section_8 sling:resourceType="core/franklin/components/section/v1/section" jcr:primaryType="nt:unstructured" model="section" modelFields="[name,style]">
-        <columns sling:resourceType="core/franklin/components/columns/v1/columns" jcr:primaryType="nt:unstructured" rows="1" columns="2">
-          <row1 jcr:primaryType="nt:unstructured">
-            <col1 jcr:primaryType="nt:unstructured"></col1>
-            <col2 jcr:primaryType="nt:unstructured">
-              <title sling:resourceType="core/franklin/components/title/v1/title" jcr:primaryType="nt:unstructured" title="Download the Admiral app and manage your policy on the go" titleType="h3"/>
-              <text sling:resourceType="core/franklin/components/text/v1/text" jcr:primaryType="nt:unstructured" text="&lt;p&gt;The easy way to view your documents and make changes to your cover.&lt;/p&gt;"/>
-              <button sling:resourceType="core/franklin/components/button/v1/button" jcr:primaryType="nt:unstructured" link="https://apps.apple.com/gb/app/admiral-insurance/id1461457136" linkText=""/>
-              <button_1 sling:resourceType="core/franklin/components/button/v1/button" jcr:primaryType="nt:unstructured" link="https://play.google.com/store/apps/details?id=uk.co.admiralgroup.admiralinsurance" linkText=""/>
-            </col2>
-          </row1>
-        </columns>
+        <block sling:resourceType="core/franklin/components/block/v1/block" jcr:primaryType="nt:unstructured" filter="app-download" model="app-download" modelFields="[text]" name="App Download" text="&lt;p&gt;&lt;h3&gt;Download the Admiral app and manage your policy on the go&lt;/h3&gt;&lt;/p&gt;&lt;p&gt;The easy way to view your documents and make changes to your cover.&lt;/p&gt;">
+          <item_0 jcr:primaryType="nt:unstructured" sling:resourceType="core/franklin/components/block/v1/block/item" name="App Download Badge" model="app-download-badge" modelFields="[image,imageAlt,link]" image="/content/dam/admiral/en/images/apple-app.svg" link="https://apps.apple.com/gb/app/admiral-insurance/id1461457136"></item_0>
+          <item_1 jcr:primaryType="nt:unstructured" sling:resourceType="core/franklin/components/block/v1/block/item" name="App Download Badge" model="app-download-badge" modelFields="[image,imageAlt,link]" image="/content/dam/admiral/en/images/google-app.svg" link="https://play.google.com/store/apps/details?id=uk.co.admiralgroup.admiralinsurance"></item_1>
+        </block>
       </section_8>
       <section_9 sling:resourceType="core/franklin/components/section/v1/section" jcr:primaryType="nt:unstructured" style="[dark]" model="section" modelFields="[name,style]">
         <columns sling:resourceType="core/franklin/components/columns/v1/columns" jcr:primaryType="nt:unstructured" rows="2" columns="5">
@@ -154,3 +140,4 @@
       <section_10 sling:resourceType="core/franklin/components/section/v1/section" jcr:primaryType="nt:unstructured" model="section" modelFields="[name,style]"></section_10>
     </root>
   </jcr:content>
+</jcr:root>

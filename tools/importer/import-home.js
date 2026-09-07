@@ -7,7 +7,7 @@ import cardsProductParser from './parsers/cards-product.js';
 import videoAdvertParser from './parsers/video-advert.js';
 import columnsNoticeParser from './parsers/columns-notice.js';
 import cardsArticleParser from './parsers/cards-article.js';
-import columnsAwardParser from './parsers/columns-award.js';
+import awardBannerParser from './parsers/award-banner.js';
 import carouselReviewParser from './parsers/carousel-review.js';
 import appDownloadParser from './parsers/app-download.js';
 import columnsLinksParser from './parsers/columns-links.js';
@@ -24,7 +24,7 @@ const parsers = {
   'video-advert': videoAdvertParser,
   'columns-notice': columnsNoticeParser,
   'cards-article': cardsArticleParser,
-  'columns-award': columnsAwardParser,
+  'award-banner': awardBannerParser,
   'carousel-review': carouselReviewParser,
   'app-download': appDownloadParser,
   'columns-links': columnsLinksParser,
@@ -65,7 +65,7 @@ const PAGE_TEMPLATE = {
       ],
     },
     {
-      name: 'columns-award',
+      name: 'award-banner',
       instances: ['#reusable-block-16247'],
     },
     {
@@ -87,7 +87,7 @@ const PAGE_TEMPLATE = {
     { id: 'tv-advert', name: 'TV advert', selector: '#basic-18611', style: null, blocks: ['video-advert'], defaultContent: ['#basic-18611'] },
     { id: 'fake-emails-notice', name: 'Fake emails notice', selector: '#basic-18085', style: null, blocks: ['columns-notice'], defaultContent: [] },
     { id: 'magazine-articles', name: 'Magazine articles', selector: '#product-pods-5856', style: 'grey', blocks: ['cards-article'], defaultContent: ['#product-pods-5856 > div.container.container--responsive-tablet.pt-sml > div.text-center'] },
-    { id: 'award-banner', name: 'Award banner', selector: '#reusable-block-16247', style: 'dark', blocks: ['columns-award'], defaultContent: [] },
+    { id: 'award-banner', name: 'Award banner', selector: '#reusable-block-16247', style: 'dark', blocks: ['award-banner'], defaultContent: [] },
     { id: 'testimonials', name: 'Testimonials', selector: '#testimonials-7343', style: 'grey', blocks: ['carousel-review'], defaultContent: [] },
     { id: 'get-to-know-us', name: 'Get to know us', selector: '#paragraph-5858', style: null, blocks: [], defaultContent: ['#paragraph-5858'] },
     { id: 'app-download', name: 'App download', selector: '#basic-10863', style: null, blocks: ['app-download'], defaultContent: [] },

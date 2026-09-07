@@ -1,6 +1,6 @@
 {
-  "variantName": "columns-award",
-  "baseBlock": "columns",
+  "variantName": "award-banner",
+  "baseBlock": "award-banner",
   "version": "1.0.0",
   "created": "2026-09-05T08:52:12.906Z",
   "sourceContext": {
@@ -36,5 +36,5 @@
     "reuseCount": 1,
     "lastUsed": "2026-09-05T08:52:12.906Z"
   },
-  "implementationNote": "Delegates to base \"columns\" block; columns-award.css @imports the base stylesheet and adds variant overrides. Keeps base class to preserve shared-script/CSS coupling."
+  "implementationNote": "Standalone block-based component (resourceType block/v1/block); award-banner.css owns its layout. Renamed from columns-award so md2jcr does not force it into the columns partial."
 }

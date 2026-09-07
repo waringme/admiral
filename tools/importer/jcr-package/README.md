@@ -1,12 +1,22 @@
 # Admiral JCR content package
 
-## Use this one: `admiral-home-v1.6.zip`
+## Use this one: `admiral-home-v1.7.zip`
 
-Rebuilds the **app-download** section as a proper block-based component so the
-JCR converter preserves both its variant identity and the two app-store badge
-images. Earlier versions modelled it as a `columns` variant, which the md2jcr
-columns partial could not represent — it dropped the `columns-app` class (so the
-styling never applied) and flattened the badge image-links into empty buttons.
+Rebuilds the **award banner** ("May the Best Motor Insurer win…") as a proper
+block-based component named `award-banner`. It was previously a `columns-award`
+variant, but the md2jcr columns partial forces any block whose name starts with
+`columns` into a plain `<columns>` node — dropping the `columns-award` class, so
+the award styling (and its badge image) never attached on the published page.
+Renaming it to `award-banner` (resourceType `block/v1/block`, model
+`award-banner`, single `text` field) makes the converter keep the variant, so it
+renders as `class="award-banner"` and the badge appears. All DAM images from
+v1.6 are carried over unchanged.
+
+Built on top of v1.6, which had rebuilt the **app-download** section as a proper
+block-based component so the JCR converter preserves both its variant identity
+and the two app-store badge images (earlier versions modelled it as a `columns`
+variant, which the md2jcr columns partial could not represent — it dropped the
+`columns-app` class and flattened the badge image-links into empty buttons).
 
 - `/content/admiral/language-masters/en` — home page (cq:Page, all sections;
   app-download now a block with an `App Download` container + `App Download

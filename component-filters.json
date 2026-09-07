@@ -106,12 +106,6 @@
     ]
   },
   {
-    "id": "columns-award",
-    "components": [
-      "column"
-    ]
-  },
-  {
     "id": "columns-links",
     "components": [
       "column"

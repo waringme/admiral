@@ -45,7 +45,7 @@
           ]
         },
         {
-          "name": "columns-award",
+          "name": "award-banner",
           "instances": [
             "#reusable-block-16247"
           ]
@@ -132,7 +132,7 @@
           "selector": "#reusable-block-16247",
           "style": "dark",
           "blocks": [
-            "columns-award"
+            "award-banner"
           ],
           "defaultContent": []
         },

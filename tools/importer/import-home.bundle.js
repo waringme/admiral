@@ -226,24 +226,29 @@ var CustomImportScript = (() => {
     element.replaceWith(block);
   }
 
-  // tools/importer/parsers/columns-award.js
+  // tools/importer/parsers/award-banner.js
   function parse6(element, { document: document2 }) {
     element.querySelectorAll("style, script").forEach((n) => n.remove());
-    const image = element.querySelector(".image img, img");
     const textWrap = element.querySelector(".text") || element;
     const heading = textWrap.querySelector("h1, h2, h3, h4");
     const paragraphs = Array.from(textWrap.querySelectorAll("p"));
-    if (!image && !heading && !paragraphs.length) {
+    if (!heading && !paragraphs.length) {
       element.replaceWith(...element.childNodes);
       return;
     }
-    const textCell = [];
-    if (heading) textCell.push(heading);
-    paragraphs.forEach((p) => textCell.push(p));
+    const hinted = (fieldName, ...nodes) => {
+      const frag = document2.createDocumentFragment();
+      frag.appendChild(document2.createComment(` field:${fieldName} `));
+      nodes.filter(Boolean).forEach((n) => frag.appendChild(n));
+      return frag;
+    };
+    const textNodes = [];
+    if (heading) textNodes.push(heading);
+    paragraphs.forEach((p) => textNodes.push(p));
     const cells = [
-      [image || "", textCell.length ? textCell : ""]
+      [textNodes.length ? hinted("text", ...textNodes) : hinted("text")]
     ];
-    const block = WebImporter.Blocks.createBlock(document2, { name: "columns-award", cells });
+    const block = WebImporter.Blocks.createBlock(document2, { name: "award-banner", cells });
     element.replaceWith(block);
   }
 
@@ -466,7 +471,7 @@ var CustomImportScript = (() => {
     "video-advert": parse3,
     "columns-notice": parse4,
     "cards-article": parse5,
-    "columns-award": parse6,
+    "award-banner": parse6,
     "carousel-review": parse7,
     "app-download": parse8,
     "columns-links": parse9
@@ -505,7 +510,7 @@ var CustomImportScript = (() => {
         ]
       },
       {
-        name: "columns-award",
+        name: "award-banner",
         instances: ["#reusable-block-16247"]
       },
       {
@@ -527,7 +532,7 @@ var CustomImportScript = (() => {
       { id: "tv-advert", name: "TV advert", selector: "#basic-18611", style: null, blocks: ["video-advert"], defaultContent: ["#basic-18611"] },
       { id: "fake-emails-notice", name: "Fake emails notice", selector: "#basic-18085", style: null, blocks: ["columns-notice"], defaultContent: [] },
       { id: "magazine-articles", name: "Magazine articles", selector: "#product-pods-5856", style: "grey", blocks: ["cards-article"], defaultContent: ["#product-pods-5856 > div.container.container--responsive-tablet.pt-sml > div.text-center"] },
-      { id: "award-banner", name: "Award banner", selector: "#reusable-block-16247", style: "dark", blocks: ["columns-award"], defaultContent: [] },
+      { id: "award-banner", name: "Award banner", selector: "#reusable-block-16247", style: "dark", blocks: ["award-banner"], defaultContent: [] },
       { id: "testimonials", name: "Testimonials", selector: "#testimonials-7343", style: "grey", blocks: ["carousel-review"], defaultContent: [] },
       { id: "get-to-know-us", name: "Get to know us", selector: "#paragraph-5858", style: null, blocks: [], defaultContent: ["#paragraph-5858"] },
       { id: "app-download", name: "App download", selector: "#basic-10863", style: null, blocks: ["app-download"], defaultContent: [] },
