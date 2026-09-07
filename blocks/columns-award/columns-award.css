@@ -24,12 +24,21 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 0;
+  gap: 24px;
 }
 
-/* Drop the empty authored cell so the text is truly centred. */
-.columns-award > div > div:empty {
-  display: none;
+/* Award badge: the authored first cell is empty, so paint the source award
+   image (personal-finance-award-11) into it as a background. */
+.columns-award > div > div:empty,
+.columns-award > div > div:first-child {
+  flex: 0 0 auto;
+  width: 300px;
+  max-width: 60vw;
+  aspect-ratio: 386 / 320;
+  background-image: url("https://mktgblobpubaccess1.blob.core.windows.net/eui-frontend-assets/admiral/images/side-images/personal-finance-award-11@2x.png");
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  background-size: contain;
 }
 
 .columns-award h2 {
@@ -51,16 +60,29 @@
   text-align: center;
 }
 
-/* Keep the single centred column at desktop, overriding the base
-   `.columns > div` flex-row (display:flex; gap:24px; flex:1 children). */
+/* Desktop: award badge on the left, text on the right (source: flex row). */
 @media (width >= 900px) {
   .columns-award > div {
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
-    gap: 0;
+    justify-content: center;
+    gap: 48px;
   }
 
   .columns-award > div > div {
-    flex: unset;
+    flex: 0 1 auto;
+  }
+
+  .columns-award > div > div:first-child {
+    width: 386px;
+  }
+
+  .columns-award h2,
+  .columns-award p {
+    text-align: left;
+  }
+
+  .columns-award p {
+    padding: 0;
   }
 }
