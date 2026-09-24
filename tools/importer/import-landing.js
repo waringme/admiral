@@ -42,7 +42,7 @@ const TEMPLATES = {
     ],
     sections: [
       { id: 'hero', name: 'Hero banner', selector: '#hero-banner-5509', style: null, blocks: ['hero-trust'], defaultContent: [] },
-      { id: 'intro-prose', name: 'Intro prose + image', selector: '#side-image-13170', style: null, blocks: [], defaultContent: ['#side-image-13170'] },
+      { id: 'intro-prose', name: 'Intro prose + image', selector: '#side-image-13170', style: 'white', blocks: [], defaultContent: ['#side-image-13170'] },
       { id: 'products-prose', name: 'Black box products (media panels)', selector: '#basic-13176', style: 'centered', blocks: ['media-panels'], defaultContent: ['#basic-13176 > div:first-child'] },
       { id: 'cover-and-steps', name: "What's covered (comparison table)", selector: '#basic-18312', style: null, blocks: ['comparison-table'], defaultContent: ['#basic-18312 > div:nth-of-type(1)'] },
       { id: 'measure-badges', name: 'What LittleBox measures (feature grid)', selector: '#basic-18083', style: 'grey', blocks: ['feature-grid'], defaultContent: [] },

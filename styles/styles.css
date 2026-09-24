@@ -871,6 +871,16 @@ main .section.grey {
   padding: 48px 0;
 }
 
+/* White section (admiral.com intro side-image sections, e.g. "What is black box
+ * insurance?", sit on white rather than the page's beige). Reusable — add the
+ * "white" style in section-metadata. */
+main .section.white {
+  background-color: #fff;
+  color: var(--text-color);
+  margin: 0;
+  padding: 48px 0;
+}
+
 /* Navy promo/CTA band (admiral.com "LittleBox is a different kind…"): full-width
  * navy background, white heading, light-blue body, centered content. */
 main .section.navy {

@@ -15,7 +15,7 @@
           <item_2 jcr:primaryType="nt:unstructured" sling:resourceType="core/franklin/components/block/v1/block/item" name="Hero Cta Button" model="hero-cta-button" label="Documents" link="/existing-customers/policy-documents.php" style="ghost" modelFields="[label,link,style]"></item_2>
         </block>
       </section_1>
-      <section_2 sling:resourceType="core/franklin/components/section/v1/section" jcr:primaryType="nt:unstructured" model="section" modelFields="[name,style]">
+      <section_2 sling:resourceType="core/franklin/components/section/v1/section" jcr:primaryType="nt:unstructured" style="[white]" model="section" modelFields="[name,style]">
         <title sling:resourceType="core/franklin/components/title/v1/title" jcr:primaryType="nt:unstructured" title="What is black box insurance?" titleType="h2"/>
         <text sling:resourceType="core/franklin/components/text/v1/text" jcr:primaryType="nt:unstructured" text="&lt;p&gt;Black box insurance – also called telematics – is a type of &lt;a href&#x3D;&quot;/car-insurance&quot;&gt;car insurance&lt;/a&gt; where a small device is fitted in your car which measures how well and when you drive.&lt;/p&gt;&lt;p&gt;This means if you’re a safe driver, we’ll reward you with discounted insurance at renewal. It’s that easy.&lt;/p&gt;"/>
         <image sling:resourceType="core/franklin/components/image/v1/image" jcr:primaryType="nt:unstructured" image="/content/dam/admiral/en/images/annie-arms-folded.png" imageAlt=""/>
