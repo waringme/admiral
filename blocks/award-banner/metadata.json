@@ -31,10 +31,11 @@
   },
   "usage": {
     "pagesUsing": [
-      "/index"
+      "/index",
+      "/black-box-insurance"
     ],
-    "reuseCount": 1,
-    "lastUsed": "2026-09-05T08:52:12.906Z"
+    "reuseCount": 2,
+    "lastUsed": "2026-09-24T11:09:55.297155Z"
   },
   "implementationNote": "Standalone block-based component (resourceType block/v1/block); award-banner.css owns its layout. Renamed from columns-award so md2jcr does not force it into the columns partial."
 }

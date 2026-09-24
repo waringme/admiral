@@ -323,6 +323,18 @@
     ]
   },
   {
+    "id": "article-body",
+    "fields": [
+      {
+        "component": "richtext",
+        "name": "text",
+        "value": "",
+        "label": "Body",
+        "valueType": "string"
+      }
+    ]
+  },
+  {
     "id": "award-banner",
     "fields": [
       {
@@ -345,6 +357,24 @@
         "value": "",
         "label": "Text",
         "valueType": "string"
+      }
+    ]
+  },
+  {
+    "id": "breadcrumb-item",
+    "fields": [
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "label",
+        "value": "",
+        "label": "Label"
+      },
+      {
+        "component": "aem-content",
+        "valueType": "string",
+        "name": "link",
+        "label": "Link"
       }
     ]
   },
@@ -569,6 +599,25 @@
         "name": "rows",
         "value": "",
         "label": "Rows"
+      }
+    ]
+  },
+  {
+    "id": "comparison-row",
+    "fields": [
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "label",
+        "value": "",
+        "label": "Feature"
+      },
+      {
+        "component": "richtext",
+        "name": "value",
+        "value": "",
+        "label": "Value",
+        "valueType": "string"
       }
     ]
   },

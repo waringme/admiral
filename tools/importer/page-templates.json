@@ -177,6 +177,66 @@
           "defaultContent": []
         }
       ]
+    },
+    {
+      "name": "landing",
+      "urls": [
+        "https://www.admiral.com/black-box-insurance",
+        "https://www.admiral.com/black-box-insurance/littlebox",
+        "https://www.admiral.com/resources/motor-hub/van-advice"
+      ],
+      "representativeUrl": "https://www.admiral.com/black-box-insurance",
+      "urlPattern": "/(black-box-insurance*|resources/*-hub/*)",
+      "description": "Landing template covering both product landings (black-box, littlebox) and the resource/advice hub (van-advice). Superset of blocks: hero CTA banner, intro prose (side-image), trust badges, comparison table(s), product pods, feature/topic article-card grids, FAQ accordion. Product pages use tables/pods/FAQ; the hub uses repeating article-card grids. Block instance selectors are section-level from analysis; refine during block-mapping.",
+      "blocks": [
+        { "name": "hero-trust", "instances": ["#hero-banner-5509", "#basic-19070"] },
+        { "name": "cards-product", "instances": ["#basic-13176 .product-grid", "#basic-13176 .grid", "#reusable-block-13195 .grid"] },
+        { "name": "comparison-table", "instances": ["#basic-18312 table"] },
+        { "name": "cards-article", "instances": ["#basic-18083 .grid", "#paragraph-16063 .grid", "#product-pods-13189 .grid", "#basic-19072 .grid", "#basic-19073 .grid", "#basic-19074 .grid", "#basic-19075 .grid", "#basic-19076 .grid", "#basic-19077 .grid", "#basic-19078 .grid"] },
+        { "name": "award-banner", "instances": ["#reusable-block-13191"] },
+        { "name": "accordion", "instances": ["#faqs-13193 .accordion", "#basic-13192 .accordion"] }
+      ],
+      "sections": [
+        { "id": "hero", "name": "Hero banner", "selector": "#hero-banner-5509", "style": null, "blocks": ["hero-trust"], "defaultContent": [] },
+        { "id": "hero-hub", "name": "Hero banner (hub)", "selector": "#basic-19070", "style": null, "blocks": ["hero-trust"], "defaultContent": [] },
+        { "id": "intro-prose", "name": "Intro prose + image", "selector": "#side-image-13170", "style": null, "blocks": [], "defaultContent": ["#side-image-13170"] },
+        { "id": "products", "name": "Black box products", "selector": "#basic-13176", "style": null, "blocks": ["cards-product"], "defaultContent": ["#basic-13176 > div.wrapper"] },
+        { "id": "cover-and-steps", "name": "Cover + four steps (comparison tables)", "selector": "#basic-18312", "style": null, "blocks": ["comparison-table"], "defaultContent": ["#basic-18312 > div:nth-of-type(1)"] },
+        { "id": "measure-badges", "name": "What LittleBox measures (badges)", "selector": "#basic-18083", "style": "grey", "blocks": ["cards-article"], "defaultContent": [] },
+        { "id": "why-littlebox", "name": "Why LittleBox (benefits)", "selector": "#paragraph-16063", "style": "grey", "blocks": ["cards-article"], "defaultContent": ["#paragraph-16063 > div.text-center"] },
+        { "id": "different-kind-cta", "name": "Different kind CTA", "selector": "#basic-13181", "style": null, "blocks": [], "defaultContent": ["#basic-13181"] },
+        { "id": "articles", "name": "Latest articles", "selector": "#product-pods-13189", "style": null, "blocks": ["cards-article"], "defaultContent": ["#product-pods-13189 > div.container.container--responsive-tablet > div.text-center"] },
+        { "id": "van-insurance", "name": "Van insurance (side image)", "selector": "#side-image-13190", "style": null, "blocks": [], "defaultContent": ["#side-image-13190"] },
+        { "id": "award-banner", "name": "Award banner", "selector": "#reusable-block-13191", "style": "dark", "blocks": ["award-banner"], "defaultContent": [] },
+        { "id": "faq", "name": "FAQ accordion", "selector": "#faqs-13193", "style": null, "blocks": ["accordion"], "defaultContent": [] },
+        { "id": "driver-options", "name": "Driver options tiles", "selector": "#reusable-block-13195", "style": null, "blocks": ["cards-product"], "defaultContent": [] },
+        { "id": "explore", "name": "Explore link directory", "selector": "#basic-13196", "style": null, "blocks": [], "defaultContent": ["#basic-13196"] },
+        { "id": "featured-row", "name": "Featured row (hub)", "selector": "#basic-19071", "style": null, "blocks": ["cards-article"], "defaultContent": ["#basic-19071 > div.container"] },
+        { "id": "topic-grid-1", "name": "Topic grid (hub)", "selector": "#basic-19072", "style": null, "blocks": ["cards-article"], "defaultContent": ["#basic-19072 > div.wrapper > div.container.container--responsive-tablet > div.text-center"] },
+        { "id": "topic-grid-2", "name": "Topic grid (hub)", "selector": "#basic-19073", "style": null, "blocks": ["cards-article"], "defaultContent": ["#basic-19073 > div.wrapper > div.container.container--responsive-tablet > div.text-center"] },
+        { "id": "topic-grid-3", "name": "Topic grid (hub)", "selector": "#basic-19074", "style": null, "blocks": ["cards-article"], "defaultContent": ["#basic-19074 > div.wrapper > div.container.container--responsive-tablet > div.text-center"] },
+        { "id": "topic-grid-4", "name": "Topic grid (hub)", "selector": "#basic-19075", "style": null, "blocks": ["cards-article"], "defaultContent": ["#basic-19075 > div.wrapper > div.container.container--responsive-tablet > div.text-center"] },
+        { "id": "topic-grid-5", "name": "Topic grid (hub)", "selector": "#basic-19076", "style": null, "blocks": ["cards-article"], "defaultContent": ["#basic-19076 > div.wrapper > div.container.container--responsive-tablet > div.text-center"] },
+        { "id": "topic-grid-6", "name": "Topic grid (hub)", "selector": "#basic-19077", "style": null, "blocks": ["cards-article"], "defaultContent": ["#basic-19077 > div.wrapper > div.container.container--responsive-tablet > div.text-center"] }
+      ]
+    },
+    {
+      "name": "guide",
+      "urls": [
+        "https://www.admiral.com/magazine/guides/van-insurance/which-class-of-use"
+      ],
+      "representativeUrl": "https://www.admiral.com/magazine/guides/van-insurance/which-class-of-use",
+      "urlPattern": "/magazine/guides/*",
+      "description": "Long-form magazine guide: breadcrumb + title header, magazine-story body (rich prose, headings, images, tables), related-guide cards. Block instance selectors below are section-level from analysis; refine during block-mapping.",
+      "blocks": [
+        { "name": "article-body", "instances": ["#block-admiral-annie-content > div.magazine-story > div.magazine-story__body"] },
+        { "name": "cards-article", "instances": ["#block-admiral-annie-content > div.views-element-container .grid"] }
+      ],
+      "sections": [
+        { "id": "title-header", "name": "Title header", "selector": "#block-admiral-annie-content > div.magazine-story > div.magazine-story__title", "style": null, "blocks": [], "defaultContent": ["#block-admiral-annie-content > div.magazine-story > div.magazine-story__title"] },
+        { "id": "article-body", "name": "Article body", "selector": "#block-admiral-annie-content > div.magazine-story > div.magazine-story__body", "style": null, "blocks": ["article-body"], "defaultContent": [] },
+        { "id": "related-guides", "name": "Related guides", "selector": "#block-admiral-annie-content > div.views-element-container", "style": null, "blocks": ["cards-article"], "defaultContent": [] }
+      ]
     }
   ]
 }

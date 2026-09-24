@@ -1,0 +1,32 @@
+{
+  "variantName": "breadcrumb",
+  "baseBlock": "breadcrumb",
+  "version": "1.0.0",
+  "created": "2026-09-24T00:00:00.000Z",
+  "sourceContext": {
+    "originUrl": "https://www.admiral.com/magazine/guides/van-insurance/which-class-of-use",
+    "originPage": "van-insurance class-of-use guide",
+    "blockPosition": "top"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "light",
+    "density": "compact",
+    "purpose": "navigation",
+    "imagePattern": "none"
+  },
+  "contentPattern": {
+    "structure": "repeating items: label | link; last item is current page (no link)",
+    "buttonCount": 0,
+    "imageCount": 0
+  },
+  "reuseGuidance": {
+    "suitableFor": ["breadcrumb path trails on interior pages"],
+    "notSuitableFor": ["primary navigation", "in-page anchors"]
+  },
+  "usage": {
+    "pagesUsing": ["/magazine/guides/van-insurance/which-class-of-use"],
+    "reuseCount": 1,
+    "lastUsed": "2026-09-24T00:00:00.000Z"
+  },
+  "implementationNote": "Block-based component (resourceType block/v1/block) with repeating breadcrumb-item children (label + aem-content link). Source page has no breadcrumb markup — it is an authored trail. Named breadcrumb (not columns-*) so md2jcr keeps the variant class."
+}

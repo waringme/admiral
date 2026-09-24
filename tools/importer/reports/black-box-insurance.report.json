@@ -1,0 +1,19 @@
+{
+  "status": "success",
+  "url": "https://www.admiral.com/black-box-insurance",
+  "path": "black-box-insurance",
+  "timestamp": "2026-09-24T12:12:08.080Z",
+  "title": "Black Box Car Insurance Quotes - Admiral",
+  "template": "landing",
+  "blocks": [
+    "hero-trust",
+    "comparison-table",
+    "comparison-table",
+    "comparison-table",
+    "cards-article",
+    "cards-article",
+    "cards-article",
+    "award-banner",
+    "accordion"
+  ]
+}

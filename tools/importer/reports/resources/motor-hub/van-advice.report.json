@@ -1,0 +1,17 @@
+{
+  "status": "success",
+  "url": "https://www.admiral.com/resources/motor-hub/van-advice",
+  "path": "resources/motor-hub/van-advice",
+  "timestamp": "2026-09-24T12:13:55.223Z",
+  "title": "Van Driving Tips and Advice | Admiral",
+  "template": "landing",
+  "blocks": [
+    "hero-trust",
+    "cards-article",
+    "cards-article",
+    "cards-article",
+    "cards-article",
+    "cards-article",
+    "cards-article"
+  ]
+}

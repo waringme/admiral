@@ -76,6 +76,12 @@
     ]
   },
   {
+    "id": "breadcrumb",
+    "components": [
+      "breadcrumb-item"
+    ]
+  },
+  {
     "id": "cards-article",
     "components": [
       "card"
@@ -126,6 +132,12 @@
       "title",
       "dm-asset",
       "video"
+    ]
+  },
+  {
+    "id": "comparison-table",
+    "components": [
+      "comparison-row"
     ]
   },
   {

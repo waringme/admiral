@@ -1,0 +1,38 @@
+{
+  "variantName": "article-body",
+  "baseBlock": "article-body",
+  "version": "1.0.0",
+  "created": "2026-09-24T00:00:00.000Z",
+  "sourceContext": {
+    "originUrl": "https://www.admiral.com/magazine/guides/van-insurance/which-class-of-use",
+    "originPage": "van-insurance class-of-use guide",
+    "blockPosition": "middle"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "light",
+    "density": "spacious",
+    "purpose": "editorial",
+    "imagePattern": "inline"
+  },
+  "contentPattern": {
+    "structure": "single richtext body: headings, paragraphs, lists, inline images, tables, CTAs",
+    "buttonCount": 0,
+    "imageCount": 2
+  },
+  "reuseGuidance": {
+    "suitableFor": [
+      "long-form guide/article bodies",
+      "editorial prose needing a contained reading column"
+    ],
+    "notSuitableFor": [
+      "full-width marketing sections",
+      "card/tile grids"
+    ]
+  },
+  "usage": {
+    "pagesUsing": ["/magazine/guides/van-insurance/which-class-of-use"],
+    "reuseCount": 1,
+    "lastUsed": "2026-09-24T00:00:00.000Z"
+  },
+  "implementationNote": "Block-based component (resourceType block/v1/block) with a single richtext 'text' field. Thin layout-containment wrapper providing article reading width + typography around otherwise-default-content prose. Named article-body (not columns-*) so md2jcr keeps the variant class."
+}

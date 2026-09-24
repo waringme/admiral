@@ -1,0 +1,16 @@
+{
+  "status": "success",
+  "url": "https://www.admiral.com/black-box-insurance/littlebox",
+  "path": "black-box-insurance/littlebox",
+  "timestamp": "2026-09-24T12:13:02.362Z",
+  "title": "LittleBox Black Box Insurance | Admiral",
+  "template": "landing",
+  "blocks": [
+    "hero-trust",
+    "cards-article",
+    "cards-article",
+    "cards-article",
+    "cards-article",
+    "comparison-table"
+  ]
+}

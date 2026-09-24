@@ -1,0 +1,41 @@
+{
+  "variantName": "comparison-table",
+  "baseBlock": "comparison-table",
+  "version": "1.0.0",
+  "created": "2026-09-24T00:00:00.000Z",
+  "sourceContext": {
+    "originUrl": "https://www.admiral.com/black-box-insurance",
+    "originPage": "black-box-insurance landing page",
+    "blockPosition": "middle"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "light",
+    "density": "compact",
+    "purpose": "comparison",
+    "imagePattern": "none"
+  },
+  "contentPattern": {
+    "structure": "repeating feature rows: label | value (text or tick/cross badge)",
+    "buttonCount": 0,
+    "imageCount": 0
+  },
+  "reuseGuidance": {
+    "suitableFor": [
+      "feature/coverage comparison tables",
+      "spec tables with boolean tick/cross values"
+    ],
+    "notSuitableFor": [
+      "long-form prose",
+      "card grids"
+    ]
+  },
+  "usage": {
+    "pagesUsing": [
+      "/black-box-insurance",
+      "/black-box-insurance/littlebox"
+    ],
+    "reuseCount": 3,
+    "lastUsed": "2026-09-24T11:55:41.966Z"
+  },
+  "implementationNote": "Block-based component (resourceType block/v1/block) with repeating comparison-row items (label + richtext value). Renders a <table>; affirmative/negative value tokens become tick/cross badges. Named comparison-table (not columns-*) so md2jcr keeps the variant class."
+}

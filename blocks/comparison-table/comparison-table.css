@@ -1,0 +1,70 @@
+/* Comparison Table — feature comparison grid (admiral.com landing pages).
+ * Source: .table.general.hybrid.blue — feature rows with alternating tint,
+ * brand-blue header accents, tick/cross badges for boolean values. */
+
+.comparison-table {
+  width: 100%;
+  max-width: 748px;
+  margin: 0 auto;
+}
+
+.comparison-table .comparison-table-grid {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.comparison-table .comparison-table-grid tr {
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.comparison-table .comparison-table-label {
+  padding: 14px 16px;
+  color: var(--text-color, #4f4f4f);
+  font-weight: 600;
+  text-align: left;
+  vertical-align: middle;
+}
+
+.comparison-table .comparison-table-cell {
+  padding: 14px 16px;
+  text-align: center;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
+/* zebra tint on alternate rows (source: td.gray) */
+.comparison-table .comparison-table-grid tr:nth-child(even) {
+  background-color: #f5f8fb;
+}
+
+.comparison-table .comparison-table-value {
+  color: var(--brand-blue, #005485);
+  font-weight: 600;
+}
+
+/* tick / cross indicators */
+.comparison-table .comparison-table-badge {
+  display: inline-block;
+  width: 22px;
+  height: 22px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  vertical-align: middle;
+}
+
+.comparison-table .comparison-table-badge-tick {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Ccircle cx='12' cy='12' r='12' fill='%2300a32e'/%3E%3Cpath d='M6 12.5l3.5 3.5L18 8' fill='none' stroke='%23fff' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+}
+
+.comparison-table .comparison-table-badge-cross {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Ccircle cx='12' cy='12' r='12' fill='%23b0b7bd'/%3E%3Cpath d='M8 8l8 8M16 8l-8 8' fill='none' stroke='%23fff' stroke-width='2.4' stroke-linecap='round'/%3E%3C/svg%3E");
+}
+
+@media (width >= 900px) {
+  .comparison-table .comparison-table-grid {
+    font-size: 17px;
+  }
+}

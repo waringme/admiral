@@ -31,10 +31,12 @@
   },
   "usage": {
     "pagesUsing": [
-      "/index"
+      "/index",
+      "/black-box-insurance",
+      "/black-box-insurance/littlebox"
     ],
-    "reuseCount": 1,
-    "lastUsed": "2026-09-05T08:52:12.906Z"
+    "reuseCount": 3,
+    "lastUsed": "2026-09-24T11:55:41.905Z"
   },
   "implementationNote": "Delegates to base \"hero\" block; hero-trust.css @imports the base stylesheet and adds variant overrides. Keeps base class to preserve shared-script/CSS coupling."
 }
