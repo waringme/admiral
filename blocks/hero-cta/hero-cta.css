@@ -152,13 +152,13 @@ main .hero-cta .hero-cta-actions a.hero-cta-button:hover {
 /* ---- Sticky quote bar (block option "sticky") -------------------------------
  * Source .sticky-button: full-width rgba(0,0,0,.7) bar, 19px/21px padding,
  * centred 430px green-gradient button (uppercase 16.2px/32px), fades in/out
- * over .3s. Appended to <body>; positioned below the fixed site header. */
+ * over .3s. Appended to <body>; sits at the top edge, over the fixed header. */
 .hero-cta-sticky {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
-  z-index: 1; /* under the header (z-index 2) and its menus */
+  z-index: 200; /* above the fixed site header (header z-index 111) */
   padding: 19px 16px 21px;
   background-color: rgb(0 0 0 / 70%);
   text-align: center;
@@ -188,6 +188,16 @@ a.hero-cta-sticky-button:any-link {
   text-decoration: none;
   white-space: nowrap;
   box-sizing: border-box;
+}
+
+/* While the bar shows, the fixed site header slides up out of view (the
+ * source's header has scrolled off by this point). */
+body header .nav-wrapper {
+  transition: transform 0.3s ease, box-shadow 0.2s ease;
+}
+
+body.hero-cta-sticky-active header .nav-wrapper {
+  transform: translateY(-100%);
 }
 
 a.hero-cta-sticky-button::after {

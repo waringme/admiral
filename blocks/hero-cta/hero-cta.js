@@ -79,7 +79,7 @@ export default function decorate(block) {
 
   // Sticky quote bar (block option "sticky"): once the hero has scrolled out of
   // view, repeat the primary button in a translucent bar fixed at the top of the
-  // viewport, just below the site header (source: .sticky-button).
+  // viewport, over the site header (source: .sticky-button).
   const primary = actions.querySelector('.hero-cta-button-primary') || actions.firstElementChild;
   if (block.classList.contains('sticky') && primary) {
     const bar = document.createElement('div');
@@ -91,13 +91,17 @@ export default function decorate(block) {
     bar.appendChild(cta);
     document.body.appendChild(bar);
 
+    // Header height (offsetHeight ignores the slide-away transform, so the
+    // threshold stays stable while the header is hidden — no flicker).
     const headerBottom = () => {
       const header = document.querySelector('header .nav-wrapper');
-      return header ? Math.max(0, header.getBoundingClientRect().bottom) : 0;
+      return header ? header.offsetHeight : 0;
     };
     const setVisible = (visible) => {
-      if (visible) bar.style.top = `${headerBottom()}px`;
       bar.classList.toggle('is-visible', visible);
+      // Like the source (whose header has scrolled away), slide the fixed site
+      // header out of view while the bar is showing.
+      document.body.classList.toggle('hero-cta-sticky-active', visible);
       bar.setAttribute('aria-hidden', visible ? 'false' : 'true');
       cta.tabIndex = visible ? 0 : -1;
     };

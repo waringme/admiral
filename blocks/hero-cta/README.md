@@ -29,7 +29,8 @@ Decorates to `.hero-cta` (full-bleed, background photo) containing a right-align
 ## Sticky quote bar
 
 Tick **Sticky quote bar** on the block to repeat the hero's primary button in a
-translucent bar fixed to the top of the screen (just below the site header). It
+translucent bar fixed to the top edge of the screen; the site header slides out
+of view while it shows. It
 fades in once the hero's own button has scrolled out of view and hides again
 when the reader scrolls back up — matching admiral.com's sticky "Get a Quote"
 bar. Both black box landing heroes have it switched on.
