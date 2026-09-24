@@ -1,11 +1,21 @@
+/* Admiral brand typeface (Facit, via Admiral's Adobe Fonts kit). */
+@import url("https://use.typekit.net/mcu8nnf.css");
+
 /* Media Panels — image-left / text-right product panels (admiral.com
  * "Our black box insurance products"). A vertical stack of rows, each with a
- * wide photo on the left and a blue title + grey description on the right. */
+ * wide photo on the left and a blue title + grey description on the right.
+ * Source (#product-pods at 1440px): 768px row; 300x162 photo (square
+ * corners), 30px gap, 410px text column; title jaf-facitweb 19.8px/28px/600
+ * #2350a0; copy 18px/28px/300 #4f4f4f; links #0078ff/400. */
 
 .media-panels {
+  --media-panels-font: jaf-facitweb, "Helvetica Neue", helvetica, arial, sans-serif;
+
   width: 100%;
-  max-width: 1040px;
+  max-width: 768px;
   margin: 0 auto;
+  font-family: var(--media-panels-font);
+  text-align: left;
 }
 
 .media-panels .media-panels-items {
@@ -14,13 +24,13 @@
   list-style: none;
   display: flex;
   flex-direction: column;
-  gap: 48px;
+  gap: 40px;
 }
 
 .media-panels .media-panel {
   display: grid;
-  grid-template-columns: minmax(0, 300px) 1fr;
-  gap: 40px;
+  grid-template-columns: minmax(0, 298px) minmax(0, 410px);
+  gap: 30px;
   align-items: center;
 }
 
@@ -29,11 +39,10 @@
 }
 
 .media-panels .media-panel-media img {
-  width: 100%;
-  aspect-ratio: 16 / 10;
-  object-fit: cover;
-  border-radius: 4px;
   display: block;
+  width: 100%;
+  height: 162px;
+  object-fit: cover;
 }
 
 .media-panels .media-panel-title h1,
@@ -41,16 +50,18 @@
 .media-panels .media-panel-title h3,
 .media-panels .media-panel-title h4,
 .media-panels .media-panel-title p {
-  margin: 0 0 12px;
+  margin: 0 0 10px;
   color: var(--heading-blue, #2350a0);
-  font-size: 22px;
-  font-weight: 700;
+  font-family: var(--media-panels-font);
+  font-size: 19.8px;
+  font-weight: 600;
   line-height: 28px;
 }
 
 .media-panels .media-panel-text {
   color: var(--text-color, #4f4f4f);
   font-size: 18px;
+  font-weight: 300;
   line-height: 28px;
 }
 
@@ -64,8 +75,18 @@
 
 .media-panels .media-panel-text a,
 .media-panels .media-panel-text a:any-link {
+  display: inline;
+  padding: 0;
   color: var(--link-color, #0078ff);
+  font-size: inherit;
+  font-weight: 400;
+  line-height: inherit;
   text-decoration: none;
+  white-space: normal;
+}
+
+.media-panels .media-panel-text a::after {
+  content: none;
 }
 
 .media-panels .media-panel-text a:hover {
@@ -79,6 +100,7 @@
   }
 
   .media-panels .media-panel-media img {
-    aspect-ratio: 2 / 1;
+    height: auto;
+    aspect-ratio: 300 / 162;
   }
 }
