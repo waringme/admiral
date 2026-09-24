@@ -6483,6 +6483,14 @@
         "value": "",
         "label": "Text (eyebrow + heading)",
         "valueType": "string"
+      },
+      {
+        "component": "boolean",
+        "name": "classes_sticky",
+        "label": "Sticky quote bar",
+        "description": "When the hero scrolls out of view, show the primary button in a bar fixed to the top of the screen.",
+        "valueType": "boolean",
+        "value": false
       }
     ]
   },

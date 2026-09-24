@@ -76,4 +76,43 @@ export default function decorate(block) {
   block.textContent = '';
   block.appendChild(bg);
   block.appendChild(box);
+
+  // Sticky quote bar (block option "sticky"): once the hero has scrolled out of
+  // view, repeat the primary button in a translucent bar fixed at the top of the
+  // viewport, just below the site header (source: .sticky-button).
+  const primary = actions.querySelector('.hero-cta-button-primary') || actions.firstElementChild;
+  if (block.classList.contains('sticky') && primary) {
+    const bar = document.createElement('div');
+    bar.className = 'hero-cta-sticky';
+    bar.setAttribute('aria-hidden', 'true');
+    const cta = primary.cloneNode(true);
+    cta.className = 'hero-cta-sticky-button';
+    cta.tabIndex = -1;
+    bar.appendChild(cta);
+    document.body.appendChild(bar);
+
+    const headerBottom = () => {
+      const header = document.querySelector('header .nav-wrapper');
+      return header ? Math.max(0, header.getBoundingClientRect().bottom) : 0;
+    };
+    const setVisible = (visible) => {
+      if (visible) bar.style.top = `${headerBottom()}px`;
+      bar.classList.toggle('is-visible', visible);
+      bar.setAttribute('aria-hidden', visible ? 'false' : 'true');
+      cta.tabIndex = visible ? 0 : -1;
+    };
+    // Show once the hero's own primary button has scrolled up under the header
+    // (i.e. the reader can no longer reach it); hide again when it returns.
+    let visible = false;
+    const update = () => {
+      const next = primary.getBoundingClientRect().bottom < headerBottom();
+      if (next !== visible) {
+        visible = next;
+        setVisible(visible);
+      }
+    };
+    window.addEventListener('scroll', update, { passive: true });
+    window.addEventListener('resize', update, { passive: true });
+    update();
+  }
 }

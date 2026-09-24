@@ -25,3 +25,11 @@ Then add one **Hero CTA Button** item per call-to-action:
 Decorates to `.hero-cta` (full-bleed, background photo) containing a right-aligned
 `.hero-cta-box` navy panel with the eyebrow (H1), heading (H2), and
 `.hero-cta-actions` stack of styled buttons. Stacks below the photo on mobile.
+
+## Sticky quote bar
+
+Tick **Sticky quote bar** on the block to repeat the hero's primary button in a
+translucent bar fixed to the top of the screen (just below the site header). It
+fades in once the hero's own button has scrolled out of view and hides again
+when the reader scrolls back up — matching admiral.com's sticky "Get a Quote"
+bar. Both black box landing heroes have it switched on.

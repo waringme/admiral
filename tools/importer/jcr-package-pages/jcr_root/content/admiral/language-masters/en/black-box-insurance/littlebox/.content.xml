@@ -10,7 +10,7 @@
         </block>
       </section>
       <section_1 sling:resourceType="core/franklin/components/section/v1/section" jcr:primaryType="nt:unstructured" model="section" modelFields="[name,style]">
-        <block sling:resourceType="core/franklin/components/block/v1/block" jcr:primaryType="nt:unstructured" filter="hero-cta" image="/content/dam/admiral/en/images/man-driving-car-desktop.jpg" imageAlt="Man driving a car" model="hero-cta" modelFields="[image,imageAlt,text]" name="Hero Cta" text="&lt;p&gt;&lt;h1&gt;LittleBox Insurance&lt;/h1&gt;&lt;/p&gt;&lt;p&gt;&lt;h2&gt;Smart cover for safe drivers&lt;/h2&gt;&lt;/p&gt;&lt;p&gt;Drive safely and you could get a discount when it&#x27;s time to renew - it&#x27;s really that easy.&lt;/p&gt;">
+        <block sling:resourceType="core/franklin/components/block/v1/block" jcr:primaryType="nt:unstructured" classes_sticky="true" filter="hero-cta" image="/content/dam/admiral/en/images/man-driving-car-desktop.jpg" imageAlt="Man driving a car" model="hero-cta" modelFields="[image,imageAlt,text,classes_sticky]" name="Hero Cta" text="&lt;p&gt;&lt;h1&gt;LittleBox Insurance&lt;/h1&gt;&lt;/p&gt;&lt;p&gt;&lt;h2&gt;Smart cover for safe drivers&lt;/h2&gt;&lt;/p&gt;&lt;p&gt;Drive safely and you could get a discount when it&#x27;s time to renew - it&#x27;s really that easy.&lt;/p&gt;">
           <item_0 jcr:primaryType="nt:unstructured" sling:resourceType="core/franklin/components/block/v1/block/item" name="Hero Cta Button" model="hero-cta-button" label="Get a quote" link="/bbQuoteStatus.php" style="primary" modelFields="[label,link,style]"></item_0>
         </block>
       </section_1>

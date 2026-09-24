@@ -148,3 +148,55 @@ main .hero-cta .hero-cta-actions a.hero-cta-button:hover {
     line-height: 38px;
   }
 }
+
+/* ---- Sticky quote bar (block option "sticky") -------------------------------
+ * Source .sticky-button: full-width rgba(0,0,0,.7) bar, 19px/21px padding,
+ * centred 430px green-gradient button (uppercase 16.2px/32px), fades in/out
+ * over .3s. Appended to <body>; positioned below the fixed site header. */
+.hero-cta-sticky {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1; /* under the header (z-index 2) and its menus */
+  padding: 19px 16px 21px;
+  background-color: rgb(0 0 0 / 70%);
+  text-align: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: visibility 0.3s, opacity 0.3s linear;
+}
+
+.hero-cta-sticky.is-visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+a.hero-cta-sticky-button:any-link {
+  display: inline-block;
+  width: 100%;
+  max-width: 430px;
+  padding: 3px 15px 5px;
+  border-radius: 4px;
+  background-image: linear-gradient(#00c535 0%, #00a32e 100%);
+  color: #fff;
+  font-size: 16.2px;
+  font-weight: 400;
+  line-height: 32px;
+  text-align: center;
+  text-transform: uppercase;
+  text-decoration: none;
+  white-space: nowrap;
+  box-sizing: border-box;
+}
+
+a.hero-cta-sticky-button::after {
+  content: none;
+}
+
+a.hero-cta-sticky-button:hover,
+a.hero-cta-sticky-button:focus-visible {
+  color: #fff;
+  text-decoration: none;
+  filter: brightness(1.06);
+}
