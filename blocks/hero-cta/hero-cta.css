@@ -3,6 +3,11 @@
  * Source: .hero-banner--B — navy box rgb(12,58,132), light-blue eyebrow
  * rgb(130,200,255), green/blue/ghost CTAs. */
 
+/* The next section sits flush against the hero (no default section gap). */
+main > .section.hero-cta-container {
+  margin-bottom: 0;
+}
+
 .hero-cta {
   position: relative;
   display: flex;
