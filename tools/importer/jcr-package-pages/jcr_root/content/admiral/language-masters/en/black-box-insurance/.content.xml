@@ -13,6 +13,8 @@
           <item_0 jcr:primaryType="nt:unstructured" sling:resourceType="core/franklin/components/block/v1/block/item" name="Hero Cta Button" model="hero-cta-button" label="Get a Quote" link="/bbQuoteStatus.php" style="primary" modelFields="[label,link,style]"></item_0>
           <item_1 jcr:primaryType="nt:unstructured" sling:resourceType="core/franklin/components/block/v1/block/item" name="Hero Cta Button" model="hero-cta-button" label="Retrieve a Quote" link="/bbQuoteStatus.php?r=t" style="secondary" modelFields="[label,link,style]"></item_1>
           <item_2 jcr:primaryType="nt:unstructured" sling:resourceType="core/franklin/components/block/v1/block/item" name="Hero Cta Button" model="hero-cta-button" label="Documents" link="/existing-customers/policy-documents.php" style="ghost" modelFields="[label,link,style]"></item_2>
+          <item_3 jcr:primaryType="nt:unstructured" sling:resourceType="core/franklin/components/block/v1/block/item" name="Hero Cta Button" model="hero-cta-button" label="Is black box insurance for me?" link="#is-black-box-insurance-for-me" style="link" modelFields="[label,link,style]"></item_3>
+          <item_4 jcr:primaryType="nt:unstructured" sling:resourceType="core/franklin/components/block/v1/block/item" name="Hero Cta Button" model="hero-cta-button" label="What’s covered" link="#what-does-black-box-insurance-cover" style="link" modelFields="[label,link,style]"></item_4>
         </block>
       </section_1>
       <section_2 sling:resourceType="core/franklin/components/section/v1/section" jcr:primaryType="nt:unstructured" style="[white]" model="section" modelFields="[name,style]">
