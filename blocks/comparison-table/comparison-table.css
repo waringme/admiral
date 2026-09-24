@@ -36,13 +36,14 @@
   border: none;
 }
 
-/* Navy label column — white text, right-aligned. */
+/* Navy label column — white text, right-aligned. Bold weight matches the
+ * products panel titles (700). */
 .comparison-table .comparison-table-label {
   width: 50%;
   padding: 18px 26px;
   background-color: var(--table-navy, #123f8a);
   color: #fff;
-  font-weight: 400;
+  font-weight: 700;
   text-align: right;
   vertical-align: middle;
   border-top: 1px solid rgb(255 255 255 / 18%);
