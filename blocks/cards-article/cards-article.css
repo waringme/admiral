@@ -157,3 +157,67 @@
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }
+
+/* --- Boxed style (Style: Boxed) --------------------------------------------
+ * Landing-page article pods (source: #product-pods-13189 .pod--product):
+ * 318px white cards, 1px rgb(183,183,203) border, 4px radius, 15px apart,
+ * 140px cover image, link pinned to the bottom with a circled-arrow icon.
+ */
+.cards-article.boxed.cards > ul {
+  max-width: 984px;
+  margin: 0 auto;
+  gap: 15px;
+}
+
+.cards-article.boxed.cards > ul > li {
+  background-color: #fff;
+  border: 1px solid rgb(183 183 203);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.cards-article.boxed.cards > ul > li .cards-card-image p {
+  margin: 0;
+}
+
+.cards-article.boxed.cards > ul > li .cards-card-image img,
+.cards-article.boxed.cards > ul > li img {
+  aspect-ratio: auto;
+  height: 140px;
+}
+
+.cards-article.boxed.cards > ul > li .cards-card-body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  padding: 20px 15px 24px;
+}
+
+.cards-article.boxed.cards > ul > li .cards-card-body h1,
+.cards-article.boxed.cards > ul > li .cards-card-body h2,
+.cards-article.boxed.cards > ul > li .cards-card-body h3 {
+  margin: 0;
+}
+
+/* Push the read-more link to the bottom so links line up across cards. */
+.cards-article.boxed.cards > ul > li .cards-card-body p:last-child {
+  margin-top: auto;
+  padding-top: 24px;
+}
+
+/* Keep the arrow on the same line as the link text. */
+.cards-article.boxed.cards > ul > li .cards-card-body a,
+.cards-article.boxed.cards > ul > li .cards-card-body a.button:any-link {
+  white-space: nowrap;
+}
+
+.cards-article.boxed.cards > ul > li .cards-card-body a::after,
+.cards-article.boxed.cards > ul > li .cards-card-body a.button::after {
+  content: "";
+  display: inline-block;
+  width: 17px;
+  height: 17px;
+  margin-left: 6px;
+  vertical-align: -2px;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 13 13'%3E%3Ccircle cx='6.5' cy='6.5' r='6' fill='none' stroke='%230078ff'/%3E%3Cpath d='M5.2 3.5 7.6 6.5 5.2 9.5' fill='none' stroke='%230078ff' stroke-width='1.1'/%3E%3C/svg%3E") center / contain no-repeat;
+}

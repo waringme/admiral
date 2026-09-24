@@ -379,6 +379,29 @@
     ]
   },
   {
+    "id": "cards-article",
+    "fields": [
+      {
+        "component": "select",
+        "name": "classes",
+        "value": "",
+        "label": "Style",
+        "description": "Default: borderless cards (homepage). Boxed: white bordered cards (landing pages).",
+        "valueType": "string",
+        "options": [
+          {
+            "name": "Default",
+            "value": ""
+          },
+          {
+            "name": "Boxed",
+            "value": "boxed"
+          }
+        ]
+      }
+    ]
+  },
+  {
     "id": "card",
     "fields": [
       {

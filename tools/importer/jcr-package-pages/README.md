@@ -14,13 +14,14 @@ templates). Separate from the homepage package (`../jcr-package/`).
   template's block set. Authors copy one to create a new Landing / Guide page.
 - `/content/dam/admiral/en/images` — dam:Asset images referenced by these pages
   (downloaded from the Admiral CDN + admiral.com and localized), including the
-  LittleBox feature/step icons. Three dead source thumbnails (404 at source)
-  remain as external URLs in the black-box page and were not localized.
+  LittleBox feature/step icons and the three "latest black box articles"
+  thumbnails (re-sourced from Admiral's CDN after the original URLs 404'd).
 
 ### Blocks used
 - New: comparison-table, article-body, breadcrumb, hero-cta, steps-list,
   feature-grid, media-panels, faq-list
-- Reused: cards-article, award-banner, accordion
+- Reused: cards-article (now with a Style option: Default / Boxed), award-banner,
+  accordion
 - The black-box + littlebox landing heroes use `hero-cta` (background photo +
   navy copy box + stacked CTA buttons), not the homepage `hero-trust`.
 - Coverage tables use `comparison-table` (navy label column + tick badges);
