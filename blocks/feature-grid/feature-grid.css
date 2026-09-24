@@ -59,19 +59,21 @@
 .feature-grid .feature-grid-rows .feature-grid-item {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  align-items: center;
+  align-items: stretch;
 }
 
 .feature-grid .feature-grid-rows .feature-grid-item + .feature-grid-item {
   border-top: 1px solid #d7dad3;
 }
 
-/* Left cell: icon + bold blue title, side by side. */
+/* Left cell: white background, icon + bold blue title, divider to the text. */
 .feature-grid .feature-grid-rows .feature-grid-head {
   display: flex;
   align-items: center;
   gap: 20px;
   padding: 28px;
+  background-color: #fff;
+  border-right: 1px solid #d7dad3;
 }
 
 .feature-grid .feature-grid-rows .feature-grid-icon {
@@ -93,12 +95,14 @@
 }
 
 .feature-grid .feature-grid-rows .feature-grid-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   padding: 28px;
   background-color: #eceee7;
   color: var(--text-color, #4f4f4f);
   font-size: 16px;
   line-height: 24px;
-  align-self: stretch;
 }
 
 .feature-grid .feature-grid-rows .feature-grid-text p {
