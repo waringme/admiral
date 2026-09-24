@@ -1,0 +1,32 @@
+{
+  "variantName": "hero-cta",
+  "baseBlock": "hero-cta",
+  "version": "1.0.0",
+  "created": "2026-09-24T00:00:00.000Z",
+  "sourceContext": {
+    "originUrl": "https://www.admiral.com/black-box-insurance",
+    "originPage": "black-box-insurance landing hero",
+    "blockPosition": "top"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "dark",
+    "density": "spacious",
+    "purpose": "hero",
+    "imagePattern": "background"
+  },
+  "contentPattern": {
+    "structure": "background photo + navy box (eyebrow + heading + stacked CTA buttons)",
+    "buttonCount": 3,
+    "imageCount": 1
+  },
+  "reuseGuidance": {
+    "suitableFor": ["product landing heroes with a background photo and multiple CTAs"],
+    "notSuitableFor": ["simple text banners", "card grids"]
+  },
+  "usage": {
+    "pagesUsing": ["/black-box-insurance", "/black-box-insurance/littlebox"],
+    "reuseCount": 2,
+    "lastUsed": "2026-09-24T00:00:00.000Z"
+  },
+  "implementationNote": "Block-based component (block/v1/block) with an editable background image, richtext eyebrow+heading, and repeating hero-cta-button items (label + link + style primary/secondary/ghost). Named hero-cta (not columns-*) so md2jcr keeps the variant class."
+}

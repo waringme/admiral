@@ -1,0 +1,150 @@
+/* Hero CTA — full-bleed background photo + navy copy box with eyebrow, heading,
+ * and stacked CTA buttons (admiral.com product landing hero).
+ * Source: .hero-banner--B — navy box rgb(12,58,132), light-blue eyebrow
+ * rgb(130,200,255), green/blue/ghost CTAs. */
+
+.hero-cta {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  min-height: 554px;
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  padding: 34px max(24px, calc((100vw - 1200px) / 2));
+  box-sizing: border-box;
+  background-color: #d9e1e8;
+  overflow: hidden;
+}
+
+/* Background photo fills the band (left-anchored so the person stays visible). */
+.hero-cta .hero-cta-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.hero-cta .hero-cta-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center left;
+}
+
+/* Navy copy box, right-aligned over the photo. */
+.hero-cta .hero-cta-box {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 522px;
+  padding: 28px 32px 32px;
+  background-color: var(--hero-navy, #0c3a84);
+  border-radius: 8px;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+/* Eyebrow label (source: h1, light blue, ~25px, with bottom rule). */
+.hero-cta .hero-cta-box h1 {
+  margin: 0 0 16px;
+  padding: 0 0 16px;
+  border-bottom: 1px solid rgb(255 255 255 / 25%);
+  color: #82c8ff;
+  font-size: 25.2px;
+  font-weight: 400;
+  line-height: 32px;
+}
+
+/* Main heading (source: h2, white, ~38px). */
+.hero-cta .hero-cta-box h2 {
+  margin: 0 0 24px;
+  color: #fff;
+  font-size: 38px;
+  font-weight: 400;
+  line-height: 46px;
+}
+
+.hero-cta .hero-cta-box p {
+  margin: 0 0 16px;
+  color: #fff;
+  font-size: 18px;
+  line-height: 28px;
+}
+
+/* CTA stack */
+.hero-cta .hero-cta-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+main .hero-cta .hero-cta-actions a.hero-cta-button:any-link {
+  display: block;
+  width: 100%;
+  padding: 12px 15px;
+  border-radius: 4px;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 24px;
+  text-align: center;
+  text-transform: uppercase;
+  text-decoration: none;
+  box-sizing: border-box;
+}
+
+main .hero-cta .hero-cta-actions a.hero-cta-button::after {
+  content: none;
+}
+
+/* Primary — green gradient */
+main .hero-cta .hero-cta-actions a.hero-cta-button-primary:any-link {
+  background-image: linear-gradient(#00c535 0%, #00a32e 100%);
+  color: #fff;
+}
+
+/* Secondary — blue gradient */
+main .hero-cta .hero-cta-actions a.hero-cta-button-secondary:any-link {
+  background-image: linear-gradient(#00b8ea 0%, #0080cc 100%);
+  color: #fff;
+}
+
+/* Ghost — outline, lighter weight */
+main .hero-cta .hero-cta-actions a.hero-cta-button-ghost:any-link {
+  border: 1px solid rgb(255 255 255 / 40%);
+  background: transparent;
+  color: #82c8ff;
+  font-weight: 400;
+}
+
+main .hero-cta .hero-cta-actions a.hero-cta-button:hover {
+  filter: brightness(1.06);
+  text-decoration: none;
+}
+
+@media (width <= 900px) {
+  .hero-cta {
+    min-height: 0;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 0 0 24px;
+  }
+
+  .hero-cta .hero-cta-bg {
+    position: relative;
+    height: 240px;
+  }
+
+  .hero-cta .hero-cta-bg img {
+    height: 240px;
+  }
+
+  .hero-cta .hero-cta-box {
+    max-width: none;
+    border-radius: 0;
+  }
+
+  .hero-cta .hero-cta-box h2 {
+    font-size: 30px;
+    line-height: 38px;
+  }
+}

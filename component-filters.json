@@ -171,6 +171,12 @@
     ]
   },
   {
+    "id": "hero-cta",
+    "components": [
+      "hero-cta-button"
+    ]
+  },
+  {
     "id": "tabs",
     "components": [
       "tabs-item"

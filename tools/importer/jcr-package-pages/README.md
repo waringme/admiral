@@ -15,8 +15,10 @@ templates). Separate from the homepage package (`../jcr-package/`).
   page and were not localized.
 
 ### Blocks used
-- New: comparison-table, article-body, breadcrumb
-- Reused: hero-trust, cards-product, cards-article, award-banner, accordion
+- New: comparison-table, article-body, breadcrumb, hero-cta
+- Reused: cards-product, cards-article, award-banner, accordion
+- The black-box + littlebox landing heroes use `hero-cta` (background photo +
+  navy copy box + stacked CTA buttons), not the homepage `hero-trust`.
 
 ### Install
 Package Manager → upload `admiral-pages-v1.zip` → Install. Then **Reprocess
@@ -24,6 +26,11 @@ Assets** on `/content/dam/admiral/en/images` if any renditions are missing.
 
 ### Sources / regeneration
 - Page JCR regenerated from `content/<path>.plain.html` via
-  `tools/importer/html-to-jcr.mjs` (run `npm run build:json` first).
+  `tools/importer/html-to-jcr.mjs` (run `npm run build:json` first) into
+  `migration-work/jcr-new/<name>.xml`.
 - Image localization map: `migration-work/jcr-new/image-map.json`.
-- Rebuild the tree + zip with the packaging step in the migration flow.
+- Rebuild the tree + zip in one step:
+  `node tools/importer/build-pages-package.mjs`
+  (rewrites remote image URLs to `/content/dam/...`, stages any new local DAM
+  binaries from `content/dam/admiral/en/images`, and rezips
+  `admiral-pages-v1.zip`).

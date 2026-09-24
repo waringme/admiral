@@ -6393,6 +6393,71 @@
     ]
   },
   {
+    "id": "hero-cta",
+    "fields": [
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "image",
+        "label": "Background Image",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "imageAlt",
+        "label": "Background Image Alt",
+        "value": ""
+      },
+      {
+        "component": "richtext",
+        "name": "text",
+        "value": "",
+        "label": "Text (eyebrow + heading)",
+        "valueType": "string"
+      }
+    ]
+  },
+  {
+    "id": "hero-cta-button",
+    "fields": [
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "label",
+        "value": "",
+        "label": "Button Label"
+      },
+      {
+        "component": "aem-content",
+        "valueType": "string",
+        "name": "link",
+        "label": "Button Link"
+      },
+      {
+        "component": "select",
+        "valueType": "string",
+        "name": "style",
+        "value": "primary",
+        "label": "Button Style",
+        "options": [
+          {
+            "name": "Primary (green)",
+            "value": "primary"
+          },
+          {
+            "name": "Secondary (blue)",
+            "value": "secondary"
+          },
+          {
+            "name": "Ghost (outline)",
+            "value": "ghost"
+          }
+        ]
+      }
+    ]
+  },
+  {
     "id": "hero-trust",
     "fields": [
       {
