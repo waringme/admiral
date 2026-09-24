@@ -1295,6 +1295,29 @@
     ]
   },
   {
+    "id": "feature-grid",
+    "fields": [
+      {
+        "component": "select",
+        "name": "classes",
+        "value": "",
+        "label": "Layout",
+        "description": "Auto: bordered rows when items have text, otherwise icon tiles. Columns: centred columns (image, title, text side by side).",
+        "valueType": "string",
+        "options": [
+          {
+            "name": "Auto",
+            "value": ""
+          },
+          {
+            "name": "Columns",
+            "value": "columns"
+          }
+        ]
+      }
+    ]
+  },
+  {
     "id": "feature-grid-item",
     "fields": [
       {
@@ -6528,6 +6551,10 @@
           {
             "name": "Ghost (outline)",
             "value": "ghost"
+          },
+          {
+            "name": "Text link (arrow)",
+            "value": "link"
           }
         ]
       }

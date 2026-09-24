@@ -11,11 +11,17 @@ layouts:
   "Why LittleBox could be your best black box cover", "How do I get my
   feedback?").
 
-The layout is chosen automatically from the content — you don't pick it.
+The layout is chosen automatically from the content, unless you set the
+block's **Layout** option to **Columns**:
+
+- **Columns** — centred image, title and text side by side (three per row on
+  desktop, stacked on mobile), e.g. "How is LittleBox installed?" (Step 01/02/03
+  badges) and "How do I get my feedback?" (score gauges). Images show at their
+  natural size, up to 170px wide.
 
 ## Authoring (Universal Editor)
 
-Add a **Feature Grid** block, then use **Add** on the block to add **Feature Row** items. Select a row to edit its properties:
+Add a **Feature Grid** block (optionally set **Layout** to Columns in its properties), then use **Add** on the block to add **Feature Row** items. Select a row to edit its properties:
 
 | Field | Type | Notes |
 |-------|------|-------|

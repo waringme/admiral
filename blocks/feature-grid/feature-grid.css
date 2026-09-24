@@ -1,7 +1,8 @@
 /* Feature Grid — icon feature items (admiral.com landing pages).
- * Two layouts on one block, switched by the modifier class the JS adds:
- *   .feature-grid-grid — centered icon + title tiles (2-up), no descriptions.
- *   .feature-grid-rows — bordered icon+title | description rows. */
+ * Three layouts on one block, switched by the modifier class the JS adds:
+ *   .feature-grid-grid    — centered icon + title tiles (2-up), no descriptions.
+ *   .feature-grid-rows    — bordered icon+title | description rows.
+ *   .feature-grid-columns — centred image/title/text columns (option "columns"). */
 
 .feature-grid {
   width: 100%;
@@ -69,9 +70,15 @@
   line-height: 30px;
 }
 
-/* ---- Bordered feature rows ("Why LittleBox…", "How do I get feedback?") -- */
+/* ---- Bordered feature rows ("Why LittleBox…", "What does LittleBox
+ * measure?"). Source (#basic-18966 table at 1440px): 708px wide, 1px
+ * rgb(183,183,203) border; 61px icon cell (58px tick) + 293px title cell on
+ * white, 354px copy cell on #f0f0eb; title 19.8px/600 #2350a0, copy 18px/28px. */
 .feature-grid .feature-grid-rows {
-  border: 1px solid #d7dad3;
+  max-width: 708px;
+  margin: 0 auto;
+  border: 1px solid rgb(183 183 203);
+  text-align: left;
 }
 
 .feature-grid .feature-grid-rows .feature-grid-item {
@@ -81,34 +88,33 @@
 }
 
 .feature-grid .feature-grid-rows .feature-grid-item + .feature-grid-item {
-  border-top: 1px solid #d7dad3;
+  border-top: 1px solid rgb(183 183 203);
 }
 
-/* Left cell: white background, icon + bold blue title, divider to the text. */
+/* Left cell: white background, icon + bold blue title. */
 .feature-grid .feature-grid-rows .feature-grid-head {
   display: flex;
   align-items: center;
-  gap: 20px;
-  padding: 28px;
+  gap: 3px;
+  padding: 18px 10px 18px 0;
   background-color: #fff;
-  border-right: 1px solid #d7dad3;
 }
 
 .feature-grid .feature-grid-rows .feature-grid-icon {
-  flex: 0 0 auto;
+  flex: 0 0 58px;
   line-height: 0;
 }
 
 .feature-grid .feature-grid-rows .feature-grid-icon img {
-  width: 46px;
-  height: 46px;
+  width: 58px;
+  height: 58px;
   object-fit: contain;
 }
 
 .feature-grid .feature-grid-rows .feature-grid-title {
   color: var(--heading-blue, #2350a0);
-  font-size: 22px;
-  font-weight: 700;
+  font-size: 19.8px;
+  font-weight: 600;
   line-height: 28px;
 }
 
@@ -116,11 +122,12 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 28px;
-  background-color: #eceee7;
+  padding: 17px 15px 14px;
+  background-color: #f0f0eb;
   color: var(--text-color, #4f4f4f);
-  font-size: 16px;
-  line-height: 24px;
+  font-size: 18px;
+  font-weight: 300;
+  line-height: 28px;
 }
 
 .feature-grid .feature-grid-rows .feature-grid-text p {
@@ -129,6 +136,66 @@
 
 .feature-grid .feature-grid-rows .feature-grid-text p:last-child {
   margin-bottom: 0;
+}
+
+/* ---- Centred columns (block option "columns") --------------------------
+ * Source (#basic-18964 / #basic-18967 at 1440px): 3 x 338px cells; badge,
+ * h3 19.8px/600 #2350a0, copy 18px/28px #4f4f4f, all centred. */
+.feature-grid.columns {
+  max-width: 1014px;
+}
+
+.feature-grid.columns .feature-grid-columns {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  text-align: center;
+}
+
+.feature-grid.columns .feature-grid-columns .feature-grid-item {
+  display: flex;
+  flex: 0 1 338px;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 15px;
+  box-sizing: border-box;
+}
+
+.feature-grid.columns .feature-grid-columns .feature-grid-head {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.feature-grid.columns .feature-grid-columns .feature-grid-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 125px;
+  margin-bottom: 16px;
+}
+
+.feature-grid.columns .feature-grid-columns .feature-grid-icon img {
+  width: auto;
+  max-width: 170px;
+  height: auto;
+}
+
+.feature-grid.columns .feature-grid-columns .feature-grid-title {
+  color: var(--heading-blue, #2350a0);
+  font-size: 19.8px;
+  font-weight: 600;
+  line-height: 28px;
+}
+
+.feature-grid.columns .feature-grid-columns .feature-grid-text {
+  color: var(--text-color, #4f4f4f);
+  font-size: 18px;
+  line-height: 28px;
+}
+
+.feature-grid.columns .feature-grid-columns .feature-grid-text p {
+  margin: 8px 0 0;
 }
 
 @media (width <= 700px) {
@@ -141,11 +208,24 @@
   }
 
   .feature-grid .feature-grid-rows .feature-grid-head {
-    padding: 20px 20px 8px;
+    padding: 16px 16px 8px 0;
   }
 
   .feature-grid .feature-grid-rows .feature-grid-text {
-    padding: 0 20px 20px;
-    background-color: transparent;
+    padding: 0 16px 16px 61px;
+    background-color: #fff;
+  }
+}
+
+@media (width <= 700px) {
+  .feature-grid.columns .feature-grid-columns {
+    flex-direction: column;
+    align-items: center;
+    gap: 32px;
+  }
+
+  .feature-grid.columns .feature-grid-columns .feature-grid-item {
+    flex-basis: auto;
+    max-width: 338px;
   }
 }

@@ -18,7 +18,7 @@ Then add one **Hero CTA Button** item per call-to-action:
 | Retrieve a Quote | /bbQuoteStatus.php?r=t | secondary |
 | Documents | /existing-customers/policy-documents.php | ghost |
 
-- **Button Style** — `primary` (green), `secondary` (blue), or `ghost` (outline).
+- **Button Style** — `primary` (green), `secondary` (blue), `ghost` (outline), or `link` (light-blue text link with a circled arrow, e.g. "How does it work?" pointing at `#how-does-admiral-littlebox-work`).
 
 ## Rendering
 

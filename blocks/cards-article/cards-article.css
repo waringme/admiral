@@ -200,18 +200,16 @@
 }
 
 /* Push the read-more link to the bottom so links line up across cards. */
-.cards-article.boxed.cards > ul > li .cards-card-body p:last-child {
+.cards-article.boxed.cards > ul > li .cards-card-body p.button-container:last-child {
   margin-top: auto;
   padding-top: 24px;
 }
 
 /* Keep the arrow on the same line as the link text. */
-.cards-article.boxed.cards > ul > li .cards-card-body a,
 .cards-article.boxed.cards > ul > li .cards-card-body a.button:any-link {
   white-space: nowrap;
 }
 
-.cards-article.boxed.cards > ul > li .cards-card-body a::after,
 .cards-article.boxed.cards > ul > li .cards-card-body a.button::after {
   content: "";
   display: inline-block;
@@ -220,4 +218,39 @@
   margin-left: 6px;
   vertical-align: -2px;
   background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 13 13'%3E%3Ccircle cx='6.5' cy='6.5' r='6' fill='none' stroke='%230078ff'/%3E%3Cpath d='M5.2 3.5 7.6 6.5 5.2 9.5' fill='none' stroke='%230078ff' stroke-width='1.1'/%3E%3C/svg%3E") center / contain no-repeat;
+}
+
+/* Inline links inside card copy read as part of the sentence (source
+ * "Looking for more?" pods: "<a>Plug and Drive</a> is a small unit…"). */
+.cards-article.boxed.cards > ul > li .cards-card-body p:not(.button-container) a:any-link {
+  display: inline;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--link-color, #0078ff);
+  font-size: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+  text-decoration: none;
+  white-space: normal;
+}
+
+.cards-article.boxed.cards > ul > li .cards-card-body p:not(.button-container) a::after {
+  content: none;
+}
+
+/* Text-only pods (no image): drop the empty image slot and tighten the top. */
+.cards-article.boxed.cards > ul > li .cards-card-image:not(:has(picture, img)) {
+  display: none;
+}
+
+.cards-article.boxed.cards > ul > li:not(:has(.cards-card-image img)) .cards-card-body {
+  padding-top: 16px;
+}
+
+/* Two pods sit side by side at half width (source: 2 x 485px). */
+@media (width >= 900px) {
+  .cards-article.boxed.cards > ul:has(> li:nth-child(2):last-child) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }

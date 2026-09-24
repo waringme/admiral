@@ -5,7 +5,10 @@
  *     "What does LittleBox measure?" (Speeding / When you drive / …).
  *   - "rows" (descriptions present): bordered rows with an icon + bold title
  *     on the left and a description on the right, e.g. "Why LittleBox could be
- *     your best black box cover" and "How do I get my feedback?".
+ *     your best black box cover".
+ *   - "columns" (block option): centred image + title + text columns side by
+ *     side, e.g. "How is LittleBox installed?" (step badges) and "How do I get
+ *     my feedback?" (score gauges).
  *
  * A block-based component (block/v1/block) with repeating items. Authored
  * structure (post-decorate): each row is [ image ][ title ][ text ]. The image
@@ -22,9 +25,11 @@ import { moveInstrumentation } from '../../scripts/scripts.js';
 export default function decorate(block) {
   const rows = [...block.children];
   const withText = rows.some((row) => row.children[2]?.textContent.trim());
+  let layout = withText ? 'rows' : 'grid';
+  if (block.classList.contains('columns')) layout = 'columns';
 
   const list = document.createElement('ul');
-  list.className = `feature-grid-items feature-grid-${withText ? 'rows' : 'grid'}`;
+  list.className = `feature-grid-items feature-grid-${layout}`;
 
   rows.forEach((row) => {
     const [iconCell, titleCell, textCell] = row.children;

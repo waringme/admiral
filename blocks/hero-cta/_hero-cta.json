@@ -104,6 +104,10 @@
             {
               "name": "Ghost (outline)",
               "value": "ghost"
+            },
+            {
+              "name": "Text link (arrow)",
+              "value": "link"
             }
           ]
         }
