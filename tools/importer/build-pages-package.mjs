@@ -29,6 +29,10 @@ const PAGES = {
   'black-box-insurance_littlebox.xml': 'content/admiral/language-masters/en/black-box-insurance/littlebox',
   'resources_motor-hub_van-advice.xml': 'content/admiral/language-masters/en/resources/motor-hub/van-advice',
   'magazine_guides_van-insurance_which-class-of-use.xml': 'content/admiral/language-masters/en/magazine/guides/van-insurance/which-class-of-use',
+  // Authoring template skeletons — starter pages authors copy to create new
+  // Landing / Guide pages (each pre-populated with that template's blocks).
+  'template-landing.xml': 'content/admiral/templates/landing',
+  'template-guide.xml': 'content/admiral/templates/guide',
 };
 
 const imageMap = JSON.parse(readFileSync(join(JCR_NEW, 'image-map.json'), 'utf8'));
@@ -50,8 +54,9 @@ function rewrite(xml) {
       out = out.split(url).join(damBase + file);
     }
   }
-  // Collect all DAM refs now present.
-  const re = /(?:image|fileReference|src)="\/content\/dam\/admiral\/en\/images\/([^"]+)"/g;
+  // Collect all DAM refs now present — any attribute (image, icon, src,
+  // fileReference, …) may carry a /content/dam/…/images/<file> path.
+  const re = /\/content\/dam\/admiral\/en\/images\/([A-Za-z0-9._%@-]+\.(?:jpg|jpeg|png|svg|gif|webp))/g;
   let m;
   while ((m = re.exec(out)) !== null) referenced.add(decodeURIComponent(m[1]));
   return out;

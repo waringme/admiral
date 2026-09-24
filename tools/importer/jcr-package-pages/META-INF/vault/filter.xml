@@ -3,5 +3,6 @@
   <filter root="/content/admiral/language-masters/en/black-box-insurance"/>
   <filter root="/content/admiral/language-masters/en/resources/motor-hub/van-advice"/>
   <filter root="/content/admiral/language-masters/en/magazine/guides/van-insurance/which-class-of-use"/>
+  <filter root="/content/admiral/templates"/>
   <filter root="/content/dam/admiral/en/images"/>
 </workspaceFilter>

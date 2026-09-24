@@ -1,0 +1,106 @@
+/* Steps List — numbered process rows (admiral.com landing pages).
+ * Source look ("LittleBox in four simple steps"): a bordered grid of rows,
+ * each split into a left cell (blue circular number + blue bold title) and a
+ * right cell (grey description). Rows have a hairline divider; the whole grid
+ * has a light outer border. */
+
+.steps-list {
+  width: 100%;
+  max-width: 1040px;
+  margin: 0 auto;
+  counter-reset: step;
+}
+
+.steps-list .steps-list-items {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border: 1px solid #d7dad3;
+}
+
+.steps-list .steps-list-step {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: start;
+  counter-increment: step;
+}
+
+.steps-list .steps-list-step + .steps-list-step {
+  border-top: 1px solid #d7dad3;
+}
+
+/* Left cell: number badge + title. */
+.steps-list .steps-list-num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background-color: var(--step-blue, #2f7fd1);
+  color: #fff;
+  font-size: 17px;
+  font-weight: 700;
+  line-height: 1;
+  flex: 0 0 auto;
+}
+
+.steps-list .steps-list-num::before {
+  content: counter(step);
+}
+
+.steps-list .steps-list-title {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 24px 28px;
+}
+
+.steps-list .steps-list-title h1,
+.steps-list .steps-list-title h2,
+.steps-list .steps-list-title h3,
+.steps-list .steps-list-title h4,
+.steps-list .steps-list-title p {
+  margin: 0;
+  color: var(--heading-blue, #2350a0);
+  font-size: 21px;
+  font-weight: 700;
+  line-height: 27px;
+}
+
+/* Right cell: description, faint grey background. */
+.steps-list .steps-list-text {
+  padding: 24px 28px;
+  background-color: #eceee7;
+  color: var(--text-color, #4f4f4f);
+  font-size: 16px;
+  line-height: 24px;
+  align-self: stretch;
+}
+
+.steps-list .steps-list-text p {
+  margin: 0 0 12px;
+}
+
+.steps-list .steps-list-text p:last-child {
+  margin-bottom: 0;
+}
+
+.steps-list .steps-list-title::before {
+  content: "";
+}
+
+@media (width <= 700px) {
+  .steps-list .steps-list-step {
+    grid-template-columns: 1fr;
+  }
+
+  .steps-list .steps-list-title {
+    padding: 18px 18px 12px;
+  }
+
+  .steps-list .steps-list-text {
+    padding: 0 18px 18px;
+    background-color: transparent;
+  }
+}

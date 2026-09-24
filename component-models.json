@@ -1253,6 +1253,32 @@
     ]
   },
   {
+    "id": "feature-grid-item",
+    "fields": [
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "icon",
+        "label": "Icon",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "title",
+        "value": "",
+        "label": "Feature Title"
+      },
+      {
+        "component": "richtext",
+        "name": "text",
+        "value": "",
+        "label": "Feature Text (optional)",
+        "valueType": "string"
+      }
+    ]
+  },
+  {
     "id": "find-a-doctor",
     "fields": [
       {
@@ -6915,6 +6941,25 @@
         "name": "excludeAssetPaths",
         "label": "Excluded Asset Paths",
         "description": "Comma- or newline-separated DAM paths to exclude from asset search results. Any asset whose path starts with one of these prefixes is dropped. Example: /content/dam/my-site/internal, /content/dam/my-site/drafts"
+      }
+    ]
+  },
+  {
+    "id": "steps-list-step",
+    "fields": [
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "title",
+        "value": "",
+        "label": "Step Title"
+      },
+      {
+        "component": "richtext",
+        "name": "text",
+        "value": "",
+        "label": "Step Text",
+        "valueType": "string"
       }
     ]
   },

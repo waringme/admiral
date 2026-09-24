@@ -1,54 +1,75 @@
-/* Comparison Table — feature comparison grid (admiral.com landing pages).
- * Source: .table.general.hybrid.blue — feature rows with alternating tint,
- * brand-blue header accents, tick/cross badges for boolean values. */
+/* Comparison Table — coverage grid (admiral.com landing pages, e.g.
+ * black-box-insurance "What does black box insurance cover?").
+ * Source look: a dark charcoal header strip, a navy label column with
+ * right-aligned white text, and a white value column (centered) that shows a
+ * plain black tick for boolean rows or short text ("Optional", "Up to £200").
+ * Rounded outer corners with a light hairline border. */
 
 .comparison-table {
   width: 100%;
-  max-width: 748px;
+  max-width: 1040px;
   margin: 0 auto;
 }
 
 .comparison-table .comparison-table-grid {
   width: 100%;
-  border-collapse: collapse;
-  font-size: 16px;
-  line-height: 24px;
+  border-collapse: separate;
+  border-spacing: 0;
+  border: 1px solid #d3d7d4;
+  border-radius: 10px;
+  overflow: hidden;
+  font-size: 18px;
+  line-height: 26px;
 }
 
-.comparison-table .comparison-table-grid tr {
-  border-bottom: 1px solid #e0e0e0;
+/* Dark charcoal header strip above the two columns. */
+.comparison-table .comparison-table-grid thead th {
+  height: 74px;
+  padding: 0;
+  background-color: #2b2723;
+  border: none;
 }
 
+/* Navy label column — white text, right-aligned. */
 .comparison-table .comparison-table-label {
-  padding: 14px 16px;
-  color: var(--text-color, #4f4f4f);
-  font-weight: 600;
-  text-align: left;
+  width: 50%;
+  padding: 18px 26px;
+  background-color: var(--table-navy, #123f8a);
+  color: #fff;
+  font-weight: 400;
+  text-align: right;
   vertical-align: middle;
+  border-top: 1px solid rgb(255 255 255 / 18%);
 }
 
+.comparison-table .comparison-table-grid tbody tr:first-child .comparison-table-label {
+  border-top: none;
+}
+
+/* White value column — centered. */
 .comparison-table .comparison-table-cell {
-  padding: 14px 16px;
+  width: 50%;
+  padding: 18px 26px;
+  background-color: #fff;
+  color: var(--text-color, #4f4f4f);
   text-align: center;
   vertical-align: middle;
-  white-space: nowrap;
+  border-top: 1px solid #e4e7e5;
 }
 
-/* zebra tint on alternate rows (source: td.gray) */
-.comparison-table .comparison-table-grid tr:nth-child(even) {
-  background-color: #f5f8fb;
+.comparison-table .comparison-table-grid tbody tr:first-child .comparison-table-cell {
+  border-top: none;
 }
 
 .comparison-table .comparison-table-value {
-  color: var(--brand-blue, #005485);
-  font-weight: 600;
+  color: var(--text-color, #4f4f4f);
 }
 
-/* tick / cross indicators */
+/* Tick / cross indicators — plain black glyphs rendered from SVG. */
 .comparison-table .comparison-table-badge {
   display: inline-block;
-  width: 22px;
-  height: 22px;
+  width: 26px;
+  height: 26px;
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
@@ -56,15 +77,21 @@
 }
 
 .comparison-table .comparison-table-badge-tick {
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Ccircle cx='12' cy='12' r='12' fill='%2300a32e'/%3E%3Cpath d='M6 12.5l3.5 3.5L18 8' fill='none' stroke='%23fff' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M4 12.5l5 5L20 6' fill='none' stroke='%23231f1c' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
 }
 
 .comparison-table .comparison-table-badge-cross {
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Ccircle cx='12' cy='12' r='12' fill='%23b0b7bd'/%3E%3Cpath d='M8 8l8 8M16 8l-8 8' fill='none' stroke='%23fff' stroke-width='2.4' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M6 6l12 12M18 6L6 18' fill='none' stroke='%23231f1c' stroke-width='2.6' stroke-linecap='round'/%3E%3C/svg%3E");
 }
 
-@media (width >= 900px) {
+@media (width <= 700px) {
   .comparison-table .comparison-table-grid {
-    font-size: 17px;
+    font-size: 16px;
+    line-height: 24px;
+  }
+
+  .comparison-table .comparison-table-label,
+  .comparison-table .comparison-table-cell {
+    padding: 14px 16px;
   }
 }

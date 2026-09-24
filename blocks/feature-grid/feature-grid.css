@@ -1,0 +1,123 @@
+/* Feature Grid — icon feature items (admiral.com landing pages).
+ * Two layouts on one block, switched by the modifier class the JS adds:
+ *   .feature-grid-grid — centered icon + title tiles (2-up), no descriptions.
+ *   .feature-grid-rows — bordered icon+title | description rows. */
+
+.feature-grid {
+  width: 100%;
+  max-width: 1040px;
+  margin: 0 auto;
+}
+
+.feature-grid .feature-grid-items {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* ---- Centered tile grid ("What does LittleBox measure?") ---------------- */
+.feature-grid .feature-grid-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 48px 24px;
+  justify-items: center;
+  text-align: center;
+}
+
+.feature-grid .feature-grid-grid .feature-grid-item,
+.feature-grid .feature-grid-grid .feature-grid-head {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.feature-grid .feature-grid-grid .feature-grid-icon img {
+  width: 108px;
+  height: 108px;
+  object-fit: contain;
+}
+
+.feature-grid .feature-grid-grid .feature-grid-title {
+  color: var(--heading-blue, #2350a0);
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 30px;
+}
+
+/* ---- Bordered feature rows ("Why LittleBox…", "How do I get feedback?") -- */
+.feature-grid .feature-grid-rows {
+  border: 1px solid #d7dad3;
+}
+
+.feature-grid .feature-grid-rows .feature-grid-item {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+}
+
+.feature-grid .feature-grid-rows .feature-grid-item + .feature-grid-item {
+  border-top: 1px solid #d7dad3;
+}
+
+/* Left cell: icon + bold blue title, side by side. */
+.feature-grid .feature-grid-rows .feature-grid-head {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 28px;
+}
+
+.feature-grid .feature-grid-rows .feature-grid-icon {
+  flex: 0 0 auto;
+  line-height: 0;
+}
+
+.feature-grid .feature-grid-rows .feature-grid-icon img {
+  width: 46px;
+  height: 46px;
+  object-fit: contain;
+}
+
+.feature-grid .feature-grid-rows .feature-grid-title {
+  color: var(--heading-blue, #2350a0);
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 28px;
+}
+
+.feature-grid .feature-grid-rows .feature-grid-text {
+  padding: 28px;
+  background-color: #eceee7;
+  color: var(--text-color, #4f4f4f);
+  font-size: 16px;
+  line-height: 24px;
+  align-self: stretch;
+}
+
+.feature-grid .feature-grid-rows .feature-grid-text p {
+  margin: 0 0 12px;
+}
+
+.feature-grid .feature-grid-rows .feature-grid-text p:last-child {
+  margin-bottom: 0;
+}
+
+@media (width <= 700px) {
+  .feature-grid .feature-grid-grid {
+    gap: 32px 16px;
+  }
+
+  .feature-grid .feature-grid-rows .feature-grid-item {
+    grid-template-columns: 1fr;
+  }
+
+  .feature-grid .feature-grid-rows .feature-grid-head {
+    padding: 20px 20px 8px;
+  }
+
+  .feature-grid .feature-grid-rows .feature-grid-text {
+    padding: 0 20px 20px;
+    background-color: transparent;
+  }
+}

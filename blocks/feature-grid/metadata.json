@@ -1,0 +1,41 @@
+{
+  "variantName": "feature-grid",
+  "baseBlock": "feature-grid",
+  "version": "1.0.0",
+  "created": "2026-09-24T00:00:00.000Z",
+  "sourceContext": {
+    "originUrl": "https://www.admiral.com/black-box-insurance",
+    "originPage": "black-box-insurance / littlebox landing pages",
+    "blockPosition": "middle"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "light",
+    "density": "comfortable",
+    "purpose": "icon features",
+    "imagePattern": "icon-per-item"
+  },
+  "contentPattern": {
+    "structure": "repeating items: icon | title | text(optional); icon alt on the img",
+    "buttonCount": 0,
+    "imageCount": 4
+  },
+  "reuseGuidance": {
+    "suitableFor": [
+      "icon + label tile grids (no description)",
+      "icon + title + description feature rows"
+    ],
+    "notSuitableFor": [
+      "numbered process steps (use steps-list)",
+      "boolean coverage tables (use comparison-table)"
+    ]
+  },
+  "usage": {
+    "pagesUsing": [
+      "/black-box-insurance",
+      "/black-box-insurance/littlebox"
+    ],
+    "reuseCount": 4,
+    "lastUsed": "2026-09-24T00:00:00.000Z"
+  },
+  "implementationNote": "Block-based component (block/v1/block) with repeating feature-grid-item items (icon reference + alt + title + optional richtext text). JS auto-switches between a centered tile grid (no descriptions) and bordered icon+title|description rows (descriptions present)."
+}

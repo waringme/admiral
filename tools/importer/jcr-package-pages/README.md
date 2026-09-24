@@ -9,16 +9,24 @@ templates). Separate from the homepage package (`../jcr-package/`).
 - `/content/admiral/language-masters/en/black-box-insurance` (+ `/littlebox` child) — landing
 - `/content/admiral/language-masters/en/resources/motor-hub/van-advice` — landing (hub)
 - `/content/admiral/language-masters/en/magazine/guides/van-insurance/which-class-of-use` — guide
-- `/content/dam/admiral/en/images` — 47 dam:Asset images referenced by these pages
-  (downloaded from the Admiral CDN + admiral.com and localized). Three dead
-  source thumbnails (404 at source) remain as external URLs in the black-box
-  page and were not localized.
+- `/content/admiral/templates/landing` and `/content/admiral/templates/guide` —
+  **authoring template skeletons**: starter pages pre-populated with each
+  template's block set. Authors copy one to create a new Landing / Guide page.
+- `/content/dam/admiral/en/images` — dam:Asset images referenced by these pages
+  (downloaded from the Admiral CDN + admiral.com and localized), including the
+  LittleBox feature/step icons. Three dead source thumbnails (404 at source)
+  remain as external URLs in the black-box page and were not localized.
 
 ### Blocks used
-- New: comparison-table, article-body, breadcrumb, hero-cta
-- Reused: cards-product, cards-article, award-banner, accordion
+- New: comparison-table, article-body, breadcrumb, hero-cta, steps-list,
+  feature-grid
+- Reused: cards-article, award-banner, accordion
 - The black-box + littlebox landing heroes use `hero-cta` (background photo +
   navy copy box + stacked CTA buttons), not the homepage `hero-trust`.
+- Coverage tables use `comparison-table` (navy label column + tick badges);
+  numbered process rows use `steps-list`; icon feature tiles/rows use
+  `feature-grid`. Full-width navy promo bands use the reusable `.section.navy`
+  style variant.
 
 ### Install
 Package Manager → upload `admiral-pages-v1.zip` → Install. Then **Reprocess

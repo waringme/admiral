@@ -1,0 +1,41 @@
+{
+  "variantName": "steps-list",
+  "baseBlock": "steps-list",
+  "version": "1.0.0",
+  "created": "2026-09-24T00:00:00.000Z",
+  "sourceContext": {
+    "originUrl": "https://www.admiral.com/black-box-insurance",
+    "originPage": "black-box-insurance / littlebox landing pages",
+    "blockPosition": "middle"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "light",
+    "density": "comfortable",
+    "purpose": "process/steps",
+    "imagePattern": "none"
+  },
+  "contentPattern": {
+    "structure": "repeating step rows: title | text; step number auto-generated",
+    "buttonCount": 0,
+    "imageCount": 0
+  },
+  "reuseGuidance": {
+    "suitableFor": [
+      "numbered how-it-works / process step lists",
+      "ordered instructions with a short title and a description"
+    ],
+    "notSuitableFor": [
+      "boolean feature comparison (use comparison-table)",
+      "icon feature grids (use feature-grid)"
+    ]
+  },
+  "usage": {
+    "pagesUsing": [
+      "/black-box-insurance",
+      "/black-box-insurance/littlebox"
+    ],
+    "reuseCount": 2,
+    "lastUsed": "2026-09-24T00:00:00.000Z"
+  },
+  "implementationNote": "Block-based component (block/v1/block) with repeating steps-list-step items (title + richtext text). Renders an <ol>; the circular step number is a CSS counter, so authors only edit title + text."
+}

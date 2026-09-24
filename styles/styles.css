@@ -871,6 +871,31 @@ main .section.grey {
   padding: 48px 0;
 }
 
+/* Navy promo/CTA band (admiral.com "LittleBox is a different kind…"): full-width
+ * navy background, white heading, light-blue body, centered content. */
+main .section.navy {
+  background-color: var(--section-navy, #123f8a);
+  color: var(--text-light);
+  margin: 0;
+  padding: 56px 0;
+  text-align: center;
+}
+
+main .section.navy h1,
+main .section.navy h2,
+main .section.navy h3 {
+  color: var(--text-light);
+}
+
+main .section.navy p {
+  color: rgb(255 255 255 / 85%);
+}
+
+main .section.navy a,
+main .section.navy a:any-link {
+  color: var(--text-light);
+}
+
 /* Section background image */
 
 /* main .section.bg-image {

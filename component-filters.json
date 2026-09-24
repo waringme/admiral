@@ -141,6 +141,12 @@
     ]
   },
   {
+    "id": "feature-grid",
+    "components": [
+      "feature-grid-item"
+    ]
+  },
+  {
     "id": "form",
     "components": [
       "captcha",
@@ -174,6 +180,12 @@
     "id": "hero-cta",
     "components": [
       "hero-cta-button"
+    ]
+  },
+  {
+    "id": "steps-list",
+    "components": [
+      "steps-list-step"
     ]
   },
   {

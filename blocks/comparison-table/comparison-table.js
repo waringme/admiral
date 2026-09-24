@@ -42,6 +42,19 @@ function valueToNode(cell) {
 export default function decorate(block) {
   const table = document.createElement('table');
   table.className = 'comparison-table-grid';
+
+  // Dark charcoal header strip spanning both columns (decorative, matches the
+  // source coverage table). Cells are empty — no authored header content.
+  const thead = document.createElement('thead');
+  const headRow = document.createElement('tr');
+  const thLabel = document.createElement('th');
+  thLabel.scope = 'col';
+  const thValue = document.createElement('th');
+  thValue.scope = 'col';
+  headRow.append(thLabel, thValue);
+  thead.appendChild(headRow);
+  table.appendChild(thead);
+
   const tbody = document.createElement('tbody');
 
   [...block.children].forEach((row) => {
