@@ -3,19 +3,19 @@
 .breadcrumb {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 12px 20px;
+  padding: 22px 20px;
 }
 
 .breadcrumb .breadcrumb-list {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 4px;
+  gap: 2px;
   margin: 0;
   padding: 0;
   list-style: none;
-  font-size: 14px;
-  line-height: 20px;
+  font-size: 20px;
+  line-height: 28px;
 }
 
 .breadcrumb .breadcrumb-item {
@@ -26,12 +26,13 @@
 /* separator between items */
 .breadcrumb .breadcrumb-item:not(:first-child)::before {
   content: "›";
-  margin: 0 8px 0 4px;
-  color: #909090;
+  margin: 0 12px;
+  color: #b0b0b0;
+  font-weight: 400;
 }
 
 .breadcrumb .breadcrumb-item a:any-link {
-  color: var(--link-color, #0078ff);
+  color: #4f4f4f;
   text-decoration: none;
 }
 
@@ -40,5 +41,5 @@
 }
 
 .breadcrumb .breadcrumb-item span[aria-current="page"] {
-  color: #606060;
+  color: #4f4f4f;
 }
