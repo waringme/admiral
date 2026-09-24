@@ -11,19 +11,19 @@
 }
 
 .article-body h2 {
-  margin: 40px 0 12px;
-  color: var(--brand-blue, #005485);
-  font-size: 28px;
+  margin: 28px 0 12px;
+  color: #2350a0; /* source heading blue */
+  font-size: 25.2px;
   font-weight: 600;
-  line-height: 36px;
+  line-height: 34px;
 }
 
 .article-body h3 {
-  margin: 28px 0 10px;
-  color: var(--brand-blue, #005485);
-  font-size: 22px;
+  margin: 24px 0 10px;
+  color: #2350a0;
+  font-size: 19.8px;
   font-weight: 600;
-  line-height: 30px;
+  line-height: 28px;
 }
 
 .article-body p {
