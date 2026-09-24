@@ -11,6 +11,12 @@
   margin: 0 auto;
 }
 
+/* Centre the section heading + intro/outro copy that sit alongside the table
+ * (matches the source layout, where these are centered above/below the grid). */
+.comparison-table-container .default-content-wrapper {
+  text-align: center;
+}
+
 .comparison-table .comparison-table-grid {
   width: 100%;
   border-collapse: separate;

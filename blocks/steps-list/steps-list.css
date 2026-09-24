@@ -11,6 +11,11 @@
   counter-reset: step;
 }
 
+/* Centre the section heading + intro copy above the steps (matches source). */
+.steps-list-container .default-content-wrapper {
+  text-align: center;
+}
+
 .steps-list .steps-list-items {
   margin: 0;
   padding: 0;

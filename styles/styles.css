@@ -896,6 +896,13 @@ main .section.navy a:any-link {
   color: var(--text-light);
 }
 
+/* Centered prose section: centre the heading + intro copy (admiral.com centers
+ * the intro of several landing sections, e.g. "Our black box insurance
+ * products"). Reusable — add the "centered" style in section-metadata. */
+main .section.centered .default-content-wrapper {
+  text-align: center;
+}
+
 /* Section background image */
 
 /* main .section.bg-image {

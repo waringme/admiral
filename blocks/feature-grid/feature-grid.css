@@ -9,6 +9,12 @@
   margin: 0 auto;
 }
 
+/* Centre the section heading + intro/outro copy around the grid (source
+ * layout centers these). The rows layout's inner text stays left-aligned. */
+.feature-grid-container .default-content-wrapper {
+  text-align: center;
+}
+
 .feature-grid .feature-grid-items {
   margin: 0;
   padding: 0;
