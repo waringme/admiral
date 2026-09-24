@@ -18,6 +18,11 @@
 }
 
 .comparison-table .comparison-table-grid {
+  /* Override the global `table { display: block }` responsive rule, which
+   * otherwise sizes the table to its content and leaves a gap on the right.
+   * `table` + fixed layout makes it fill 100% with exact 50/50 columns. */
+  display: table;
+  table-layout: fixed;
   width: 100%;
   border-collapse: separate;
   border-spacing: 0;
