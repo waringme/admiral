@@ -7013,6 +7013,71 @@
     ]
   },
   {
+    "id": "side-image",
+    "fields": [
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "image",
+        "label": "Image",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "imageAlt",
+        "label": "Image Alt Text",
+        "value": ""
+      },
+      {
+        "component": "richtext",
+        "name": "text",
+        "value": "",
+        "label": "Text",
+        "valueType": "string"
+      },
+      {
+        "component": "select",
+        "name": "classes_position",
+        "value": "",
+        "label": "Image Side",
+        "valueType": "string",
+        "options": [
+          {
+            "name": "Left",
+            "value": ""
+          },
+          {
+            "name": "Right",
+            "value": "right"
+          }
+        ]
+      },
+      {
+        "component": "select",
+        "name": "classes_align",
+        "value": "",
+        "label": "Image Alignment",
+        "description": "Where the image sits in its column. Top crops a tall image at the bottom edge of the section.",
+        "valueType": "string",
+        "options": [
+          {
+            "name": "Bottom",
+            "value": ""
+          },
+          {
+            "name": "Centre",
+            "value": "center"
+          },
+          {
+            "name": "Top",
+            "value": "top"
+          }
+        ]
+      }
+    ]
+  },
+  {
     "id": "steps-list-step",
     "fields": [
       {

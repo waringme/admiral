@@ -881,6 +881,15 @@ main .section.white {
   padding: 48px 0;
 }
 
+/* Sky-blue band (admiral.com .bg-icon-blue, e.g. LittleBox "Black box for van
+ * drivers"): white text. Reusable — add the "sky" style in section-metadata. */
+main .section.sky {
+  background-color: rgb(65 165 245);
+  color: #fff;
+  margin: 0;
+  padding: 48px 0;
+}
+
 /* Navy promo/CTA band (admiral.com "LittleBox is a different kind…"): full-width
  * navy background, white heading, light-blue body, centered content. */
 main .section.navy {

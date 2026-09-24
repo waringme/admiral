@@ -1,0 +1,41 @@
+{
+  "variantName": "side-image",
+  "baseBlock": "side-image",
+  "version": "1.0.0",
+  "created": "2026-09-24T00:00:00.000Z",
+  "sourceContext": {
+    "originUrl": "https://www.admiral.com/black-box-insurance",
+    "originPage": "black-box-insurance / littlebox landing pages (.side-image)",
+    "blockPosition": "middle"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "light",
+    "density": "comfortable",
+    "purpose": "intro / promo with illustration",
+    "imagePattern": "single side image"
+  },
+  "contentPattern": {
+    "structure": "image | text (richtext); options: image side (left/right), image alignment (bottom/centre/top)",
+    "buttonCount": 1,
+    "imageCount": 1
+  },
+  "reuseGuidance": {
+    "suitableFor": [
+      "intro sections with a character illustration beside the copy",
+      "promo panels with a product/vehicle image and a CTA"
+    ],
+    "notSuitableFor": [
+      "several stacked image/text rows (use media-panels)",
+      "full-bleed photo heroes (use hero-cta)"
+    ]
+  },
+  "usage": {
+    "pagesUsing": [
+      "/black-box-insurance",
+      "/black-box-insurance/littlebox"
+    ],
+    "reuseCount": 4,
+    "lastUsed": "2026-09-24T00:00:00.000Z"
+  },
+  "implementationNote": "Block-based component (block/v1/block) with one model: image + imageAlt + text, plus grouped block options classes_position (right) and classes_align (center / top). decorate() only classes the authored rows, so UE field bindings are preserved."
+}

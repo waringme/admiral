@@ -1,0 +1,166 @@
+/* Side Image — image beside text (admiral.com .side-image).
+ * Source (#side-image-13170 at 1440px): 768px centred container; 298px image
+ * column + 30px gap + 410px text column; heading 37.8px/48px/600 #2350a0, copy
+ * 18px/28px #4f4f4f; the image runs to the section edge (tall images crop). */
+
+/* The image touches the section edges, so the section adds no vertical padding;
+ * the text column carries its own. */
+main .section.side-image-container {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.side-image {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  gap: 30px;
+  max-width: 1080px;
+  margin: 0 auto;
+}
+
+/* ---- Media column ------------------------------------------------------- */
+.side-image .side-image-media {
+  display: flex;
+  flex: 0 1 auto;
+  flex-direction: column;
+  justify-content: flex-end; /* default: image sits on the bottom edge */
+  max-height: 512px;
+  overflow: hidden;
+  line-height: 0;
+}
+
+.side-image.center .side-image-media {
+  justify-content: center;
+}
+
+.side-image.top .side-image-media {
+  justify-content: flex-start;
+}
+
+.side-image .side-image-media > div,
+.side-image .side-image-media p {
+  margin: 0;
+}
+
+.side-image .side-image-media img {
+  display: block;
+  width: auto;
+  max-width: 100%;
+  height: auto;
+}
+
+.side-image.right .side-image-media {
+  order: 2;
+}
+
+/* ---- Text column -------------------------------------------------------- */
+.side-image .side-image-text {
+  flex: 0 1 410px;
+  align-self: center;
+  padding: 64px 0;
+}
+
+.side-image .side-image-text h2 {
+  margin: 0 0 24px;
+  color: var(--heading-blue, #2350a0);
+  font-size: 37.8px;
+  font-weight: 600;
+  line-height: 48px;
+}
+
+.side-image .side-image-text p {
+  margin: 0 0 24px;
+  color: var(--text-color, #4f4f4f);
+  font-size: 18px;
+  line-height: 28px;
+}
+
+.side-image .side-image-text p:last-child {
+  margin-bottom: 0;
+}
+
+/* Inline links read as part of the sentence (no global chevron/sizing). */
+.side-image .side-image-text a:any-link {
+  display: inline;
+  color: var(--link-color, #0078ff);
+  font-size: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+  white-space: normal;
+}
+
+.side-image .side-image-text a:not(.button)::after {
+  content: none;
+}
+
+/* CTA — outlined blue button (source .button--azzuri-ghost). */
+.side-image .side-image-text a.button:any-link {
+  display: inline-block;
+  padding: 0 15px;
+  border: 1px solid #0078ff;
+  border-radius: 4px;
+  background-color: transparent;
+  color: #0078ff;
+  font-size: 13.5px;
+  font-weight: 400;
+  line-height: 28px;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+.side-image .side-image-text a.button::after {
+  content: none;
+}
+
+.side-image .side-image-text a.button:hover {
+  background-color: #0078ff;
+  color: #fff;
+}
+
+/* On a coloured (sky / navy / dark) section: white text + white outline CTA
+ * (source .button--reverse-ghost). */
+.section.sky .side-image .side-image-text h2,
+.section.sky .side-image .side-image-text p,
+.section.navy .side-image .side-image-text h2,
+.section.navy .side-image .side-image-text p {
+  color: #fff;
+}
+
+.section.sky .side-image .side-image-text a.button:any-link,
+.section.navy .side-image .side-image-text a.button:any-link {
+  border-color: #fff;
+  color: #fff;
+}
+
+.section.sky .side-image .side-image-text a.button:hover,
+.section.navy .side-image .side-image-text a.button:hover {
+  background-color: #fff;
+  color: var(--heading-blue, #2350a0);
+}
+
+/* ---- Mobile: stack, text first, image below (source --mobile-bottom) ---- */
+@media (width <= 767px) {
+  .side-image {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .side-image .side-image-text {
+    order: 1;
+    flex-basis: auto;
+    padding: 40px 0 24px;
+  }
+
+  .side-image .side-image-media,
+  .side-image.right .side-image-media {
+    order: 2;
+    align-items: center;
+    max-height: 360px;
+  }
+
+  .side-image .side-image-text h2 {
+    font-size: 30px;
+    line-height: 38px;
+  }
+}

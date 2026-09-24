@@ -16,9 +16,7 @@
         </block>
       </section_1>
       <section_2 sling:resourceType="core/franklin/components/section/v1/section" jcr:primaryType="nt:unstructured" style="[white]" model="section" modelFields="[name,style]">
-        <title sling:resourceType="core/franklin/components/title/v1/title" jcr:primaryType="nt:unstructured" title="What is black box insurance?" titleType="h2"/>
-        <text sling:resourceType="core/franklin/components/text/v1/text" jcr:primaryType="nt:unstructured" text="&lt;p&gt;Black box insurance – also called telematics – is a type of &lt;a href&#x3D;&quot;/car-insurance&quot;&gt;car insurance&lt;/a&gt; where a small device is fitted in your car which measures how well and when you drive.&lt;/p&gt;&lt;p&gt;This means if you’re a safe driver, we’ll reward you with discounted insurance at renewal. It’s that easy.&lt;/p&gt;"/>
-        <image sling:resourceType="core/franklin/components/image/v1/image" jcr:primaryType="nt:unstructured" image="/content/dam/admiral/en/images/annie-arms-folded.png" imageAlt=""/>
+        <block_1 sling:resourceType="core/franklin/components/block/v1/block" jcr:primaryType="nt:unstructured" classes_align="top" image="/content/dam/admiral/en/images/annie-arms-folded.png" model="side-image" modelFields="[image,imageAlt,text,classes_position,classes_align]" name="Side Image" text="&lt;p&gt;&lt;h2&gt;What is black box insurance?&lt;/h2&gt;&lt;/p&gt;&lt;p&gt;Black box insurance – also called telematics – is a type of &lt;a href&#x3D;&quot;/car-insurance&quot;&gt;car insurance&lt;/a&gt; where a small device is fitted in your car which measures how well and when you drive.&lt;/p&gt;&lt;p&gt;This means if you’re a safe driver, we’ll reward you with discounted insurance at renewal. It’s that easy.&lt;/p&gt;"></block_1>
       </section_2>
       <section_3 sling:resourceType="core/franklin/components/section/v1/section" jcr:primaryType="nt:unstructured" style="[centered]" model="section" modelFields="[name,style]">
         <title sling:resourceType="core/franklin/components/title/v1/title" jcr:primaryType="nt:unstructured" title="Our black box insurance products" titleType="h2"/>
@@ -93,10 +91,7 @@
         </block_1>
       </section_9>
       <section_10 sling:resourceType="core/franklin/components/section/v1/section" jcr:primaryType="nt:unstructured" model="section" modelFields="[name,style]">
-        <image sling:resourceType="core/franklin/components/image/v1/image" jcr:primaryType="nt:unstructured" image="/content/dam/admiral/en/images/littlebox-van-clear.png" imageAlt=""/>
-        <title sling:resourceType="core/franklin/components/title/v1/title" jcr:primaryType="nt:unstructured" title="Black box van insurance" titleType="h2"/>
-        <text sling:resourceType="core/franklin/components/text/v1/text" jcr:primaryType="nt:unstructured" text="&lt;p&gt;Van owners can now enjoy all the benefits of Admiral LittleBox, including theft tracking&lt;/p&gt;"/>
-        <button sling:resourceType="core/franklin/components/button/v1/button" jcr:primaryType="nt:unstructured" link="/van-insurance/black-box" linkText="FIND OUT MORE"/>
+        <block sling:resourceType="core/franklin/components/block/v1/block" jcr:primaryType="nt:unstructured" classes_position="right" image="/content/dam/admiral/en/images/littlebox-van-clear.png" model="side-image" modelFields="[image,imageAlt,text,classes_position,classes_align]" name="Side Image" text="&lt;p&gt;&lt;h2&gt;Black box van insurance&lt;/h2&gt;&lt;/p&gt;&lt;p&gt;Van owners can now enjoy all the benefits of Admiral LittleBox, including theft tracking&lt;/p&gt;&lt;p&gt;&lt;a href&#x3D;&quot;/van-insurance/black-box&quot;&gt;FIND OUT MORE&lt;/a&gt;&lt;/p&gt;"></block>
       </section_10>
       <section_11 sling:resourceType="core/franklin/components/section/v1/section" jcr:primaryType="nt:unstructured" style="[dark]" model="section" modelFields="[name,style]">
         <block_1 sling:resourceType="core/franklin/components/block/v1/block" jcr:primaryType="nt:unstructured" image="/content/dam/admiral/en/images/personal-finance-award-11-2x.png" imageAlt="Personal Finance Awards - Best Motor Insurer 2024/25" model="award-banner" modelFields="[image,imageAlt,text]" name="Award Banner" text="&lt;p&gt;&lt;h2&gt;May the Best Motor Insurer win...oh wait, that’s us again!&lt;/h2&gt;&lt;/p&gt;&lt;p&gt;Thanks for picking us for Best Motor Insurer&lt;br&gt; for the 11th year in a row.&lt;/p&gt;"></block_1>
