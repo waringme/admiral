@@ -15,11 +15,11 @@ The layout is chosen automatically from the content — you don't pick it.
 
 ## Authoring (Universal Editor)
 
-Add a **Feature Grid** block, then add **Feature Grid Item** entries:
+Add a **Feature Grid** block, then use **Add** on the block to add **Feature Row** items. Select a row to edit its properties:
 
 | Field | Type | Notes |
 |-------|------|-------|
-| Icon | reference | Icon image (set its alt text on the image itself) |
+| Image | reference | Icon image (set its alt text on the image itself) |
 | Feature Title | text | Bold blue title |
 | Feature Text | rich text | Optional. Leave blank on every item for the tile grid; fill it in to get the bordered rows layout |
 
@@ -27,7 +27,7 @@ Add a **Feature Grid** block, then add **Feature Grid Item** entries:
 
 ```
 Feature Grid
-  Feature Grid Item   → icon | title | text
+  Feature Row   → image | title | text
   ...
 ```
 

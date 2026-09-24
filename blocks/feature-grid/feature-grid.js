@@ -8,59 +8,47 @@
  *     your best black box cover" and "How do I get my feedback?".
  *
  * A block-based component (block/v1/block) with repeating items. Authored
- * structure (post-decorate): each row is [ icon ][ title ][ text ]. The icon's
- * alt text travels on the <img> itself (no separate alt cell).
+ * structure (post-decorate): each row is [ image ][ title ][ text ]. The image
+ * alt travels on the <img> itself.
+ *
+ * Universal Editor: each row's instrumentation is moved onto its <li>, and the
+ * authored cells are reused (not emptied) so their field bindings survive —
+ * rows stay selectable/addable and each field stays editable.
  *
  * @param {Element} block
  */
+import { moveInstrumentation } from '../../scripts/scripts.js';
+
 export default function decorate(block) {
-  const items = [...block.children].map((row) => {
-    const cells = [...row.children];
-    const iconCell = cells[0];
-    const titleCell = cells[1];
-    const textCell = cells[2];
+  const rows = [...block.children];
+  const withText = rows.some((row) => row.children[2]?.textContent.trim());
 
-    const pic = iconCell ? iconCell.querySelector('picture, img') : null;
-    const hasTitle = titleCell ? !!(titleCell.textContent || '').trim() : false;
-    const hasText = textCell && textCell.textContent.trim();
-    return {
-      pic, titleCell, textCell, hasTitle, hasText,
-    };
-  }).filter((it) => it.hasTitle || it.pic || it.hasText);
-
-  const withText = items.some((it) => it.hasText);
   const list = document.createElement('ul');
   list.className = `feature-grid-items feature-grid-${withText ? 'rows' : 'grid'}`;
 
-  items.forEach((it) => {
+  rows.forEach((row) => {
+    const [iconCell, titleCell, textCell] = row.children;
+
     const li = document.createElement('li');
     li.className = 'feature-grid-item';
+    moveInstrumentation(row, li);
 
-    // Head = icon + title (kept together so it forms one grid cell in the
-    // rows layout, and stacks in the tile layout).
+    // Head = image + title (one grid cell in the rows layout, stacked in tiles).
     const head = document.createElement('div');
     head.className = 'feature-grid-head';
-
-    if (it.pic) {
-      const iconWrap = document.createElement('div');
-      iconWrap.className = 'feature-grid-icon';
-      const picture = it.pic.closest('picture') || it.pic;
-      iconWrap.appendChild(picture);
-      head.appendChild(iconWrap);
+    if (iconCell) {
+      iconCell.className = 'feature-grid-icon';
+      head.appendChild(iconCell);
     }
-    if (it.titleCell) {
-      const title = document.createElement('div');
-      title.className = 'feature-grid-title';
-      while (it.titleCell.firstChild) title.appendChild(it.titleCell.firstChild);
-      head.appendChild(title);
+    if (titleCell) {
+      titleCell.className = 'feature-grid-title';
+      head.appendChild(titleCell);
     }
     li.appendChild(head);
 
-    if (it.hasText) {
-      const text = document.createElement('div');
-      text.className = 'feature-grid-text';
-      while (it.textCell.firstChild) text.appendChild(it.textCell.firstChild);
-      li.appendChild(text);
+    if (textCell) {
+      textCell.className = 'feature-grid-text';
+      li.appendChild(textCell);
     }
 
     list.appendChild(li);

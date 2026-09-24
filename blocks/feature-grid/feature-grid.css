@@ -21,6 +21,24 @@
   list-style: none;
 }
 
+/* Authored cells are reused as-is: the image sits in a <p>, the title may be a
+ * <p> or heading. Strip their default margins. */
+.feature-grid .feature-grid-icon p,
+.feature-grid .feature-grid-title > * {
+  margin: 0;
+}
+
+.feature-grid .feature-grid-icon picture {
+  display: block;
+  line-height: 0;
+}
+
+/* Tile layout has no descriptions — keep the (empty) text cell in the DOM for
+ * the editor but don't render it. */
+.feature-grid .feature-grid-grid .feature-grid-text {
+  display: none;
+}
+
 /* ---- Centered tile grid ("What does LittleBox measure?") ---------------- */
 .feature-grid .feature-grid-grid {
   display: grid;
