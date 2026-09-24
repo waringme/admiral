@@ -19,7 +19,7 @@ templates). Separate from the homepage package (`../jcr-package/`).
 
 ### Blocks used
 - New: comparison-table, article-body, breadcrumb, hero-cta, steps-list,
-  feature-grid
+  feature-grid, media-panels
 - Reused: cards-article, award-banner, accordion
 - The black-box + littlebox landing heroes use `hero-cta` (background photo +
   navy copy box + stacked CTA buttons), not the homepage `hero-trust`.

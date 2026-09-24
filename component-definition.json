@@ -1147,6 +1147,38 @@
           }
         },
         {
+          "title": "Media Panels",
+          "id": "media-panels",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "Media Panels",
+                  "filter": "media-panels"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Media Panel",
+          "id": "media-panel",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block/item",
+                "template": {
+                  "name": "Media Panel",
+                  "model": "media-panel",
+                  "title": "Panel title",
+                  "text": "<p>Panel description.</p>"
+                }
+              }
+            }
+          }
+        },
+        {
           "title": "Notice Banner",
           "id": "notice-banner",
           "plugins": {

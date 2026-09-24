@@ -1,0 +1,84 @@
+/* Media Panels — image-left / text-right product panels (admiral.com
+ * "Our black box insurance products"). A vertical stack of rows, each with a
+ * wide photo on the left and a blue title + grey description on the right. */
+
+.media-panels {
+  width: 100%;
+  max-width: 1040px;
+  margin: 0 auto;
+}
+
+.media-panels .media-panels-items {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+}
+
+.media-panels .media-panel {
+  display: grid;
+  grid-template-columns: minmax(0, 300px) 1fr;
+  gap: 40px;
+  align-items: center;
+}
+
+.media-panels .media-panel-media {
+  line-height: 0;
+}
+
+.media-panels .media-panel-media img {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  border-radius: 4px;
+  display: block;
+}
+
+.media-panels .media-panel-title h1,
+.media-panels .media-panel-title h2,
+.media-panels .media-panel-title h3,
+.media-panels .media-panel-title h4,
+.media-panels .media-panel-title p {
+  margin: 0 0 12px;
+  color: var(--heading-blue, #2350a0);
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 28px;
+}
+
+.media-panels .media-panel-text {
+  color: var(--text-color, #4f4f4f);
+  font-size: 18px;
+  line-height: 28px;
+}
+
+.media-panels .media-panel-text p {
+  margin: 0 0 12px;
+}
+
+.media-panels .media-panel-text p:last-child {
+  margin-bottom: 0;
+}
+
+.media-panels .media-panel-text a,
+.media-panels .media-panel-text a:any-link {
+  color: var(--link-color, #0078ff);
+  text-decoration: none;
+}
+
+.media-panels .media-panel-text a:hover {
+  text-decoration: underline;
+}
+
+@media (width <= 700px) {
+  .media-panels .media-panel {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .media-panels .media-panel-media img {
+    aspect-ratio: 2 / 1;
+  }
+}

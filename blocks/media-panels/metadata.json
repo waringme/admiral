@@ -1,0 +1,41 @@
+{
+  "variantName": "media-panels",
+  "baseBlock": "media-panels",
+  "version": "1.0.0",
+  "created": "2026-09-24T00:00:00.000Z",
+  "sourceContext": {
+    "originUrl": "https://www.admiral.com/black-box-insurance",
+    "originPage": "black-box-insurance landing page",
+    "blockPosition": "middle"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "light",
+    "density": "comfortable",
+    "purpose": "product panels",
+    "imagePattern": "one-per-item"
+  },
+  "contentPattern": {
+    "structure": "repeating panels: image | title | text (image left, text right)",
+    "buttonCount": 0,
+    "imageCount": 3
+  },
+  "reuseGuidance": {
+    "suitableFor": [
+      "product / feature panels with a wide photo beside a title + description",
+      "stacked image-left content rows"
+    ],
+    "notSuitableFor": [
+      "icon feature grids (use feature-grid)",
+      "3-up article card grids (use cards-article)",
+      "numbered process steps (use steps-list)"
+    ]
+  },
+  "usage": {
+    "pagesUsing": [
+      "/black-box-insurance"
+    ],
+    "reuseCount": 1,
+    "lastUsed": "2026-09-24T00:00:00.000Z"
+  },
+  "implementationNote": "Block-based component (block/v1/block) with repeating media-panel items (image reference + title + richtext text). Renders a stacked <ul>; each panel is a 2-column grid (photo left, title+text right), collapsing to one column below 700px. Icon/image alt travels on the <img>."
+}

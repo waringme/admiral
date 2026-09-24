@@ -35,6 +35,7 @@ const TEMPLATES = {
       { name: 'comparison-table', instances: ['#basic-18312 table.general'] },
       { name: 'steps-list', instances: ['#basic-18084 table.general'] },
       { name: 'feature-grid', instances: ['#basic-18083 .grid--badges', 'table.table-list--badges'] },
+      { name: 'media-panels', instances: ['#basic-13176 .grid'] },
       { name: 'cards-article', instances: ['#product-pods-13189 .grid'] },
       { name: 'award-banner', instances: ['#reusable-block-13191'] },
       { name: 'accordion', instances: ['#faqs-13193 .accordion', '#basic-13192 .accordion'] },
@@ -42,7 +43,7 @@ const TEMPLATES = {
     sections: [
       { id: 'hero', name: 'Hero banner', selector: '#hero-banner-5509', style: null, blocks: ['hero-trust'], defaultContent: [] },
       { id: 'intro-prose', name: 'Intro prose + image', selector: '#side-image-13170', style: null, blocks: [], defaultContent: ['#side-image-13170'] },
-      { id: 'products-prose', name: 'Black box products (side-image panels)', selector: '#basic-13176', style: null, blocks: [], defaultContent: ['#basic-13176'] },
+      { id: 'products-prose', name: 'Black box products (media panels)', selector: '#basic-13176', style: 'centered', blocks: ['media-panels'], defaultContent: ['#basic-13176 > div:first-child'] },
       { id: 'cover-and-steps', name: "What's covered (comparison table)", selector: '#basic-18312', style: null, blocks: ['comparison-table'], defaultContent: ['#basic-18312 > div:nth-of-type(1)'] },
       { id: 'measure-badges', name: 'What LittleBox measures (feature grid)', selector: '#basic-18083', style: 'grey', blocks: ['feature-grid'], defaultContent: [] },
       { id: 'spacer', name: 'Steps (numbered process rows)', selector: '#basic-18084', style: null, blocks: ['steps-list'], defaultContent: [] },

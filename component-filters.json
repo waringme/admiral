@@ -183,6 +183,12 @@
     ]
   },
   {
+    "id": "media-panels",
+    "components": [
+      "media-panel"
+    ]
+  },
+  {
     "id": "steps-list",
     "components": [
       "steps-list-step"
