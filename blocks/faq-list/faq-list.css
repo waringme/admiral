@@ -1,0 +1,127 @@
+/* FAQ List — expandable question/answer boxes (admiral.com "Your questions
+ * answered"). Source (.faqs / .pod--faq): 708px column, white boxes with a
+ * 1px rgb(183,183,203) border, 15px apart, blue 19.8px/600 question, blue "+"
+ * toggle on the right, 18px grey answer inside the box; first 3 visible, then
+ * an outlined "SHOW MORE" button. */
+
+.faq-list {
+  max-width: 708px;
+  margin: 0 auto;
+}
+
+/* Heading + intro above the list share the same 708px column (source). */
+.faq-list-container .default-content-wrapper {
+  /* 708px content + the section wrapper's 32px side padding (border-box). */
+  max-width: calc(708px + 64px);
+  margin-bottom: 32px;
+}
+
+.faq-list .faq-list-items {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.faq-list .faq-list-item {
+  background-color: #fff;
+  border: 1px solid rgb(183 183 203);
+}
+
+.faq-list .faq-list-item-hidden {
+  display: none;
+}
+
+.faq-list .faq-list-question {
+  position: relative;
+  padding: 18px 56px 18px 20px;
+  color: var(--heading-blue, #2350a0);
+  font-size: 19.8px;
+  font-weight: 600;
+  line-height: 28px;
+  text-align: left;
+  list-style: none;
+  cursor: pointer;
+}
+
+.faq-list .faq-list-question::-webkit-details-marker {
+  display: none;
+}
+
+/* "+" toggle (becomes "−" when open), drawn as two 2px bars. */
+.faq-list .faq-list-question::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 15px;
+  width: 18px;
+  height: 18px;
+  transform: translateY(-50%);
+  background:
+    linear-gradient(#0078ff, #0078ff) center / 18px 2px no-repeat,
+    linear-gradient(#0078ff, #0078ff) center / 2px 18px no-repeat;
+}
+
+.faq-list .faq-list-item[open] .faq-list-question::after {
+  background: linear-gradient(#0078ff, #0078ff) center / 18px 2px no-repeat;
+}
+
+.faq-list .faq-list-question p,
+.faq-list .faq-list-question h3 {
+  display: inline;
+  margin: 0;
+  font: inherit;
+  color: inherit;
+}
+
+.faq-list .faq-list-answer {
+  padding: 0 20px 18px;
+  color: var(--text-color, #4f4f4f);
+  font-size: 18px;
+  line-height: 28px;
+  text-align: left;
+}
+
+.faq-list .faq-list-answer > :first-child {
+  margin-top: 0;
+}
+
+.faq-list .faq-list-answer > :last-child {
+  margin-bottom: 0;
+}
+
+.faq-list .faq-list-answer a:any-link {
+  color: var(--link-color, #0078ff);
+}
+
+/* "SHOW MORE" — outlined blue button, centred below the list. */
+.faq-list .faq-list-more {
+  margin: 36px 0 0;
+  text-align: center;
+}
+
+.faq-list .faq-list-more button {
+  display: inline-block;
+  padding: 0 15px;
+  border: 1px solid #0078ff;
+  border-radius: 4px;
+  background-color: transparent;
+  color: #0078ff;
+  font-size: 13.5px;
+  font-weight: 400;
+  line-height: 28px;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.faq-list .faq-list-more button:hover,
+.faq-list .faq-list-more button:focus-visible {
+  background-color: #0078ff;
+  color: #fff;
+}
+
+@media (width <= 700px) {
+  .faq-list .faq-list-question {
+    font-size: 18px;
+    line-height: 26px;
+  }
+}

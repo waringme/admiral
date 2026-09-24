@@ -141,6 +141,12 @@
     ]
   },
   {
+    "id": "faq-list",
+    "components": [
+      "faq-list-item"
+    ]
+  },
+  {
     "id": "feature-grid",
     "components": [
       "feature-grid-item"

@@ -1253,6 +1253,25 @@
     ]
   },
   {
+    "id": "faq-list-item",
+    "fields": [
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "question",
+        "value": "",
+        "label": "Question"
+      },
+      {
+        "component": "richtext",
+        "name": "answer",
+        "value": "",
+        "label": "Answer",
+        "valueType": "string"
+      }
+    ]
+  },
+  {
     "id": "feature-grid-item",
     "fields": [
       {

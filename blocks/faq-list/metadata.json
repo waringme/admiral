@@ -1,0 +1,39 @@
+{
+  "variantName": "faq-list",
+  "baseBlock": "faq-list",
+  "version": "1.0.0",
+  "created": "2026-09-24T00:00:00.000Z",
+  "sourceContext": {
+    "originUrl": "https://www.admiral.com/black-box-insurance",
+    "originPage": "black-box-insurance landing page (#faqs-13193)",
+    "blockPosition": "bottom"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "light",
+    "density": "comfortable",
+    "purpose": "faq",
+    "imagePattern": "none"
+  },
+  "contentPattern": {
+    "structure": "repeating items: question | answer (richtext); first 3 visible, Show more reveals the rest",
+    "buttonCount": 1,
+    "imageCount": 0
+  },
+  "reuseGuidance": {
+    "suitableFor": [
+      "FAQ / 'Your questions answered' lists",
+      "long question lists that should start collapsed"
+    ],
+    "notSuitableFor": [
+      "full-width content accordions with long rich sections (use accordion)"
+    ]
+  },
+  "usage": {
+    "pagesUsing": [
+      "/black-box-insurance"
+    ],
+    "reuseCount": 1,
+    "lastUsed": "2026-09-24T00:00:00.000Z"
+  },
+  "implementationNote": "Block-based component (block/v1/block) with repeating faq-list-item items (question text + answer richtext). Renders details/summary boxes; items beyond the first 3 are hidden until the generated 'Show more' button is clicked."
+}
