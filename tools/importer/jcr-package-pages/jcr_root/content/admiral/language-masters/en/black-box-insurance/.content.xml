@@ -3,11 +3,11 @@
   <jcr:content cq:template="/libs/core/franklin/templates/page" sling:resourceType="core/franklin/components/page/v1/page" jcr:primaryType="cq:PageContent" jcr:title="Black Box Car Insurance Quotes - Admiral" jcr:description="Unlock savings with black box car insurance. Drive smarter, pay less. Get personalized rates based on your driving habits. Start saving today!" modelFields="[jcr:title,jcr:pagetitle,jcr:description,cq:tags,theme,pageName,pageCategory]">
     <root jcr:primaryType="nt:unstructured" sling:resourceType="core/franklin/components/root/v1/root">
       <section sling:resourceType="core/franklin/components/section/v1/section" jcr:primaryType="nt:unstructured" model="section" modelFields="[name,style]">
-        <text sling:resourceType="core/franklin/components/text/v1/text" jcr:primaryType="nt:unstructured" text="&lt;ul&gt;
-                    &lt;li&gt;&lt;a href&#x3D;&quot;/&quot;&gt;Homepage&lt;/a&gt;&lt;/li&gt;
-                    &lt;li&gt;&lt;a href&#x3D;&quot;#&quot;&gt;Black Box Insurance&lt;/a&gt;&lt;/li&gt;
-                    &lt;/ul&gt;"/>
-        <block sling:resourceType="core/franklin/components/block/v1/block" jcr:primaryType="nt:unstructured" ctalabel="Get a Quote" ctalink="/bbQuoteStatus.php" model="hero-trust" modelFields="[image,imageAlt,text,enableunderline,herolayout,backgroundstyle,ctalabel,ctalink,ctastyle,badge]" name="Hero Trust" text="&lt;p&gt;&lt;h1&gt;Black Box Insurance&lt;/h1&gt;&lt;/p&gt;"></block>
+        <block sling:resourceType="core/franklin/components/block/v1/block" jcr:primaryType="nt:unstructured" filter="breadcrumb" name="Breadcrumb">
+          <item_0 jcr:primaryType="nt:unstructured" sling:resourceType="core/franklin/components/block/v1/block/item" name="Breadcrumb Item" model="breadcrumb-item" label="Homepage" link="/" modelFields="[label,link]"></item_0>
+          <item_1 jcr:primaryType="nt:unstructured" sling:resourceType="core/franklin/components/block/v1/block/item" name="Breadcrumb Item" model="breadcrumb-item" label="Black Box Insurance" link="/" modelFields="[label,link]"></item_1>
+        </block>
+        <block_1 sling:resourceType="core/franklin/components/block/v1/block" jcr:primaryType="nt:unstructured" ctalabel="Get a Quote" ctalink="/bbQuoteStatus.php" model="hero-trust" modelFields="[image,imageAlt,text,enableunderline,herolayout,backgroundstyle,ctalabel,ctalink,ctastyle,badge]" name="Hero Trust" text="&lt;p&gt;&lt;h1&gt;Black Box Insurance&lt;/h1&gt;&lt;/p&gt;"></block_1>
       </section>
       <section_1 sling:resourceType="core/franklin/components/section/v1/section" jcr:primaryType="nt:unstructured" model="section" modelFields="[name,style]">
         <title sling:resourceType="core/franklin/components/title/v1/title" jcr:primaryType="nt:unstructured" title="What is black box insurance?" titleType="h2"/>
