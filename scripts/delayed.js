@@ -1,14 +1,10 @@
 // add delayed functionality here
 import {
-  getMetadata, loadScript, fetchPlaceholders,
-  sampleRUM,
+  getMetadata, loadScript,
 } from './aem.js';
 import {
   a, span, i,
 } from './dom-helpers.js';
-import {
-  isInternalPage,
-} from './utils.js';
 
 // Adobe Launch (analytics) - loaded here, ~3s after page load, rather than in
 // <head>, so it doesn't compete with the page's first render.
@@ -21,17 +17,17 @@ window.targetGlobalSettings = {
 };
 
 function loadAT() {
+  // Note: at.js only reads a *global* window.targetPageParams, so this nested
+  // helper is not picked up; kept as-is so Target behaviour is unchanged.
+  // eslint-disable-next-line no-unused-vars
   function targetPageParams() {
     return {
-      "at_property": "549d426b-0bcc-be60-ce27-b9923bfcad4f"
+      at_property: '549d426b-0bcc-be60-ce27-b9923bfcad4f',
     };
   }
-    loadScript(window.hlx.codeBasePath+'/scripts/at-lsig.js');
-  
+  loadScript(`${window.hlx.codeBasePath}/scripts/at-lsig.js`);
 }
 // Adobe Target - end
-
-
 
 // refactor tweetable links function
 /**
@@ -49,18 +45,18 @@ function openPopUp(popUrl) {
  */
 function embedCustomLibraries() {
   const externalLibs = getMetadata('js-files');
-  const libsArray = externalLibs?.split(',').map(url => url.trim());
+  const libsArray = externalLibs?.split(',').map((url) => url.trim());
 
-  libsArray.forEach((url, index) => {
-    //console.log(`Loading script ${index + 1}: ${url}`);
+  libsArray.forEach((url) => {
     loadScript(`${url}`);
   });
-  
 }
 
 /**
  * Finds and decorates anchor elements with Twitter hrefs
  */
+// Tweetable-links autoblock (not currently wired up; kept for future use).
+// eslint-disable-next-line no-unused-vars
 function buildTwitterLinks() {
   const main = document.querySelector('main');
   if (!main) return;
@@ -104,7 +100,6 @@ function buildTwitterLinks() {
 }
 
 if (!window.location.hostname.includes('localhost')) {
-  
   embedCustomLibraries();
   if (window.parent && !(window.parent.location.pathname.indexOf('/canvas/') > -1)) {
     loadAT();
