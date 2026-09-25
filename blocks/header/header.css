@@ -812,46 +812,15 @@ header nav .nav-tools p a:hover {
   }
 }
 
-/* scroll-shrink behaviour */
+/* Scrolled state: the whole header — black utility bar (Contact us, Help,
+   My account, Claims) and main nav — stays pinned at full size; it only
+   gains a shadow to lift it off the page content. */
 body header .nav-wrapper {
   transition: box-shadow 0.2s ease;
 }
 
 body header .nav-wrapper.is-scrolled {
   box-shadow: 0 2px 10px rgb(0 0 0 / 14%);
-}
-
-@media (width >= 900px) {
-  header nav {
-    transition: padding 0.2s ease, min-height 0.2s ease;
-  }
-
-  body header .nav-wrapper.is-scrolled nav {
-    padding-top: 4px;
-    padding-bottom: 4px;
-    min-height: 52px;
-    row-gap: 2px;
-  }
-
-  header nav .nav-brand img {
-    transition: width 0.2s ease;
-  }
-
-  body header .nav-wrapper.is-scrolled .nav-brand img {
-    width: 128px;
-  }
-
-  /* hide the utility row when scrolled to save space, keep main nav + CTA */
-  body header .nav-wrapper.is-scrolled .nav-tools ul {
-    display: none;
-  }
-
-  /* When scrolled the utility row is hidden, so remove the black band —
-     otherwise the blue nav items (Motor, Home, …) sit on black and can't be
-     read. The whole compact bar stays on the light-grey background. */
-  body header .nav-wrapper.is-scrolled::before {
-    display: none;
-  }
 }
 
 /* desktop overrides for the (boilerplate-set) expanded state — must win over mobile rules above */

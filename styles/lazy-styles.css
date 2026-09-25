@@ -1,1 +1,40 @@
 /* add global styles that can be loaded post LCP here */
+
+/* Back to top (guide pages; source .back-to-top-btn): 64px white circle with
+ * a 1px rgb(183,183,203) border and a blue up-arrow, fixed 20px from the right
+ * and 80px from the bottom; fades in once the reader has scrolled down. 40px
+ * on phones. */
+.back-to-top {
+  position: fixed;
+  right: 20px;
+  bottom: 80px;
+  z-index: 10;
+  width: 64px;
+  height: 64px;
+  margin: 0;
+  padding: 0;
+  border: 1px solid rgb(183 183 203);
+  border-radius: 50%;
+  background: #fff url("../icons/back-to-top.svg") center / 54% no-repeat;
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+}
+
+.back-to-top.is-visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+.back-to-top:focus-visible {
+  outline: 2px solid #0f5fff;
+  outline-offset: 2px;
+}
+
+@media (width < 768px) {
+  .back-to-top {
+    width: 40px;
+    height: 40px;
+  }
+}

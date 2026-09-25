@@ -309,6 +309,27 @@ async function loadEager(doc) {
 // }
 
 /**
+ * Guide pages (admiral.com magazine articles) get a floating "back to top"
+ * button that fades in once the reader is ~1.5 screens down the page.
+ * @param {Element} doc The container element
+ */
+function buildBackToTop(doc) {
+  if (!doc.body.classList.contains('guide') || isAuthorEnvironment()) return;
+  const button = doc.createElement('button');
+  button.type = 'button';
+  button.className = 'back-to-top';
+  button.setAttribute('aria-label', 'Back to top');
+  button.addEventListener('click', () => {
+    const smooth = !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    window.scrollTo({ top: 0, behavior: smooth ? 'smooth' : 'auto' });
+  });
+  const toggle = () => button.classList.toggle('is-visible', window.scrollY > window.innerHeight * 1.5);
+  window.addEventListener('scroll', toggle, { passive: true });
+  toggle();
+  doc.body.append(button);
+}
+
+/**
    * Loads everything that doesn't need to be delayed.
    * @param {Element} doc The container element
    */
@@ -324,6 +345,7 @@ async function loadLazy(doc) {
   loadFooter(doc.querySelector('footer'));
 
   loadCSS(`${window.hlx.codeBasePath}/styles/lazy-styles.css`);
+  buildBackToTop(doc);
   loadFonts();
   await showExperimentationRail(doc, experimentationConfig);
 }

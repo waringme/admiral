@@ -43,7 +43,7 @@ main > .section.article-body-container {
   .article-body-toc {
     display: block;
     position: sticky;
-    top: 45px;
+    top: 165px; /* source 45px below the viewport top, plus the 120px pinned header */
     margin-top: 41px;
     text-align: right;
   }

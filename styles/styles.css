@@ -453,6 +453,19 @@ h6 {
   color: var(--heading-blue, #2350a0);
 }
 
+/* The header stays pinned at full height (64px on phones, 120px black bar +
+ * main nav on desktop), so in-page jumps (e.g. "Article contents" links)
+ * land below it rather than underneath. */
+html {
+  scroll-padding-top: var(--nav-height, 64px);
+}
+
+@media (width >= 900px) {
+  html {
+    scroll-padding-top: 120px;
+  }
+}
+
 /* On dark sections, headings and text are white */
 main .section.dark h1,
 main .section.dark h2,
