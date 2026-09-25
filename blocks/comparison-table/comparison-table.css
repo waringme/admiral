@@ -7,14 +7,14 @@
 
 .comparison-table {
   width: 100%;
-  max-width: 600px;
+  max-width: 748px;
   margin: 0 auto;
 }
 
 /* Centre the section heading + intro/outro copy that sit alongside the table
  * in a 708px column; the table sits narrower inside it at 600px. */
 main > .section.comparison-table-container > .default-content-wrapper {
-  max-width: calc(var(--content-width, 708px) + 64px);
+  max-width: calc(708px + 64px); /* source: 708px heading + intro column */
   text-align: center;
 }
 
@@ -30,13 +30,14 @@ main > .section.comparison-table-container > .default-content-wrapper {
   border: 1px solid var(--comparison-line, rgb(173 169 164));
   border-radius: 10px;
   overflow: hidden;
-  font-size: 18px;
-  line-height: 22px;
+  font-size: 19px;
+  font-weight: 400;
+  line-height: 22px; /* source 19px/21.85px, Facit Regular */
 }
 
 /* Dark charcoal header strip above the two columns. */
 .comparison-table .comparison-table-grid thead th {
-  height: 74px;
+  height: 63px;
   padding: 0;
   background-color: #2b2723;
   border: none;
@@ -55,7 +56,7 @@ main > .section.comparison-table-container > .default-content-wrapper {
   padding: 20px 16px;
   background-color: var(--table-navy, #123f8a);
   color: #fff;
-  font-weight: 700;
+  font-weight: 400;
   text-align: right;
   vertical-align: middle;
   border-top: 1px solid var(--comparison-line, rgb(173 169 164));
@@ -74,7 +75,12 @@ main > .section.comparison-table-container > .default-content-wrapper {
 }
 
 .comparison-table .comparison-table-value {
-  color: var(--text-color, #4f4f4f);
+  color: rgb(44 40 34); /* source value text, e.g. "Up to £200" */
+}
+
+/* "Optional" add-ons are muted warm grey on the source. */
+.comparison-table .comparison-table-value-optional {
+  color: rgb(132 126 120);
 }
 
 /* Tick / cross indicators — plain black glyphs rendered from SVG. */

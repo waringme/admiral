@@ -35,6 +35,8 @@ function valueToNode(cell) {
   // otherwise keep the authored rich text as-is
   const wrap = document.createElement('span');
   wrap.className = 'comparison-table-value';
+  // "Optional" (an add-on, not included) is muted on the source.
+  if (raw === 'optional') wrap.classList.add('comparison-table-value-optional');
   while (cell.firstChild) wrap.appendChild(cell.firstChild);
   return wrap;
 }
