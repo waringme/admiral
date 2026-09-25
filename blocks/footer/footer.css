@@ -24,8 +24,9 @@ footer .footer-social ul {
   padding: 0;
   max-width: var(--content-max-width, 1200px);
   display: flex;
+  flex-wrap: wrap; /* phones: wrap instead of pushing past the viewport */
   justify-content: center;
-  gap: 28px;
+  gap: 12px 28px;
 }
 
 footer .footer-social ul > li > a {
