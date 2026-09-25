@@ -97,7 +97,7 @@ export default function decorate(block) {
   // Closing share row.
   const share = document.createElement('div');
   share.className = 'article-body-share';
-  const shareTitle = document.createElement('p');
+  const shareTitle = document.createElement('h3');
   shareTitle.className = 'article-body-share-title';
   shareTitle.textContent = 'Share with your friends...';
   share.append(shareTitle, shareIcons());
@@ -110,7 +110,7 @@ export default function decorate(block) {
     const toc = document.createElement('nav');
     toc.className = 'article-body-toc';
     toc.setAttribute('aria-label', 'Article contents');
-    const tocTitle = document.createElement('p');
+    const tocTitle = document.createElement('h3');
     tocTitle.className = 'article-body-toc-title';
     tocTitle.textContent = 'Article contents';
     const list = document.createElement('ul');
