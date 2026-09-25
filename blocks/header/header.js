@@ -9,6 +9,8 @@ function closeOnEscape(e) {
     if (navSectionExpanded && isDesktop.matches) {
       // eslint-disable-next-line no-use-before-define
       toggleAllNavSections(navSections);
+      // eslint-disable-next-line no-use-before-define
+      syncNavOverlay(navSections);
       navSectionExpanded.focus();
     } else if (!isDesktop.matches) {
       // eslint-disable-next-line no-use-before-define
@@ -44,6 +46,15 @@ function toggleAllNavSections(sections, expanded = false) {
   sections.querySelectorAll(':scope > ul > li').forEach((section) => {
     section.setAttribute('aria-expanded', expanded);
   });
+}
+
+/**
+ * Dims the page behind an open desktop mega-panel (source .mega-nav-blackout).
+ * @param {Element} sections The .nav-sections element
+ */
+function syncNavOverlay(sections) {
+  const open = isDesktop.matches && !!sections.querySelector('.nav-drop[aria-expanded="true"]');
+  document.body.classList.toggle('nav-dropdown-open', open);
 }
 
 /**
@@ -182,11 +193,24 @@ export default async function decorate(block) {
 
   const navSections = nav.querySelector('.nav-sections');
   if (navSections) {
-    // tag subtitle group headings (li with <strong> and no link)
-    navSections.querySelectorAll(':scope > ul ul > li').forEach((li) => {
-      if (!li.querySelector('a') && li.querySelector('strong')) {
-        li.classList.add('nav-group-title');
-      }
+    // tag subtitle group headings (li with <strong> and no link), and give
+    // every panel item its desktop column: each group gets its own column
+    // (source: 3 x 230px), further groups stack under the third.
+    navSections.querySelectorAll(':scope > ul > li > ul').forEach((submenu) => {
+      let col = 1;
+      [...submenu.children].forEach((li, i) => {
+        if (li.tagName !== 'LI') return;
+        const isTitle = !li.querySelector('a') && !!li.querySelector('strong');
+        if (isTitle) {
+          li.classList.add('nav-group-title');
+          if (i > 0) {
+            li.classList.add(col === 3 ? 'nav-group-stacked' : 'nav-col-start');
+            col = Math.min(col + 1, 3);
+          }
+        }
+        li.classList.add(`nav-col-${col}`);
+      });
+      submenu.classList.add(`nav-cols-${col}`);
     });
 
     navSections.querySelectorAll(':scope > ul > li').forEach((navSection) => {
@@ -244,6 +268,7 @@ export default async function decorate(block) {
           const expanded = navSection.getAttribute('aria-expanded') === 'true';
           toggleAllNavSections(navSections); // close any other open panel
           navSection.setAttribute('aria-expanded', expanded ? 'false' : 'true');
+          syncNavOverlay(navSections);
         } else if (isDrop && !onSubLink) {
           // mobile: only toggle when tapping the row itself (not a sub-link)
           const expanded = navSection.getAttribute('aria-expanded') === 'true';
@@ -255,8 +280,16 @@ export default async function decorate(block) {
     // Desktop: click outside the nav closes any open dropdown.
     document.addEventListener('click', (e) => {
       if (!isDesktop.matches) return;
-      if (!nav.contains(e.target)) toggleAllNavSections(navSections);
+      if (!nav.contains(e.target)) {
+        toggleAllNavSections(navSections);
+        syncNavOverlay(navSections);
+      }
     });
+
+    const overlay = document.createElement('div');
+    overlay.className = 'nav-overlay';
+    document.body.append(overlay);
+    isDesktop.addEventListener('change', () => syncNavOverlay(navSections));
   }
 
   // hamburger for mobile

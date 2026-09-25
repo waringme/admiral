@@ -482,85 +482,108 @@ header nav[aria-expanded='true'] .nav-sections .nav-group-title strong {
 }
 
 @media (width >= 900px) {
-  /* Full-width white mega-panel spanning the whole header, dropping down flush
-     below the grey nav bar (source: .mega-nav__dropdown). It breaks out of the
-     1200px nav column via 100vw, and lays its groups out in a centred 1200px
-     content column. */
+  /* Mega-panel (source .mega-nav__dropdown at 1440px): a 1240px white panel
+     centred under the header, 20/62/22/79px padding. The link groups flow in
+     three 230px columns (20px apart) — header.js marks the group titles that
+     start a new column (.nav-col-start); later groups stack in the third —
+     so each column sizes on its own. The right 431px is reserved for the
+     250px promo card. Fixed so it centres on the viewport, not on its tab. */
   header nav .nav-sections .nav-drop > ul {
     display: none;
-    position: absolute;
-    top: calc(100% + 1px);          /* just under the nav bar's bottom border */
+    position: fixed;
+    top: 121px;                     /* under the pinned header + its border */
     left: 50%;
-    transform: translateX(-50vw);
-    width: 100vw;
+    z-index: 3;
+    width: min(1240px, 100vw);
     box-sizing: border-box;
-
-    /* top/bottom match source (~20/22px); left aligns to the 1200 content
-       column, and an oversized right padding groups the link columns into a
-       ~760px block on the LEFT — mirroring the source, which reserves the
-       right side for a promo card. */
-    padding:
-      22px
-      max(32px, calc(100vw - 800px))
-      24px
-      max(32px, calc((100vw - 1200px) / 2));
+    margin: 0;
+    padding: 20px 431px 22px 79px;
+    transform: translateX(-50%);
     background: #fff;
-    border-bottom: 1px solid #d6d6d6;
-
-    /* multi-column flow grouped under subtitles */
-    columns: 3;
-    column-gap: 40px;
+    columns: 3 230px;
+    column-gap: 20px;
     column-fill: balance;
+    list-style: none;
   }
 
   header nav .nav-sections .nav-drop[aria-expanded='true'] > ul {
     display: block;
   }
 
-  /* blue section heading atop the panel, spanning the link columns
-     (source: rgb(7,80,165), 19.8px, weight 600) */
+  header nav .nav-sections .nav-drop > ul > li {
+    break-inside: avoid;
+  }
+
+  header nav .nav-sections .nav-drop > ul > li.nav-col-start {
+    break-before: column;
+  }
+
+  /* menus with fewer groups keep 230px columns (no balancing a group across
+     two columns); the unused column width joins the right-hand gap */
+  header nav .nav-sections .nav-drop > ul.nav-cols-2 {
+    columns: 2 230px;
+    padding-right: 681px;
+  }
+
+  header nav .nav-sections .nav-drop > ul.nav-cols-1 {
+    columns: 1 230px;
+    padding-right: 931px;
+  }
+
+  /* blue section heading across the link columns (source 19.8px/28px/600
+     rgb(7,80,165), 15px above / 6px below) */
   header nav .nav-sections .nav-drop > ul > .nav-panel-heading {
     display: block;
     column-span: all;
-    margin: 0 0 6px;
+    margin: 15px 0 6px;
     color: #0750a5;
     font-size: 19.8px;
     font-weight: 600;
-    line-height: 1.2;
+    line-height: 28px;
   }
 
-  /* promo card on the right — sits in the reserved right zone, aligned to the
-     right edge of the 1200 content column (source: .mega-nav__promo, 250px) */
+  /* promo card (source .mega-nav__dropdown-content.right): 250px, 1px
+     rgb(214,214,214) left rule, 8/15/20px padding, spanning the panel */
   header nav .nav-sections .nav-drop > ul > .nav-panel-promo {
     display: block;
     position: absolute;
-    top: 22px;
-    right: max(32px, calc((100vw - 1200px) / 2));
+    top: 20px;
+    right: 62px;
+    bottom: 22px;
+    box-sizing: border-box;
     width: 250px;
-    padding-left: 20px;
+    padding: 8px 0 15px 20px;
+    border-left: 1px solid rgb(214 214 214);
   }
 
   header nav .nav-sections .nav-drop > ul > .nav-panel-promo .nav-panel-promo-title {
-    margin: 0 0 6px;
+    margin: 7px 0 8px;
     color: #0750a5;
     font-size: 19.8px;
     font-weight: 600;
-    line-height: 1.2;
+    line-height: 28.8px;
   }
 
   header nav .nav-sections .nav-drop > ul > .nav-panel-promo .nav-panel-promo-body {
-    margin: 0 0 10px;
+    margin: 0 0 20px;
     color: var(--text-color, #4f4f4f);
     font-size: 14.4px;
     font-weight: 400;
     line-height: 21.6px;
   }
 
+  /* outlined "FIND OUT MORE" button (source 13.5px uppercase, 1px #07f, r4) */
   header nav .nav-sections .nav-drop > ul > .nav-panel-promo .nav-panel-promo-link {
+    display: inline-block;
+    padding: 7px 14px;
+    border: 1px solid #07f;
+    border-radius: 4px;
     color: #07f;
     font-size: 13.5px;
     font-weight: 400;
+    line-height: 16px;
     text-decoration: none;
+    text-transform: uppercase;
   }
 
   header nav .nav-sections .nav-drop > ul > .nav-panel-promo .nav-panel-promo-link::after {
@@ -568,27 +591,44 @@ header nav[aria-expanded='true'] .nav-sections .nav-group-title strong {
   }
 
   header nav .nav-sections .nav-drop > ul > .nav-panel-promo .nav-panel-promo-link:hover {
-    text-decoration: underline;
+    background: #07f;
+    color: #fff;
   }
 
+  /* links: 14.4px/16.56px rgb(35,80,160), 7/10px padding (34px rows), each
+     followed by a small grey chevron */
   header nav .nav-sections .nav-drop > ul > li {
+    margin: 0;
+    padding: 0;
     font-weight: 400;
-    padding: 5px 0;
-    white-space: nowrap;
-    break-inside: avoid;
+    line-height: 16.56px;
   }
 
   header nav .nav-sections .nav-drop > ul > li > a {
-    color: #2350a0;                 /* source: rgb(35, 80, 160) */
-    font-weight: 400;
+    display: inline-block;
+    padding: 7px 10px 10px 0;
+    vertical-align: top;
+    color: #2350a0;
     font-size: 14.4px;
+    font-weight: 400;
     line-height: 16.56px;
     text-decoration: none;
     white-space: normal;
   }
 
   header nav .nav-sections .nav-drop > ul > li > a::after {
-    content: none;
+    content: '';
+    display: inline-block;
+    float: none;              /* the global link ::after floats right */
+    box-sizing: content-box;
+    width: 5px;
+    height: 5px;
+    margin: 0 0 1px 6px;
+    padding: 0;
+    border-top: 1px solid #999;
+    border-right: 1px solid #999;
+    transform: rotate(45deg);
+    vertical-align: middle;
   }
 
   header nav .nav-sections .nav-drop > ul > li > a:hover {
@@ -596,25 +636,37 @@ header nav[aria-expanded='true'] .nav-sections .nav-group-title strong {
     text-decoration: underline;
   }
 
-  /* subtitle group headings inside a panel (source: grey rgb(170,170,170),
-     16.2px, weight 600, mixed-case, no border/rule) */
+  /* group headings (source 16.2px/18.63px/600 rgb(170,170,170), 32px row);
+     a group stacked under another in the third column sits 33px lower */
   header nav .nav-sections .nav-drop > ul > li.nav-group-title {
-    padding: 12px 0 4px;
-    margin-top: 6px;
-    break-inside: avoid;
+    padding: 7px 0;
   }
 
-  header nav .nav-sections .nav-drop > ul > li.nav-group-title:first-child {
-    margin-top: 0;
+  header nav .nav-sections .nav-drop > ul > li.nav-group-stacked {
+    padding-top: 40px;
   }
 
   header nav .nav-sections .nav-drop > ul > li.nav-group-title strong {
     color: #aaa;
     font-size: 16.2px;
     font-weight: 600;
+    line-height: 18.63px;
     text-transform: none;
     letter-spacing: normal;
   }
+
+  /* page dimmer behind an open panel (source .mega-nav-blackout 65%) */
+  body.nav-dropdown-open .nav-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 1;
+    display: block;
+    background: rgb(0 0 0 / 65%);
+  }
+}
+
+.nav-overlay {
+  display: none;
 }
 
 /* tools / utility bar */
@@ -853,13 +905,72 @@ body header .nav-wrapper.is-scrolled {
      otherwise supply a cramped inline padding on desktop. */
   header nav[aria-expanded='true'] .nav-sections .nav-drop[aria-expanded='true'] > ul {
     display: block;
-    padding:
-      22px
-      max(32px, calc(100vw - 800px))
-      24px
-      max(32px, calc((100vw - 1200px) / 2));
-    columns: 3;
-    column-gap: 40px;
+    padding: 20px 431px 22px 79px;
+  }
+
+  header nav[aria-expanded='true'] .nav-sections .nav-drop[aria-expanded='true'] > ul.nav-cols-2 {
+    padding-right: 681px;
+  }
+
+  header nav[aria-expanded='true'] .nav-sections .nav-drop[aria-expanded='true'] > ul.nav-cols-1 {
+    padding-right: 931px;
+  }
+
+  /* small grey chevron after each panel link (the mobile-drawer rule that
+     removes link adornments also matches on desktop) */
+  header nav[aria-expanded='true'] .nav-sections > ul > li > ul > li > a::after {
+    content: '';
+    display: inline-block;
+    float: none;              /* the global link ::after floats right */
+    box-sizing: content-box;
+    width: 5px;
+    height: 5px;
+    margin: 0 0 1px 6px;
+    padding: 0;
+    border-top: 1px solid #999;
+    border-right: 1px solid #999;
+    transform: rotate(45deg);
+    vertical-align: middle;
+  }
+
+  header nav[aria-expanded='true'] .nav-sections > ul > li > ul > li {
+    padding: 0;
+  }
+
+  header nav[aria-expanded='true'] .nav-sections > ul > li > ul > li.nav-group-title {
+    padding: 7px 0;
+  }
+
+  header nav[aria-expanded='true'] .nav-sections > ul > li > ul > li.nav-group-stacked {
+    padding-top: 40px;
+  }
+
+  /* top-level tabs: no chevron (the mobile-drawer affordance also matches
+     here because the desktop nav is always aria-expanded); the open tab
+     shows the source's circled ✕ instead. Source tab width is unchanged
+     when open (e.g. Motor 84px), so the icon sits in the side padding. */
+  header nav[aria-expanded='true'] .nav-sections > ul > li.nav-drop > a::after,
+  header nav[aria-expanded='true'] .nav-sections > ul > li.nav-drop > p > a::after {
+    content: none;
+  }
+
+  header nav[aria-expanded='true'] .nav-sections > ul > li.nav-drop[aria-expanded='true'] > a,
+  header nav[aria-expanded='true'] .nav-sections > ul > li.nav-drop[aria-expanded='true'] > p > a {
+    padding: 0 30px 0 10px;
+  }
+
+  header nav[aria-expanded='true'] .nav-sections > ul > li.nav-drop[aria-expanded='true'] > a::after,
+  header nav[aria-expanded='true'] .nav-sections > ul > li.nav-drop[aria-expanded='true'] > p > a::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    width: 15px;
+    height: 15px;
+    margin: 0;
+    border: 0;
+    transform: translateY(-50%);
+    background: url("https://mktgblobpubaccess1.blob.core.windows.net/eui-frontend-assets/admiral/images/mega-nav/close-nav-section.svg") center / contain no-repeat;
   }
 
   /* panel links & group titles — win over the deep mobile-drawer rules that
