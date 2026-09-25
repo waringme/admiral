@@ -229,7 +229,7 @@
   background: none;
   color: var(--link-color, #0078ff);
   font-size: inherit;
-  font-weight: inherit;
+  font-weight: 400; /* source inline links are Facit Regular */
   line-height: inherit;
   text-decoration: none;
   white-space: normal;

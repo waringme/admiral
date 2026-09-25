@@ -318,7 +318,10 @@ body {
   color: var(--text-color);
   font-family: var(--body-font-family);
   font-size: var(--body-font-size-m);
-  line-height: 1.6;
+
+  /* admiral.com body copy: Facit Light 18px/28px (inline links stay 400). */
+  font-weight: 300;
+  line-height: 1.5556;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizelegibility;
@@ -541,6 +544,26 @@ button {
   text-overflow: ellipsis;
   white-space: nowrap;
   text-decoration: none;
+}
+
+/* Inline links inside running text read as part of the sentence: same size
+ * as the copy, Facit Regular (admiral.com: 18px/28px, 400), no chevron.
+ * Sole-link paragraphs are decorated as .button and keep the button styles. */
+main .default-content-wrapper :is(p, li) a:any-link:not(.button),
+main .article-body :is(p, li) a:any-link:not(.button),
+main .faq-list-answer :is(p, li) a:any-link:not(.button) {
+  display: inline;
+  overflow: visible;
+  font-size: inherit;
+  font-weight: 400;
+  line-height: inherit;
+  white-space: normal;
+}
+
+main .default-content-wrapper :is(p, li) a:not(.button)::after,
+main .article-body :is(p, li) a:not(.button)::after,
+main .faq-list-answer :is(p, li) a:not(.button)::after {
+  content: none;
 }
 
 a::after, a.button::after {
