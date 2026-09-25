@@ -1299,7 +1299,7 @@
     "fields": [
       {
         "component": "select",
-        "name": "classes",
+        "name": "classes_layout",
         "value": "",
         "label": "Layout",
         "description": "Auto: bordered rows when items have text, otherwise icon tiles. Columns: centred columns (image, title, text side by side).",
@@ -1312,6 +1312,24 @@
           {
             "name": "Columns",
             "value": "columns"
+          }
+        ]
+      },
+      {
+        "component": "select",
+        "name": "classes_text",
+        "value": "",
+        "label": "Description text",
+        "description": "Regular: 18px copy. Small: 12.6px small-print copy (admiral.com caveat style), e.g. \"Why LittleBox could be your best black box cover\".",
+        "valueType": "string",
+        "options": [
+          {
+            "name": "Regular",
+            "value": ""
+          },
+          {
+            "name": "Small",
+            "value": "small"
           }
         ]
       }

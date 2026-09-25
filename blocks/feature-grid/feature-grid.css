@@ -96,7 +96,7 @@
   display: flex;
   align-items: center;
   gap: 3px;
-  padding: 18px 10px 18px 0;
+  padding: 0 10px 0 0;
   background-color: #fff;
 }
 
@@ -111,7 +111,10 @@
   object-fit: contain;
 }
 
+/* Only the title cell is padded (source th: 18px 10px 18px 0), so a
+ * one-line row is 65px tall with the 58px icon filling it. */
 .feature-grid .feature-grid-rows .feature-grid-title {
+  padding: 18px 0;
   color: var(--heading-blue, #2350a0);
   font-size: 19.8px;
   font-weight: 600;
@@ -228,4 +231,19 @@
     flex-basis: auto;
     max-width: 338px;
   }
+}
+
+/* Block option "small": small-print descriptions (source p.caveat, e.g.
+ * "Why LittleBox could be your best black box cover": 12.6px/16px/300). */
+.feature-grid.small .feature-grid-rows .feature-grid-text {
+  font-size: 12.6px;
+  line-height: 16px;
+}
+
+.feature-grid.small .feature-grid-rows .feature-grid-text p {
+  margin-bottom: 16px;
+}
+
+.feature-grid.small .feature-grid-rows .feature-grid-text p:last-child {
+  margin-bottom: 0;
 }

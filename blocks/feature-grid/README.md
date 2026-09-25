@@ -19,6 +19,9 @@ block's **Layout** option to **Columns**:
   badges) and "How do I get my feedback?" (score gauges). Images show at their
   natural size, up to 170px wide.
 
+**Description text** (block option): *Regular* (18px) or *Small* — small-print
+12.6px descriptions, as in "Why LittleBox could be your best black box cover".
+
 ## Authoring (Universal Editor)
 
 Add a **Feature Grid** block (optionally set **Layout** to Columns in its properties), then use **Add** on the block to add **Feature Row** items. Select a row to edit its properties:
