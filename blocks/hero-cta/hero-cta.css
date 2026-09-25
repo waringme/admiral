@@ -29,7 +29,18 @@ main > .section.hero-cta-container {
   z-index: 0;
 }
 
+/* The <picture> must fill the band too: published images carry width/height
+ * attributes, and without a sized parent the img falls back to its natural
+ * aspect ratio — the photo then shrinks with the window and leaves a grey
+ * strip under the navy box. */
+.hero-cta .hero-cta-bg picture {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
 .hero-cta .hero-cta-bg img {
+  display: block;
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -228,6 +239,7 @@ main .hero-cta .hero-cta-actions a.hero-cta-button-link:hover {
 
   .hero-cta .hero-cta-bg {
     position: relative;
+    align-self: stretch;          /* full width, not the image's intrinsic width */
     height: 240px;
   }
 
