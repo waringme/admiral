@@ -7,13 +7,14 @@
 
 .comparison-table {
   width: 100%;
-  max-width: 1040px;
+  max-width: 748px;
   margin: 0 auto;
 }
 
 /* Centre the section heading + intro/outro copy that sit alongside the table
- * (matches the source layout, where these are centered above/below the grid). */
-.comparison-table-container .default-content-wrapper {
+ * in a 708px column; the table itself is 748px (source at 1440px). */
+main > .section.comparison-table-container > .default-content-wrapper {
+  max-width: calc(708px + 64px);
   text-align: center;
 }
 
@@ -30,7 +31,7 @@
   border-radius: 10px;
   overflow: hidden;
   font-size: 18px;
-  line-height: 26px;
+  line-height: 22px;
 }
 
 /* Dark charcoal header strip above the two columns. */
@@ -51,7 +52,7 @@
  * products panel titles (700). */
 .comparison-table .comparison-table-label {
   width: 50%;
-  padding: 18px 26px;
+  padding: 20px 16px;
   background-color: var(--table-navy, #123f8a);
   color: #fff;
   font-weight: 700;
@@ -63,7 +64,7 @@
 /* White value column — centered. */
 .comparison-table .comparison-table-cell {
   width: 50%;
-  padding: 18px 26px;
+  padding: 20px 16px;
   background-color: #fff;
   color: var(--text-color, #4f4f4f);
   text-align: center;
@@ -105,4 +106,10 @@
   .comparison-table .comparison-table-cell {
     padding: 14px 16px;
   }
+}
+
+/* Authored cell text sits in <p>; drop its default margins so rows are 62px
+ * like the source (20px padding + one 22px line). */
+.comparison-table .comparison-table-grid tbody p {
+  margin: 0;
 }
