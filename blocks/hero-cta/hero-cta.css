@@ -77,6 +77,21 @@ main > .section.hero-cta-container {
   line-height: 28px;
 }
 
+/* A strapline that ends the box (no CTAs) sits on the box padding. */
+.hero-cta .hero-cta-box > p:last-child {
+  margin-bottom: 0;
+}
+
+/* Compact (block option "compact"): on desktop the band hugs the copy box,
+ * 54px above and below (source resource-hub hero, e.g. van-advice: 432px). */
+@media (width > 900px) {
+  .hero-cta.compact {
+    min-height: 0;
+    padding-top: 54px;
+    padding-bottom: 54px;
+  }
+}
+
 /* CTA stack */
 .hero-cta .hero-cta-actions {
   display: flex;

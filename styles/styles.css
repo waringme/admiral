@@ -1014,6 +1014,147 @@ main .section.narrow > .default-content-wrapper {
   max-width: calc(var(--content-width) + 64px);
 }
 
+/* Resource-hub section (admiral.com motor hub, e.g. "Van tips and advice"):
+ * heading + intro centred in the 1024px container (984px content) — h3
+ * 19.8px/28px/600, h2 37.8px/48px, intro 600px wide. The CTA is the 430px
+ * aqua gradient button (source .button--option.button--aqua). Add the "hub"
+ * style in section-metadata. */
+main > .section.hub > .default-content-wrapper {
+  max-width: calc(984px + 64px);
+  text-align: center;
+}
+
+main .section.hub > .default-content-wrapper h2 {
+  margin: 0 0 32px;
+}
+
+main .section.hub > .default-content-wrapper h3 {
+  margin: 0 0 20px;
+  font-size: 19.8px;
+  line-height: 28px;
+}
+
+main .section.hub > .default-content-wrapper p {
+  max-width: 600px;
+  margin: 0 auto 28px;
+}
+
+main .section.hub > .default-content-wrapper > :last-child {
+  margin-bottom: 0;
+}
+
+main .section.hub .default-content-wrapper a.button:any-link {
+  display: block;
+  max-width: 430px;
+  margin: 0 auto;
+  padding: 3px 15px;
+  border: 1px solid rgb(0 128 194);
+  border-radius: 4px;
+  background-image: linear-gradient(rgb(0 184 234) 0%, rgb(0 128 204) 100%);
+  color: #fff;
+  font-size: 16.2px;
+  font-weight: 400;
+  line-height: 32px;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+main .section.hub .default-content-wrapper a.button::after {
+  content: none;
+}
+
+main .section.hub .default-content-wrapper a.button:hover {
+  filter: brightness(1.06);
+  text-decoration: none;
+}
+
+/* Links as outline buttons (source "Quick links": .button--midi
+ * .button--azzuri-ghost) — every link in a paragraph becomes a small blue
+ * outline button; the row wraps and centres. Heading 25.2px/34px, intro full
+ * width. Add the "link-buttons" style (with "hub") in section-metadata. */
+main .section.link-buttons > .default-content-wrapper h3 {
+  margin-bottom: 28px;
+  font-size: 25.2px;
+  line-height: 34px;
+}
+
+main .section.link-buttons > .default-content-wrapper p {
+  max-width: none;
+}
+
+main .section.link-buttons .default-content-wrapper p:has(> a) {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px 12px;
+}
+
+main .section.link-buttons .default-content-wrapper p a:any-link {
+  display: inline-block;
+  padding: 0 15px 2px;
+  border: 1px solid var(--link-color, #0078ff);
+  border-radius: 4px;
+  color: var(--link-color, #0078ff);
+  font-size: 13.5px;
+  font-weight: 400;
+  line-height: 26px; /* 30px tall with the 1px border (source) */
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+main .section.link-buttons .default-content-wrapper p a:any-link:hover {
+  background-color: var(--link-color, #0078ff);
+  color: #fff;
+  text-decoration: none;
+}
+
+/* Document links list (source "Policy books" .arrow-list--pdf-icon): each list
+ * item is a full-width row with a PDF icon on the left, a 16.2px/24px heading
+ * blue title and a chevron on the right, separated by rgb(183,183,203) rules.
+ * Heading above 25.2px/34px. Add the "doc-links" style in section-metadata. */
+main .section.doc-links > .default-content-wrapper > h3 {
+  margin: 0 0 28px;
+  font-size: 25.2px;
+  line-height: 34px;
+}
+
+main .section.doc-links > .default-content-wrapper > p {
+  margin: 0 0 28px;
+}
+
+main .section.doc-links .default-content-wrapper ul {
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid rgb(183 183 203);
+  list-style: none;
+}
+
+main .section.doc-links .default-content-wrapper li {
+  margin: 0;
+  border-bottom: 1px solid rgb(183 183 203);
+  background: url("../icons/icon-pdf.svg") 0 11px / 36px 36px no-repeat;
+}
+
+main .section.doc-links .default-content-wrapper li > :is(h2, h3, h4, p) {
+  margin: 0;
+  font-size: 16.2px;
+  font-weight: 600;
+  line-height: 24px;
+}
+
+main .section.doc-links .default-content-wrapper li a:any-link {
+  display: block;
+  padding: 17px 33px 18px 52px;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 18 18'%3E%3Cpath d='M6.6 18H5l6.4-9L5 0h1.7l6.4 9-6.5 9z' fill='%230078ff'/%3E%3C/svg%3E") calc(100% - 3px) 50% / 18px 18px no-repeat;
+  color: var(--heading-blue, #2350a0);
+  font-weight: 600;
+  white-space: normal;
+}
+
+main .section.doc-links .default-content-wrapper li a:any-link:hover {
+  text-decoration: underline;
+}
+
 /* Section background image */
 
 /* main .section.bg-image {
