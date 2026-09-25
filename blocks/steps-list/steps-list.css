@@ -7,7 +7,7 @@
 
 .steps-list {
   width: 100%;
-  max-width: var(--content-width, 708px);
+  max-width: 708px; /* source table width, independent of the text column */
   margin: 0 auto;
   counter-reset: step;
 }
@@ -29,7 +29,7 @@ main > .section.steps-list-container > .default-content-wrapper {
 
 .steps-list .steps-list-step {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(2, minmax(0, 354px)); /* 61px badge + 293px title | copy */
   align-items: stretch;
   counter-increment: step;
 }

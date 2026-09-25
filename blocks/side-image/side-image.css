@@ -64,6 +64,11 @@ main .section.side-image-container {
  * tall as the text column plus its padding; the image is clipped at the band
  * edge). Top-aligned images keep sizing the band. */
 @media (width >= 768px) {
+  /* Top-aligned image bands start their text lower (source .pt-lrg: 120px). */
+  .side-image.top .side-image-text {
+    padding-top: 120px;
+  }
+
   .side-image:not(.top) .side-image-media {
     position: relative;
   }

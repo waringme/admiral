@@ -757,6 +757,18 @@ body:is(.landing, .guide) main > .section.title-mint {
   padding: 30px 0;
 }
 
+/* Blocks that carry their own band spacing (source award banner: 330px band,
+ * 10px below the badge; full-width accordion bars). */
+body:is(.landing, .guide) main > .section.award-banner-container {
+  padding-top: 0;
+  padding-bottom: 10px;
+}
+
+body:is(.landing, .guide) main > .section.accordion-container {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
 /* Guide article starts right under the title band; the mini promo banner
  * keeps 60px to the footer (source .hero-banner--B mb-med). */
 body:is(.landing, .guide) main > .section.article-body-container {
@@ -787,6 +799,11 @@ body:is(.landing, .guide) main > .section > .default-content-wrapper > p {
 
 body:is(.landing, .guide) main > .section > .default-content-wrapper > p:last-child {
   margin-bottom: 28px;
+}
+
+/* A closing CTA button sits on the section padding (source navy band). */
+body:is(.landing, .guide) main > .section > .default-content-wrapper > p.button-container:last-child {
+  margin-bottom: 0;
 }
 
 @media (width >= 900px) {

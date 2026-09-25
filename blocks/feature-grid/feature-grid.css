@@ -58,7 +58,7 @@ main > .section.feature-grid-container > .default-content-wrapper {
 .feature-grid .feature-grid-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, calc(var(--content-width, 680px) / 2)));
-  gap: 45px 0;
+  gap: 0;
   justify-content: center;
   justify-items: center;
   text-align: center;
@@ -69,6 +69,12 @@ main > .section.feature-grid-container > .default-content-wrapper {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+/* Source tile cells: 25px padding round a 125px icon + title (20px below the
+ * title), 224px tall. */
+.feature-grid .feature-grid-grid .feature-grid-item {
+  padding: 25px 25px 45px;
 }
 
 .feature-grid .feature-grid-grid .feature-grid-icon img {

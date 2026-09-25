@@ -83,11 +83,12 @@ main > .section.comparison-table-container > .default-content-wrapper {
   color: rgb(132 126 120);
 }
 
-/* Tick / cross indicators — plain black glyphs rendered from SVG. */
+/* Tick / cross indicators — plain black glyphs rendered from SVG in a 32px
+ * badge (source .badge--x-sml: 32x32, so tick rows are 73px tall). */
 .comparison-table .comparison-table-badge {
   display: inline-block;
-  width: 26px;
-  height: 26px;
+  width: 32px;
+  height: 32px;
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
