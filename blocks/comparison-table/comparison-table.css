@@ -26,7 +26,7 @@
   width: 100%;
   border-collapse: separate;
   border-spacing: 0;
-  border: 1px solid #d3d7d4;
+  border: 1px solid var(--comparison-line, rgb(173 169 164));
   border-radius: 10px;
   overflow: hidden;
   font-size: 18px;
@@ -41,6 +41,12 @@
   border: none;
 }
 
+/* Source: every cell is ruled with the same light warm grey
+ * (1px rgb(173,169,164)), which reads as a pale line on the navy column. */
+.comparison-table .comparison-table-grid thead th + th {
+  border-left: 1px solid var(--comparison-line, rgb(173 169 164));
+}
+
 /* Navy label column — white text, right-aligned. Bold weight matches the
  * products panel titles (700). */
 .comparison-table .comparison-table-label {
@@ -51,11 +57,7 @@
   font-weight: 700;
   text-align: right;
   vertical-align: middle;
-  border-top: 1px solid rgb(255 255 255 / 18%);
-}
-
-.comparison-table .comparison-table-grid tbody tr:first-child .comparison-table-label {
-  border-top: none;
+  border-top: 1px solid var(--comparison-line, rgb(173 169 164));
 }
 
 /* White value column — centered. */
@@ -66,11 +68,8 @@
   color: var(--text-color, #4f4f4f);
   text-align: center;
   vertical-align: middle;
-  border-top: 1px solid #e4e7e5;
-}
-
-.comparison-table .comparison-table-grid tbody tr:first-child .comparison-table-cell {
-  border-top: none;
+  border-top: 1px solid var(--comparison-line, rgb(173 169 164));
+  border-left: 1px solid var(--comparison-line, rgb(173 169 164));
 }
 
 .comparison-table .comparison-table-value {
