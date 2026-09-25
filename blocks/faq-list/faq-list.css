@@ -102,10 +102,10 @@
 .faq-list .faq-list-more button {
   display: inline-block;
   padding: 0 15px;
-  border: 1px solid #0078ff;
+  border: 1px solid var(--link-color, #0066d6);
   border-radius: 4px;
   background-color: transparent;
-  color: #0078ff;
+  color: var(--link-color, #0066d6);
   font-size: 13.5px;
   font-weight: 400;
   line-height: 28px;
@@ -115,7 +115,7 @@
 
 .faq-list .faq-list-more button:hover,
 .faq-list .faq-list-more button:focus-visible {
-  background-color: #0078ff;
+  background-color: var(--link-color, #0066d6);
   color: #fff;
 }
 
