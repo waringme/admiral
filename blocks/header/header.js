@@ -71,7 +71,7 @@ function toggleMenu(nav, navSections, forceExpanded = null) {
   // product rows start collapsed; each opens on tap (source mobile drawer)
   toggleAllNavSections(navSections, 'false');
   if (button) {
-    button.setAttribute('aria-label', expanded ? 'Open navigation' : 'Close navigation');
+    button.setAttribute('aria-label', expanded ? 'Open menu' : 'Close menu');
   }
 
   // enable nav dropdown keyboard accessibility
@@ -296,7 +296,7 @@ export default async function decorate(block) {
   // hamburger for mobile
   const hamburger = document.createElement('div');
   hamburger.classList.add('nav-hamburger');
-  hamburger.innerHTML = `<button type="button" aria-controls="nav" aria-label="Open navigation">
+  hamburger.innerHTML = `<button type="button" aria-controls="nav" aria-label="Open menu">
       <span class="nav-hamburger-icon"></span><span class="nav-hamburger-label">Menu</span>
     </button>`;
 

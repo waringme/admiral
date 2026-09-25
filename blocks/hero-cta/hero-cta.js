@@ -71,6 +71,15 @@ export default function decorate(block) {
   if (bgImg) {
     const picture = bgImg.closest('picture') || bgImg;
     bg.appendChild(picture);
+    // The hero photo is the page's largest paint: fetch it straight away
+    // rather than lazily (the breadcrumb section precedes it, so the default
+    // "first image is eager" rule doesn't catch it). Not for the small
+    // in-article "mini" banner.
+    const img = picture.querySelector('img') || bgImg;
+    if (img.tagName === 'IMG' && !block.classList.contains('mini')) {
+      img.loading = 'eager';
+      img.fetchPriority = 'high';
+    }
   }
 
   block.textContent = '';

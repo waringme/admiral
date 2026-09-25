@@ -80,7 +80,7 @@ main > .section.comparison-table-container > .default-content-wrapper {
 
 /* "Optional" add-ons are muted warm grey on the source. */
 .comparison-table .comparison-table-value-optional {
-  color: rgb(132 126 120);
+  color: rgb(113 108 102); /* source rgb(132,126,120) darkened to 4.5:1 */
 }
 
 /* Tick / cross indicators — plain black glyphs rendered from SVG in a 32px

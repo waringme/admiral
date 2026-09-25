@@ -8,7 +8,7 @@
   --brand-background-color: #f0f0eb;
   --brand-text-color: #4f4f4f;
   --brand-light-text-color: #fff;
-  --brand-link-color: #0078ff;
+  --brand-link-color: #0066d6; /* admiral #0078ff darkened to 4.5:1 on #f0f0eb */
   --brand-link-hover-color: #005485;
   --brand-theme-color: #ff7911;
   --brand-dark-color: #091f30;

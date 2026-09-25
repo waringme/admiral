@@ -1,11 +1,32 @@
-let dmViewerPromise;
+import { loadScript } from '../../scripts/aem.js';
+
+const DM_VIEWER_URL = 'https://delivery-p153659-e1620914.adobeaemcloud.com/adobe/assets/urn:aaid:aem:dmviewers-html5/as/DMVideoViewer.js';
+
+/**
+ * The viewer script is deferred in head.html (so it doesn't block first
+ * render); wait for it if it hasn't run yet, or load it if it's missing.
+ */
+async function ensureViewer() {
+  if (window.dmviewers?.VideoViewer) return;
+  const tag = document.querySelector(`script[src="${DM_VIEWER_URL}"]`);
+  if (tag) {
+    await new Promise((resolve) => {
+      tag.addEventListener('load', resolve, { once: true });
+      tag.addEventListener('error', resolve, { once: true });
+      setTimeout(resolve, 5000);
+    });
+  } else {
+    await loadScript(DM_VIEWER_URL).catch(() => {});
+  }
+}
 
 /**
  * Decorate the dm-video block.
  * @param {Element} block The block root element.
  */
 export default async function decorate(block) {
- 
+  await ensureViewer();
+
   if (!window.dmviewers || !window.dmviewers.VideoViewer) {
     console.error('DM VideoViewer not available on window.dmviewers');
     return;

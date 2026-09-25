@@ -4,7 +4,7 @@
 
 /* clear the fixed header so page content is not hidden underneath it */
 body {
-  padding-top: 80px;
+  padding-top: 50px;
 }
 
 @media (width >= 900px) {
@@ -261,7 +261,7 @@ header nav .nav-brand a::after {
 /* "Demo Purpose Site" label beside the logo */
 header nav .nav-brand .nav-demo-label {
   margin-left: 16px;
-  color: #e4002b;
+  color: #d10028; /* 4.9:1 on the grey bars */
   font-family: var(--heading-font-family);
   font-size: 24px;
   font-weight: 700;

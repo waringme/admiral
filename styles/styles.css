@@ -417,6 +417,19 @@ body.blue-theme header .nav-wrapper nav .nav-sections ul > li > a:hover{
   color: var(--text-light);
 }
 
+/* The header is fixed; reserve its height here (eager CSS) so the page does
+ * not jump down when the header block's stylesheet loads. 50px phone bar,
+ * 120px black utility bar + main nav on desktop. */
+body {
+  padding-top: 50px;
+}
+
+@media (width >= 900px) {
+  body {
+    padding-top: 120px;
+  }
+}
+
 /* theme header-footer */
 header {
   height: var(--nav-height);

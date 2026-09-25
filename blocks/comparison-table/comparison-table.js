@@ -23,12 +23,14 @@ function valueToNode(cell) {
   if (TICK_TOKENS.includes(raw)) {
     const span = document.createElement('span');
     span.className = 'comparison-table-badge comparison-table-badge-tick';
+    span.setAttribute('role', 'img');
     span.setAttribute('aria-label', 'Included');
     return span;
   }
   if (CROSS_TOKENS.includes(raw)) {
     const span = document.createElement('span');
     span.className = 'comparison-table-badge comparison-table-badge-cross';
+    span.setAttribute('role', 'img');
     span.setAttribute('aria-label', 'Not included');
     return span;
   }
