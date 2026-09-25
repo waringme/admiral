@@ -5,14 +5,14 @@
  * an outlined "SHOW MORE" button. */
 
 .faq-list {
-  max-width: 708px;
+  max-width: var(--content-width, 708px);
   margin: 0 auto;
 }
 
 /* Heading + intro above the list share the same 708px column (source). */
 .faq-list-container .default-content-wrapper {
   /* 708px content + the section wrapper's 32px side padding (border-box). */
-  max-width: calc(708px + 64px);
+  max-width: calc(var(--content-width, 708px) + 64px);
   margin-bottom: 32px;
 }
 

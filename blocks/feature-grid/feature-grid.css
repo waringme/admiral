@@ -14,7 +14,7 @@
  * column (source .container at 1440px). The rows layout's inner text stays
  * left-aligned. */
 main > .section.feature-grid-container > .default-content-wrapper {
-  max-width: calc(708px + 64px);
+  max-width: calc(var(--content-width, 708px) + 64px);
   text-align: center;
 }
 
@@ -48,7 +48,7 @@ main > .section.feature-grid-container > .default-content-wrapper {
  * rows. */
 .feature-grid .feature-grid-grid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 340px));
+  grid-template-columns: repeat(2, minmax(0, calc(var(--content-width, 680px) / 2)));
   gap: 45px 0;
   justify-content: center;
   justify-items: center;
@@ -81,7 +81,7 @@ main > .section.feature-grid-container > .default-content-wrapper {
  * rgb(183,183,203) border; 61px icon cell (58px tick) + 293px title cell on
  * white, 354px copy cell on #f0f0eb; title 19.8px/600 #2350a0, copy 18px/28px. */
 .feature-grid .feature-grid-rows {
-  max-width: 708px;
+  max-width: var(--content-width, 708px);
   margin: 0 auto;
   border: 1px solid rgb(183 183 203);
   text-align: left;

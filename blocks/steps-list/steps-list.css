@@ -7,7 +7,7 @@
 
 .steps-list {
   width: 100%;
-  max-width: 708px;
+  max-width: var(--content-width, 708px);
   margin: 0 auto;
   counter-reset: step;
 }
@@ -15,7 +15,7 @@
 /* Centre the section heading + intro copy above the steps in a 708px
  * column (matches source). */
 main > .section.steps-list-container > .default-content-wrapper {
-  max-width: calc(708px + 64px);
+  max-width: calc(var(--content-width, 708px) + 64px);
   text-align: center;
 }
 

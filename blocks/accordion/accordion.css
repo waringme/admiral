@@ -7,7 +7,7 @@
  * 18px/28px/300 #4f4f4f, inline links #0078ff. */
 
 .accordion {
-  --accordion-gutter: max(24px, calc((100vw - 708px) / 2));
+  --accordion-gutter: max(24px, calc((100vw - var(--content-width, 708px)) / 2));
 
   width: 100vw;
   margin-left: calc(50% - 50vw);

@@ -27,6 +27,10 @@
 */
 
 :root {
+  /* Width of the centred text column on landing-page sections (intros,
+   * navy bands, feature rows, steps, FAQs, accordion). */
+  --content-width: 620px;
+
   /* colors */
   --background-color: var(--brand-background-color, #fff);
   --dark-color: var(--brand-dark-color, #131313);
@@ -903,7 +907,7 @@ main .section.navy {
 /* Copy sits in a centred 708px column (source .container at 1440px), so the
  * heading and intro wrap evenly around the middle of the band. */
 main .section.navy > .default-content-wrapper {
-  max-width: calc(708px + 64px);
+  max-width: calc(var(--content-width) + 64px);
 }
 
 main .section.navy h1,
@@ -966,11 +970,15 @@ main .section.centered .default-content-wrapper {
   text-align: center;
 }
 
+main > .section.centered > .default-content-wrapper {
+  max-width: calc(var(--content-width) + 64px);
+}
+
 /* Narrow prose section: long-form copy in a 768px column, left-aligned
  * (admiral.com .container text-md-left, e.g. "How does Admiral LittleBox
  * work?"). Add the "narrow" style in section-metadata. */
 main .section.narrow > .default-content-wrapper {
-  max-width: calc(768px + 64px);
+  max-width: calc(var(--content-width) + 64px);
 }
 
 /* Section background image */
