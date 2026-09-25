@@ -1,18 +1,21 @@
 /* Steps List — numbered process rows (admiral.com landing pages).
- * Source look ("LittleBox in four simple steps"): a bordered grid of rows,
- * each split into a left cell (blue circular number + blue bold title) and a
- * right cell (grey description). Rows have a hairline divider; the whole grid
- * has a light outer border. */
+ * Source ("LittleBox in four simple steps", .table-list at 1440px): a 708px
+ * table with a 1px rgb(183,183,203) border; each row has a 61px badge cell
+ * (40px #2b85ce circle with a white number, centred in 58px), a 293px white
+ * title cell (19.8px/28px/600 #2350a0, padding 18px 10px 18px 0) and a 354px
+ * #f0f0eb description cell (12.6px/16px/300 #4f4f4f, padding 17px 15px 14px). */
 
 .steps-list {
   width: 100%;
-  max-width: 1040px;
+  max-width: 708px;
   margin: 0 auto;
   counter-reset: step;
 }
 
-/* Centre the section heading + intro copy above the steps (matches source). */
-.steps-list-container .default-content-wrapper {
+/* Centre the section heading + intro copy above the steps in a 708px
+ * column (matches source). */
+main > .section.steps-list-container > .default-content-wrapper {
+  max-width: calc(708px + 64px);
   text-align: center;
 }
 
@@ -20,79 +23,78 @@
   margin: 0;
   padding: 0;
   list-style: none;
-  border: 1px solid #d7dad3;
+  border: 1px solid rgb(183 183 203);
+  text-align: left;
 }
 
 .steps-list .steps-list-step {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  align-items: start;
+  align-items: stretch;
   counter-increment: step;
 }
 
 .steps-list .steps-list-step + .steps-list-step {
-  border-top: 1px solid #d7dad3;
+  border-top: 1px solid rgb(183 183 203);
 }
 
 /* Left cell: number badge + title. */
+.steps-list .steps-list-title {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  padding: 0 10px 0 0;
+  background-color: #fff;
+}
+
 .steps-list .steps-list-num {
-  display: inline-flex;
+  display: flex;
+  flex: 0 0 40px;
   align-items: center;
   justify-content: center;
-  width: 34px;
-  height: 34px;
+  width: 40px;
+  height: 40px;
+  margin: 9px;
   border-radius: 50%;
-  background-color: var(--step-blue, #2f7fd1);
+  background-color: #2b85ce;
   color: #fff;
-  font-size: 17px;
+  font-size: 19px;
   font-weight: 700;
   line-height: 1;
-  flex: 0 0 auto;
 }
 
 .steps-list .steps-list-num::before {
   content: counter(step);
 }
 
-.steps-list .steps-list-title {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  padding: 24px 28px;
-}
-
-.steps-list .steps-list-title h1,
-.steps-list .steps-list-title h2,
-.steps-list .steps-list-title h3,
-.steps-list .steps-list-title h4,
-.steps-list .steps-list-title p {
+.steps-list .steps-list-title-text > * {
   margin: 0;
+  padding: 18px 0;
   color: var(--heading-blue, #2350a0);
-  font-size: 21px;
-  font-weight: 700;
-  line-height: 27px;
+  font-size: 19.8px;
+  font-weight: 600;
+  line-height: 28px;
 }
 
-/* Right cell: description, faint grey background. */
+/* Right cell: small-print description on beige. */
 .steps-list .steps-list-text {
-  padding: 24px 28px;
-  background-color: #eceee7;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 17px 15px 14px;
+  background-color: #f0f0eb;
   color: var(--text-color, #4f4f4f);
-  font-size: 16px;
-  line-height: 24px;
-  align-self: stretch;
+  font-size: 12.6px;
+  font-weight: 300;
+  line-height: 16px;
 }
 
 .steps-list .steps-list-text p {
-  margin: 0 0 12px;
+  margin: 0 0 16px;
 }
 
 .steps-list .steps-list-text p:last-child {
   margin-bottom: 0;
-}
-
-.steps-list .steps-list-title::before {
-  content: "";
 }
 
 @media (width <= 700px) {
@@ -100,12 +102,8 @@
     grid-template-columns: 1fr;
   }
 
-  .steps-list .steps-list-title {
-    padding: 18px 18px 12px;
-  }
-
   .steps-list .steps-list-text {
-    padding: 0 18px 18px;
-    background-color: transparent;
+    padding: 0 16px 16px 61px;
+    background-color: #fff;
   }
 }
