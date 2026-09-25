@@ -42,11 +42,15 @@ main > .section.feature-grid-container > .default-content-wrapper {
   display: none;
 }
 
-/* ---- Centered tile grid ("What does LittleBox measure?") ---------------- */
+/* ---- Centered tile grid ("What does LittleBox measure?") ----------------
+ * Source (#basic-18966 at 1440px): 2 x ~340px columns in a 708px container,
+ * 125px icon directly above a 19.8px/28px/600 #2350a0 title, 45px between
+ * rows. */
 .feature-grid .feature-grid-grid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 48px 24px;
+  grid-template-columns: repeat(2, minmax(0, 340px));
+  gap: 45px 0;
+  justify-content: center;
   justify-items: center;
   text-align: center;
 }
@@ -56,20 +60,20 @@ main > .section.feature-grid-container > .default-content-wrapper {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 20px;
 }
 
 .feature-grid .feature-grid-grid .feature-grid-icon img {
-  width: 108px;
-  height: 108px;
+  width: 125px;
+  height: 125px;
   object-fit: contain;
 }
 
-.feature-grid .feature-grid-grid .feature-grid-title {
+.feature-grid .feature-grid-grid .feature-grid-title,
+.feature-grid .feature-grid-grid .feature-grid-title > * {
   color: var(--heading-blue, #2350a0);
-  font-size: 24px;
-  font-weight: 700;
-  line-height: 30px;
+  font-size: 19.8px;
+  font-weight: 600;
+  line-height: 28px;
 }
 
 /* ---- Bordered feature rows ("Why LittleBox…", "What does LittleBox
