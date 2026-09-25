@@ -1014,6 +1014,28 @@ main .section.narrow > .default-content-wrapper {
   max-width: calc(var(--content-width) + 64px);
 }
 
+/* Magazine title band (source .magazine-story__title--lifestyle): full-width
+ * mint band flush under the header, the h1 (37.8px/48px/600 navy
+ * rgb(15,30,100)) in the 708px column, 30px above and below. Add the
+ * "title-mint" style in section-metadata. */
+main > .section.title-mint {
+  margin: 0;
+  padding: 30px 0;
+  background-color: rgb(181 234 215);
+}
+
+main > .section.title-mint > .default-content-wrapper {
+  max-width: calc(708px + 64px);
+}
+
+main > .section.title-mint h1 {
+  margin: 0;
+  color: rgb(15 30 100);
+  font-size: 37.8px;
+  font-weight: 600;
+  line-height: 48px;
+}
+
 /* Resource-hub section (admiral.com motor hub, e.g. "Van tips and advice"):
  * heading + intro centred in the 1024px container (984px content) — h3
  * 19.8px/28px/600, h2 37.8px/48px, intro 600px wide. The CTA is the 430px

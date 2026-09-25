@@ -75,6 +75,14 @@
           "description": "Size the band to the copy box (54px above and below) instead of the tall product-page band — e.g. resource hub pages.",
           "valueType": "boolean",
           "value": false
+        },
+        {
+          "component": "boolean",
+          "name": "classes_mini",
+          "label": "Mini banner",
+          "description": "A 700px rounded navy banner with the photo on the left and the copy box on the right (e.g. the '5 Star Rated Van Insurance' promo under magazine articles).",
+          "valueType": "boolean",
+          "value": false
         }
       ]
     },

@@ -82,6 +82,43 @@ main > .section.hero-cta-container {
   margin-bottom: 0;
 }
 
+/* Mini banner (block option "mini"): source .hero-banner--B promo under
+ * magazine articles — a 700px x 318px rounded navy band, the photo filling the
+ * left 276px and a 424px copy box on the right (white 37.8px/400 heading,
+ * 376px green button), content vertically centred. */
+.hero-cta.mini {
+  width: 100%;
+  max-width: 700px;
+  min-height: 318px;
+  margin: 0 auto;
+  padding: 0;
+  border-radius: 4px;
+  background-color: var(--hero-navy, #0c3a84);
+  align-items: stretch;
+}
+
+/* Source: 60px above (after the related articles) and above the footer. */
+main > .section.hero-cta-container:has(.hero-cta.mini) {
+  margin: 60px 0;
+}
+
+.hero-cta.mini .hero-cta-bg {
+  right: auto;
+  width: 276px;
+}
+
+.hero-cta.mini .hero-cta-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 424px;
+  border-radius: 0;
+}
+
+.hero-cta.mini .hero-cta-box h2 {
+  margin-bottom: 30px;
+}
+
 /* Compact (block option "compact"): on desktop the band hugs the copy box,
  * 54px above and below (source resource-hub hero, e.g. van-advice: 432px). */
 @media (width > 900px) {
@@ -206,6 +243,15 @@ main .hero-cta .hero-cta-actions a.hero-cta-button-link:hover {
   .hero-cta .hero-cta-box h2 {
     font-size: 30px;
     line-height: 38px;
+  }
+
+  .hero-cta.mini {
+    min-height: 0;
+    padding-bottom: 0;
+  }
+
+  .hero-cta.mini .hero-cta-bg {
+    width: 100%;
   }
 }
 

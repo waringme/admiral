@@ -387,6 +387,10 @@
             "value": "doc-links"
           },
           {
+            "name": "Magazine title band (mint)",
+            "value": "title-mint"
+          },
+          {
             "name": "Transparent / White / Default",
             "value": "bg-default"
           },
@@ -625,6 +629,29 @@
         "value": "",
         "label": "Body",
         "valueType": "string"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "author",
+        "value": "",
+        "label": "Author name",
+        "description": "Shown in the byline above the article (e.g. Katie Rees)."
+      },
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "authorImage",
+        "label": "Author photo",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "dateline",
+        "value": "",
+        "label": "Date line",
+        "description": "e.g. 18 June 2024 | Updated 6 July 2026 | 5 minute read"
       }
     ]
   },
@@ -692,6 +719,14 @@
             "value": "boxed"
           }
         ]
+      },
+      {
+        "component": "boolean",
+        "name": "classes_magazine",
+        "label": "Magazine pods",
+        "description": "Date shown small above the title and the whole card links to the title's link (magazine related-articles pods). Use with Boxed.",
+        "valueType": "boolean",
+        "value": false
       }
     ]
   },
@@ -6832,6 +6867,14 @@
         "name": "classes_compact",
         "label": "Compact height",
         "description": "Size the band to the copy box (54px above and below) instead of the tall product-page band — e.g. resource hub pages.",
+        "valueType": "boolean",
+        "value": false
+      },
+      {
+        "component": "boolean",
+        "name": "classes_mini",
+        "label": "Mini banner",
+        "description": "A 700px rounded navy banner with the photo on the left and the copy box on the right (e.g. the '5 Star Rated Van Insurance' promo under magazine articles).",
         "valueType": "boolean",
         "value": false
       }

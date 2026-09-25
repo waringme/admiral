@@ -26,6 +26,29 @@
           "value": "",
           "label": "Body",
           "valueType": "string"
+        },
+        {
+          "component": "text",
+          "valueType": "string",
+          "name": "author",
+          "value": "",
+          "label": "Author name",
+          "description": "Shown in the byline above the article (e.g. Katie Rees)."
+        },
+        {
+          "component": "reference",
+          "valueType": "string",
+          "name": "authorImage",
+          "label": "Author photo",
+          "multi": false
+        },
+        {
+          "component": "text",
+          "valueType": "string",
+          "name": "dateline",
+          "value": "",
+          "label": "Date line",
+          "description": "e.g. 18 June 2024 | Updated 6 July 2026 | 5 minute read"
         }
       ]
     }

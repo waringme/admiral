@@ -1,28 +1,21 @@
 /* Article Body — long-form magazine guide body (admiral.com /magazine/guides/*).
- * Contained reading-width column with article typography. */
+ * Source .magazine-story at 1440px: a 260px right-aligned "Article contents"
+ * sidebar (sticky) + 59px gutter + 645px article column (964px, centred).
+ * Article column: byline (40px photo, 14.4px/700 author, 12.6px date line,
+ * 40px share squares) between rgb(183,183,203) rules; prose 18px/28px/300;
+ * h2 25.2px/34px (56px above, 18px below); h3 19.8px/28px (24px / 10px);
+ * lead image 1px rgb(184,184,204) border, 4px radius; closing share row. */
+
+main > .section.article-body-container {
+  margin-top: 0;
+  margin-bottom: 110px; /* source: share row → related articles heading */
+}
 
 .article-body {
-  max-width: 760px;
+  max-width: 645px;
   margin: 0 auto;
-  padding: 0 20px;
   color: var(--text-color, #4f4f4f);
   font-size: 18px;
-  line-height: 28px;
-}
-
-.article-body h2 {
-  margin: 28px 0 12px;
-  color: #2350a0; /* source heading blue */
-  font-size: 25.2px;
-  font-weight: 600;
-  line-height: 34px;
-}
-
-.article-body h3 {
-  margin: 24px 0 10px;
-  color: #2350a0;
-  font-size: 19.8px;
-  font-weight: 600;
   line-height: 28px;
 }
 
@@ -30,32 +23,216 @@
   margin: 0 0 18px;
 }
 
-.article-body a:any-link {
+@media (width >= 900px) {
+  .article-body.has-toc {
+    display: grid;
+    grid-template-columns: 260px 645px;
+    gap: 0 59px;
+    justify-content: center;
+    align-items: start;
+    max-width: none;
+  }
+}
+
+/* ---- Article contents sidebar ------------------------------------------ */
+.article-body-toc {
+  display: none;
+}
+
+@media (width >= 900px) {
+  .article-body-toc {
+    display: block;
+    position: sticky;
+    top: 45px;
+    margin-top: 41px;
+    text-align: right;
+  }
+}
+
+.article-body-toc .article-body-toc-title {
+  margin: 0 0 12px;
+  color: var(--heading-blue, #2350a0);
+  font-size: 19.8px;
+  font-weight: 600;
+  line-height: 28px;
+}
+
+.article-body-toc ul {
+  margin: 0;
+  padding: 0 0 0 20px;
+  list-style: none;
+}
+
+.article-body-toc li {
+  margin: 0;
+  padding: 0 0 16px;
+  font-size: 15.3px;
+  line-height: 22px;
+}
+
+main .article-body-toc a:any-link {
+  display: inline;
+  color: var(--text-color, #4f4f4f);
+  font-size: inherit;
+  font-weight: 300;
+  line-height: inherit;
+  white-space: normal;
+}
+
+main .article-body-toc a::after {
+  content: none;
+}
+
+main .article-body-toc a:hover {
   color: var(--link-color, #0078ff);
+}
+
+/* ---- Byline ------------------------------------------------------------- */
+.article-body-meta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 35px 0 63px;
+  padding: 10px 0;
+  border-top: 1px solid rgb(183 183 203);
+  border-bottom: 1px solid rgb(183 183 203);
+}
+
+.article-body-meta .article-body-avatar,
+.article-body-meta .article-body-avatar img {
+  display: block;
+  width: 42px;
+  height: 42px;
+  margin: 0;
+  border: 1px solid rgb(183 183 203);
+  border-radius: 0;
+}
+
+.article-body-meta picture.article-body-avatar {
+  border: 0;
+}
+
+.article-body-byline {
+  flex: 1;
+}
+
+.article-body .article-body-byline p {
+  margin: 0;
+  line-height: 22px;
+}
+
+.article-body .article-body-byline .article-body-author {
+  font-size: 14.4px;
+  font-weight: 700;
+}
+
+.article-body .article-body-byline .article-body-dateline {
+  font-size: 12.6px;
+  font-weight: 300;
+}
+
+/* ---- Share icons (byline + closing row) --------------------------------- */
+.article-body-social {
+  display: flex;
+  gap: 10px;
+}
+
+main .article-body a.article-body-social-icon:any-link {
+  display: block;
+  width: 40px;
+  height: 40px;
+  background: center / auto 100% no-repeat;
+}
+
+main .article-body a.article-body-social-icon::after {
+  content: none;
+}
+
+main .article-body a.article-body-social-facebook:any-link {
+  background-color: rgb(59 89 152);
+  background-image: url("../../icons/share-facebook.svg");
+}
+
+main .article-body a.article-body-social-x:any-link {
+  background-color: rgb(29 161 242);
+  background-image: url("../../icons/share-x.svg");
+}
+
+main .article-body a.article-body-social-email:any-link {
+  background-color: rgb(155 155 155);
+  background-image: url("../../icons/share-email.svg");
+}
+
+main .article-body a.article-body-social-icon:hover {
+  filter: brightness(1.1);
+}
+
+.article-body-share {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 48px;
+  padding: 10px 0;
+  border-top: 1px solid rgb(183 183 203);
+  border-bottom: 1px solid rgb(183 183 203);
+}
+
+.article-body-share .article-body-share-title {
+  margin: 0;
+  color: var(--heading-blue, #2350a0);
+  font-size: 19.8px;
+  font-weight: 600;
+  line-height: 28px;
+}
+
+/* ---- Prose -------------------------------------------------------------- */
+.article-body h2 {
+  margin: 56px 0 18px;
+  color: var(--heading-blue, #2350a0);
+  font-size: 25.2px;
+  font-weight: 600;
+  line-height: 34px;
+}
+
+.article-body h3 {
+  margin: 24px 0 10px;
+  color: var(--heading-blue, #2350a0);
+  font-size: 19.8px;
+  font-weight: 600;
+  line-height: 28px;
+}
+
+main .article-body .article-body-main :is(p, li) a:any-link {
+  color: var(--link-color, #0078ff);
+  text-decoration: none;
+}
+
+main .article-body .article-body-main :is(p, li) a:any-link:hover {
   text-decoration: underline;
 }
 
 .article-body ul,
 .article-body ol {
-  margin: 0 0 18px;
-  padding-left: 24px;
+  margin: 20px 0 34px;
+  padding-left: 20px;
 }
 
 .article-body li {
-  margin: 0 0 8px;
-}
-
-.article-body img {
-  display: block;
-  width: 100%;
-  height: auto;
-  margin: 24px 0;
-  border-radius: 4px;
+  margin: 0 0 16px;
 }
 
 .article-body picture {
   display: block;
-  margin: 24px 0;
+  margin: 0;
+}
+
+.article-body .article-body-main > p img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid rgb(184 184 204);
+  border-radius: 4px;
+  box-sizing: border-box;
 }
 
 /* inline article tables */
@@ -90,5 +267,9 @@
   .article-body h2 {
     font-size: 24px;
     line-height: 32px;
+  }
+
+  .article-body-meta {
+    flex-wrap: wrap;
   }
 }

@@ -102,6 +102,7 @@
             { "name": "Resource hub (centred 984px heading + intro)", "value": "hub" },
             { "name": "Links as outline buttons", "value": "link-buttons" },
             { "name": "Document links list (PDF icon rows)", "value": "doc-links" },
+            { "name": "Magazine title band (mint)", "value": "title-mint" },
             { "name": "Transparent / White / Default", "value": "bg-default" },
             { "name": "Dark Background Container", "value": "bg-primary-blue" },
             { "name": "Primary Blue 90", "value": "bg-primary-blue-90" },
