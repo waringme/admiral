@@ -23,7 +23,10 @@ export default async function decorate(block) {
   const footer = document.createElement('div');
   footer.className = 'footer-content';
 
-  const sections = ['social', 'legal'];
+  // Optional leading "Explore our website" section (heading + link lists),
+  // then the social icons and legal bands.
+  const hasExplore = !!fragment.firstElementChild?.querySelector('h1, h2, h3');
+  const sections = hasExplore ? ['explore', 'social', 'legal'] : ['social', 'legal'];
   [...fragment.children].forEach((section, i) => {
     if (sections[i]) section.classList.add(`footer-${sections[i]}`);
     footer.append(section);

@@ -2,14 +2,60 @@
 <jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0" jcr:primaryType="cq:Page">
   <jcr:content cq:template="/libs/core/franklin/templates/page" sling:resourceType="core/franklin/components/page/v1/page" jcr:primaryType="cq:PageContent">
     <root jcr:primaryType="nt:unstructured" sling:resourceType="core/franklin/components/root/v1/root">
-      <section sling:resourceType="core/franklin/components/section/v1/section" jcr:primaryType="nt:unstructured" model="section" modelFields="[name,sec-spacing,sec-spacing-bottom,style,sec-full-width]">
+      <section sling:resourceType="core/franklin/components/section/v1/section" jcr:primaryType="nt:unstructured" model="section" modelFields="[name,sec-spacing,sec-spacing-bottom,sec-swoosh,style,container,sec-inside-container,sec-width]">
+        <title sling:resourceType="core/franklin/components/title/v1/title" jcr:primaryType="nt:unstructured" title="Explore our website" titleType="h2"/>
+        <text sling:resourceType="core/franklin/components/text/v1/text" jcr:primaryType="nt:unstructured" text="&lt;ul&gt;
+                    &lt;li&gt;&lt;a href&#x3D;&quot;/car-insurance&quot;&gt;Car Insurance&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href&#x3D;&quot;/multi-car-insurance&quot;&gt;Multi-Car Insurance&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href&#x3D;&quot;/black-box-insurance&quot;&gt;Black Box Insurance&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href&#x3D;&quot;/car-insurance/temporary-car-insurance&quot;&gt;Temporary Car Insurance&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href&#x3D;&quot;/car-insurance/electric&quot;&gt;Electric Car Insurance&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href&#x3D;&quot;/learner-driver-insurance&quot;&gt;Learner Driver Insurance&lt;/a&gt;&lt;/li&gt;
+                    &lt;/ul&gt;&lt;ul&gt;
+                    &lt;li&gt;&lt;a href&#x3D;&quot;/home-insurance&quot;&gt;Home Insurance&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href&#x3D;&quot;/home-insurance/contents-insurance.php&quot;&gt;Contents Insurance&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href&#x3D;&quot;/home-insurance/buildings-insurance.php&quot;&gt;Buildings Insurance&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href&#x3D;&quot;/home-insurance/landlord&quot;&gt;Landlord Insurance&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href&#x3D;&quot;/home-insurance/renters-insurance.php&quot;&gt;Renters Insurance&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href&#x3D;&quot;/home-insurance/flood&quot;&gt;Flood Insurance&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href&#x3D;&quot;/home-insurance/optional-cover&quot;&gt;Optional Cover&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href&#x3D;&quot;/home-insurance/contents-calculator&quot;&gt;Contents Calculator&lt;/a&gt;&lt;/li&gt;
+                    &lt;/ul&gt;&lt;ul&gt;
+                    &lt;li&gt;Other Products&lt;/li&gt;
+                    &lt;li&gt;&lt;a href&#x3D;&quot;/multicover-insurance&quot;&gt;MultiCover Products&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href&#x3D;&quot;/loans/personal-loans&quot;&gt;Personal Loans&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href&#x3D;&quot;/van-insurance&quot;&gt;Van Insurance&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href&#x3D;&quot;/travel-insurance&quot;&gt;Travel Insurance&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href&#x3D;&quot;/pet-insurance&quot;&gt;Pet Insurance&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href&#x3D;&quot;/breakdown-cover&quot;&gt;Breakdown Cover&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href&#x3D;&quot;/homeowner-loans&quot;&gt;Homeowner Loans&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href&#x3D;&quot;/loans/car-finance&quot;&gt;Car Finance&lt;/a&gt;&lt;/li&gt;
+                    &lt;/ul&gt;&lt;ul&gt;
+                    &lt;li&gt;&lt;a href&#x3D;&quot;/myaccount&quot;&gt;Policy Details&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href&#x3D;&quot;/existing-customers/make-a-claim.php&quot;&gt;Make a claim&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href&#x3D;&quot;/existing-customers/policy-documents.php&quot;&gt;View policy books&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href&#x3D;&quot;/contact-us/complaint-information.php&quot;&gt;Complaint information&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href&#x3D;&quot;/existing-customers/legal-information.php&quot;&gt;Legal information&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href&#x3D;&quot;/insurance-glossary&quot;&gt;Insurance glossary&lt;/a&gt;&lt;/li&gt;
+                    &lt;/ul&gt;&lt;ul&gt;
+                    &lt;li&gt;&lt;a href&#x3D;&quot;/magazine&quot;&gt;Magazine&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href&#x3D;&quot;/magazine/meet-the-team&quot;&gt;Magazine – meet the team&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href&#x3D;&quot;/about-us&quot;&gt;About Us&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href&#x3D;&quot;/community-and-sponsorship&quot;&gt;Community &amp;#x26; Sponsorship&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href&#x3D;&quot;/existing-customers/customer-discount.php&quot;&gt;Customer offers&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href&#x3D;&quot;https://www.admiral.com/refer-a-friend&quot;&gt;Refer a friend&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href&#x3D;&quot;https://admiraljobs.co.uk/&quot;&gt;Jobs&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href&#x3D;&quot;/myaccount/admiral-app&quot;&gt;Admiral App&lt;/a&gt;&lt;/li&gt;
+                    &lt;/ul&gt;"/>
+      </section>
+      <section_1 sling:resourceType="core/franklin/components/section/v1/section" jcr:primaryType="nt:unstructured" model="section" modelFields="[name,sec-spacing,sec-spacing-bottom,sec-swoosh,style,container,sec-inside-container,sec-width]">
         <text sling:resourceType="core/franklin/components/text/v1/text" jcr:primaryType="nt:unstructured" text="&lt;ul&gt;
                     &lt;li&gt;&lt;a href&#x3D;&quot;https://twitter.com/admiralUK&quot;&gt;Follow us on X (formerly Twitter)&lt;/a&gt;&lt;/li&gt;
                     &lt;li&gt;&lt;a href&#x3D;&quot;https://www.youtube.com/user/AdmiralInsurance&quot;&gt;Visit our YouTube channel&lt;/a&gt;&lt;/li&gt;
                     &lt;li&gt;&lt;a href&#x3D;&quot;https://www.facebook.com/admiralUK&quot;&gt;Follow us on Facebook&lt;/a&gt;&lt;/li&gt;
                     &lt;/ul&gt;"/>
-      </section>
-      <section_1 sling:resourceType="core/franklin/components/section/v1/section" jcr:primaryType="nt:unstructured" model="section" modelFields="[name,sec-spacing,sec-spacing-bottom,style,sec-full-width]">
+      </section_1>
+      <section_2 sling:resourceType="core/franklin/components/section/v1/section" jcr:primaryType="nt:unstructured" model="section" modelFields="[name,sec-spacing,sec-spacing-bottom,sec-swoosh,style,container,sec-inside-container,sec-width]">
         <text sling:resourceType="core/franklin/components/text/v1/text" jcr:primaryType="nt:unstructured" text="&lt;ul&gt;
                     &lt;li&gt;© 1993-2026 Admiral&lt;/li&gt;
                     &lt;li&gt;&lt;a href&#x3D;&quot;/sitemap.php&quot;&gt;Sitemap&lt;/a&gt;&lt;/li&gt;
@@ -20,7 +66,7 @@
                     &lt;li&gt;&lt;a href&#x3D;&quot;/press-office&quot;&gt;Press Office&lt;/a&gt;&lt;/li&gt;
                     &lt;li&gt;&lt;a href&#x3D;&quot;/cookie-policy&quot;&gt;Cookie Preferences&lt;/a&gt;&lt;/li&gt;
                     &lt;/ul&gt;&lt;p&gt;Admiral is a trading name of EUI Limited. (Reg No: 02686904). EUI Limited is a subsidiary of Admiral Group plc and is authorised and regulated by the Financial Conduct Authority (Firm reference number: 309378). These details can be confirmed by visiting the &lt;a href&#x3D;&quot;https://www.fca.org.uk/register&quot;&gt;Financial Services Register&lt;/a&gt;. EUI Limited acts for, and on behalf of, other regulated insurance companies. Further details may be provided on request.&lt;/p&gt;&lt;p&gt;Admiral Money, Admiral Loans, Admiral Car Finance, Admiral Homeowner Loans, Admiral Mortgages, Admiral One and Finble are all trading names of Admiral Financial Services Limited (AFSL). Admiral Financial Services Limited (Reg No: 10255225) is a subsidiary of Admiral Group plc and is authorised and regulated by the Financial Conduct Authority (Firm reference number: 771862). These details can be confirmed by visiting the &lt;a href&#x3D;&quot;https://www.fca.org.uk/register&quot;&gt;Financial Services Register&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;Veygo and Admiral Business are trading names of Able Insurance Services Limited. Able Insurance Services Limited (Reg No: 2890075) is a subsidiary of Admiral Group plc and is authorised and regulated by the Financial Conduct Authority (Firm reference number: 311649). These details can be confirmed by visiting the &lt;a href&#x3D;&quot;https://www.fca.org.uk/register&quot;&gt;Financial Services Register&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;Admiral Group plc is registered in England and Wales at Tŷ Admiral, David Street, Cardiff. CF10 2EH (Reg No:03849958).&lt;/p&gt;"/>
-      </section_1>
+      </section_2>
     </root>
   </jcr:content>
 </jcr:root>

@@ -1,5 +1,15 @@
 # Admiral JCR content package
 
+## Footer: `admiral-footer-v2.zip`
+
+Footer-only package (the nav is not touched). Adds the "Explore our website"
+band (heading + five link columns) above the social icons and legal copy, at
+`/content/admiral/footer` (served as `/footer`, which every page loads) and
+`/content/admiral/language-masters/en/footer`. Rebuild with
+`node tools/importer/html-to-jcr.mjs content/footer.plain.html migration-work/jcr-new/footer.xml`
+then `python3 tools/importer/build-footer-package.py`. Supersedes the footer in
+`admiral-nav-footer-root.zip`.
+
 ## Use this one: `admiral-home-v1.9.zip`
 
 Rebuilds the **fake-emails notice** as a proper block-based component named
