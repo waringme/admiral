@@ -63,17 +63,38 @@
   text-align: center;
 }
 
-/* Desktop: award badge on the left, copy on the right (source: flex row). */
+/* Desktop: award badge on the left, copy on the right (source: flex row).
+ * Source band at 1440px is 330px tall: a 385x320 badge flush with the top
+ * edge, 10px below it, then a 24px gap to the ~530px copy column. */
 @media (width >= 900px) {
+  main > .section.award-banner-container {
+    padding: 0 0 10px;
+  }
+
   .award-banner {
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    gap: 48px;
+    gap: 24px;
   }
 
   .award-banner .award-banner-badge {
-    width: 480px;
+    width: 385px;
+    height: 320px;
+  }
+
+  .award-banner .award-banner-badge picture {
+    display: block;
+    height: 100%;
+  }
+
+  .award-banner .award-banner-badge img {
+    height: 100%;
+    object-fit: contain;
+  }
+
+  .award-banner .award-banner-copy {
+    flex-basis: 530px;
   }
 
   .award-banner h2,
