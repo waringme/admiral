@@ -10,6 +10,10 @@ import {
   isInternalPage,
 } from './utils.js';
 
+// Adobe Launch (analytics) - loaded here, ~3s after page load, rather than in
+// <head>, so it doesn't compete with the page's first render.
+loadScript('https://assets.adobedtm.com/b2f5fbf72a47/9f8bfb0ead12/launch-6e7d1b4318bd-development.min.js', { async: '' });
+
 // Adobe Target - start
 
 window.targetGlobalSettings = {
