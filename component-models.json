@@ -55,6 +55,10 @@
           {
             "name": "Meadow Light",
             "value": "meadow-light"
+          },
+          {
+            "name": "Source width (708px text column)",
+            "value": "wide-content"
           }
         ]
       },

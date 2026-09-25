@@ -336,6 +336,12 @@ body.gray-theme {
   filter: grayscale(100%);
 }
 
+/* Page theme "Source width": the admiral.com 708px text column (e.g. the
+ * LittleBox page) instead of the narrower default. */
+body.wide-content {
+  --content-width: 708px;
+}
+
 
 body.red-theme {
   --main-accent-color: #DC2626;

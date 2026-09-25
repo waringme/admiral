@@ -1,7 +1,10 @@
 /* Side Image — image beside text (admiral.com .side-image).
- * Source (#side-image-13170 at 1440px): 768px centred container; 298px image
- * column + 30px gap + 410px text column; heading 37.8px/48px/600 #2350a0, copy
- * 18px/28px #4f4f4f; the image runs to the section edge (tall images crop). */
+ * Source (at 1440px): 768px centred container (708px content): 268px image
+ * column + 30px gap + 410px text column (text at x=664, or x=366 when the image
+ * is on the right). The image hugs the text-side edge of its column and bleeds
+ * outward towards the viewport edge; tall images crop at the section edge.
+ * Text column padding 50px 0 60px; heading 37.8px/48px/600 #2350a0 + 32px gap,
+ * copy 18px/28px #4f4f4f + 28px gap. */
 
 /* The image touches the section edges, so the section adds no vertical padding;
  * the text column carries its own. */
@@ -15,18 +18,20 @@ main .section.side-image-container {
   justify-content: center;
   align-items: stretch;
   gap: 30px;
-  max-width: 1080px;
+  max-width: 708px;
   margin: 0 auto;
 }
 
 /* ---- Media column ------------------------------------------------------- */
 .side-image .side-image-media {
   display: flex;
-  flex: 0 1 auto;
+  flex: 0 0 268px;
   flex-direction: column;
+  min-width: 0; /* don't grow to the image's width */
+  align-items: flex-end; /* image hugs the text side, bleeds outward */
   justify-content: flex-end; /* default: image sits on the bottom edge */
   max-height: 512px;
-  overflow: hidden;
+  overflow: visible clip; /* crop vertically only */
   line-height: 0;
 }
 
@@ -46,23 +51,24 @@ main .section.side-image-container {
 .side-image .side-image-media img {
   display: block;
   width: auto;
-  max-width: 100%;
+  max-width: min(634px, calc(50vw - 86px));
   height: auto;
 }
 
 .side-image.right .side-image-media {
   order: 2;
+  align-items: flex-start;
 }
 
 /* ---- Text column -------------------------------------------------------- */
 .side-image .side-image-text {
   flex: 0 1 410px;
   align-self: center;
-  padding: 64px 0;
+  padding: 50px 0 60px;
 }
 
 .side-image .side-image-text h2 {
-  margin: 0 0 24px;
+  margin: 0 0 32px;
   color: var(--heading-blue, #2350a0);
   font-size: 37.8px;
   font-weight: 600;
@@ -70,7 +76,7 @@ main .section.side-image-container {
 }
 
 .side-image .side-image-text p {
-  margin: 0 0 24px;
+  margin: 0 0 28px;
   color: var(--text-color, #4f4f4f);
   font-size: 18px;
   line-height: 28px;
@@ -118,10 +124,18 @@ main .section.side-image-container {
   color: #fff;
 }
 
-/* On a coloured (sky / navy / dark) section: white text + white outline CTA
- * (source .button--reverse-ghost). */
-.section.sky .side-image .side-image-text h2,
-.section.sky .side-image .side-image-text p,
+/* On a sky section (source .bg-icon-blue): dark navy heading, white Facit
+ * Regular copy, white outline CTA (source .button--reverse-ghost). */
+.section.sky .side-image .side-image-text h2 {
+  color: rgb(15 30 100);
+}
+
+.section.sky .side-image .side-image-text p {
+  color: #fff;
+  font-weight: 400;
+}
+
+/* On a navy section: white text + white outline CTA. */
 .section.navy .side-image .side-image-text h2,
 .section.navy .side-image .side-image-text p {
   color: #fff;
@@ -131,6 +145,10 @@ main .section.side-image-container {
 .section.navy .side-image .side-image-text a.button:any-link {
   border-color: #fff;
   color: #fff;
+}
+
+.section.sky .side-image .side-image-text a.button:any-link {
+  font-weight: 300;
 }
 
 .section.sky .side-image .side-image-text a.button:hover,
@@ -155,8 +173,13 @@ main .section.side-image-container {
   .side-image .side-image-media,
   .side-image.right .side-image-media {
     order: 2;
+    flex: 0 0 auto;
     align-items: center;
     max-height: 360px;
+  }
+
+  .side-image .side-image-media img {
+    max-width: 100%;
   }
 
   .side-image .side-image-text h2 {
