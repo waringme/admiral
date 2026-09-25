@@ -7,12 +7,12 @@
 
 .comparison-table {
   width: 100%;
-  max-width: 748px;
+  max-width: 600px;
   margin: 0 auto;
 }
 
 /* Centre the section heading + intro/outro copy that sit alongside the table
- * in a 708px column; the table itself is 748px (source at 1440px). */
+ * in a 708px column; the table sits narrower inside it at 600px. */
 main > .section.comparison-table-container > .default-content-wrapper {
   max-width: calc(708px + 64px);
   text-align: center;
