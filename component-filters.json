@@ -17,8 +17,6 @@
       "columns",
       "contentfragment",
       "download-list",
-      "dm-asset",
-      "dm-template",
       "embed-adaptive-form",
       "find-a-doctor",
       "forex",
@@ -44,8 +42,6 @@
       "cards-product",
       "carousel-review",
       "comparison-table",
-      "dynamic-media-image",
-      "dynamic-media-video",
       "faq-list",
       "feature-grid",
       "fragment-list",
@@ -76,8 +72,6 @@
     "id": "column",
     "components": [
       "button",
-      "dm-asset",
-      "dm-template",
       "image",
       "text",
       "title",
@@ -152,7 +146,6 @@
       "image",
       "button",
       "title",
-      "dm-asset",
       "video"
     ]
   },
