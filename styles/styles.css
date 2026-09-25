@@ -129,7 +129,7 @@
 
     /* heading sizes */
     --heading-font-size-xxl: 45px;
-    --heading-font-size-xl: 36px;
+    --heading-font-size-xl: 37.8px; /* admiral.com section h2: 37.8px/48px */
     --heading-font-size-l: 28px;
     --heading-font-size-m: 22px;
     --heading-font-size-s: 20px;
@@ -466,6 +466,7 @@ h1 {
 
 h2 {
   font-size: var(--heading-font-size-xl);
+  line-height: 1.27;
 }
 
 h3 {
@@ -916,8 +917,10 @@ main .section.navy h3 {
   color: var(--text-light);
 }
 
+/* Intro copy in the band is Admiral light blue (source: 18px/28px/300). */
 main .section.navy p {
-  color: rgb(255 255 255 / 85%);
+  color: rgb(130 200 255);
+  font-weight: 300;
 }
 
 main .section.navy a,
@@ -937,13 +940,14 @@ main .section.navy a.button:any-link {
   box-sizing: border-box;
   width: 100%;
   max-width: 430px;
-  padding: 16px 44px;
+  padding: 10px 15px;
+  border: 1px solid rgb(0 128 194);
   background-color: transparent;
   background-image: linear-gradient(#00b8ea 0%, #0080cc 100%);
   color: #fff;
-  font-size: 20px;
-  font-weight: 700;
-  line-height: 24px;
+  font-size: 21.6px;
+  font-weight: 400;
+  line-height: 30px;
   text-align: center;
   text-transform: uppercase;
   text-decoration: none;

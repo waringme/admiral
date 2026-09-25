@@ -31,6 +31,15 @@ main > .section.feature-grid-container > .default-content-wrapper {
   margin: 0;
 }
 
+/* Titles may render as <h3> (promoted from the authored text field); they
+ * take the title cell's type styles rather than the global heading scale. */
+.feature-grid .feature-grid-title > :is(h1, h2, h3, h4, h5, h6) {
+  color: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+}
+
 .feature-grid .feature-grid-icon picture {
   display: block;
   line-height: 0;

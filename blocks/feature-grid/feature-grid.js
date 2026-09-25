@@ -22,6 +22,27 @@
  */
 import { moveInstrumentation } from '../../scripts/scripts.js';
 
+/**
+ * Titles are authored in a plain-text field, which AEM stores as a <p>. Promote
+ * that paragraph to a heading (keeping its attributes, incl. UE bindings) so
+ * the rendered page has the same heading structure as the source.
+ * @param {Element} cell
+ * @param {string} [tag]
+ */
+function promoteToHeading(cell, tag = 'h3') {
+  if (!cell || cell.querySelector('h1, h2, h3, h4, h5, h6')) return;
+  const heading = document.createElement(tag);
+  const p = cell.querySelector('p');
+  if (p) {
+    [...p.attributes].forEach(({ name, value }) => heading.setAttribute(name, value));
+    heading.append(...p.childNodes);
+    p.replaceWith(heading);
+  } else if (cell.textContent.trim()) {
+    heading.append(...[...cell.childNodes].filter((n) => n.nodeType !== Node.COMMENT_NODE));
+    cell.append(heading);
+  }
+}
+
 export default function decorate(block) {
   const rows = [...block.children];
   const withText = rows.some((row) => row.children[2]?.textContent.trim());
@@ -47,6 +68,7 @@ export default function decorate(block) {
     }
     if (titleCell) {
       titleCell.className = 'feature-grid-title';
+      promoteToHeading(titleCell);
       head.appendChild(titleCell);
     }
     li.appendChild(head);

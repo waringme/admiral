@@ -83,14 +83,18 @@ main > .section.hero-cta-container {
   gap: 12px;
 }
 
+/* Source .button--hero: 430px centred, 21.6px/30px regular, 10px 15px padding,
+ * min-height 52px. */
 main .hero-cta .hero-cta-actions a.hero-cta-button:any-link {
   display: block;
   width: 100%;
-  padding: 12px 15px;
+  max-width: 430px;
+  margin: 0 auto;
+  padding: 10px 15px;
   border-radius: 4px;
-  font-size: 16px;
-  font-weight: 700;
-  line-height: 24px;
+  font-size: 21.6px;
+  font-weight: 400;
+  line-height: 30px;
   text-align: center;
   text-transform: uppercase;
   text-decoration: none;
@@ -103,22 +107,27 @@ main .hero-cta .hero-cta-actions a.hero-cta-button::after {
 
 /* Primary — green gradient */
 main .hero-cta .hero-cta-actions a.hero-cta-button-primary:any-link {
+  min-height: 52px;
   background-image: linear-gradient(#00c535 0%, #00a32e 100%);
   color: #fff;
 }
 
 /* Secondary — blue gradient */
 main .hero-cta .hero-cta-actions a.hero-cta-button-secondary:any-link {
+  min-height: 52px;
   background-image: linear-gradient(#00b8ea 0%, #0080cc 100%);
   color: #fff;
 }
 
-/* Ghost — outline, lighter weight */
+/* Ghost — outline (source .button--option.button--reverse-blue-ghost:
+ * 16.2px/32px, 3px 15px padding, 1px rgb(53,123,176) border → 40px tall). */
 main .hero-cta .hero-cta-actions a.hero-cta-button-ghost:any-link {
-  border: 1px solid rgb(255 255 255 / 40%);
+  padding: 3px 15px;
+  border: 1px solid #357bb0;
   background: transparent;
   color: #82c8ff;
-  font-weight: 400;
+  font-size: 16.2px;
+  line-height: 32px;
 }
 
 main .hero-cta .hero-cta-actions a.hero-cta-button:hover {
