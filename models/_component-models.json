@@ -63,6 +63,26 @@
           ]
       },
       {
+          "component": "select",
+          "name": "template",
+          "label": "Page template",
+          "description": "Landing / Guide pages use the admiral.com section rhythm (50px above, 60px below each section).",
+          "options": [
+            {
+              "name": "default",
+              "value": ""
+            },
+            {
+              "name": "Landing page",
+              "value": "landing"
+            },
+            {
+              "name": "Magazine guide",
+              "value": "guide"
+            }
+          ]
+      },
+      {
         "component": "text",
         "valueType": "string",
         "name": "pageName",

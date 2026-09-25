@@ -63,6 +63,26 @@
         ]
       },
       {
+        "component": "select",
+        "name": "template",
+        "label": "Page template",
+        "description": "Landing / Guide pages use the admiral.com section rhythm (50px above, 60px below each section).",
+        "options": [
+          {
+            "name": "default",
+            "value": ""
+          },
+          {
+            "name": "Landing page",
+            "value": "landing"
+          },
+          {
+            "name": "Magazine guide",
+            "value": "guide"
+          }
+        ]
+      },
+      {
         "component": "text",
         "valueType": "string",
         "name": "pageName",
@@ -177,6 +197,12 @@
   {
     "id": "section",
     "fields": [
+      {
+        "component": "text",
+        "name": "name",
+        "label": "Section Name",
+        "description": "The label shown for this section in the Content Tree"
+      },
       {
         "component": "select",
         "name": "sec-spacing",
@@ -7915,6 +7941,27 @@
         "label": "Background Color",
         "description": "Optional CSS color (hex, rgb, or var). When set, the title appears in a colored band. Examples: #0a66c2, rgb(10,102,194), var(--main-accent-color)",
         "value": ""
+      }
+    ]
+  },
+  {
+    "id": "trustpilot",
+    "fields": [
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "templateId",
+        "value": "54d39695764ea907c0f34825",
+        "label": "TrustBox template ID",
+        "description": "Trustpilot widget template (default: Micro Star, 'Rated 4.7 / N reviews')."
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "businessUnitId",
+        "value": "4be0843700006400050788f5",
+        "label": "Business unit ID",
+        "description": "Admiral's Trustpilot business unit."
       }
     ]
   },

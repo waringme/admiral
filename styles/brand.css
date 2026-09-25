@@ -19,7 +19,7 @@
   --heading-blue: #2350a0;
   --accent-orange: #ff7911;
   --hero-navy: #0c3a84;
-  --grey-color: #eceee7;
+  --grey-color: rgb(240 240 235); /* admiral.com grey band */
   --section-navy: #0c3a84;
 
   /* Fonts — Admiral's brand typeface Facit (jaf-facitweb, Adobe Fonts kit

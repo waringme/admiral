@@ -737,6 +737,58 @@ main > .section:first-of-type {
   margin-top: 0;
 }
 
+/* Landing / guide pages (page template "landing" / "guide"): the admiral.com
+ * section rhythm — every section pads 50px above and 60px below its content
+ * (110px between sections) instead of 40px collapsing margins. Full-bleed
+ * bands that carry their own spacing (breadcrumb, hero, side image, mint title
+ * band) are excluded. */
+body:is(.landing, .guide) main > .section {
+  margin: 0;
+  padding-top: 50px;
+  padding-bottom: 60px;
+}
+
+body:is(.landing, .guide) main > .section:is(.breadcrumb-container, .hero-cta-container, .side-image-container) {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+body:is(.landing, .guide) main > .section.title-mint {
+  padding: 30px 0;
+}
+
+/* Guide article starts right under the title band; the mini promo banner
+ * keeps 60px to the footer (source .hero-banner--B mb-med). */
+body:is(.landing, .guide) main > .section.article-body-container {
+  padding-top: 0;
+}
+
+body:is(.landing, .guide) main > .section.hero-cta-container:has(.hero-cta.mini) {
+  margin: 0;
+  padding-bottom: 60px;
+}
+
+/* Default-content prose on landing / guide pages (source .container copy):
+ * the section's first element sits on the 50px padding, h2 → copy 22px,
+ * paragraphs 18px apart, and the last paragraph keeps 28px below it. Only
+ * vertical margins are set so centred columns keep their auto margins. */
+body:is(.landing, .guide) main > .section > .default-content-wrapper:first-child > :first-child {
+  margin-top: 0;
+}
+
+body:is(.landing, .guide) main > .section > .default-content-wrapper > h2 {
+  margin-bottom: 22px;
+}
+
+body:is(.landing, .guide) main > .section > .default-content-wrapper > p {
+  margin-top: 0;
+  margin-bottom: 18px;
+}
+
+body:is(.landing, .guide) main > .section > .default-content-wrapper > p:last-child {
+  margin-bottom: 28px;
+}
+
 @media (width >= 900px) {
   main > .section > div {
     padding: 0 32px;

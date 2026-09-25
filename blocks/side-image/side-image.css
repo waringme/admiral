@@ -60,6 +60,32 @@ main .section.side-image-container {
   align-items: flex-start;
 }
 
+/* Bottom / centre images don't set the band height (source: the band is as
+ * tall as the text column plus its padding; the image is clipped at the band
+ * edge). Top-aligned images keep sizing the band. */
+@media (width >= 768px) {
+  .side-image:not(.top) .side-image-media {
+    position: relative;
+  }
+
+  .side-image:not(.top) .side-image-media > div {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+  }
+
+  .side-image.right:not(.top) .side-image-media > div {
+    right: auto;
+    left: 0;
+  }
+
+  .side-image.center:not(.top) .side-image-media > div {
+    top: 50%;
+    bottom: auto;
+    transform: translateY(-50%);
+  }
+}
+
 /* ---- Text column -------------------------------------------------------- */
 .side-image .side-image-text {
   flex: 0 1 410px;

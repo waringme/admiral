@@ -1,27 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0" jcr:primaryType="cq:Page">
-  <jcr:content cq:template="/libs/core/franklin/templates/page" sling:resourceType="core/franklin/components/page/v1/page" jcr:primaryType="cq:PageContent" jcr:title="Guide page template" jcr:description="Starter layout for admiral.com magazine guide pages." modelFields="[jcr:title,jcr:pagetitle,jcr:description,cq:tags,theme,pageName,pageCategory]">
+  <jcr:content cq:template="/libs/core/franklin/templates/page" sling:resourceType="core/franklin/components/page/v1/page" jcr:primaryType="cq:PageContent" template="guide" jcr:title="Guide page template" jcr:description="Starter layout for admiral.com magazine guide pages." modelFields="[jcr:title,jcr:pagetitle,jcr:description,cq:tags,theme,template,pageName,pageCategory]">
     <root jcr:primaryType="nt:unstructured" sling:resourceType="core/franklin/components/root/v1/root">
-      <section sling:resourceType="core/franklin/components/section/v1/section" jcr:primaryType="nt:unstructured" model="section" modelFields="[name,style]">
+      <section sling:resourceType="core/franklin/components/section/v1/section" jcr:primaryType="nt:unstructured" model="section" modelFields="[name,sec-spacing,sec-spacing-bottom,sec-swoosh,style,container,sec-inside-container,sec-width]">
         <block sling:resourceType="core/franklin/components/block/v1/block" jcr:primaryType="nt:unstructured" filter="breadcrumb" name="Breadcrumb">
           <item_0 jcr:primaryType="nt:unstructured" sling:resourceType="core/franklin/components/block/v1/block/item" name="Breadcrumb Item" model="breadcrumb-item" label="Homepage" link="/" modelFields="[label,link]"></item_0>
           <item_1 jcr:primaryType="nt:unstructured" sling:resourceType="core/franklin/components/block/v1/block/item" name="Breadcrumb Item" model="breadcrumb-item" label="Magazine" link="/magazine" modelFields="[label,link]"></item_1>
           <item_2 jcr:primaryType="nt:unstructured" sling:resourceType="core/franklin/components/block/v1/block/item" name="Breadcrumb Item" model="breadcrumb-item" label="Guide title" link="/" modelFields="[label,link]"></item_2>
         </block>
       </section>
-      <section_1 sling:resourceType="core/franklin/components/section/v1/section" jcr:primaryType="nt:unstructured" model="section" modelFields="[name,style]">
+      <section_1 sling:resourceType="core/franklin/components/section/v1/section" jcr:primaryType="nt:unstructured" model="section" modelFields="[name,sec-spacing,sec-spacing-bottom,sec-swoosh,style,container,sec-inside-container,sec-width]">
         <title sling:resourceType="core/franklin/components/title/v1/title" jcr:primaryType="nt:unstructured" title="Guide title goes here" titleType="h1"/>
       </section_1>
-      <section_2 sling:resourceType="core/franklin/components/section/v1/section" jcr:primaryType="nt:unstructured" model="section" modelFields="[name,style]">
-        <block sling:resourceType="core/franklin/components/block/v1/block" jcr:primaryType="nt:unstructured" model="article-body" modelFields="[text]" name="Article Body" text="&lt;p&gt;Opening paragraph of the guide. Use this rich-text field for the full long-form article body — headings, paragraphs, lists and links all work here.&lt;/p&gt;&lt;p&gt;&lt;h2&gt;A subheading&lt;/h2&gt;&lt;/p&gt;&lt;p&gt;More body copy for the guide.&lt;/p&gt;"></block>
+      <section_2 sling:resourceType="core/franklin/components/section/v1/section" jcr:primaryType="nt:unstructured" model="section" modelFields="[name,sec-spacing,sec-spacing-bottom,sec-swoosh,style,container,sec-inside-container,sec-width]">
+        <block sling:resourceType="core/franklin/components/block/v1/block" jcr:primaryType="nt:unstructured" model="article-body" modelFields="[text,author,authorImage,dateline]" name="Article Body" text="&lt;p&gt;Opening paragraph of the guide. Use this rich-text field for the full long-form article body — headings, paragraphs, lists and links all work here.&lt;/p&gt;&lt;p&gt;&lt;h2&gt;A subheading&lt;/h2&gt;&lt;/p&gt;&lt;p&gt;More body copy for the guide.&lt;/p&gt;"></block>
       </section_2>
-      <section_3 sling:resourceType="core/franklin/components/section/v1/section" jcr:primaryType="nt:unstructured" style="[grey]" model="section" modelFields="[name,style]">
+      <section_3 sling:resourceType="core/franklin/components/section/v1/section" jcr:primaryType="nt:unstructured" style="[grey]" model="section" modelFields="[name,sec-spacing,sec-spacing-bottom,sec-swoosh,style,container,sec-inside-container,sec-width]">
         <title sling:resourceType="core/franklin/components/title/v1/title" jcr:primaryType="nt:unstructured" title="Related guides" titleType="h2"/>
-        <block_1 sling:resourceType="core/franklin/components/block/v1/block" jcr:primaryType="nt:unstructured" filter="cards-article" name="Cards Article">
+        <block_1 sling:resourceType="core/franklin/components/block/v1/block" jcr:primaryType="nt:unstructured" filter="cards-article" model="cards-article" modelFields="[classes,classes_magazine]" name="Cards Article">
           <item_0 jcr:primaryType="nt:unstructured" sling:resourceType="core/franklin/components/block/v1/block/item" name="Card" model="card" modelFields="[image,text]" image="/content/dam/admiral/en/images/blackbox/lb-feedback-good.png" text="&lt;p&gt;&lt;h3&gt;Related guide title&lt;/h3&gt;&lt;/p&gt;&lt;p&gt;Short summary of the related guide.&lt;/p&gt;&lt;p&gt;&lt;a href&#x3D;&quot;/&quot;&gt;Read more&lt;/a&gt;&lt;/p&gt;"></item_0>
         </block_1>
       </section_3>
-      <section_4 sling:resourceType="core/franklin/components/section/v1/section" jcr:primaryType="nt:unstructured" model="section" modelFields="[name,style]"></section_4>
+      <section_4 sling:resourceType="core/franklin/components/section/v1/section" jcr:primaryType="nt:unstructured" model="section" modelFields="[name,sec-spacing,sec-spacing-bottom,sec-swoosh,style,container,sec-inside-container,sec-width]"></section_4>
     </root>
   </jcr:content>
 </jcr:root>
