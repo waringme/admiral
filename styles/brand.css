@@ -22,7 +22,8 @@
   --grey-color: #eceee7;
   --section-navy: #123f8a;
 
-  /* Fonts */
-  --brand-font-family: "Helvetica Neue", helvetica, arial, sans-serif;
-  --brand-heading-font-family: "Helvetica Neue", helvetica, arial, sans-serif;
+  /* Fonts — Admiral's brand typeface Facit (jaf-facitweb, Adobe Fonts kit
+   * mcu8nnf, loaded in scripts.js loadFonts), Helvetica Neue as fallback. */
+  --brand-font-family: jaf-facitweb, "Helvetica Neue", helvetica, arial, sans-serif;
+  --brand-heading-font-family: jaf-facitweb, "Helvetica Neue", helvetica, arial, sans-serif;
 }

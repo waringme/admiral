@@ -90,10 +90,14 @@ const experimentationConfig = {
   }
   
   /**
-   * load fonts.css and set a session storage flag
+   * load fonts.css + the Admiral brand typeface (Facit, via Admiral's Adobe
+   * Fonts kit) and set a session storage flag
    */
   async function loadFonts() {
-		await loadCSS(`${window.hlx.codeBasePath}/styles/fonts.css`);
+		await Promise.all([
+		  loadCSS(`${window.hlx.codeBasePath}/styles/fonts.css`),
+		  loadCSS('https://use.typekit.net/mcu8nnf.css'),
+		]);
 		try {
 		  if (!window.location.hostname.includes('localhost')) sessionStorage.setItem('fonts-loaded', 'true');
 		} catch (e) {

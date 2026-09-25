@@ -1,6 +1,3 @@
-/* Admiral brand typeface (Facit, via Admiral's Adobe Fonts kit). */
-@import url("https://use.typekit.net/mcu8nnf.css");
-
 /* Media Panels — image-left / text-right product panels (admiral.com
  * "Our black box insurance products"). A vertical stack of rows, each with a
  * wide photo on the left and a blue title + grey description on the right.
@@ -9,12 +6,9 @@
  * #2350a0; copy 18px/28px/300 #4f4f4f; links #0078ff/400. */
 
 .media-panels {
-  --media-panels-font: jaf-facitweb, "Helvetica Neue", helvetica, arial, sans-serif;
-
   width: 100%;
   max-width: 768px;
   margin: 0 auto;
-  font-family: var(--media-panels-font);
   text-align: left;
 }
 
@@ -52,7 +46,6 @@
 .media-panels .media-panel-title p {
   margin: 0 0 10px;
   color: var(--heading-blue, #2350a0);
-  font-family: var(--media-panels-font);
   font-size: 19.8px;
   font-weight: 600;
   line-height: 28px;
