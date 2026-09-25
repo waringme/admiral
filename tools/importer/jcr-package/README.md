@@ -7,8 +7,19 @@ band (heading + five link columns) above the social icons and legal copy, at
 `/content/admiral/footer` (served as `/footer`, which every page loads) and
 `/content/admiral/language-masters/en/footer`. Rebuild with
 `node tools/importer/html-to-jcr.mjs content/footer.plain.html migration-work/jcr-new/footer.xml`
-then `python3 tools/importer/build-footer-package.py`. Supersedes the footer in
+then `python3 tools/importer/build-fragment-package.py`. Supersedes the footer in
 `admiral-nav-footer-root.zip`.
+
+## Nav: `admiral-nav-v2.zip`
+
+Nav-only package (the footer is not touched), at `/content/admiral/nav`
+(served as `/nav`) and `/content/admiral/language-masters/en/nav`. Adds the
+mobile-only "Get the Admiral App" and "Breakdown Call-Out" links to the utility
+list (hidden in the desktop black bar; shown as the dark/red rows in the phone
+menu). Rebuild with
+`node tools/importer/html-to-jcr.mjs content/nav.plain.html migration-work/jcr-new/nav.xml`
+then `python3 tools/importer/build-fragment-package.py nav`. Supersedes the nav in
+`admiral-nav-footer-root.zip` — don't reinstall that one.
 
 ## Use this one: `admiral-home-v1.9.zip`
 

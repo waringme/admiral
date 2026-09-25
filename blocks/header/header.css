@@ -998,3 +998,289 @@ body header .nav-wrapper.is-scrolled {
     padding: 0;
   }
 }
+
+/* ---- Mobile header + drawer (source admiral.com mega-nav at 390px) ---------
+ * Closed: a 50px rgb(242,240,238) bar — 111px logo 7px from the left, "☰ Menu"
+ * toggle on the right (15px icon + 16px/500 rgb(33,32,28) label, ✕ when
+ * open). Open: the drawer drops below the bar — three 56px rounded tiles
+ * (Contact us, Claims, yellow My account), then the product rows (16px/500,
+ * 12/20/13/10px, 1px rgb(214,212,208) rules; ⋮ on rows with a sub-menu, › on
+ * links; sub-links indented 33px, grey 14.4px group titles), then the dark
+ * rgb(41,41,41) and red rgb(161,0,82) rows with white text. */
+.nav-mobile-tiles,
+.nav-mobile-rows {
+  display: none;
+}
+
+@media (width >= 900px) {
+  /* mobile-only drawer links authored in the utility list */
+  header nav .nav-tools ul > li:has(a[href*="admiral-app"]),
+  header nav .nav-tools ul > li:has(a[href*="breakdown"]) {
+    display: none;
+  }
+}
+
+@media (width < 900px) {
+  body {
+    padding-top: 50px;
+  }
+
+  body header .nav-wrapper {
+    background-color: rgb(242 240 238);
+    box-shadow: none;
+  }
+
+  header nav,
+  header nav[aria-expanded='false'] {
+    grid-template: 'brand hamburger' 50px / minmax(0, 1fr) auto;
+    height: 50px;
+    padding: 0;
+    gap: 0;
+  }
+
+  header nav[aria-expanded='true'] {
+    grid-template:
+      'brand hamburger' 50px
+      'tiles tiles' auto
+      'sections sections' auto
+      'rows rows' auto / minmax(0, 1fr) auto;
+    align-content: start;
+    height: 100dvh;
+    min-height: 0;
+    padding: 0;
+    overflow-y: auto;
+    background-color: rgb(242 240 238);
+  }
+
+  /* brand: 111px logo, 7px in; the demo label shrinks beside it */
+  header nav .nav-brand,
+  header nav[aria-expanded='true'] .nav-brand {
+    padding: 0 0 0 7px;
+  }
+
+  header nav .nav-brand img {
+    width: 111px;
+  }
+
+  header nav .nav-brand .nav-demo-label {
+    margin-left: 8px;
+    font-size: 13px;
+    line-height: 1.15;
+  }
+
+  /* "☰ Menu" toggle on the right */
+  header nav .nav-hamburger,
+  header nav[aria-expanded='true'] .nav-hamburger {
+    height: 50px;
+    margin: 0;
+  }
+
+  header nav .nav-hamburger button {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    height: 50px;
+    padding: 0 13px 0 20px;
+    background: transparent;
+  }
+
+  header nav .nav-hamburger .nav-hamburger-label {
+    color: rgb(33 32 28);
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 18.4px;
+  }
+
+  header nav[aria-expanded] .nav-hamburger-icon {
+    width: 16px;
+    height: 14px;
+    border-radius: 0;
+    background: url("../../icons/menu.svg") center / contain no-repeat;
+  }
+
+  header nav[aria-expanded='true'] .nav-hamburger-icon {
+    width: 15px;
+    height: 15px;
+    background-image: url("../../icons/menu-close.svg");
+  }
+
+  header nav[aria-expanded] .nav-hamburger-icon::before,
+  header nav[aria-expanded] .nav-hamburger-icon::after {
+    content: none;
+  }
+
+  /* the black utility list is replaced by the tiles + rows in the drawer */
+  header nav .nav-tools,
+  header nav[aria-expanded='true'] .nav-tools {
+    display: none;
+  }
+
+  /* tiles: Contact us / Claims / My account */
+  header nav[aria-expanded='true'] .nav-mobile-tiles {
+    grid-area: tiles;
+    display: flex;
+    gap: 8px;
+    margin: 0;
+    padding: 6px 8px 13px;
+    border-bottom: 1px solid rgb(214 212 208);
+    list-style: none;
+  }
+
+  header nav .nav-mobile-tiles li {
+    flex: 1 1 0;
+    min-width: 0;
+  }
+
+  header nav .nav-mobile-tiles a:any-link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    box-sizing: border-box;
+    height: 56px;
+    padding: 7px 2px 2px;
+    border: 1px solid rgb(33 32 28);
+    border-radius: 10px;
+    color: rgb(33 32 28);
+    font-size: 14.4px;
+    font-weight: 500;
+    line-height: 16px;
+    text-align: center;
+    text-decoration: none;
+  }
+
+  header nav .nav-mobile-tiles a::before {
+    content: '';
+    width: 20px;
+    height: 17px;
+    background: center / contain no-repeat;
+  }
+
+  header nav .nav-mobile-tiles a::after {
+    content: none;
+  }
+
+  header nav .nav-mobile-tiles .nav-tile-contact a::before {
+    background-image: url("../../icons/nav-contact.svg");
+  }
+
+  header nav .nav-mobile-tiles .nav-tile-claims a::before {
+    background-image: url("../../icons/nav-claims.svg");
+  }
+
+  header nav .nav-mobile-tiles .nav-tile-account a:any-link {
+    border-color: rgb(140 137 134);
+    background-color: rgb(255 223 67);
+  }
+
+  header nav .nav-mobile-tiles .nav-tile-account a::before {
+    background-image: url("../../icons/nav-account.svg");
+  }
+
+  /* product rows */
+  header nav[aria-expanded='true'] .nav-sections {
+    grid-area: sections;
+  }
+
+  header nav[aria-expanded='true'] .nav-sections > ul > li {
+    padding: 0;
+    border-top: 1px solid rgb(214 212 208);
+    border-bottom: 0;
+  }
+
+  header nav[aria-expanded='true'] .nav-sections > ul > li:first-child {
+    border-top: 0;
+  }
+
+  header nav[aria-expanded='true'] .nav-sections > ul > li > a,
+  header nav[aria-expanded='true'] .nav-sections > ul > li > p > a {
+    display: block;
+    padding: 12px 20px 13px 10px;
+    background: url("../../icons/nav-chevron.svg") right center no-repeat;
+    color: rgb(33 32 28);
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 18.4px;
+    text-decoration: none;
+  }
+
+  header nav[aria-expanded='true'] .nav-sections > ul > li.nav-drop > a,
+  header nav[aria-expanded='true'] .nav-sections > ul > li.nav-drop > p > a {
+    background-image: url("../../icons/nav-kebab.svg");
+  }
+
+  header nav[aria-expanded='true'] .nav-sections > ul > li > a::after,
+  header nav[aria-expanded='true'] .nav-sections > ul > li > p > a::after,
+  header nav[aria-expanded='true'] .nav-sections > ul > li.nav-drop > a::after,
+  header nav[aria-expanded='true'] .nav-sections > ul > li.nav-drop > p > a::after {
+    content: none;
+  }
+
+  header nav[aria-expanded='true'] .nav-sections > ul > li[aria-expanded='true'] > ul {
+    padding: 0;
+  }
+
+  header nav[aria-expanded='true'] .nav-sections > ul > li > ul > li {
+    padding: 0;
+  }
+
+  header nav[aria-expanded='true'] .nav-sections > ul > li > ul > li > a {
+    display: block;
+    padding: 12px 20px 13px 33px;
+    background: url("../../icons/nav-chevron.svg") right center no-repeat;
+    color: rgb(33 32 28);
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 18.4px;
+    text-decoration: none;
+  }
+
+  header nav[aria-expanded='true'] .nav-sections .nav-group-title {
+    padding: 12px 20px 13px 10px;
+    border-top: 1px solid rgb(214 212 208);
+  }
+
+  header nav[aria-expanded='true'] .nav-sections .nav-group-title strong {
+    color: #aaa;
+    font-size: 14.4px;
+    font-weight: 600;
+    line-height: 16.56px;
+    letter-spacing: normal;
+    text-transform: none;
+  }
+
+  /* dark + red rows under the product list */
+  header nav[aria-expanded='true'] .nav-mobile-rows {
+    grid-area: rows;
+    display: block;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  header nav .nav-mobile-rows li {
+    border-top: 1px solid rgb(79 79 79);
+    background-color: rgb(41 41 41);
+  }
+
+  header nav .nav-mobile-rows li.nav-row-red {
+    border-top-color: rgb(161 0 82);
+    background-color: rgb(161 0 82);
+  }
+
+  header nav .nav-mobile-rows a:any-link {
+    display: block;
+    padding: 12px 20px 13px 10px;
+    background: url("../../icons/nav-chevron-white.svg") right center no-repeat;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 18.4px;
+    text-decoration: none;
+  }
+
+  header nav .nav-mobile-rows a::after {
+    content: none;
+  }
+}

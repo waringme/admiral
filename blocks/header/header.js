@@ -68,7 +68,8 @@ function toggleMenu(nav, navSections, forceExpanded = null) {
   const button = nav.querySelector('.nav-hamburger button');
   document.body.style.overflowY = (expanded || isDesktop.matches) ? '' : 'hidden';
   nav.setAttribute('aria-expanded', expanded ? 'false' : 'true');
-  toggleAllNavSections(navSections, expanded || isDesktop.matches ? 'false' : 'true');
+  // product rows start collapsed; each opens on tap (source mobile drawer)
+  toggleAllNavSections(navSections, 'false');
   if (button) {
     button.setAttribute('aria-label', expanded ? 'Open navigation' : 'Close navigation');
   }
@@ -296,8 +297,43 @@ export default async function decorate(block) {
   const hamburger = document.createElement('div');
   hamburger.classList.add('nav-hamburger');
   hamburger.innerHTML = `<button type="button" aria-controls="nav" aria-label="Open navigation">
-      <span class="nav-hamburger-icon"></span>
+      <span class="nav-hamburger-icon"></span><span class="nav-hamburger-label">Menu</span>
     </button>`;
+
+  // Mobile drawer extras (source .mega-nav__hero-buttons + dark/red rows),
+  // built from the utility links in the nav fragment so authors keep one
+  // list: Contact us / Claims / My account become the three tiles above the
+  // product rows; the app, Help and Support and breakdown links become the
+  // dark (and red) rows beneath them. Desktop keeps the black utility bar.
+  const toolLinks = [...nav.querySelectorAll('.nav-tools ul a')];
+  const pick = (re) => toolLinks.find((a) => re.test(a.getAttribute('href') || ''));
+  const buildList = (className, entries) => {
+    const list = document.createElement('ul');
+    list.className = className;
+    entries.forEach(([re, modifier]) => {
+      const link = pick(re);
+      if (!link) return;
+      const li = document.createElement('li');
+      li.className = modifier;
+      const clone = link.cloneNode(true);
+      clone.removeAttribute('id');
+      li.append(clone);
+      list.append(li);
+    });
+    return list;
+  };
+  nav.append(
+    buildList('nav-mobile-tiles', [
+      [/contact-us/, 'nav-tile-contact'],
+      [/make-a-claim/, 'nav-tile-claims'],
+      [/myaccount\.admiral\.com/, 'nav-tile-account'],
+    ]),
+    buildList('nav-mobile-rows', [
+      [/admiral-app/, 'nav-row-dark'],
+      [/help-support-hub/, 'nav-row-dark'],
+      [/breakdown/, 'nav-row-red'],
+    ]),
+  );
   hamburger.addEventListener('click', () => toggleMenu(nav, navSections));
   nav.prepend(hamburger);
   nav.setAttribute('aria-expanded', 'false');
