@@ -10,9 +10,11 @@
   margin: 0 auto;
 }
 
-/* Centre the section heading + intro/outro copy around the grid (source
- * layout centers these). The rows layout's inner text stays left-aligned. */
-.feature-grid-container .default-content-wrapper {
+/* Centre the section heading + intro/outro copy around the grid in a 708px
+ * column (source .container at 1440px). The rows layout's inner text stays
+ * left-aligned. */
+main > .section.feature-grid-container > .default-content-wrapper {
+  max-width: calc(708px + 64px);
   text-align: center;
 }
 
