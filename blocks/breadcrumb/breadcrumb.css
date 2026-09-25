@@ -1,9 +1,21 @@
-/* Breadcrumb — path trail for guide pages (admiral.com /magazine/guides/*). */
+/* Breadcrumb — slim path trail above the page hero (admiral.com landing and
+ * guide pages): ~36px bar, 15px text. */
+
+/* A slim bar: no section minimum height, and it sits directly on top of a
+ * following hero (no section gap). */
+main > .section.breadcrumb-container {
+  min-height: 0;
+  margin-bottom: 0;
+}
+
+main > .section.breadcrumb-container + .section.hero-cta-container {
+  margin-top: 0;
+}
 
 .breadcrumb {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 22px 20px;
+  padding: 8px 20px;
 }
 
 .breadcrumb .breadcrumb-list {
@@ -14,8 +26,8 @@
   margin: 0;
   padding: 0;
   list-style: none;
-  font-size: 20px;
-  line-height: 28px;
+  font-size: 15px;
+  line-height: 20px;
 }
 
 .breadcrumb .breadcrumb-item {
@@ -26,14 +38,21 @@
 /* separator between items */
 .breadcrumb .breadcrumb-item:not(:first-child)::before {
   content: "›";
-  margin: 0 12px;
+  margin: 0 8px;
   color: #b0b0b0;
   font-weight: 400;
 }
 
 .breadcrumb .breadcrumb-item a:any-link {
   color: #4f4f4f;
+  font-size: inherit;
+  font-weight: 400;
+  line-height: inherit;
   text-decoration: none;
+}
+
+.breadcrumb .breadcrumb-item a::after {
+  content: none;
 }
 
 .breadcrumb .breadcrumb-item a:hover {
