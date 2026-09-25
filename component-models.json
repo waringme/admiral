@@ -1713,6 +1713,14 @@
         "value": "",
         "label": "Feature Text",
         "valueType": "string"
+      },
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "iconMobile",
+        "label": "Mobile Image",
+        "description": "Optional. Replaces the image on screens narrower than 1024px, e.g. a downward-pointing step badge.",
+        "multi": false
       }
     ]
   },

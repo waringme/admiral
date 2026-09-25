@@ -11,8 +11,10 @@
  *     my feedback?" (score gauges).
  *
  * A block-based component (block/v1/block) with repeating items. Authored
- * structure (post-decorate): each row is [ image ][ title ][ text ]. The image
- * alt travels on the <img> itself.
+ * structure (post-decorate): each row is [ image ][ title ][ text ][ mobile
+ * image ]. The image alt travels on the <img> itself. The optional mobile image
+ * replaces the image below 1024px (source step badges point right on desktop
+ * and down on smaller screens).
  *
  * Universal Editor: each row's instrumentation is moved onto its <li>, and the
  * authored cells are reused (not emptied) so their field bindings survive —
@@ -53,7 +55,7 @@ export default function decorate(block) {
   list.className = `feature-grid-items feature-grid-${layout}`;
 
   rows.forEach((row) => {
-    const [iconCell, titleCell, textCell] = row.children;
+    const [iconCell, titleCell, textCell, mobileIconCell] = row.children;
 
     const li = document.createElement('li');
     li.className = 'feature-grid-item';
@@ -65,6 +67,10 @@ export default function decorate(block) {
     if (iconCell) {
       iconCell.className = 'feature-grid-icon';
       head.appendChild(iconCell);
+    }
+    if (mobileIconCell) {
+      mobileIconCell.className = 'feature-grid-icon feature-grid-icon-mobile';
+      head.appendChild(mobileIconCell);
     }
     if (titleCell) {
       titleCell.className = 'feature-grid-title';

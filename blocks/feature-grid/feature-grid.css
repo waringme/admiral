@@ -249,7 +249,21 @@ main > .section.feature-grid-container > .default-content-wrapper {
   }
 }
 
-@media (width <= 700px) {
+/* Source keeps three equal columns down to 768px (125px badges below
+ * 1024px), then stacks them (110px badges). */
+@media (width >= 768px) {
+  .feature-grid.columns .feature-grid-columns {
+    flex-wrap: nowrap;
+  }
+}
+
+@media (width < 1024px) {
+  .feature-grid.columns .feature-grid-columns .feature-grid-icon img {
+    max-width: 125px;
+  }
+}
+
+@media (width < 768px) {
   .feature-grid.columns .feature-grid-columns {
     flex-direction: column;
     align-items: center;
@@ -259,6 +273,39 @@ main > .section.feature-grid-container > .default-content-wrapper {
   .feature-grid.columns .feature-grid-columns .feature-grid-item {
     flex-basis: auto;
     max-width: 338px;
+  }
+
+  .feature-grid.columns .feature-grid-columns .feature-grid-icon img {
+    max-width: 110px;
+  }
+}
+
+/* Optional "Mobile Image": replaces the image below 1024px (e.g. the step
+ * badges, which point right on desktop and down on smaller screens). */
+.feature-grid .feature-grid-item .feature-grid-head > .feature-grid-icon.feature-grid-icon-mobile {
+  display: none;
+}
+
+@media (width < 1024px) {
+  .feature-grid .feature-grid-item .feature-grid-head:has(> .feature-grid-icon-mobile img) > .feature-grid-icon:not(.feature-grid-icon-mobile) {
+    display: none;
+  }
+
+  .feature-grid .feature-grid-item .feature-grid-head > .feature-grid-icon.feature-grid-icon-mobile:has(img) {
+    display: flex;
+  }
+
+  /* Source draws the down badge at the full badge width (125px, 110px on
+   * phones) rather than its 102px intrinsic size. */
+  .feature-grid .feature-grid-item .feature-grid-icon.feature-grid-icon-mobile img {
+    width: 125px;
+    max-width: none;
+  }
+}
+
+@media (width < 768px) {
+  .feature-grid .feature-grid-item .feature-grid-icon.feature-grid-icon-mobile img {
+    width: 110px;
   }
 }
 
