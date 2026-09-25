@@ -26,8 +26,8 @@ main > .section.article-body-container {
 @media (width >= 900px) {
   .article-body.has-toc {
     display: grid;
-    grid-template-columns: 260px 645px;
-    gap: 0 59px;
+    grid-template-columns: 260px minmax(0, 645px); /* article narrows below ~1000px */
+    gap: 0 min(59px, 4vw);
     justify-content: center;
     align-items: start;
     max-width: none;
