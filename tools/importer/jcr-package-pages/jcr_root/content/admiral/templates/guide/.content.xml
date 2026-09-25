@@ -18,7 +18,7 @@
       <section_3 sling:resourceType="core/franklin/components/section/v1/section" jcr:primaryType="nt:unstructured" style="[grey]" model="section" modelFields="[name,style]">
         <title sling:resourceType="core/franklin/components/title/v1/title" jcr:primaryType="nt:unstructured" title="Related guides" titleType="h2"/>
         <block_1 sling:resourceType="core/franklin/components/block/v1/block" jcr:primaryType="nt:unstructured" filter="cards-article" name="Cards Article">
-          <item_0 jcr:primaryType="nt:unstructured" sling:resourceType="core/franklin/components/block/v1/block/item" name="Card" model="card" modelFields="[image,text]" image="/content/dam/admiral/en/images/lb-feedback-good.png" text="&lt;p&gt;&lt;h3&gt;Related guide title&lt;/h3&gt;&lt;/p&gt;&lt;p&gt;Short summary of the related guide.&lt;/p&gt;&lt;p&gt;&lt;a href&#x3D;&quot;/&quot;&gt;Read more&lt;/a&gt;&lt;/p&gt;"></item_0>
+          <item_0 jcr:primaryType="nt:unstructured" sling:resourceType="core/franklin/components/block/v1/block/item" name="Card" model="card" modelFields="[image,text]" image="/content/dam/admiral/en/images/blackbox/lb-feedback-good.png" text="&lt;p&gt;&lt;h3&gt;Related guide title&lt;/h3&gt;&lt;/p&gt;&lt;p&gt;Short summary of the related guide.&lt;/p&gt;&lt;p&gt;&lt;a href&#x3D;&quot;/&quot;&gt;Read more&lt;/a&gt;&lt;/p&gt;"></item_0>
         </block_1>
       </section_3>
       <section_4 sling:resourceType="core/franklin/components/section/v1/section" jcr:primaryType="nt:unstructured" model="section" modelFields="[name,style]"></section_4>

@@ -9,7 +9,7 @@
         </block>
       </section>
       <section_1 sling:resourceType="core/franklin/components/section/v1/section" jcr:primaryType="nt:unstructured" model="section" modelFields="[name,style]">
-        <block sling:resourceType="core/franklin/components/block/v1/block" jcr:primaryType="nt:unstructured" filter="hero-cta" image="/content/dam/admiral/en/images/black-box-insurance-desktop.jpg" imageAlt="Hero image" model="hero-cta" modelFields="[image,imageAlt,text]" name="Hero Cta" text="&lt;p&gt;&lt;h1&gt;Product name&lt;/h1&gt;&lt;/p&gt;&lt;p&gt;&lt;h2&gt;Headline goes here&lt;/h2&gt;&lt;/p&gt;">
+        <block sling:resourceType="core/franklin/components/block/v1/block" jcr:primaryType="nt:unstructured" filter="hero-cta" image="/content/dam/admiral/en/images/blackbox/black-box-insurance-desktop.jpg" imageAlt="Hero image" model="hero-cta" modelFields="[image,imageAlt,text]" name="Hero Cta" text="&lt;p&gt;&lt;h1&gt;Product name&lt;/h1&gt;&lt;/p&gt;&lt;p&gt;&lt;h2&gt;Headline goes here&lt;/h2&gt;&lt;/p&gt;">
           <item_0 jcr:primaryType="nt:unstructured" sling:resourceType="core/franklin/components/block/v1/block/item" name="Hero Cta Button" model="hero-cta-button" label="Get a Quote" link="/" style="primary" modelFields="[label,link,style]"></item_0>
         </block>
       </section_1>
@@ -35,7 +35,7 @@
       <section_5 sling:resourceType="core/franklin/components/section/v1/section" jcr:primaryType="nt:unstructured" style="[grey]" model="section" modelFields="[name,style]">
         <title sling:resourceType="core/franklin/components/title/v1/title" jcr:primaryType="nt:unstructured" title="Key features" titleType="h2"/>
         <block_1 sling:resourceType="core/franklin/components/block/v1/block" jcr:primaryType="nt:unstructured" filter="feature-grid" name="Feature Grid">
-          <item_0 jcr:primaryType="nt:unstructured" sling:resourceType="core/franklin/components/block/v1/block/item" name="Feature Grid Item" model="feature-grid-item" title="Feature title" text="" modelFields="[icon,title,text]" icon="/content/dam/admiral/en/images/lb-measure-speeding.png"></item_0>
+          <item_0 jcr:primaryType="nt:unstructured" sling:resourceType="core/franklin/components/block/v1/block/item" name="Feature Grid Item" model="feature-grid-item" title="Feature title" text="" modelFields="[icon,title,text]" icon="/content/dam/admiral/en/images/blackbox/lb-measure-speeding.png"></item_0>
         </block_1>
       </section_5>
       <section_6 sling:resourceType="core/franklin/components/section/v1/section" jcr:primaryType="nt:unstructured" style="[navy]" model="section" modelFields="[name,style]">
@@ -46,7 +46,7 @@
       <section_7 sling:resourceType="core/franklin/components/section/v1/section" jcr:primaryType="nt:unstructured" model="section" modelFields="[name,style]">
         <title sling:resourceType="core/franklin/components/title/v1/title" jcr:primaryType="nt:unstructured" title="Related articles" titleType="h2"/>
         <block sling:resourceType="core/franklin/components/block/v1/block" jcr:primaryType="nt:unstructured" filter="cards-article" name="Cards Article">
-          <item_0 jcr:primaryType="nt:unstructured" sling:resourceType="core/franklin/components/block/v1/block/item" name="Card" model="card" modelFields="[image,text]" image="/content/dam/admiral/en/images/lb-feedback-good.png" text="&lt;p&gt;&lt;h3&gt;Article title&lt;/h3&gt;&lt;/p&gt;&lt;p&gt;Short article summary.&lt;/p&gt;&lt;p&gt;&lt;a href&#x3D;&quot;/&quot;&gt;Read more&lt;/a&gt;&lt;/p&gt;"></item_0>
+          <item_0 jcr:primaryType="nt:unstructured" sling:resourceType="core/franklin/components/block/v1/block/item" name="Card" model="card" modelFields="[image,text]" image="/content/dam/admiral/en/images/blackbox/lb-feedback-good.png" text="&lt;p&gt;&lt;h3&gt;Article title&lt;/h3&gt;&lt;/p&gt;&lt;p&gt;Short article summary.&lt;/p&gt;&lt;p&gt;&lt;a href&#x3D;&quot;/&quot;&gt;Read more&lt;/a&gt;&lt;/p&gt;"></item_0>
         </block>
       </section_7>
       <section_8 sling:resourceType="core/franklin/components/section/v1/section" jcr:primaryType="nt:unstructured" model="section" modelFields="[name,style]"></section_8>

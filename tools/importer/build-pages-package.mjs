@@ -6,8 +6,13 @@
  *      using migration-work/jcr-new/image-map.json.
  *   2. Copy the rewritten page XML into the package jcr_root at its cq:Page path.
  *   3. Ensure every referenced DAM image has a dam:Asset node (+ original
- *      rendition binary) under jcr_root/content/dam/admiral/en/images. New local
- *      images in content/dam/... are staged as fresh assets.
+ *      rendition binary) under jcr_root/content/dam/admiral/en/images/blackbox.
+ *      New local images in content/dam/... are staged as fresh assets.
+ *
+ * Images live in their own DAM sub-folder (images/blackbox) and the package
+ * filter covers only that folder, so installing the package never replaces or
+ * removes images already in /content/dam/admiral/en/images. Page references
+ * to /content/dam/admiral/en/images/<file> are rewritten to the sub-folder.
  *   4. Rezip jcr_root + META-INF into admiral-pages-v1.zip.
  *
  * Run: node tools/importer/build-pages-package.mjs
@@ -20,7 +25,8 @@ const ROOT = process.cwd();
 const JCR_NEW = join(ROOT, 'migration-work/jcr-new');
 const PKG = join(ROOT, 'tools/importer/jcr-package-pages');
 const JCR_ROOT = join(PKG, 'jcr_root');
-const DAM_DIR = join(JCR_ROOT, 'content/dam/admiral/en/images');
+const DAM_FOLDER = 'blackbox';
+const DAM_DIR = join(JCR_ROOT, 'content/dam/admiral/en/images', DAM_FOLDER);
 const LOCAL_DAM = join(ROOT, 'content/dam/admiral/en/images');
 
 // XML file (in jcr-new) -> package cq:Page path.
@@ -36,7 +42,7 @@ const PAGES = {
 };
 
 const imageMap = JSON.parse(readFileSync(join(JCR_NEW, 'image-map.json'), 'utf8'));
-const damBase = '/content/dam/admiral/en/images/';
+const damBase = `/content/dam/admiral/en/images/${DAM_FOLDER}/`;
 
 // Track every DAM filename referenced by the packaged pages.
 const referenced = new Set();
@@ -54,9 +60,13 @@ function rewrite(xml) {
       out = out.split(url).join(damBase + file);
     }
   }
-  // Collect all DAM refs now present — any attribute (image, icon, src,
-  // fileReference, …) may carry a /content/dam/…/images/<file> path.
-  const re = /\/content\/dam\/admiral\/en\/images\/([A-Za-z0-9._%@-]+\.(?:jpg|jpeg|png|svg|gif|webp))/g;
+  // Move top-level DAM refs (/content/dam/…/images/<file>) into the package's
+  // own sub-folder — any attribute (image, icon, src, fileReference, …) may
+  // carry one.
+  const FILE = '([A-Za-z0-9._%@-]+\\.(?:jpg|jpeg|png|svg|gif|webp))';
+  out = out.replace(new RegExp(`/content/dam/admiral/en/images/${FILE}`, 'g'), `${damBase}$1`);
+  // Collect all DAM refs now present.
+  const re = new RegExp(`/content/dam/admiral/en/images/${DAM_FOLDER}/${FILE}`, 'g');
   let m;
   while ((m = re.exec(out)) !== null) referenced.add(decodeURIComponent(m[1]));
   return out;
