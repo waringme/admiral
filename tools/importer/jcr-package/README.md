@@ -21,7 +21,20 @@ menu). Rebuild with
 then `python3 tools/importer/build-fragment-package.py nav`. Supersedes the nav in
 `admiral-nav-footer-root.zip` — don't reinstall that one.
 
-## Use this one: `admiral-home-v1.9.zip`
+## Home page: `admiral-home-v2.zip`
+
+Home page content only: the package filter is the home page's own
+`jcr:content` (`/content/admiral/language-masters/en/jcr:content`), so the
+pages under it (Black Box, nav, footer, ...) are not touched. Restores the line
+break in the award banner heading ("May the Best Motor Insurer win...<br>oh
+wait, that's us again!"), which the HTML-to-JCR conversion used to drop because
+Markdown headings can't hold a break. Rebuild with
+`node tools/importer/html-to-jcr.mjs content/index.plain.html migration-work/jcr-new/index-check.xml`
+then `python3 tools/importer/build-fragment-package.py home`. Supersedes
+`admiral-home-v1.9.zip` for the home page — don't reinstall v1.9 (its filter
+covers the whole `en` tree).
+
+## `admiral-home-v1.9.zip` (superseded by v2 above)
 
 Rebuilds the **fake-emails notice** as a proper block-based component named
 `notice-banner` (was a `columns-notice` variant — md2jcr collapses any

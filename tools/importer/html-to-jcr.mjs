@@ -28,8 +28,15 @@ const models = JSON.parse(readFileSync('component-models.json', 'utf8'));
 const definition = JSON.parse(readFileSync('component-definition.json', 'utf8'));
 const filters = JSON.parse(readFileSync('component-filters.json', 'utf8'));
 
+// Markdown headings can't hold a hard break, so html2md drops a <br> inside an
+// <h1>-<h6> (e.g. the award banner's "...win...<br>oh wait..." heading). Swap
+// it for a placeholder here and restore it in the rich-text XML below.
+const BR_TOKEN = 'XXHEADINGBRXX';
+const fragment = readFileSync(inPath, 'utf8').replace(
+  /<h([1-6])([^>]*)>([\s\S]*?)<\/h\1>/g,
+  (m, n, attrs, inner) => `<h${n}${attrs}>${inner.replace(/<br\s*\/?>/g, BR_TOKEN)}</h${n}>`,
+);
 // The .plain.html fragment has no <main>; html2md selects <main>, so wrap it.
-const fragment = readFileSync(inPath, 'utf8');
 const html = `<!DOCTYPE html><html><body><main>${fragment}</main></body></html>`;
 
 const log = {
@@ -37,7 +44,11 @@ const log = {
 };
 
 const md = await html2md(html, { log, url: 'https://admiral.com/', mediaHandler: undefined });
-const xml = await md2jcr(md, { models, definition, filters });
+// Restore heading breaks: a <br> inside rich-text (escaped) markup; anywhere
+// else (plain-text title properties) it can't be expressed, so use a space.
+const xml = (await md2jcr(md, { models, definition, filters }))
+  .replace(/title="[^"]*"/g, (attr) => attr.replaceAll(BR_TOKEN, ' '))
+  .replaceAll(BR_TOKEN, '&lt;br&gt;');
 
 writeFileSync(outPath, xml);
 console.log(`Wrote ${outPath} (${xml.length} bytes)`);
