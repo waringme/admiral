@@ -41,6 +41,7 @@
       "hero-trust",
       "media-panels",
       "notice-banner",
+      "resource-hub",
       "side-image",
       "steps-list",
       "trustpilot",
@@ -198,6 +199,13 @@
     "id": "media-panels",
     "components": [
       "media-panel"
+    ]
+  },
+  {
+    "id": "resource-hub",
+    "components": [
+      "resource-hub-card",
+      "resource-hub-category"
     ]
   },
   {

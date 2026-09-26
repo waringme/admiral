@@ -1,0 +1,22 @@
+{
+  "variantName": "resource-hub",
+  "baseBlock": "resource-hub",
+  "version": "1.0.0",
+  "created": "2026-09-26T00:00:00.000Z",
+  "sourceContext": {
+    "originUrl": "https://www.admiral.com/resources/motor-hub/van-advice",
+    "originPage": "van-advice motor hub (Quick links + category sections of article pods)",
+    "blockPosition": "middle"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "light",
+    "density": "comfortable",
+    "purpose": "navigation + article listing",
+    "imagePattern": "card-top"
+  },
+  "contentPattern": {
+    "structure": "container (quick-links heading, intro) + category items (name, intro) + card items (image, text, category); quick links generated from categories, cards grouped under their category",
+    "buttonCount": 0,
+    "imageCount": 33
+  }
+}

@@ -7395,6 +7395,80 @@
     ]
   },
   {
+    "id": "resource-hub",
+    "fields": [
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "title",
+        "value": "",
+        "label": "Quick links heading"
+      },
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "description",
+        "value": "",
+        "label": "Quick links intro"
+      }
+    ]
+  },
+  {
+    "id": "resource-hub-category",
+    "fields": [
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "title",
+        "value": "",
+        "label": "Category name",
+        "description": "Shown as the section heading and as a quick link at the top of the block. Cards join this category by using the same name in their Category field."
+      },
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "description",
+        "value": "",
+        "label": "Intro"
+      }
+    ]
+  },
+  {
+    "id": "resource-hub-card",
+    "fields": [
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "image",
+        "label": "Image",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "imageAlt",
+        "value": "",
+        "label": "Image alt text"
+      },
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "text",
+        "value": "",
+        "label": "Text",
+        "description": "Title (heading), description and a link."
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "category",
+        "value": "",
+        "label": "Category",
+        "description": "The name of the category this card belongs to (must match a Resource Hub Category name; not case-sensitive). Cards with no matching category are listed at the end."
+      }
+    ]
+  },
+  {
     "id": "search",
     "fields": [
       {
