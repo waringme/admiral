@@ -182,17 +182,13 @@
       	"cards",
       	"carousel",
       	"columns",
-      	"contentfragment",
       	"fragment",
       	"hero",
-      	"iframe",
       	"image",
       	"teaser",
       	"text",
       	"title",
-      	"video",
-        "form",
-        "embed-adaptive-form"
+      	"video"
       ]
     }
   ]
