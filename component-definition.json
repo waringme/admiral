@@ -1396,7 +1396,8 @@
                   "name": "Trustpilot",
                   "model": "trustpilot",
                   "templateId": "54d39695764ea907c0f34825",
-                  "businessUnitId": "4be0843700006400050788f5"
+                  "businessUnitId": "4be0843700006400050788f5",
+                  "sku": "Home_"
                 }
               }
             }

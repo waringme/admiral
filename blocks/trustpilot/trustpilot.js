@@ -6,6 +6,8 @@
  * A block-based component (block/v1/block) with a single model:
  *   templateId      — TrustBox template (default Micro Star)
  *   businessUnitId  — Admiral's Trustpilot business unit
+ *   sku             — product reference(s) the rating covers; the Micro Star
+ *                     template returns no data without one ("SKU is required")
  * Rows are read in model order; empty values fall back to the admiral.com ids.
  * The Trustpilot bootstrap script is loaded once, when the block decorates.
  *
@@ -16,6 +18,7 @@ import { loadScript } from '../../scripts/aem.js';
 const DEFAULTS = {
   templateId: '54d39695764ea907c0f34825',
   businessUnitId: '4be0843700006400050788f5',
+  sku: 'Home_',
 };
 const BOOTSTRAP = 'https://widget.trustpilot.com/bootstrap/v5/tp.widget.bootstrap.min.js';
 
@@ -23,6 +26,7 @@ export default async function decorate(block) {
   const values = [...block.children].map((row) => row.textContent.trim());
   const templateId = values[0] || DEFAULTS.templateId;
   const businessUnitId = values[1] || DEFAULTS.businessUnitId;
+  const sku = values[2] || DEFAULTS.sku;
 
   const logo = document.createElement('span');
   logo.className = 'trustpilot-logo';
@@ -32,9 +36,10 @@ export default async function decorate(block) {
   const widget = document.createElement('div');
   widget.className = 'trustpilot-widget';
   Object.entries({
-    locale: 'en-GB',
+    locale: 'en-US', // as admiral.com; the review count is locale-scoped
     'template-id': templateId,
     'businessunit-id': businessUnitId,
+    sku,
     'style-height': '24px',
     'style-width': '100%',
     theme: 'light',
