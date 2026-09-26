@@ -6,6 +6,10 @@
 main > .section.breadcrumb-container {
   min-height: 0;
   margin-bottom: 0;
+
+  /* source .breadcrumbs: light grey band with a 1px rule underneath */
+  background-color: #d6d6d6;
+  border-bottom: 1px solid #aaa;
 }
 
 main > .section.breadcrumb-container + .section.hero-cta-container {
@@ -39,7 +43,7 @@ main > .section.breadcrumb-container + .section.hero-cta-container {
 .breadcrumb .breadcrumb-item:not(:first-child)::before {
   content: "›";
   margin: 0 6px;
-  color: #b0b0b0;
+  color: #4f4f4f;
   font-weight: 400;
 }
 
