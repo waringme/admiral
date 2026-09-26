@@ -1,8 +1,8 @@
 /**
  * FAQ List — expandable question/answer list (admiral.com "Your questions
  * answered"). Each item is a white bordered box with a blue question and a
- * "+" toggle; the answer opens inside the same box. Only the first few items
- * are shown until the reader clicks "Show more".
+ * "+" toggle; the answer opens inside the same box. Only the first three items
+ * are shown; each "Show more" click reveals the next three.
  *
  * A block-based component (block/v1/block) with repeating items. Authored
  * structure (post-decorate): each row is [ question ][ answer ].
@@ -78,9 +78,13 @@ export default function decorate(block) {
   const button = document.createElement('button');
   button.type = 'button';
   button.textContent = 'Show more';
+  // Each click reveals the next VISIBLE questions; the button goes once
+  // they're all showing.
   button.addEventListener('click', () => {
-    items.forEach((item) => item.classList.remove('faq-list-item-hidden'));
-    more.remove();
+    list.querySelectorAll('.faq-list-item-hidden').forEach((item, i) => {
+      if (i < VISIBLE) item.classList.remove('faq-list-item-hidden');
+    });
+    if (!list.querySelector('.faq-list-item-hidden')) more.remove();
   });
   more.appendChild(button);
   block.appendChild(more);
