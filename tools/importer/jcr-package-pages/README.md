@@ -1,6 +1,20 @@
 # Admiral landing + guide pages — JCR content package
 
-## Use: `admiral-pages-v1.zip`
+## Which zip to install
+
+`node tools/importer/build-pages-package.mjs` writes two packages and says which
+one you need (it compares the packaged images with the last build, recorded in
+`dam-manifest.json`):
+
+- **`admiral-pages-content-v1.zip`**: pages and templates only, no images.
+  Install this when only page content changed. It doesn't touch the DAM.
+- **`admiral-pages-v1.zip`**: pages, templates and all their images (the
+  `/content/dam/admiral/en/images/blackbox` folder). Install this when an image
+  was added or changed.
+
+Both replace the same pages, so install one or the other, not both.
+
+## Full package: `admiral-pages-v1.zip`
 
 Installable AEM content package for the four migrated pages (landing + guide
 templates). Separate from the homepage package (`../jcr-package/`).
