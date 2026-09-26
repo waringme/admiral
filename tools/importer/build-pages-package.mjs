@@ -13,12 +13,17 @@
  * filter covers only that folder, so installing the package never replaces or
  * removes images already in /content/dam/admiral/en/images. Page references
  * to /content/dam/admiral/en/images/<file> are rewritten to the sub-folder.
- *   4. Rezip jcr_root + META-INF into admiral-pages-v1.zip.
+ *   4. Rezip jcr_root + META-INF into admiral-pages-v1.zip (pages + images).
+ *   5. Also write admiral-pages-content-v1.zip: the same pages with no images
+ *      (no DAM filter, no assets), for page-only changes. A checked-in hash
+ *      list of the packaged images (dam-manifest.json) tells whether any image
+ *      was added or changed since the last build, i.e. which zip to install.
  *
  * Run: node tools/importer/build-pages-package.mjs
  */
-import { readFileSync, writeFileSync, existsSync, mkdirSync, copyFileSync, readdirSync, statSync } from 'node:fs';
+import { readFileSync, writeFileSync, existsSync, mkdirSync, copyFileSync, readdirSync } from 'node:fs';
 import { execFileSync } from 'node:child_process';
+import { createHash } from 'node:crypto';
 import { dirname, join } from 'node:path';
 
 const ROOT = process.cwd();
@@ -144,6 +149,41 @@ with zipfile.ZipFile(out, 'w', zipfile.ZIP_DEFLATED) as z:
 `;
 execFileSync('python3', ['-c', pyScript, PKG, zipPath]);
 
-const totalAssets = readdirSync(DAM_DIR).filter((d) => statSync(join(DAM_DIR, d)).isDirectory()).length;
-console.log(`\nAssets referenced: ${referenced.size}  new: ${added}  total in package: ${totalAssets}`);
+// 5: pages-only package — same page filters, minus the DAM folder.
+const CONTENT_PKG = join(ROOT, 'migration-work/jcr-package-pages-content');
+const contentZip = join(PKG, 'admiral-pages-content-v1.zip');
+const pageFilters = readFileSync(join(PKG, 'META-INF/vault/filter.xml'), 'utf8')
+  .split('\n').filter((l) => !l.includes('/content/dam/')).join('\n');
+const contentProps = readFileSync(join(PKG, 'META-INF/vault/properties.xml'), 'utf8')
+  .replace('<entry key="name">admiral-pages</entry>', '<entry key="name">admiral-pages-content</entry>')
+  .replace(/<entry key="description">[^<]*<\/entry>/, '<entry key="description">Admiral landing + guide pages and templates only (no images).</entry>');
+const stageScript = `
+import os, shutil, sys
+src, dst = sys.argv[1], sys.argv[2]
+shutil.rmtree(dst, ignore_errors=True)
+skip_dam = lambda d, names: ['dam'] if os.path.basename(d) == 'content' else []
+shutil.copytree(os.path.join(src, 'jcr_root'), os.path.join(dst, 'jcr_root'), ignore=skip_dam)
+os.makedirs(os.path.join(dst, 'META-INF', 'vault'))
+`;
+execFileSync('python3', ['-c', stageScript, PKG, CONTENT_PKG]);
+writeFileSync(join(CONTENT_PKG, 'META-INF/vault/filter.xml'), pageFilters);
+writeFileSync(join(CONTENT_PKG, 'META-INF/vault/properties.xml'), contentProps);
+execFileSync('python3', ['-c', pyScript, CONTENT_PKG, contentZip]);
+
+// Which zip to install: compare the packaged images with the last build.
+const hashes = {};
+readdirSync(DAM_DIR).sort().forEach((d) => {
+  const bin = join(DAM_DIR, d, '_jcr_content/renditions/original');
+  if (existsSync(bin)) hashes[d] = createHash('sha1').update(readFileSync(bin)).digest('hex');
+});
+const manifestPath = join(PKG, 'dam-manifest.json');
+const previous = existsSync(manifestPath) ? JSON.parse(readFileSync(manifestPath, 'utf8')) : {};
+const changed = Object.keys(hashes).filter((f) => previous[f] !== hashes[f]);
+writeFileSync(manifestPath, `${JSON.stringify(hashes, null, 2)}\n`);
+
+console.log(`\nAssets referenced: ${referenced.size}  new: ${added}  total in package: ${Object.keys(hashes).length}`);
 console.log(`Wrote ${zipPath}`);
+console.log(`Wrote ${contentZip}`);
+console.log(changed.length
+  ? `Images added/changed since last build (${changed.length}): ${changed.join(', ')}\n=> install admiral-pages-v1.zip`
+  : 'No image changes since last build\n=> install admiral-pages-content-v1.zip (pages only)');
