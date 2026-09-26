@@ -741,7 +741,7 @@ header nav .nav-tools ul > li > a:hover {
     color: #fff;
     font-size: 12.6px;
     text-transform: uppercase;
-    letter-spacing: 0.02em;
+    letter-spacing: normal;
   }
 
   header nav .nav-tools ul > li > a:hover {
@@ -766,6 +766,7 @@ header nav .nav-tools ul > li > a:hover {
   header nav .nav-tools ul > li:has(a[href*="myaccount"]) > a,
   header nav .nav-tools ul > li:has(a[href*="myaccount"]) > a:hover {
     color: #2c2822;
+    font-weight: 600;
   }
 
   /* Claims — magenta box, white text (source rgb(194,0,96)) */
@@ -809,22 +810,25 @@ header nav .nav-tools ul > li > a:hover {
   }
 }
 
-/* mobile: stack tools */
-header nav[aria-expanded='true'] .nav-tools {
-  order: 2;
-  padding-bottom: 12px;
-  border-bottom: 1px solid #eee;
-  margin-bottom: 8px;
-}
+/* mobile: stack tools (phone only — the desktop nav is always
+   aria-expanded="true", so unscoped these overrode the black-bar styles) */
+@media (width < 900px) {
+  header nav[aria-expanded='true'] .nav-tools {
+    order: 2;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #eee;
+    margin-bottom: 8px;
+  }
 
-header nav[aria-expanded='true'] .nav-tools ul {
-  flex-direction: column;
-  gap: 8px;
-  padding: 12px 0;
-}
+  header nav[aria-expanded='true'] .nav-tools ul {
+    flex-direction: column;
+    gap: 8px;
+    padding: 12px 0;
+  }
 
-header nav[aria-expanded='true'] .nav-tools ul > li > a {
-  font-size: 16px;
+  header nav[aria-expanded='true'] .nav-tools ul > li > a {
+    font-size: 16px;
+  }
 }
 
 /* Get a quote CTA (the <p> inside nav-tools) */
