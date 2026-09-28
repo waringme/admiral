@@ -1,5 +1,31 @@
 # Admiral JCR content package
 
+## Everything in one: `admiral-all-v1.zip`
+
+All the migrated content and images in a single package. Install this instead
+of the individual packages below.
+
+- **Pages:** home page, Black Box Insurance, LittleBox, Van advice, Which class
+  of use guide.
+- **Fragments:** nav and footer, at `/content/admiral/{nav,footer}` and the
+  language-master copies.
+- **Templates:** the Landing and Guide authoring templates.
+- **Images:** all 100 DAM images they use (home images in `images/` and
+  `images/icons/`, landing/guide images in `images/blackbox/`).
+
+What installing it changes:
+
+- Each packaged page and fragment is replaced with the packaged version.
+- The home page filter covers only its own `jcr:content`, so other pages under
+  `/en` are untouched.
+- Images use `mode="update"`: packaged images are added or updated, and any
+  other images already in `/content/dam/admiral/en/images` are kept.
+
+Rebuild after regenerating the page XML (see the sections below) with
+`node tools/importer/build-pages-package.mjs` then
+`python3 tools/importer/build-full-package.py`. The build stops if a page
+references an image that isn't in the package.
+
 ## Footer: `admiral-footer-v2.zip`
 
 Footer-only package (the nav is not touched). Adds the "Explore our website"
